@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>About — VoltSecure</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="assets/logo-mark-gold.png"/>
+<style>
+:root{--bg:#0a0a0a;--ink:#0f0f0f;--panel:#131210;--line:rgba(201,169,97,0.18);--line-soft:rgba(255,255,255,0.06);--gold:#c9a961;--gold-deep:#8f7640;--cream:#f4efe6;--mute:#8a8275;--font-display:'Tenor Sans','Optima',serif;--font-body:'Inter',system-ui,sans-serif;--font-mono:'JetBrains Mono',ui-monospace,monospace;--max:1200px}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg);color:var(--cream);font-family:var(--font-body);font-weight:300;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 32px}
+@media(max-width:720px){.wrap{padding:0 20px}}
+.eyebrow{font-family:var(--font-mono);font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);font-weight:500}
+h1,h2,h3{font-family:var(--font-display);font-weight:400;line-height:1.05;letter-spacing:-0.01em}
+h1{font-size:clamp(52px,7vw,96px)}
+h2{font-size:clamp(32px,4vw,56px);margin-bottom:24px}
+h3{font-size:clamp(20px,2vw,26px);margin-bottom:12px}
+.lead{font-size:clamp(17px,1.3vw,20px);color:#d6d1c4;max-width:62ch}
+em{font-style:italic;color:var(--gold)}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 0;backdrop-filter:blur(18px) saturate(140%);background:rgba(18,16,13,0.82);border-bottom:1px solid var(--line)}
+.nav::before{content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.6}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:32px;max-width:var(--max);margin:0 auto;padding:0 32px}
+.brand img{height:56px;width:auto}
+.nav-links{display:flex;gap:36px}
+.nav-links a{font-size:13px;letter-spacing:0.04em;opacity:.78;transition:opacity .2s}
+.nav-links a:hover{opacity:1;color:var(--gold)}
+.nav-links a.current{color:var(--gold);opacity:1}
+.nav-cta{padding:10px 20px;border:1px solid var(--gold);color:var(--gold);font-size:12px;letter-spacing:0.16em;text-transform:uppercase;font-family:var(--font-mono);transition:all .25s}
+.nav-cta:hover{background:var(--gold);color:#0a0a0a}
+@media(max-width:860px){.nav-links{display:none}}
+
+section{padding:120px 0;position:relative}
+.hero{padding:180px 0 80px;border-bottom:1px solid var(--line-soft)}
+.hero-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:80px;align-items:end}
+@media(max-width:860px){.hero-grid{grid-template-columns:1fr;gap:40px}}
+.hero-quote{border-left:1px solid var(--gold);padding:24px 32px;font-family:var(--font-display);font-size:22px;color:#d6d1c4;line-height:1.5}
+.hero-quote cite{display:block;margin-top:20px;font-style:normal;font-size:12px;font-family:var(--font-mono);color:var(--gold);letter-spacing:0.18em;text-transform:uppercase}
+
+.two-col{display:grid;grid-template-columns:1fr 1.3fr;gap:80px;align-items:start}
+@media(max-width:860px){.two-col{grid-template-columns:1fr;gap:40px}}
+.mark{position:sticky;top:120px}
+.mark img{height:120px;margin-bottom:24px}
+.story p{margin-bottom:22px;color:#d6d1c4;font-size:16px;max-width:60ch}
+.story p + p{color:var(--mute)}
+
+.values{background:#0d0c0a;border-top:1px solid var(--line)}
+.values-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:64px;border-top:1px solid var(--line-soft)}
+@media(max-width:960px){.values-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.values-grid{grid-template-columns:1fr}}
+.val{padding:36px 28px;border-right:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)}
+.val:last-child{border-right:none}
+.val .num{font-family:var(--font-mono);font-size:11px;color:var(--gold);letter-spacing:0.2em;margin-bottom:28px}
+.val h3{margin-bottom:12px}
+.val p{color:var(--mute);font-size:14px}
+
+.timeline{border-top:1px solid var(--line-soft);margin-top:56px}
+.tl-row{display:grid;grid-template-columns:160px 1fr;gap:40px;padding:32px 0;border-bottom:1px solid var(--line-soft)}
+@media(max-width:640px){.tl-row{grid-template-columns:1fr;gap:8px}}
+.tl-year{font-family:var(--font-display);font-size:28px;color:var(--gold)}
+.tl-body h3{font-family:var(--font-display);font-size:22px;font-weight:400;margin-bottom:8px}
+.tl-body p{color:var(--mute);font-size:15px;max-width:70ch}
+
+.ctaband{padding:140px 0;text-align:center;background:#0d0c0a;border-top:1px solid var(--line)}
+.ctaband h2{font-size:clamp(40px,5vw,72px);margin-bottom:32px}
+.hero-cta{display:inline-flex;gap:10px;padding:16px 28px;background:var(--gold);color:#0a0a0a;font-family:var(--font-mono);font-size:12px;letter-spacing:0.18em;text-transform:uppercase;transition:all .25s}
+.hero-cta:hover{background:var(--cream)}
+.hero-cta-ghost{display:inline-flex;gap:10px;padding:16px 0;margin-left:20px;font-family:var(--font-mono);font-size:12px;letter-spacing:0.18em;text-transform:uppercase;border-bottom:1px solid var(--line)}
+.hero-cta-ghost:hover{color:var(--gold);border-color:var(--gold)}
+
+footer{background:#fbf8f2;color:#111;padding:60px 0 28px;border-top:1px solid var(--line-soft)}
+.foot{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;font-family:var(--font-mono);font-size:11px;color:#6b6354;letter-spacing:0.08em}
+.foot a{color:#6b6354}.foot a:hover{color:var(--gold-deep)}
+.founder-feature{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;padding:48px;border:1px solid var(--line);background:linear-gradient(135deg,#14120e 0%,#0a0a0a 100%);position:relative;overflow:hidden}
+.founder-feature::before{content:"";position:absolute;top:0;right:0;width:200px;height:200px;background:radial-gradient(circle,rgba(201,169,97,0.15),transparent 70%);pointer-events:none}
+@media(max-width:860px){.founder-feature{grid-template-columns:1fr;gap:40px;padding:32px}}
+.ff-img{position:relative;aspect-ratio:4/3;overflow:hidden;border:1px solid var(--line)}
+.ff-img img{width:100%;height:100%;object-fit:cover;filter:saturate(0.9) contrast(1.05)}
+.ff-caption{position:absolute;left:0;right:0;bottom:0;padding:14px 18px;background:linear-gradient(to top,rgba(0,0,0,0.9),transparent);font-family:var(--font-mono);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold)}
+.ff-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.ff-tag{padding:7px 14px;border:1px solid var(--line);font-family:var(--font-mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold)}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand"><img src="assets/logo-horizontal.png" alt="VoltSecure"/></a>
+    <div class="nav-links">
+      <a href="index.html#services">Services</a>
+      <a href="index.html#work">Projects</a>
+      <a href="about.html" class="current">About</a>
+      <a href="index.html#accreditations">Accreditations</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+    <a href="index.html#contact" class="nav-cta">Request a quote →</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow" style="margin-bottom:24px">◆ About VoltSecure</div>
+        <h1>Compliance as <em>craft.</em><br/>Engineering as <em>standard.</em></h1>
+        <p class="lead" style="margin-top:32px">Founded and run by engineers. Accredited by UK's hardest auditors. Operating across the UK and continental Europe for commercial, public-sector and enterprise clients.</p>
+      </div>
+      <div class="hero-quote">
+        "Our accreditations and memberships are not simply badges for a website — they underpin everything we do. They shape how we design, install and maintain systems, how we train our people, and how we give clients confidence that compliance and quality are guaranteed."
+        <cite>— The VoltSecure Promise</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding:80px 0 0">
+  <div class="wrap">
+    <div class="founder-feature">
+      <div class="ff-img">
+        <img src="assets/founder-award.jpg" alt="Cai — Founder, VoltSecure — Great British Entrepreneur Awards"/>
+        <div class="ff-caption">Great British Entrepreneur Awards · Start-Up Entrepreneur of the Year (Wales)</div>
+      </div>
+      <div class="ff-text">
+        <div class="eyebrow" style="margin-bottom:20px">◆ Founder</div>
+        <h2>Cai.<br/><em>Founder &amp; Managing Director.</em></h2>
+        <p style="margin-top:24px;color:#d6d1c4;font-size:17px">CTSP-certified (Certified Technical Security Professional), with nineteen years' hands-on experience in the fire &amp; security industry. Started as a South Wales apprentice in 2006; founded VoltSecure in 2020.</p>
+        <p style="margin-top:16px;color:var(--mute);font-size:15px">Recognised by The Great British Entrepreneur Awards, shortlisted for the FSM Awards 2026, and a finalist for Caerphilly Business Club's Export Business of the Year.</p>
+        <div class="ff-tags">
+          <span class="ff-tag">CTSP Certified</span>
+          <span class="ff-tag">19 yrs industry</span>
+          <span class="ff-tag">GBEA 2025</span>
+          <span class="ff-tag">FSM Awards 2026</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap two-col">
+    <div class="mark">
+      <img src="assets/logo-mark-gold.png" alt="Volt mark"/>
+      <div class="eyebrow">◆ Founded 2020</div>
+      <p style="margin-top:16px;color:var(--mute);font-size:14px;max-width:28ch">South Wales-born. UK and Europe-operating. Engineer-led from day one.</p>
+    </div>
+    <div class="story">
+      <h2>The short version.</h2>
+      <p>VoltSecure was founded by <strong style="color:var(--cream);font-weight:400">Cai</strong>, a CTSP-certified (Certified Technical Security Professional) engineer who started in the fire &amp; security industry in 2006 as an apprentice in South Wales, and his business partner <strong style="color:var(--cream);font-weight:400">Terry Jones</strong>. Between them they brought nearly two decades of fire, security, biometric and cyber-security experience into one accredited company.</p>
+      <p>The business started on the back end of the pandemic in 2020. Within its first year it had passed NICEIC, SSAIB and Constructionline audits — the hardest three to get through as a new business — and landed a national electrical contract on the strength of that paperwork. ECA, FSA and JIB memberships followed, along with a BAFE SP203-1 certification covering all four modules of fire detection and alarm work.</p>
+      <p>Today, staffing levels have more than doubled year on year. We run electrical and FESS apprenticeships, supply integrated CCTV for a well-known high-street retailer across the UK and continental Europe, and have been shortlisted by The Great British Entrepreneur Awards (Start-Up Entrepreneur of the Year, Wales) and the FSM Awards 2026.</p>
+    </div>
+  </div>
+</section>
+
+<section class="values">
+  <div class="wrap">
+    <div class="eyebrow" style="margin-bottom:16px">◆ How we operate</div>
+    <h2>Four commitments<br/>we make on every job.</h2>
+    <div class="values-grid">
+      <div class="val"><div class="num">01</div><h3>Designed to standards</h3><p>Every project delivered against the relevant British or European Standard — BS 7671, BS 5839, BS EN 62676, PD 6662, BS EN 60839. No shortcuts, no exceptions.</p></div>
+      <div class="val"><div class="num">02</div><h3>Audited &amp; assured</h3><p>Independent UKAS-accredited bodies audit our technical work, our documentation and our live jobs on an ongoing surveillance basis. Our certificates mean something.</p></div>
+      <div class="val"><div class="num">03</div><h3>Invested in people</h3><p>JIB-graded workforce, ECS-carded operatives, funded apprenticeships and structured CPD. Fair pay, welfare benefits and pension cover as the baseline.</p></div>
+      <div class="val"><div class="num">04</div><h3>Socially engaged</h3><p>UK supply chain, EV fleet, community sponsorships and local employment. Social value baked in — not bolted on to tick a box.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow" style="margin-bottom:16px">◆ Milestones</div>
+    <h2>A short timeline.</h2>
+    <div class="timeline">
+      <div class="tl-row"><div class="tl-year">2006</div><div class="tl-body"><h3>Cai begins apprenticeship — South Wales</h3><p>Starts in the electrical / fire &amp; security industry as an apprentice, gaining experience across major fire &amp; security companies and a national biometric firm.</p></div></div>
+      <div class="tl-row"><div class="tl-year">2020</div><div class="tl-body"><h3>VoltSecure founded</h3><p>Formed with business partner Terry Jones. Chooses to "hit the ground running" on the back end of the pandemic.</p></div></div>
+      <div class="tl-row"><div class="tl-year">2021</div><div class="tl-body"><h3>First major accreditations</h3><p>Passes NICEIC, SSAIB and Constructionline within year one. Lands first large commercial electrical contract.</p></div></div>
+      <div class="tl-row"><div class="tl-year">2022</div><div class="tl-body"><h3>ECA, FSA &amp; JIB</h3><p>Joins the ECA, the Fire &amp; Security Association and the Joint Industry Board — among the most recognised electrical memberships in the industry.</p></div></div>
+      <div class="tl-row"><div class="tl-year">2023</div><div class="tl-body"><h3>European expansion</h3><p>Rolls out CCTV installations across the UK and continental Europe for a well-known high-street retail brand.</p></div></div>
+      <div class="tl-row"><div class="tl-year">2024</div><div class="tl-body"><h3>BAFE SP203-1 (all modules)</h3><p>Adds full BAFE SP203-1 certification — design, install, commission &amp; maintain. Shortlisted for the Great British Entrepreneur Awards (Wales).</p></div></div>
+      <div class="tl-row"><div class="tl-year">2026</div><div class="tl-body"><h3>FSM Awards shortlist</h3><p>Shortlisted for the Fire &amp; Security Matters Awards 2026. Export Business of the Year finalist, Caerphilly Business Club.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="ctaband">
+  <div class="wrap">
+    <div class="eyebrow" style="margin-bottom:20px">◆ Work with us</div>
+    <h2>Bring us in early.<br/><em>You'll save months.</em></h2>
+    <a href="mailto:info@voltsecure.co.uk" class="hero-cta">info@voltsecure.co.uk</a>
+    <a href="tel:02922641046" class="hero-cta-ghost">02922 641046</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <div><a href="index.html">← Back to home</a></div>
+    <div>© 2026 VoltSecure® Ltd · BAFE 303517 · Unit 33 Albion Industrial Estate, Cilfynydd, Pontypridd CF37 4NX</div>
+  </div>
+</footer>
+
+</body>
+</html>
