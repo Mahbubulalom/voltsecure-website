@@ -53,6 +53,46 @@ section{position:relative;padding:120px 0}
 @media(max-width:720px){section{padding:72px 0}.wrap{padding:0 16px}}
 
 /* ===== COMPREHENSIVE MOBILE / TABLET STYLES ===== */
+@media(max-width:720px){
+  section{padding:64px 0}
+  h1{font-size:clamp(36px,8vw,54px)!important}
+  h2{font-size:clamp(30px,6.5vw,44px)!important}
+  .lead{font-size:15px}
+  .hero{min-height:auto;padding:96px 0 48px}
+  .hero-meta{margin-top:24px;gap:12px}
+  .hero-cta,.hero-cta-ghost{width:100%;justify-content:center;padding:14px 20px;font-size:11px}
+  .hero-trust{margin-top:40px}
+  .marquee{padding:18px 0}
+  .marquee-item{font-size:16px;gap:40px}
+  .marquee-track{gap:40px}
+  .section-head{margin-bottom:40px}
+  .services-grid{border-top:none}
+  .service{padding:28px 18px}
+  .service-idx{margin-bottom:28px}
+  .stats{padding:48px 0}
+  .stats-grid{gap:28px}
+  .accred-grid{margin-top:40px;gap:14px}
+  .acard{min-height:180px;padding:22px 18px}
+  .cases{padding:72px 0}
+  .case{padding:32px 0;gap:14px}
+  .testis{padding:72px 0}
+  .testi-marquee{margin-top:40px}
+  .ctaband{padding:72px 0}
+  .ctaband h2{font-size:clamp(34px,8vw,52px)}
+  footer{padding:56px 0 20px}
+  footer::before{margin-bottom:48px;margin-top:-49px}
+  .footer-grid{gap:32px;margin-bottom:40px}
+}
+@media(max-width:480px){
+  .wrap{padding:0 16px}
+  section{padding:48px 0}
+  .hero{padding:88px 0 36px}
+  .nav{padding:10px 0}
+  .brand img{height:34px!important}
+  .nav.scrolled .brand img{height:30px!important}
+  .marquee-item{font-size:14px}
+}
+
 
 /* nav mobile */
 @media(max-width:960px){
@@ -60,8 +100,6 @@ section{position:relative;padding:120px 0}
   .nav-links.open{display:flex}
   .nav-links a{font-size:22px;letter-spacing:0.06em;opacity:1}
   .burger{display:flex;z-index:1000;position:relative}
-  .langsw{display:none}
-  .langsw.mobile-visible{display:flex;margin-top:32px}
   .nav-inner{padding:0 16px}
   .brand img{height:44px}
 }
@@ -183,11 +221,11 @@ section{position:relative;padding:120px 0}
 .nav-cta:hover{background:var(--gold);color:#0a0a0a}
 .burger{display:none;flex-direction:column;gap:4px;padding:8px}
 .burger span{width:22px;height:1px;background:var(--gold)}
-.langsw{display:flex;gap:4px;padding:3px;border:1px solid var(--line);border-radius:2px}
-.langsw button{display:flex;align-items:center;gap:6px;padding:6px 10px;font-family:var(--font-mono);font-size:10px;letter-spacing:0.14em;color:var(--mute);background:transparent;transition:all .2s}
-.langsw button.active{background:rgba(201,169,97,0.12);color:var(--gold)}
-.langsw button:hover{color:var(--gold)}
-.langsw svg{border:1px solid var(--line-soft);display:block}
+.lang-toggle{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border:1px solid var(--line);border-radius:2px;background:transparent;color:var(--cream);font-family:var(--font-mono);font-size:11px;letter-spacing:0.14em;cursor:pointer;transition:all .2s}
+.lang-toggle:hover{border-color:var(--gold);color:var(--gold)}
+.lang-toggle svg{border:1px solid var(--line-soft);display:block}
+.lang-toggle .lt-label{color:var(--mute);transition:color .2s}
+.lang-toggle:hover .lt-label{color:var(--gold)}
 @media(max-width:960px){.nav-links{display:none}.burger{display:flex}}
 
 /* ---------- hero ---------- */
@@ -416,10 +454,11 @@ footer a:hover{color:var(--gold)}
       <a href="#contact">Contact</a>
     </div>
     <div style="display:flex;align-items:center;gap:14px">
-      <div class="langsw" id="langsw">
-        <button data-lang="en" class="active" title="English"><svg viewBox="0 0 24 16" width="22" height="14"><rect width="24" height="16" fill="#012169"/><path d="M0,0 L24,16 M24,0 L0,16" stroke="#fff" stroke-width="2.4"/><path d="M0,0 L24,16 M24,0 L0,16" stroke="#C8102E" stroke-width="1.2"/><path d="M12,0 V16 M0,8 H24" stroke="#fff" stroke-width="4"/><path d="M12,0 V16 M0,8 H24" stroke="#C8102E" stroke-width="2.4"/></svg> EN</button>
-        <button data-lang="de" title="Deutsch"><svg viewBox="0 0 24 16" width="22" height="14"><rect width="24" height="5.33" y="0" fill="#000"/><rect width="24" height="5.33" y="5.33" fill="#DD0000"/><rect width="24" height="5.33" y="10.66" fill="#FFCE00"/></svg> DE</button>
-      </div>
+      <button id="langToggle" class="lang-toggle" title="Switch language" aria-label="Switch language">
+        <span class="lt-flag lt-en"><svg viewBox="0 0 24 16" width="22" height="14"><rect width="24" height="16" fill="#012169"/><path d="M0,0 L24,16 M24,0 L0,16" stroke="#fff" stroke-width="2.4"/><path d="M0,0 L24,16 M24,0 L0,16" stroke="#C8102E" stroke-width="1.2"/><path d="M12,0 V16 M0,8 H24" stroke="#fff" stroke-width="4"/><path d="M12,0 V16 M0,8 H24" stroke="#C8102E" stroke-width="2.4"/></svg></span>
+        <span class="lt-flag lt-de" hidden><svg viewBox="0 0 24 16" width="22" height="14"><rect width="24" height="5.33" y="0" fill="#000"/><rect width="24" height="5.33" y="5.33" fill="#DD0000"/><rect width="24" height="5.33" y="10.66" fill="#FFCE00"/></svg></span>
+        <span class="lt-label">DE</span>
+      </button>
       <a href="#contact" class="nav-cta">Request a quote →</a>
       <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
@@ -1004,34 +1043,18 @@ let TW = {...TWEAK_DEFAULTS};
 /* ========= burger menu ========= */
 const burger = document.querySelector('.burger');
 const navLinks = document.querySelector('.nav-links');
-const langswEl = document.getElementById('langsw');
 let menuOpen = false;
+function setMenu(open){
+  menuOpen = open;
+  navLinks.classList.toggle('open', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+  burger.innerHTML = open
+    ? '<span style="transform:rotate(45deg) translate(3px,3px)"></span><span style="opacity:0"></span><span style="transform:rotate(-45deg) translate(3px,-3px)"></span>'
+    : '<span></span><span></span><span></span>';
+}
 if(burger && navLinks){
-  // clone langsw into nav menu for mobile
-  if(langswEl){
-    const mLang = langswEl.cloneNode(true);
-    mLang.id = 'langswMobile';
-    mLang.classList.add('mobile-visible');
-    mLang.querySelectorAll('button').forEach(b => {
-      b.addEventListener('click', () => applyLang(b.dataset.lang));
-    });
-    navLinks.appendChild(mLang);
-  }
-  burger.addEventListener('click', () => {
-    menuOpen = !menuOpen;
-    navLinks.classList.toggle('open', menuOpen);
-    burger.innerHTML = menuOpen
-      ? '<span style="transform:rotate(45deg) translate(3px,3px)"></span><span style="opacity:0"></span><span style="transform:rotate(-45deg) translate(3px,-3px)"></span>'
-      : '<span></span><span></span><span></span>';
-  });
-  // close on link click
-  navLinks.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => {
-      menuOpen = false;
-      navLinks.classList.remove('open');
-      burger.innerHTML = '<span></span><span></span><span></span>';
-    });
-  });
+  burger.addEventListener('click', () => setMenu(!menuOpen));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
 }
 
 /* ========= nav scroll ========= */
@@ -1380,7 +1403,7 @@ function walkText(root, cb){
       if(!n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
       const p = n.parentElement;
       if(!p) return NodeFilter.FILTER_REJECT;
-      if(p.closest('#langsw,script,style,noscript,#tweaks,#testiTrack')) return NodeFilter.FILTER_REJECT;
+      if(p.closest('#langToggle,script,style,noscript,#tweaks,#testiTrack')) return NodeFilter.FILTER_REJECT;
       return NodeFilter.FILTER_ACCEPT;
     }
   });
@@ -1407,14 +1430,24 @@ function applyLang(lang){
   });
   currentLang = lang;
   document.documentElement.lang = lang;
-  document.querySelectorAll('#langsw button').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+  // single-toggle UI: show the OPPOSITE flag (i.e. the language you'd switch to)
+  const tEn = document.querySelector('.lt-en');
+  const tDe = document.querySelector('.lt-de');
+  const tLab = document.querySelector('.lt-label');
+  if(tEn && tDe && tLab){
+    const other = lang === 'en' ? 'de' : 'en';
+    tEn.hidden = (other !== 'en');
+    tDe.hidden = (other !== 'de');
+    tLab.textContent = other.toUpperCase();
+  }
   renderTestis(lang);
   try { localStorage.setItem('volt.lang', lang); } catch(e){}
 }
 
-document.querySelectorAll('#langsw button').forEach(b => {
-  b.addEventListener('click', () => applyLang(b.dataset.lang));
-});
+const langToggleBtn = document.getElementById('langToggle');
+if(langToggleBtn){
+  langToggleBtn.addEventListener('click', () => applyLang(currentLang === 'en' ? 'de' : 'en'));
+}
 
 // initial: render EN testis, then auto-detect
 renderTestis('en');
