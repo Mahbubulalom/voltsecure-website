@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Contact — VoltSecure</title>
+<meta name="description" content="Talk to VoltSecure — fire, security & electrical engineering across the UK and Europe. Request a quote, site survey or maintenance call."/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="assets/logo-mark-gold.png"/>
+<style>
+:root{
+  --bg:#0a0a0a;
+  --ink:#0f0f0f;
+  --panel:#131210;
+  --line:rgba(201,169,97,0.18);
+  --line-soft:rgba(255,255,255,0.06);
+  --gold:#c9a961;
+  --gold-bright:#d8bb78;
+  --gold-deep:#8f7640;
+  --cream:#f4efe6;
+  --mute:#8a8275;
+  --font-display:'Tenor Sans','Optima',serif;
+  --font-body:'Inter',system-ui,sans-serif;
+  --font-mono:'JetBrains Mono',ui-monospace,monospace;
+  --max:1200px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg);color:var(--cream);font-family:var(--font-body);font-weight:300;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+::selection{background:var(--gold);color:#111}
+
+.wrap{max-width:var(--max);margin:0 auto;padding:0 32px}
+.eyebrow{font-family:var(--font-mono);font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);font-weight:500}
+h1,h2,h3{font-family:var(--font-display);font-weight:400;line-height:1.05;letter-spacing:-0.01em}
+h1{font-size:clamp(44px,6vw,80px)}
+h1 em{font-style:italic;color:var(--gold);font-family:var(--font-display)}
+h2{font-size:clamp(28px,3vw,40px)}
+.lead{font-size:clamp(16px,1.2vw,18px);color:#d6d1c4;max-width:54ch;line-height:1.65}
+
+/* ====== NAV (matches site) ====== */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 0;transition:all .3s ease;backdrop-filter:blur(18px) saturate(140%);background:rgba(18,16,13,0.82);border-bottom:1px solid var(--line)}
+.nav::before{content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.6}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:32px;max-width:var(--max);margin:0 auto;padding:0 32px}
+.brand img{height:56px;width:auto}
+.nav-links{display:flex;gap:36px;align-items:center}
+.nav-links a{font-size:13px;letter-spacing:0.04em;opacity:.78;transition:opacity .2s;color:var(--cream)}
+.nav-links a:hover{opacity:1;color:var(--gold)}
+.nav-links a.current{color:var(--gold);opacity:1}
+.nav-cta{padding:10px 20px;border:1px solid var(--gold);color:var(--gold);font-size:12px;letter-spacing:0.16em;text-transform:uppercase;font-family:var(--font-mono);transition:all .25s}
+.nav-cta:hover{background:var(--gold);color:#0a0a0a}
+.burger{display:none;flex-direction:column;gap:4px;padding:8px}
+.burger span{width:22px;height:1px;background:var(--gold);display:block}
+@media(max-width:860px){
+  .nav-links{display:none;position:fixed;inset:0;background:#0a0a0a;flex-direction:column;align-items:center;justify-content:center;gap:32px;z-index:999}
+  .nav-links.open{display:flex}
+  .nav-links::before{content:"";position:absolute;top:56px;left:50%;transform:translateX(-50%);width:140px;height:90px;background:url('assets/logo-gold.png') center/contain no-repeat}
+  .nav-links a{font-size:22px;letter-spacing:0.06em;opacity:1;color:var(--cream);font-family:var(--font-display);font-weight:400}
+  .nav-links a.current{color:var(--gold)}
+  .burger{display:flex;z-index:1001;position:relative}
+  .nav-cta{display:none}
+  .nav-inner{padding:0 16px}
+  .brand img{height:40px}
+}
+@media(max-width:480px){.brand img{height:34px}}
+
+/* ====== HERO ====== */
+.page{padding:160px 0 120px;background:radial-gradient(ellipse at 80% 10%,rgba(201,169,97,0.07),transparent 60%),var(--bg)}
+.page-grid{display:grid;grid-template-columns:0.9fr 1.1fr;gap:80px;align-items:start}
+@media(max-width:960px){.page-grid{grid-template-columns:1fr;gap:48px}.page{padding:110px 0 72px}}
+
+.intro h1{margin:22px 0 28px}
+.intro .rule{height:1px;background:linear-gradient(90deg,var(--gold),transparent);width:120px;margin:36px 0 28px}
+
+.contact-points{display:flex;flex-direction:column;gap:24px;margin-top:40px}
+.cp{display:flex;gap:16px;align-items:flex-start;padding:20px 0;border-bottom:1px solid var(--line-soft)}
+.cp:last-child{border-bottom:none}
+.cp-ico{width:40px;height:40px;flex:0 0 40px;border:1px solid var(--gold);color:var(--gold);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:14px}
+.cp-lab{font-family:var(--font-mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--mute);margin-bottom:6px}
+.cp-val{font-family:var(--font-display);font-size:19px;color:var(--cream)}
+.cp-val a{color:var(--cream);transition:color .2s}
+.cp-val a:hover{color:var(--gold)}
+.cp-sub{font-size:12px;color:var(--mute);margin-top:4px}
+
+/* ====== FORM ====== */
+.form-card{background:linear-gradient(180deg,#14120e 0%,#0d0c0a 100%);border:1px solid var(--line);padding:48px;position:relative;overflow:hidden}
+.form-card::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.form-card h2{margin-bottom:8px}
+.form-card .sub{font-size:14px;color:var(--mute);margin-bottom:36px}
+@media(max-width:560px){.form-card{padding:28px 22px}}
+
+.field-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:560px){.field-grid{grid-template-columns:1fr;gap:16px}}
+.field{display:flex;flex-direction:column;gap:8px}
+.field.full{grid-column:1 / -1}
+.field label{font-family:var(--font-mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold)}
+.field label .req{color:var(--gold-bright);margin-left:2px}
+.field input,.field textarea,.field select{
+  background:rgba(255,255,255,0.02);border:1px solid var(--line);color:var(--cream);
+  padding:14px 16px;font:inherit;font-size:15px;font-family:var(--font-body);font-weight:300;
+  transition:all .2s;border-radius:0;
+}
+.field input:focus,.field textarea:focus,.field select:focus{outline:none;border-color:var(--gold);background:rgba(201,169,97,0.04);box-shadow:0 0 0 3px rgba(201,169,97,0.08)}
+.field textarea{resize:vertical;min-height:140px;line-height:1.55}
+.field input::placeholder,.field textarea::placeholder{color:#5c564c}
+.field-hint{font-size:11px;color:var(--mute);font-family:var(--font-mono);letter-spacing:0.06em}
+
+.consent{display:flex;gap:12px;align-items:flex-start;margin-top:24px;font-size:12px;color:var(--mute);line-height:1.5}
+.consent input{accent-color:var(--gold);margin-top:3px}
+.consent a{color:var(--gold);text-decoration:underline;text-underline-offset:2px}
+
+.submit-row{margin-top:32px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;padding-top:28px;border-top:1px solid var(--line-soft)}
+.submit-btn{display:inline-flex;align-items:center;gap:12px;padding:16px 32px;background:var(--gold);color:#0a0a0a;font-family:var(--font-mono);font-size:12px;letter-spacing:0.18em;text-transform:uppercase;font-weight:500;transition:all .25s;cursor:pointer;border:none}
+.submit-btn:hover{background:var(--cream);transform:translateY(-2px)}
+.submit-btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.submit-note{font-family:var(--font-mono);font-size:10px;letter-spacing:0.14em;color:var(--mute);text-transform:uppercase}
+
+.status{margin-top:20px;padding:16px 20px;border-left:2px solid var(--gold);background:rgba(201,169,97,0.06);font-size:14px;color:var(--cream);display:none}
+.status.ok{display:block}
+.status.err{display:block;border-left-color:var(--red,#c94c4c);background:rgba(201,76,76,0.06)}
+
+/* ====== trust strip ====== */
+.trust{border-top:1px solid var(--line);padding:56px 0;background:#0d0c0a}
+.trust-inner{display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:center}
+.trust-lab{font-family:var(--font-mono);font-size:11px;letter-spacing:0.2em;color:var(--gold);text-transform:uppercase}
+.trust-list{display:flex;gap:28px;flex-wrap:wrap;font-family:var(--font-mono);font-size:12px;letter-spacing:0.12em;color:var(--mute);text-transform:uppercase}
+.trust-list span::before{content:"◆ ";color:var(--gold);font-size:8px;margin-right:4px}
+
+/* ====== footer (matches site) ====== */
+footer{background:#070707;color:var(--cream);padding:64px 0 24px;border-top:1px solid var(--line)}
+footer::before{content:"";display:block;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.5;margin-bottom:64px;margin-top:-65px}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:48px;margin-bottom:48px}
+@media(max-width:720px){.footer-grid{grid-template-columns:1fr;gap:32px}}
+.footer-brand img{height:48px;margin-bottom:18px}
+.footer-brand p{font-size:13px;color:var(--mute);max-width:34ch;line-height:1.6}
+.footer-col h4{font-family:var(--font-mono);font-size:11px;color:var(--gold);letter-spacing:0.18em;text-transform:uppercase;margin-bottom:16px;font-weight:500}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-col a{font-size:14px;color:var(--mute);transition:color .2s}
+.footer-col a:hover{color:var(--gold)}
+.footer-bot{border-top:1px solid var(--line-soft);padding-top:24px;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;font-family:var(--font-mono);font-size:11px;color:var(--mute);letter-spacing:0.08em}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand"><img src="assets/logo-horizontal.png" alt="VoltSecure"/></a>
+    <div class="nav-links">
+      <a href="index.html#services">Services</a>
+      <a href="index.html#work">Projects</a>
+      <a href="about.html">About</a>
+      <a href="index.html#accreditations">Accreditations</a>
+      <a href="contact.html" class="current">Contact</a>
+    </div>
+    <div style="display:flex;align-items:center;gap:14px">
+      <a href="contact.html" class="nav-cta">Request a quote →</a>
+      <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<section class="page">
+  <div class="wrap page-grid">
+
+    <div class="intro">
+      <div class="eyebrow">◆ Contact</div>
+      <h1>Let's <em>talk</em>.</h1>
+      <p class="lead">Tell us a bit about the site, the scope or the timeline and we'll come back within one working day. If it's a live issue on an existing maintenance contract, please call the number below — we prioritise those.</p>
+
+      <div class="rule"></div>
+
+      <div class="contact-points">
+        <div class="cp">
+          <div class="cp-ico">✉</div>
+          <div>
+            <div class="cp-lab">Email</div>
+            <div class="cp-val"><a href="mailto:info@voltsecure.co.uk">info@voltsecure.co.uk</a></div>
+            <div class="cp-sub">General enquiries · quotes · maintenance</div>
+          </div>
+        </div>
+        <div class="cp">
+          <div class="cp-ico">☎</div>
+          <div>
+            <div class="cp-lab">Phone</div>
+            <div class="cp-val"><a href="tel:02922641046">02922 641046</a></div>
+            <div class="cp-sub">Mon–Fri, 08:00–17:30 · out-of-hours on live contracts</div>
+          </div>
+        </div>
+        <div class="cp">
+          <div class="cp-ico">⌂</div>
+          <div>
+            <div class="cp-lab">Head office</div>
+            <div class="cp-val">Unit 33 Albion Industrial Estate</div>
+            <div class="cp-sub">Cilfynydd, Pontypridd · CF37 4NX · UK</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-card">
+      <div class="eyebrow" style="color:var(--gold-deep)">◆ Request a quote</div>
+      <h2 style="margin-top:10px">Start a conversation.</h2>
+      <p class="sub">All fields marked with <span style="color:var(--gold)">*</span> are required. We'll never share your details.</p>
+
+      <form id="contactForm" action="https://formsubmit.co/info@voltsecure.co.uk" method="POST" novalidate>
+        <!-- FormSubmit.co config -->
+        <input type="hidden" name="_subject" value="New enquiry via voltsecure.co.uk">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="https://voltsecure-website.vercel.app/contact.html?sent=1">
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+
+        <div class="field-grid">
+          <div class="field">
+            <label for="name">Name <span class="req">*</span></label>
+            <input type="text" id="name" name="name" placeholder="Your full name" required autocomplete="name">
+          </div>
+
+          <div class="field">
+            <label for="email">Email <span class="req">*</span></label>
+            <input type="email" id="email" name="email" placeholder="you@company.com" required autocomplete="email">
+          </div>
+
+          <div class="field">
+            <label for="phone">Phone <span class="req">*</span></label>
+            <input type="tel" id="phone" name="phone" placeholder="+44 …" required autocomplete="tel">
+          </div>
+
+          <div class="field">
+            <label for="company">Company <span style="color:var(--mute);letter-spacing:0.12em">(optional)</span></label>
+            <input type="text" id="company" name="company" placeholder="If you're enquiring on behalf of a business" autocomplete="organization">
+          </div>
+
+          <div class="field full">
+            <label for="service">Service area</label>
+            <select id="service" name="service">
+              <option value="">Select one…</option>
+              <option>Fire detection &amp; alarms (BAFE SP203-1)</option>
+              <option>Security &amp; CCTV (SSAIB, BS EN 62676)</option>
+              <option>Access control &amp; biometrics</option>
+              <option>Electrical design &amp; install (NICEIC, BS 7671)</option>
+              <option>Maintenance contract</option>
+              <option>Something else</option>
+            </select>
+          </div>
+
+          <div class="field full">
+            <label for="message">Project details <span class="req">*</span></label>
+            <textarea id="message" name="message" placeholder="Site location, scope, timeline, anything else we should know…" required></textarea>
+            <span class="field-hint">We'll use this to prepare an accurate first response.</span>
+          </div>
+        </div>
+
+        <label class="consent">
+          <input type="checkbox" name="consent" required>
+          <span>I agree to VoltSecure contacting me about this enquiry. Details are stored securely and never shared with third parties.</span>
+        </label>
+
+        <div class="submit-row">
+          <button type="submit" class="submit-btn" id="submitBtn">Send enquiry →</button>
+          <span class="submit-note">Reply within 1 working day</span>
+        </div>
+
+        <div class="status" id="formStatus"></div>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<section class="trust">
+  <div class="wrap trust-inner">
+    <div class="trust-lab">Independently certified by</div>
+    <div class="trust-list">
+      <span>BAFE SP203-1</span>
+      <span>SSAIB</span>
+      <span>NICEIC</span>
+      <span>ECA</span>
+      <span>SSIP</span>
+      <span>JIB</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="assets/logo-horizontal.png" alt="VoltSecure"/>
+        <p>Fire, security &amp; electrical engineering for commercial estates across the UK and continental Europe.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="index.html#work">Projects</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Registered</h4>
+        <ul>
+          <li>VoltSecure® Ltd</li>
+          <li>BAFE 303517</li>
+          <li>Unit 33 Albion Industrial Estate</li>
+          <li>Cilfynydd, Pontypridd CF37 4NX</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bot">
+      <span>© 2026 VoltSecure® Ltd · All rights reserved</span>
+      <span><a href="mailto:info@voltsecure.co.uk">info@voltsecure.co.uk</a> · <a href="tel:02922641046">02922 641046</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ===== mobile menu ===== */
+(function(){
+  const burger=document.querySelector('.burger');
+  const links=document.querySelector('.nav-links');
+  if(!burger||!links) return;
+  let open=false;
+  function set(o){
+    open=o;
+    links.classList.toggle('open',o);
+    document.body.style.overflow=o?'hidden':'';
+    burger.innerHTML=o
+      ?'<span style="transform:rotate(45deg) translate(3px,3px)"></span><span style="opacity:0"></span><span style="transform:rotate(-45deg) translate(3px,-3px)"></span>'
+      :'<span></span><span></span><span></span>';
+  }
+  burger.addEventListener('click',()=>set(!open));
+  links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>set(false)));
+})();
+
+/* ===== form: AJAX submit so user stays on page + sees status ===== */
+(function(){
+  const form=document.getElementById('contactForm');
+  const status=document.getElementById('formStatus');
+  const btn=document.getElementById('submitBtn');
+  if(!form) return;
+
+  // Show success message if ?sent=1 in URL (fallback for non-JS submits)
+  if(new URLSearchParams(location.search).get('sent')==='1'){
+    status.className='status ok';
+    status.textContent='✓ Thanks — your enquiry has landed in our inbox. We\u2019ll reply within one working day.';
+    form.reset();
+  }
+
+  form.addEventListener('submit', async (e)=>{
+    e.preventDefault();
+    status.className='status';
+    status.textContent='';
+    btn.disabled=true;
+    btn.textContent='Sending…';
+
+    try{
+      const data=new FormData(form);
+      const res=await fetch(form.action,{
+        method:'POST',
+        headers:{'Accept':'application/json'},
+        body:data
+      });
+      if(res.ok){
+        status.className='status ok';
+        status.textContent='✓ Thanks — your enquiry has landed in our inbox. We\u2019ll reply within one working day.';
+        form.reset();
+        btn.textContent='Send enquiry →';
+      } else {
+        throw new Error('Network error');
+      }
+    }catch(err){
+      status.className='status err';
+      status.innerHTML='Something went wrong sending the form. Please email <a href="mailto:info@voltsecure.co.uk" style="color:var(--gold);text-decoration:underline">info@voltsecure.co.uk</a> directly, or call 02922 641046.';
+      btn.textContent='Try again →';
+    } finally {
+      btn.disabled=false;
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
