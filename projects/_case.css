@@ -45,6 +45,9 @@ section{padding:80px 0;position:relative}
 .body-grid{display:grid;grid-template-columns:0.9fr 2fr;gap:80px;align-items:start}
 @media(max-width:860px){.body-grid{grid-template-columns:1fr;gap:32px}}
 .side{position:sticky;top:120px}
+@media(max-width:860px){
+  .side{position:static;top:auto;padding-bottom:24px;margin-bottom:16px;border-bottom:1px solid var(--line-soft)}
+}
 .side h4{font-family:var(--font-mono);font-size:11px;color:var(--gold);letter-spacing:0.18em;text-transform:uppercase;margin-bottom:16px}
 .side ul{list-style:none;margin-bottom:32px}
 .side li{font-size:14px;color:var(--mute);padding:8px 0;border-bottom:1px solid var(--line-soft);display:flex;justify-content:space-between;gap:12px}
