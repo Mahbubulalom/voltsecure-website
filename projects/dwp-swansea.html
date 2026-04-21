@@ -1,14 +1,60 @@
 <!doctype html>
-<html lang="en"><head>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>DWP Office · Swansea — Case Study · VoltSecure</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>DWP Office · Case Study — VoltSecure</title>
+<meta name="description" content="DWP Office — VoltSecure case study. Swansea, Public Sector · Cabinet Office. Full Electrical Installation."/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="icon" href="../assets/logo-mark-gold.png"/>
-<link rel="stylesheet" href="_case.css"/>
+<link rel="icon" href="/assets/logo-mark-gold.png"/>
 <link rel="stylesheet" href="/assets/site.css"/>
+<link rel="stylesheet" href="/projects/_case.css"/>
+<style>
+.pstats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:48px 0 8px;background:#0d0c0a;border:1px solid var(--line-soft)}
+@media(max-width:720px){.pstats{grid-template-columns:repeat(2,1fr)}}
+.pstat{padding:28px 24px;border-right:1px solid var(--line-soft);text-align:center}
+.pstat:last-child{border-right:none}
+@media(max-width:720px){.pstat:nth-child(2){border-right:none}.pstat:nth-child(1),.pstat:nth-child(2){border-bottom:1px solid var(--line-soft)}}
+.pstat .n{font-family:var(--font-display);font-size:clamp(32px,3vw,44px);color:var(--gold);line-height:1}
+.pstat .l{font-size:12px;color:var(--mute);letter-spacing:0.1em;margin-top:8px;text-transform:uppercase;font-family:var(--font-mono)}
+
+.testimonial-band{padding:96px 0;background:#0d0c0a;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+@media(max-width:860px){.testimonial-band{padding:64px 0}}
+.testimonial{max-width:760px;margin:0 auto;text-align:center}
+.testimonial .mark{font-family:var(--font-display);font-size:80px;color:var(--gold);line-height:0.4;height:30px;margin-bottom:16px}
+.testimonial-quote{font-family:var(--font-display);font-size:clamp(20px,2.2vw,26px);color:var(--cream);line-height:1.55;margin-bottom:32px}
+.testimonial-author{display:inline-flex;flex-direction:column;gap:4px;padding-top:20px;border-top:1px solid var(--line-soft)}
+.testimonial-author strong{font-family:var(--font-display);font-size:18px;color:var(--cream);font-weight:400}
+.testimonial-author span{font-family:var(--font-mono);font-size:11px;color:var(--gold);letter-spacing:0.14em;text-transform:uppercase}
+.testimonial-stars{color:var(--gold);font-size:16px;letter-spacing:6px;margin-bottom:22px}
+.more-proj{padding:96px 0;border-top:1px solid var(--line-soft)}
+.more-proj h2{margin-bottom:48px}
+.more-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:720px){.more-grid{grid-template-columns:1fr}}
+.more-card{padding:28px 24px;border:1px solid var(--line-soft);background:rgba(255,255,255,0.015);transition:all .3s;display:flex;flex-direction:column;gap:10px}
+.more-card:hover{border-color:var(--gold);background:rgba(201,169,97,0.04);transform:translateY(-4px)}
+.more-card .lab{font-family:var(--font-mono);font-size:10px;letter-spacing:0.2em;color:var(--gold);text-transform:uppercase}
+.more-card h3{color:var(--cream);font-size:20px;margin-bottom:4px}
+.more-card p{color:var(--mute);font-size:13.5px;line-height:1.55}
+.more-card .arr{margin-top:10px;font-family:var(--font-mono);font-size:11px;color:var(--cream);letter-spacing:0.16em;text-transform:uppercase}
+.ctaband{padding:120px 0;background:#0d0c0a;border-top:1px solid var(--line);text-align:center}
+@media(max-width:860px){.ctaband{padding:72px 0}}
+.ctaband h2{font-size:clamp(32px,4.5vw,54px);margin-bottom:18px}
+.ctaband h2 em{font-style:italic;color:var(--gold)}
+.ctaband .lead{margin:0 auto 32px}
+.cta-row{display:inline-flex;gap:18px;flex-wrap:wrap;justify-content:center}
+.btn-gold{display:inline-flex;align-items:center;gap:10px;padding:16px 32px;background:var(--gold);color:#0a0a0a;font-family:var(--font-mono);font-size:12px;letter-spacing:0.18em;text-transform:uppercase;font-weight:500;transition:all .25s}
+.btn-gold:hover{background:var(--cream);transform:translateY(-2px)}
+.btn-ghost{display:inline-flex;align-items:center;gap:10px;padding:16px 28px;border:1px solid var(--line);color:var(--cream);font-family:var(--font-mono);font-size:12px;letter-spacing:0.18em;text-transform:uppercase;transition:all .25s}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+@media(max-width:560px){.cta-row{flex-direction:column;width:100%}.btn-gold,.btn-ghost{width:100%;max-width:320px;justify-content:center}}
+
+</style>
 <script src="/assets/site.js" defer></script>
-</head><body>
+</head>
+<body>
 
 <nav class="nav">
   <div class="nav-inner">
@@ -32,95 +78,95 @@
   </div>
 </nav>
 
-<section class="phero"><div class="wrap">
-<div class="crumbs"><a href="../index.html">Home</a><span class="sep">/</span><a href="../index.html#work">Projects</a><span class="sep">/</span>DWP Office</div>
-<div class="eyebrow" style="margin-bottom:20px">◆ Government &amp; Public Sector</div>
-<h1>DWP Office<br/><em>Swansea.</em></h1>
-<p class="lead" style="margin-top:24px">A milestone public-sector fit-out. Full electrical installation — delivered on programme and within budget, with life-safety and disabled-refuge systems commissioned alongside.</p>
-<div class="phero-meta">
-<div class="meta-pair"><span class="k">Client type</span><span class="v">Government / public</span></div>
-<div class="meta-pair"><span class="k">Location</span><span class="v">Swansea · Wales</span></div>
-<div class="meta-pair"><span class="k">Contract</span><span class="v">Full electrical installation</span></div>
-<div class="meta-pair"><span class="k">Delivered</span><span class="v">2023</span></div>
-</div>
+<section class="phero">
+  <div class="wrap">
+    <div class="crumbs"><a href="/index.html">Home</a><span class="sep">/</span><a href="/projects.html">Projects</a><span class="sep">/</span>DWP Office</div>
+    <div class="eyebrow">◆ Case study · 2024</div>
+    <h1>DWP Office</h1>
+    <p class="lead">VoltSecure was instructed to complete the full <em>electrical installation</em> of a new Department for Work and Pensions office in Swansea — every containment run, every circuit, every panel delivered on schedule and on budget.</p>
+    <div class="phero-meta">
+      <div class="meta-pair"><span class="k">Location</span><span class="v">Swansea</span></div>
+      <div class="meta-pair"><span class="k">Sector</span><span class="v">Public Sector · Cabinet Office</span></div>
+      <div class="meta-pair"><span class="k">Services</span><span class="v">Full Electrical Installation</span></div>
+      <div class="meta-pair"><span class="k">Duration</span><span class="v">Programme-managed</span></div>
+    </div>
+    <div class="phero-visual">
+      <svg viewBox="0 0 1600 600" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="gg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1a1812"/><stop offset="1" stop-color="#0a0a0a"/></linearGradient></defs><rect width="1600" height="600" fill="url(#gg)"/><g fill="none" stroke="#c9a961" stroke-width="1.4" opacity=".6"><rect x="200" y="140" width="1200" height="360"/></g><g fill="#c9a961" opacity=".3"><rect x="240" y="180" width="100" height="80"/><rect x="360" y="180" width="100" height="80"/><rect x="480" y="180" width="100" height="80"/><rect x="600" y="180" width="100" height="80"/><rect x="720" y="180" width="100" height="80"/><rect x="840" y="180" width="100" height="80"/><rect x="960" y="180" width="100" height="80"/><rect x="1080" y="180" width="100" height="80"/><rect x="1200" y="180" width="100" height="80"/><rect x="1320" y="180" width="40" height="80"/><rect x="240" y="300" width="100" height="80"/><rect x="360" y="300" width="100" height="80"/><rect x="480" y="300" width="100" height="80"/><rect x="600" y="300" width="100" height="80"/><rect x="720" y="300" width="100" height="80"/><rect x="840" y="300" width="100" height="80"/><rect x="960" y="300" width="100" height="80"/><rect x="1080" y="300" width="100" height="80"/><rect x="1200" y="300" width="100" height="80"/><rect x="1320" y="300" width="40" height="80"/><rect x="240" y="400" width="100" height="60"/><rect x="360" y="400" width="100" height="60"/><rect x="480" y="400" width="100" height="60"/><rect x="600" y="400" width="100" height="60"/><rect x="720" y="400" width="100" height="60"/><rect x="840" y="400" width="100" height="60"/><rect x="960" y="400" width="100" height="60"/><rect x="1080" y="400" width="100" height="60"/><rect x="1200" y="400" width="100" height="60"/></g><circle cx="280" cy="100" r="8" fill="#c9a961"/><circle cx="680" cy="100" r="8" fill="#c9a961"/><circle cx="1080" cy="100" r="8" fill="#c9a961"/><g stroke="#c9a961" stroke-width="0.6" opacity=".2"><line x1="200" y1="500" x2="1400" y2="500"/><line x1="200" y1="530" x2="1400" y2="530"/></g></svg>
+      <div class="overlay"></div>
+      <span class="tag">Government framework</span>
+    </div>
+  </div>
+</section>
 
-<div class="phero-visual">
-<svg viewBox="0 0 1200 520" preserveAspectRatio="xMidYMid slice">
-<defs><linearGradient id="bg2" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#1c1914"/><stop offset="1" stop-color="#070706"/></linearGradient></defs>
-<rect width="1200" height="520" fill="url(#bg2)"/>
-<g stroke="#c9a961" opacity=".5" fill="none"><path d="M0,340 L300,260 L600,320 L900,240 L1200,280 L1200,520 L0,520 Z" fill="#0d0b08" stroke="none"/>
-<line x1="0" y1="340" x2="300" y2="260"/><line x1="300" y1="260" x2="600" y2="320"/><line x1="600" y1="320" x2="900" y2="240"/><line x1="900" y1="240" x2="1200" y2="280"/></g>
-<g><circle cx="200" cy="290" r="4" fill="#c9a961"/><circle cx="430" cy="290" r="4" fill="#c9a961"/><circle cx="700" cy="290" r="4" fill="#c9a961"/><circle cx="980" cy="265" r="4" fill="#c9a961"/>
-<g stroke="#c9a961" stroke-dasharray="3 5" opacity=".4"><line x1="200" y1="290" x2="200" y2="120"/><line x1="430" y1="290" x2="430" y2="120"/><line x1="700" y1="290" x2="700" y2="120"/><line x1="980" y1="265" x2="980" y2="100"/></g>
-<g fill="#c9a961" opacity=".9"><rect x="180" y="100" width="40" height="20"/><rect x="410" y="100" width="40" height="20"/><rect x="680" y="100" width="40" height="20"/><rect x="960" y="80" width="40" height="20"/></g></g>
-<text x="32" y="490" font-family="monospace" font-size="12" fill="#c9a961" opacity=".7">DWP SWANSEA · DALI LIGHTING · ADDR FIRE · DISABLED REFUGE</text>
-</svg>
-<div class="overlay"></div><span class="tag">FULL FIT-OUT · DELIVERED ON SCHEDULE</span>
-</div>
-</div></section>
+<section>
+  <div class="wrap body-grid">
+    <aside class="side">
+      <h4>Project at a glance</h4>
+      <ul>
+        <li>Client<strong>DWP Office</strong></li>
+        <li>Location<strong>Swansea</strong></li>
+        <li>Services<strong>Full Electrical Installation</strong></li>
+        <li>Duration<strong>Programme-managed</strong></li>
+        <li>Contract<strong>Government framework</strong></li>
+      </ul>
+      <h4>Standards</h4>
+      <ul>
+        <li>BS 7671<strong>IET Wiring Regs</strong></li>
+        <li>BS 5839<strong>Fire detection</strong></li>
+        <li>BAFE<strong>SP203-1</strong></li>
+        <li>NICEIC<strong>Approved</strong></li>
+      </ul>
+      <a href="/contact.html" style="display:inline-flex;gap:10px;padding:14px 22px;border:1px solid var(--gold);color:var(--gold);font-family:var(--font-mono);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;transition:all .25s">Discuss a similar brief →</a>
+    </aside>
+    <div class="body">
+      <h2>Scope</h2><p>This project was a huge milestone for the business. The brief was the full electrical design and install for a Department for Work and Pensions office floor — a government-grade fit-out demanding independent certification, full documentation and zero interruption during handover.</p><p>We are proud to have delivered every discipline in-house, from initial mains intake and sub-main distribution through to final commissioning of the addressable fire-alarm system and disabled-alarm network.</p>
+<h2>What we delivered</h2><ul class="deliverables"><li>All containment — tray, basket, trunking and conduit — installed to BS EN 61537</li><li>Main switchgear and sub-main distribution design, supply and install</li><li>Small-power distribution with RCBO protection throughout</li><li>DALI addressable lighting control with occupancy-sensed scene programming</li><li>Addressable fire-alarm system (BAFE SP203-1) — design, install, commission and handover</li><li>Disabled-refuge communication system to BS 5839-9</li><li>Full test, inspection and commissioning pack delivered at handover</li></ul>
+<h2>Why it mattered</h2><p>Public-sector estates held to Cabinet Office frameworks require full independent certification at every stage. NICEIC approval, BAFE SP203-1 certification and Constructionline Silver accreditation were prerequisites for award — every project closes with a documentary trail that insurers and Responsible Persons can rely on.</p><p>Delivering this project within schedule and to budget was a milestone for VoltSecure and a benchmark for the work we take on since.</p>
+      <div class="pstats"><div class="pstat"><div class="n">✓</div><div class="l">On schedule</div></div><div class="pstat"><div class="n">✓</div><div class="l">On budget</div></div><div class="pstat"><div class="n">BAFE</div><div class="l">Certified</div></div><div class="pstat"><div class="n">DALI</div><div class="l">Controlled lighting</div></div></div>
+    </div>
+  </div>
+</section>
 
-<section><div class="wrap body-grid">
-<aside class="side">
-<h4>◆ Project details</h4>
-<ul>
-<li>Sector<strong>Public</strong></li>
-<li>Scope<strong>Full electrical</strong></li>
-<li>Lighting<strong>DALI addressable</strong></li>
-<li>Fire<strong>Addressable L1</strong></li>
-<li>Refuge<strong>Disabled alarm</strong></li>
-<li>Standard<strong>BS 7671 · BS 5839-1</strong></li>
-<li>Certification<strong>NICEIC · BAFE</strong></li>
-</ul>
-<h4>◆ Services delivered</h4>
-<ul>
-<li>Containment<strong>Full run</strong></li>
-<li>Switchgear<strong>Install &amp; term.</strong></li>
-<li>Power<strong>Distribution</strong></li>
-<li>Lighting<strong>DALI</strong></li>
-<li>Fire alarm<strong>Addressable</strong></li>
-<li>Refuge<strong>Disabled</strong></li>
-</ul>
-<a href="../index.html#contact" class="hero-cta">Discuss a project →</a>
-</aside>
 
-<div class="body">
-<h2>The brief.</h2>
-<p>The Department for Work &amp; Pensions required a full electrical fit-out of their new Swansea offices. Because it's a government site with public-facing operations, life-safety systems — addressable fire detection, disabled refuge alarm and emergency lighting — had to be installed and commissioned alongside the main electrical package, with zero slippage to the programme.</p>
 
-<h2>What we delivered.</h2>
-<p>A single, coordinated electrical package. Our team handled containment, switchgear, power distribution, DALI lighting, the addressable fire alarm system and the disabled refuge alarm — with everything tied back to a BS 7671 certification pack and a BAFE SP203-1 fire commissioning document.</p>
-<ul class="deliverables">
-<li><div><strong>All containment</strong> — basket, tray and trunking — on a coordinated route designed around the mechanical services.</div></li>
-<li><div><strong>Switchgear install</strong> — distribution boards, sub-mains and final circuit termination.</div></li>
-<li><div><strong>Power distribution</strong> to the workstations, server room, comms rooms and welfare facilities.</div></li>
-<li><div><strong>DALI lighting</strong> throughout, commissioned to daylight and occupancy profiles for energy reporting.</div></li>
-<li><div><strong>Addressable fire alarm</strong> to BS 5839-1 with zone-plan drawings and commissioning certificate.</div></li>
-<li><div><strong>Disabled refuge alarm</strong> on each escape route, interfaced with the fire panel.</div></li>
-</ul>
+<section class="more-proj">
+  <div class="wrap">
+    <div class="eyebrow" style="margin-bottom:16px">◆ More case studies</div>
+    <h2>Selected projects.</h2>
+    <div class="more-grid"><a href="/projects/old-gas-works.html" class="more-card">
+      <div class="lab">Modular Housing</div>
+      <h3>The Old Gas Works Site</h3>
+      <p>Grangetown, Cardiff · Full Electrical</p>
+      <div class="arr">Read case study →</div>
+    </a><a href="/projects/longplay.html" class="more-card">
+      <div class="lab">Hospitality</div>
+      <h3>LongPlay Coffee</h3>
+      <p>Cardiff · Electrical Fit-Out &amp; Ongoing</p>
+      <div class="arr">Read case study →</div>
+    </a><a href="/projects/retail-cctv.html" class="more-card">
+      <div class="lab">National Retail</div>
+      <h3>Multi-National Retail CCTV Rollout</h3>
+      <p>UK &amp; Europe · CCTV &amp; IP Analytics</p>
+      <div class="arr">Read case study →</div>
+    </a></div>
+  </div>
+</section>
 
-<div class="pstats">
-<div class="pstat"><div class="n">100%</div><div class="l">On schedule</div></div>
-<div class="pstat"><div class="n">0</div><div class="l">Budget variations</div></div>
-<div class="pstat"><div class="n">L1</div><div class="l">Fire alarm category</div></div>
-<div class="pstat"><div class="n">DALI</div><div class="l">Energy-reporting lighting</div></div>
-</div>
-
-<h2>Why it mattered.</h2>
-<p>Public-sector programmes are unforgiving of slippage — a late electrical finish holds up the occupation date, which in turn holds up the operational service behind it. Delivering on schedule and on budget, with no defects at hand-over, is the reason DWP projects keep coming back.</p>
-</div></div></section>
-
-<section class="nextband"><div class="wrap">
-<div class="eyebrow" style="margin-bottom:24px">◆ More projects</div>
-<div class="next-grid">
-<a class="nextlink" href="old-gas-works.html"><div class="dir">← Previous</div><h3>Old Gas Works — Cardiff</h3><p>48-home modular · full electrical</p></a>
-<a class="nextlink" href="retail-cctv.html"><div class="dir">Next →</div><h3>National Retail CCTV Rollout</h3><p>40+ sites · UK &amp; Europe</p></a>
-</div>
-</div></section>
+<section class="ctaband">
+  <div class="wrap">
+    <div class="eyebrow">◆ Start a project</div>
+    <h2>Got a similar <em>brief</em>?</h2>
+    <p class="lead">Tell us the site, the scope and the timeline — we&rsquo;ll come back within one working day.</p>
+    <div class="cta-row">
+      <a href="/contact.html" class="btn-gold">Request a quote →</a>
+      <a href="tel:02922641046" class="btn-ghost">Call 02922 641046</a>
+    </div>
+  </div>
+</section>
 
 <footer class="vs-footer">
   <div class="wrap">
     <div class="vs-footer-grid">
-
       <div class="vs-footer-brand">
         <div>
           <img src="/assets/logo-horizontal.png" alt="VoltSecure"/>
@@ -128,65 +174,43 @@
           <span class="bafe">◆ BAFE 303517 · NICEIC · SSAIB · ECA</span>
         </div>
       </div>
-
-      <div class="vs-footer-col">
-        <h4>International</h4>
-        <ul>
-          <li><a href="/index.html"><span class="ext">↗</span> VoltSecure UK</a></li>
-          <li><a href="/contact.html"><span class="ext">↗</span> VoltSecure Deutschland</a></li>
-          <li><a href="/contact.html"><span class="ext">↗</span> VoltSecure Ireland</a></li>
-        </ul>
-      </div>
-
-      <div class="vs-footer-col">
-        <h4>About us</h4>
-        <ul>
-          <li><a href="/about.html">About us</a></li>
-          <li><a href="/accreditations.html">Accreditations</a></li>
-          <li><a href="/projects.html">Case studies</a></li>
-          <li><a href="/contact.html">Contact us</a></li>
-          <li><a href="/contact.html">ESG &amp; social value</a></li>
-        </ul>
-      </div>
-
-      <div class="vs-footer-col">
-        <h4>VoltSecure &amp; you</h4>
-        <ul>
-          <li><a href="/contact.html"><span class="ext">↗</span> Employees</a></li>
-          <li><a href="/contact.html"><span class="ext">↗</span> Jobs &amp; apprenticeships</a></li>
-          <li><a href="mailto:info@voltsecure.co.uk?subject=Media%20enquiry"><span class="ext">↗</span> Media enquiries</a></li>
-          <li><a href="/contact.html"><span class="ext">↗</span> Suppliers</a></li>
-        </ul>
-      </div>
-
-      <div class="vs-footer-col">
-        <h4>Follow us</h4>
-        <ul>
-          <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a></li>
-          <li><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a></li>
-          <li><a href="https://www.youtube.com/" target="_blank" rel="noopener">YouTube</a></li>
-        </ul>
-        <h4 style="margin-top:28px">Contact</h4>
-        <ul>
-          <li class="tel"><a href="tel:02922641046">02922 641046</a></li>
-          <li class="em"><a href="mailto:info@voltsecure.co.uk">info@voltsecure.co.uk</a></li>
-        </ul>
-      </div>
-
+      <div class="vs-footer-col"><h4>International</h4><ul>
+        <li><a href="/index.html"><span class="ext">↗</span> VoltSecure UK</a></li>
+        <li><a href="/contact.html"><span class="ext">↗</span> VoltSecure Deutschland</a></li>
+        <li><a href="/contact.html"><span class="ext">↗</span> VoltSecure Ireland</a></li>
+      </ul></div>
+      <div class="vs-footer-col"><h4>About us</h4><ul>
+        <li><a href="/about.html">About us</a></li>
+        <li><a href="/accreditations.html">Accreditations</a></li>
+        <li><a href="/projects.html">Case studies</a></li>
+        <li><a href="/contact.html">Contact us</a></li>
+        <li><a href="/contact.html">ESG &amp; social value</a></li>
+      </ul></div>
+      <div class="vs-footer-col"><h4>VoltSecure &amp; you</h4><ul>
+        <li><a href="/contact.html"><span class="ext">↗</span> Employees</a></li>
+        <li><a href="/contact.html"><span class="ext">↗</span> Jobs &amp; apprenticeships</a></li>
+        <li><a href="mailto:info@voltsecure.co.uk?subject=Media%20enquiry"><span class="ext">↗</span> Media enquiries</a></li>
+        <li><a href="/contact.html"><span class="ext">↗</span> Suppliers</a></li>
+      </ul></div>
+      <div class="vs-footer-col"><h4>Follow us</h4><ul>
+        <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://www.youtube.com/" target="_blank" rel="noopener">YouTube</a></li>
+      </ul><h4 style="margin-top:28px">Contact</h4><ul>
+        <li class="tel"><a href="tel:02922641046">02922 641046</a></li>
+        <li class="em"><a href="mailto:info@voltsecure.co.uk">info@voltsecure.co.uk</a></li>
+      </ul></div>
     </div>
-
     <div class="vs-footer-bot">
       <span>VoltSecure® Ltd · © 2026 · All rights reserved · BAFE 303517</span>
       <span class="vs-footer-policy">
-        <a href="/contact.html">Accessibility</a>
-        <a href="/contact.html">Carbon reduction plan</a>
-        <a href="/contact.html">Cookie policy</a>
-        <a href="/contact.html">Modern slavery statement</a>
-        <a href="/contact.html">Privacy notice</a>
-        <a href="/contact.html">Site terms</a>
+        <a href="/contact.html">Accessibility</a><a href="/contact.html">Carbon reduction plan</a><a href="/contact.html">Cookie policy</a><a href="/contact.html">Modern slavery statement</a><a href="/contact.html">Privacy notice</a><a href="/contact.html">Site terms</a>
       </span>
     </div>
   </div>
 </footer>
 
-</body></html>
+<script src="/assets/site.js" defer></script>
+
+</body>
+</html>

@@ -1,14 +1,60 @@
 <!doctype html>
-<html lang="en"><head>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>National Retail CCTV Rollout — Case Study · VoltSecure</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Multi-National Retail CCTV Rollout · Case Study — VoltSecure</title>
+<meta name="description" content="Multi-National Retail CCTV Rollout — VoltSecure case study. UK &amp; Europe, National Retail · Loss Prevention. CCTV &amp; IP Analytics."/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="icon" href="../assets/logo-mark-gold.png"/>
-<link rel="stylesheet" href="_case.css"/>
+<link rel="icon" href="/assets/logo-mark-gold.png"/>
 <link rel="stylesheet" href="/assets/site.css"/>
+<link rel="stylesheet" href="/projects/_case.css"/>
+<style>
+.pstats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:48px 0 8px;background:#0d0c0a;border:1px solid var(--line-soft)}
+@media(max-width:720px){.pstats{grid-template-columns:repeat(2,1fr)}}
+.pstat{padding:28px 24px;border-right:1px solid var(--line-soft);text-align:center}
+.pstat:last-child{border-right:none}
+@media(max-width:720px){.pstat:nth-child(2){border-right:none}.pstat:nth-child(1),.pstat:nth-child(2){border-bottom:1px solid var(--line-soft)}}
+.pstat .n{font-family:var(--font-display);font-size:clamp(32px,3vw,44px);color:var(--gold);line-height:1}
+.pstat .l{font-size:12px;color:var(--mute);letter-spacing:0.1em;margin-top:8px;text-transform:uppercase;font-family:var(--font-mono)}
+
+.testimonial-band{padding:96px 0;background:#0d0c0a;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+@media(max-width:860px){.testimonial-band{padding:64px 0}}
+.testimonial{max-width:760px;margin:0 auto;text-align:center}
+.testimonial .mark{font-family:var(--font-display);font-size:80px;color:var(--gold);line-height:0.4;height:30px;margin-bottom:16px}
+.testimonial-quote{font-family:var(--font-display);font-size:clamp(20px,2.2vw,26px);color:var(--cream);line-height:1.55;margin-bottom:32px}
+.testimonial-author{display:inline-flex;flex-direction:column;gap:4px;padding-top:20px;border-top:1px solid var(--line-soft)}
+.testimonial-author strong{font-family:var(--font-display);font-size:18px;color:var(--cream);font-weight:400}
+.testimonial-author span{font-family:var(--font-mono);font-size:11px;color:var(--gold);letter-spacing:0.14em;text-transform:uppercase}
+.testimonial-stars{color:var(--gold);font-size:16px;letter-spacing:6px;margin-bottom:22px}
+.more-proj{padding:96px 0;border-top:1px solid var(--line-soft)}
+.more-proj h2{margin-bottom:48px}
+.more-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:720px){.more-grid{grid-template-columns:1fr}}
+.more-card{padding:28px 24px;border:1px solid var(--line-soft);background:rgba(255,255,255,0.015);transition:all .3s;display:flex;flex-direction:column;gap:10px}
+.more-card:hover{border-color:var(--gold);background:rgba(201,169,97,0.04);transform:translateY(-4px)}
+.more-card .lab{font-family:var(--font-mono);font-size:10px;letter-spacing:0.2em;color:var(--gold);text-transform:uppercase}
+.more-card h3{color:var(--cream);font-size:20px;margin-bottom:4px}
+.more-card p{color:var(--mute);font-size:13.5px;line-height:1.55}
+.more-card .arr{margin-top:10px;font-family:var(--font-mono);font-size:11px;color:var(--cream);letter-spacing:0.16em;text-transform:uppercase}
+.ctaband{padding:120px 0;background:#0d0c0a;border-top:1px solid var(--line);text-align:center}
+@media(max-width:860px){.ctaband{padding:72px 0}}
+.ctaband h2{font-size:clamp(32px,4.5vw,54px);margin-bottom:18px}
+.ctaband h2 em{font-style:italic;color:var(--gold)}
+.ctaband .lead{margin:0 auto 32px}
+.cta-row{display:inline-flex;gap:18px;flex-wrap:wrap;justify-content:center}
+.btn-gold{display:inline-flex;align-items:center;gap:10px;padding:16px 32px;background:var(--gold);color:#0a0a0a;font-family:var(--font-mono);font-size:12px;letter-spacing:0.18em;text-transform:uppercase;font-weight:500;transition:all .25s}
+.btn-gold:hover{background:var(--cream);transform:translateY(-2px)}
+.btn-ghost{display:inline-flex;align-items:center;gap:10px;padding:16px 28px;border:1px solid var(--line);color:var(--cream);font-family:var(--font-mono);font-size:12px;letter-spacing:0.18em;text-transform:uppercase;transition:all .25s}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+@media(max-width:560px){.cta-row{flex-direction:column;width:100%}.btn-gold,.btn-ghost{width:100%;max-width:320px;justify-content:center}}
+
+</style>
 <script src="/assets/site.js" defer></script>
-</head><body>
+</head>
+<body>
 
 <nav class="nav">
   <div class="nav-inner">
@@ -32,97 +78,95 @@
   </div>
 </nav>
 
-<section class="phero"><div class="wrap">
-<div class="crumbs"><a href="../index.html">Home</a><span class="sep">/</span><a href="../index.html#work">Projects</a><span class="sep">/</span>Retail CCTV Rollout</div>
-<div class="eyebrow" style="margin-bottom:20px">◆ Retail · Multi-site · UK &amp; Europe</div>
-<h1>National Retail<br/><em>CCTV rollout.</em></h1>
-<p class="lead" style="margin-top:24px">Integrated CCTV design, supply and commissioning for a well-known high-street retailer across the UK and continental Europe — a multi-year programme covering 40+ live stores.</p>
-<div class="phero-meta">
-<div class="meta-pair"><span class="k">Client type</span><span class="v">High-street retailer</span></div>
-<div class="meta-pair"><span class="k">Coverage</span><span class="v">UK + 4 EU countries</span></div>
-<div class="meta-pair"><span class="k">Sites</span><span class="v">40+ stores</span></div>
-<div class="meta-pair"><span class="k">Status</span><span class="v">Ongoing · 2022 →</span></div>
-</div>
+<section class="phero">
+  <div class="wrap">
+    <div class="crumbs"><a href="/index.html">Home</a><span class="sep">/</span><a href="/projects.html">Projects</a><span class="sep">/</span>Multi-National Retail CCTV Rollout</div>
+    <div class="eyebrow">◆ Case study · Ongoing</div>
+    <h1>Multi-National Retail CCTV Rollout</h1>
+    <p class="lead">A rolling <em>IP CCTV deployment</em> for a well-known high-street retailer across the UK and continental Europe — four years, multiple countries, one trusted installer.</p>
+    <div class="phero-meta">
+      <div class="meta-pair"><span class="k">Location</span><span class="v">UK &amp; Europe</span></div>
+      <div class="meta-pair"><span class="k">Sector</span><span class="v">National Retail · Loss Prevention</span></div>
+      <div class="meta-pair"><span class="k">Services</span><span class="v">CCTV &amp; IP Analytics</span></div>
+      <div class="meta-pair"><span class="k">Duration</span><span class="v">4 years</span></div>
+    </div>
+    <div class="phero-visual">
+      <svg viewBox="0 0 1600 600" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="rg" cx="50%" cy="50%"><stop offset="0" stop-color="#2a241a"/><stop offset="1" stop-color="#0a0a0a"/></radialGradient></defs><rect width="1600" height="600" fill="url(#rg)"/><g stroke="#c9a961" fill="none" opacity=".25"><circle cx="800" cy="300" r="260"/><circle cx="800" cy="300" r="180"/><circle cx="800" cy="300" r="100"/></g><g fill="#c9a961"><circle cx="400" cy="200" r="8"/><circle cx="1200" cy="200" r="8"/><circle cx="400" cy="400" r="8"/><circle cx="1200" cy="400" r="8"/><circle cx="800" cy="140" r="8"/><circle cx="800" cy="460" r="8"/><circle cx="280" cy="300" r="8"/><circle cx="1320" cy="300" r="8"/><circle cx="500" cy="150" r="6"/><circle cx="1100" cy="150" r="6"/><circle cx="500" cy="450" r="6"/><circle cx="1100" cy="450" r="6"/></g><g stroke="#c9a961" stroke-width="0.6" opacity=".35"><line x1="800" y1="300" x2="400" y2="200"/><line x1="800" y1="300" x2="1200" y2="200"/><line x1="800" y1="300" x2="400" y2="400"/><line x1="800" y1="300" x2="1200" y2="400"/><line x1="800" y1="300" x2="800" y2="140"/><line x1="800" y1="300" x2="800" y2="460"/><line x1="800" y1="300" x2="280" y2="300"/><line x1="800" y1="300" x2="1320" y2="300"/></g><rect x="740" y="270" width="120" height="70" fill="#c9a961" opacity=".85"/><rect x="770" y="290" width="60" height="30" fill="#0a0a0a"/></svg>
+      <div class="overlay"></div>
+      <span class="tag">National retail</span>
+    </div>
+  </div>
+</section>
 
-<div class="phero-visual">
-<svg viewBox="0 0 1200 520" preserveAspectRatio="xMidYMid slice">
-<defs><radialGradient id="bg3" cx="50%" cy="50%"><stop offset="0" stop-color="#24201b"/><stop offset="1" stop-color="#070706"/></radialGradient></defs>
-<rect width="1200" height="520" fill="url(#bg3)"/>
-<g fill="none" stroke="#c9a961" opacity=".35"><circle cx="600" cy="260" r="80"/><circle cx="600" cy="260" r="140"/><circle cx="600" cy="260" r="200" stroke-dasharray="4 8"/><circle cx="600" cy="260" r="260" stroke-dasharray="2 12"/></g>
-<g stroke="#c9a961" opacity=".15"><line x1="0" y1="260" x2="1200" y2="260"/><line x1="600" y1="0" x2="600" y2="520"/></g>
-<g fill="#c9a961">
-<circle cx="300" cy="180" r="3"><animate attributeName="opacity" values="1;.2;1" dur="2s" repeatCount="indefinite"/></circle>
-<circle cx="420" cy="340" r="3"/><circle cx="520" cy="140" r="3"><animate attributeName="opacity" values="1;.2;1" dur="2.4s" repeatCount="indefinite"/></circle>
-<circle cx="680" cy="360" r="3"/><circle cx="780" cy="200" r="3"><animate attributeName="opacity" values="1;.2;1" dur="2.8s" repeatCount="indefinite"/></circle>
-<circle cx="900" cy="320" r="3"/><circle cx="220" cy="320" r="3"/><circle cx="980" cy="200" r="3"/></g>
-<rect x="580" y="240" width="40" height="40" fill="none" stroke="#c9a961" stroke-width="1.5"/>
-<text x="32" y="490" font-family="monospace" font-size="12" fill="#c9a961" opacity=".7">40+ SITES · UK + IE + FR + NL + DE · BS EN 62676</text>
-</svg>
-<div class="overlay"></div><span class="tag">MULTI-YEAR PROGRAMME · ONGOING</span>
-</div>
-</div></section>
+<section>
+  <div class="wrap body-grid">
+    <aside class="side">
+      <h4>Project at a glance</h4>
+      <ul>
+        <li>Client<strong>Multi-National Retail CCTV Rollout</strong></li>
+        <li>Location<strong>UK &amp; Europe</strong></li>
+        <li>Services<strong>CCTV &amp; IP Analytics</strong></li>
+        <li>Duration<strong>4 years</strong></li>
+        <li>Contract<strong>National retail</strong></li>
+      </ul>
+      <h4>Standards</h4>
+      <ul>
+        <li>BS 7671<strong>IET Wiring Regs</strong></li>
+        <li>BS 5839<strong>Fire detection</strong></li>
+        <li>BAFE<strong>SP203-1</strong></li>
+        <li>NICEIC<strong>Approved</strong></li>
+      </ul>
+      <a href="/contact.html" style="display:inline-flex;gap:10px;padding:14px 22px;border:1px solid var(--gold);color:var(--gold);font-family:var(--font-mono);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;transition:all .25s">Discuss a similar brief →</a>
+    </aside>
+    <div class="body">
+      <h2>Scope</h2><p>VoltSecure was brought in via the principal contractor to deliver IP CCTV installations for a global fashion retail chain's stores across the UK and continental Europe. Every store is scoped, surveyed, installed and commissioned to SSAIB-certified standards — consistent kit list, consistent cable dressing, consistent documentation pack.</p><p>Staffing levels have more than doubled year on year to support this rollout, with FESS apprentices trained on the programme.</p>
+<h2>What we delivered</h2><ul class="deliverables"><li>IP CCTV across all store zones — shop floor, stockroom, cash offices, service yards</li><li>PoE switching, VMS, NVR storage and cloud-accessible remote playback</li><li>IP analytics — line crossing, loitering, people-count and object-left detection</li><li>Structured Cat 6A data cabling to comms cabinet, Fluke-certified on handover</li><li>GDPR-compliant retention, signage and DPIA support documentation</li><li>Consistent as-built drawings and O&amp;M pack delivered per store</li></ul>
+<h2>Geographic coverage</h2><p>Installations have spanned the UK and multiple European countries — each site surveyed, installed and commissioned by our own engineers. The rollout runs continuously alongside our domestic project workload and underpins our SSAIB and BS EN 62676 certification.</p>
+      <div class="pstats"><div class="pstat"><div class="n">4 yrs</div><div class="l">Programme running</div></div><div class="pstat"><div class="n">UK &amp; EU</div><div class="l">Geographic scope</div></div><div class="pstat"><div class="n">SSAIB</div><div class="l">Certified</div></div><div class="pstat"><div class="n">Cat 6A</div><div class="l">Structured cabling</div></div></div>
+    </div>
+  </div>
+</section>
 
-<section><div class="wrap body-grid">
-<aside class="side">
-<h4>◆ Programme details</h4>
-<ul>
-<li>Sites<strong>40+</strong></li>
-<li>Countries<strong>UK + 4 EU</strong></li>
-<li>System<strong>IP CCTV + analytics</strong></li>
-<li>Standard<strong>BS EN 62676</strong></li>
-<li>Certification<strong>SSAIB</strong></li>
-<li>Maintenance<strong>Ongoing SLA</strong></li>
-</ul>
-<h4>◆ Services delivered</h4>
-<ul>
-<li>Design<strong>Per-site</strong></li>
-<li>Supply<strong>Full stack</strong></li>
-<li>Install<strong>Out-of-hours</strong></li>
-<li>Commission<strong>Each site</strong></li>
-<li>Docs<strong>EN 62676 pack</strong></li>
-<li>Support<strong>24/7</strong></li>
-</ul>
-<a href="../index.html#contact" class="hero-cta">Discuss a rollout →</a>
-</aside>
 
-<div class="body">
-<h2>The brief.</h2>
-<p>A major high-street retailer needed a single accredited partner to take on integrated CCTV across their UK estate and their continental European expansion — new stores, refits and replacements for ageing analogue systems. Downtime on a trading store is measured in lost revenue per minute, so every site had to be mobilised without disrupting trade.</p>
 
-<h2>What we delivered.</h2>
-<p>We designed the system to a common specification, then flexed the install per site. Cameras, recorders, cabling and head-end gear are standardised so that spares, configuration and operator training transfer cleanly from one store to the next. Every install is commissioned with a full BS EN 62676 document pack handed to the retailer's loss-prevention team.</p>
-<ul class="deliverables">
-<li><div><strong>Per-site design</strong> based on store layout, till counts, stockroom access and high-value product zones.</div></li>
-<li><div><strong>Supply</strong> of cameras, NVRs, switches, cabling and monitors to a standardised BoM.</div></li>
-<li><div><strong>Out-of-hours installation</strong> to avoid trading disruption — nights and early mornings scheduled across regional sweeps.</div></li>
-<li><div><strong>Commissioning</strong> with image-quality, frame-rate and coverage verification against the BS EN 62676 design brief.</div></li>
-<li><div><strong>Handover pack</strong> — as-built drawings, commissioning certificates, operator manuals and maintenance schedule.</div></li>
-<li><div><strong>24/7 support</strong> with remote health monitoring and an engineer response SLA.</div></li>
-</ul>
+<section class="more-proj">
+  <div class="wrap">
+    <div class="eyebrow" style="margin-bottom:16px">◆ More case studies</div>
+    <h2>Selected projects.</h2>
+    <div class="more-grid"><a href="/projects/old-gas-works.html" class="more-card">
+      <div class="lab">Modular Housing</div>
+      <h3>The Old Gas Works Site</h3>
+      <p>Grangetown, Cardiff · Full Electrical</p>
+      <div class="arr">Read case study →</div>
+    </a><a href="/projects/dwp-swansea.html" class="more-card">
+      <div class="lab">Public Sector</div>
+      <h3>DWP Office</h3>
+      <p>Swansea · Full Electrical Installation</p>
+      <div class="arr">Read case study →</div>
+    </a><a href="/projects/longplay.html" class="more-card">
+      <div class="lab">Hospitality</div>
+      <h3>LongPlay Coffee</h3>
+      <p>Cardiff · Electrical Fit-Out &amp; Ongoing</p>
+      <div class="arr">Read case study →</div>
+    </a></div>
+  </div>
+</section>
 
-<div class="pstats">
-<div class="pstat"><div class="n">40+</div><div class="l">Sites delivered</div></div>
-<div class="pstat"><div class="n">5</div><div class="l">Countries covered</div></div>
-<div class="pstat"><div class="n">0</div><div class="l">Days of trading lost</div></div>
-<div class="pstat"><div class="n">24/7</div><div class="l">Health monitoring</div></div>
-</div>
-
-<h2>Why it mattered.</h2>
-<p>A retailer with a European footprint needs a contractor who can mobilise teams across borders and still deliver a paper trail that satisfies UK insurers, EU data-protection regulators and their own loss-prevention team. Our SSAIB certification — UKAS-accredited and recognised by police and insurers — made the procurement decision straightforward.</p>
-</div></div></section>
-
-<section class="nextband"><div class="wrap">
-<div class="eyebrow" style="margin-bottom:24px">◆ More projects</div>
-<div class="next-grid">
-<a class="nextlink" href="dwp-swansea.html"><div class="dir">← Previous</div><h3>DWP Office — Swansea</h3><p>Public sector fit-out</p></a>
-<a class="nextlink" href="longplay.html"><div class="dir">Next →</div><h3>LongPlay Coffee</h3><p>Fit-out + active maintenance</p></a>
-</div>
-</div></section>
+<section class="ctaband">
+  <div class="wrap">
+    <div class="eyebrow">◆ Start a project</div>
+    <h2>Got a similar <em>brief</em>?</h2>
+    <p class="lead">Tell us the site, the scope and the timeline — we&rsquo;ll come back within one working day.</p>
+    <div class="cta-row">
+      <a href="/contact.html" class="btn-gold">Request a quote →</a>
+      <a href="tel:02922641046" class="btn-ghost">Call 02922 641046</a>
+    </div>
+  </div>
+</section>
 
 <footer class="vs-footer">
   <div class="wrap">
     <div class="vs-footer-grid">
-
       <div class="vs-footer-brand">
         <div>
           <img src="/assets/logo-horizontal.png" alt="VoltSecure"/>
@@ -130,65 +174,43 @@
           <span class="bafe">◆ BAFE 303517 · NICEIC · SSAIB · ECA</span>
         </div>
       </div>
-
-      <div class="vs-footer-col">
-        <h4>International</h4>
-        <ul>
-          <li><a href="/index.html"><span class="ext">↗</span> VoltSecure UK</a></li>
-          <li><a href="/contact.html"><span class="ext">↗</span> VoltSecure Deutschland</a></li>
-          <li><a href="/contact.html"><span class="ext">↗</span> VoltSecure Ireland</a></li>
-        </ul>
-      </div>
-
-      <div class="vs-footer-col">
-        <h4>About us</h4>
-        <ul>
-          <li><a href="/about.html">About us</a></li>
-          <li><a href="/accreditations.html">Accreditations</a></li>
-          <li><a href="/projects.html">Case studies</a></li>
-          <li><a href="/contact.html">Contact us</a></li>
-          <li><a href="/contact.html">ESG &amp; social value</a></li>
-        </ul>
-      </div>
-
-      <div class="vs-footer-col">
-        <h4>VoltSecure &amp; you</h4>
-        <ul>
-          <li><a href="/contact.html"><span class="ext">↗</span> Employees</a></li>
-          <li><a href="/contact.html"><span class="ext">↗</span> Jobs &amp; apprenticeships</a></li>
-          <li><a href="mailto:info@voltsecure.co.uk?subject=Media%20enquiry"><span class="ext">↗</span> Media enquiries</a></li>
-          <li><a href="/contact.html"><span class="ext">↗</span> Suppliers</a></li>
-        </ul>
-      </div>
-
-      <div class="vs-footer-col">
-        <h4>Follow us</h4>
-        <ul>
-          <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a></li>
-          <li><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a></li>
-          <li><a href="https://www.youtube.com/" target="_blank" rel="noopener">YouTube</a></li>
-        </ul>
-        <h4 style="margin-top:28px">Contact</h4>
-        <ul>
-          <li class="tel"><a href="tel:02922641046">02922 641046</a></li>
-          <li class="em"><a href="mailto:info@voltsecure.co.uk">info@voltsecure.co.uk</a></li>
-        </ul>
-      </div>
-
+      <div class="vs-footer-col"><h4>International</h4><ul>
+        <li><a href="/index.html"><span class="ext">↗</span> VoltSecure UK</a></li>
+        <li><a href="/contact.html"><span class="ext">↗</span> VoltSecure Deutschland</a></li>
+        <li><a href="/contact.html"><span class="ext">↗</span> VoltSecure Ireland</a></li>
+      </ul></div>
+      <div class="vs-footer-col"><h4>About us</h4><ul>
+        <li><a href="/about.html">About us</a></li>
+        <li><a href="/accreditations.html">Accreditations</a></li>
+        <li><a href="/projects.html">Case studies</a></li>
+        <li><a href="/contact.html">Contact us</a></li>
+        <li><a href="/contact.html">ESG &amp; social value</a></li>
+      </ul></div>
+      <div class="vs-footer-col"><h4>VoltSecure &amp; you</h4><ul>
+        <li><a href="/contact.html"><span class="ext">↗</span> Employees</a></li>
+        <li><a href="/contact.html"><span class="ext">↗</span> Jobs &amp; apprenticeships</a></li>
+        <li><a href="mailto:info@voltsecure.co.uk?subject=Media%20enquiry"><span class="ext">↗</span> Media enquiries</a></li>
+        <li><a href="/contact.html"><span class="ext">↗</span> Suppliers</a></li>
+      </ul></div>
+      <div class="vs-footer-col"><h4>Follow us</h4><ul>
+        <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://www.youtube.com/" target="_blank" rel="noopener">YouTube</a></li>
+      </ul><h4 style="margin-top:28px">Contact</h4><ul>
+        <li class="tel"><a href="tel:02922641046">02922 641046</a></li>
+        <li class="em"><a href="mailto:info@voltsecure.co.uk">info@voltsecure.co.uk</a></li>
+      </ul></div>
     </div>
-
     <div class="vs-footer-bot">
       <span>VoltSecure® Ltd · © 2026 · All rights reserved · BAFE 303517</span>
       <span class="vs-footer-policy">
-        <a href="/contact.html">Accessibility</a>
-        <a href="/contact.html">Carbon reduction plan</a>
-        <a href="/contact.html">Cookie policy</a>
-        <a href="/contact.html">Modern slavery statement</a>
-        <a href="/contact.html">Privacy notice</a>
-        <a href="/contact.html">Site terms</a>
+        <a href="/contact.html">Accessibility</a><a href="/contact.html">Carbon reduction plan</a><a href="/contact.html">Cookie policy</a><a href="/contact.html">Modern slavery statement</a><a href="/contact.html">Privacy notice</a><a href="/contact.html">Site terms</a>
       </span>
     </div>
   </div>
 </footer>
 
-</body></html>
+<script src="/assets/site.js" defer></script>
+
+</body>
+</html>

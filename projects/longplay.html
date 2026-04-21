@@ -1,14 +1,60 @@
 <!doctype html>
-<html lang="en"><head>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>LongPlay Coffee — Case Study · VoltSecure</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>LongPlay Coffee · Case Study — VoltSecure</title>
+<meta name="description" content="LongPlay Coffee — VoltSecure case study. Cardiff, Hospitality · Speciality Coffee. Electrical Fit-Out &amp; Ongoing."/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="icon" href="../assets/logo-mark-gold.png"/>
-<link rel="stylesheet" href="_case.css"/>
+<link rel="icon" href="/assets/logo-mark-gold.png"/>
 <link rel="stylesheet" href="/assets/site.css"/>
+<link rel="stylesheet" href="/projects/_case.css"/>
+<style>
+.pstats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:48px 0 8px;background:#0d0c0a;border:1px solid var(--line-soft)}
+@media(max-width:720px){.pstats{grid-template-columns:repeat(2,1fr)}}
+.pstat{padding:28px 24px;border-right:1px solid var(--line-soft);text-align:center}
+.pstat:last-child{border-right:none}
+@media(max-width:720px){.pstat:nth-child(2){border-right:none}.pstat:nth-child(1),.pstat:nth-child(2){border-bottom:1px solid var(--line-soft)}}
+.pstat .n{font-family:var(--font-display);font-size:clamp(32px,3vw,44px);color:var(--gold);line-height:1}
+.pstat .l{font-size:12px;color:var(--mute);letter-spacing:0.1em;margin-top:8px;text-transform:uppercase;font-family:var(--font-mono)}
+
+.testimonial-band{padding:96px 0;background:#0d0c0a;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+@media(max-width:860px){.testimonial-band{padding:64px 0}}
+.testimonial{max-width:760px;margin:0 auto;text-align:center}
+.testimonial .mark{font-family:var(--font-display);font-size:80px;color:var(--gold);line-height:0.4;height:30px;margin-bottom:16px}
+.testimonial-quote{font-family:var(--font-display);font-size:clamp(20px,2.2vw,26px);color:var(--cream);line-height:1.55;margin-bottom:32px}
+.testimonial-author{display:inline-flex;flex-direction:column;gap:4px;padding-top:20px;border-top:1px solid var(--line-soft)}
+.testimonial-author strong{font-family:var(--font-display);font-size:18px;color:var(--cream);font-weight:400}
+.testimonial-author span{font-family:var(--font-mono);font-size:11px;color:var(--gold);letter-spacing:0.14em;text-transform:uppercase}
+.testimonial-stars{color:var(--gold);font-size:16px;letter-spacing:6px;margin-bottom:22px}
+.more-proj{padding:96px 0;border-top:1px solid var(--line-soft)}
+.more-proj h2{margin-bottom:48px}
+.more-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:720px){.more-grid{grid-template-columns:1fr}}
+.more-card{padding:28px 24px;border:1px solid var(--line-soft);background:rgba(255,255,255,0.015);transition:all .3s;display:flex;flex-direction:column;gap:10px}
+.more-card:hover{border-color:var(--gold);background:rgba(201,169,97,0.04);transform:translateY(-4px)}
+.more-card .lab{font-family:var(--font-mono);font-size:10px;letter-spacing:0.2em;color:var(--gold);text-transform:uppercase}
+.more-card h3{color:var(--cream);font-size:20px;margin-bottom:4px}
+.more-card p{color:var(--mute);font-size:13.5px;line-height:1.55}
+.more-card .arr{margin-top:10px;font-family:var(--font-mono);font-size:11px;color:var(--cream);letter-spacing:0.16em;text-transform:uppercase}
+.ctaband{padding:120px 0;background:#0d0c0a;border-top:1px solid var(--line);text-align:center}
+@media(max-width:860px){.ctaband{padding:72px 0}}
+.ctaband h2{font-size:clamp(32px,4.5vw,54px);margin-bottom:18px}
+.ctaband h2 em{font-style:italic;color:var(--gold)}
+.ctaband .lead{margin:0 auto 32px}
+.cta-row{display:inline-flex;gap:18px;flex-wrap:wrap;justify-content:center}
+.btn-gold{display:inline-flex;align-items:center;gap:10px;padding:16px 32px;background:var(--gold);color:#0a0a0a;font-family:var(--font-mono);font-size:12px;letter-spacing:0.18em;text-transform:uppercase;font-weight:500;transition:all .25s}
+.btn-gold:hover{background:var(--cream);transform:translateY(-2px)}
+.btn-ghost{display:inline-flex;align-items:center;gap:10px;padding:16px 28px;border:1px solid var(--line);color:var(--cream);font-family:var(--font-mono);font-size:12px;letter-spacing:0.18em;text-transform:uppercase;transition:all .25s}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+@media(max-width:560px){.cta-row{flex-direction:column;width:100%}.btn-gold,.btn-ghost{width:100%;max-width:320px;justify-content:center}}
+
+</style>
 <script src="/assets/site.js" defer></script>
-</head><body>
+</head>
+<body>
 
 <nav class="nav">
   <div class="nav-inner">
@@ -32,89 +78,106 @@
   </div>
 </nav>
 
-<section class="phero"><div class="wrap">
-<div class="crumbs"><a href="../index.html">Home</a><span class="sep">/</span><a href="../index.html#work">Projects</a><span class="sep">/</span>LongPlay Coffee</div>
-<div class="eyebrow" style="margin-bottom:20px">◆ Hospitality · Retail Fit-out</div>
-<h1>LongPlay Coffee.<br/><em>Full electrical fit-out.</em></h1>
-<p class="lead" style="margin-top:24px">A full electrical fit-out for an independent coffee brand — followed by an active maintenance contract covering everything on the landlord side of the meter. Now a reference partner for new sites.</p>
-<div class="phero-meta">
-<div class="meta-pair"><span class="k">Client</span><span class="v">LongPlay Coffee</span></div>
-<div class="meta-pair"><span class="k">Sector</span><span class="v">Hospitality / retail</span></div>
-<div class="meta-pair"><span class="k">Contract</span><span class="v">Fit-out + PPM</span></div>
-<div class="meta-pair"><span class="k">Status</span><span class="v">Active maintenance</span></div>
-</div>
+<section class="phero">
+  <div class="wrap">
+    <div class="crumbs"><a href="/index.html">Home</a><span class="sep">/</span><a href="/projects.html">Projects</a><span class="sep">/</span>LongPlay Coffee</div>
+    <div class="eyebrow">◆ Case study · 2023 — ongoing</div>
+    <h1>LongPlay Coffee</h1>
+    <p class="lead">A full <em>electrical fit-out</em> for independent speciality-coffee roaster <strong>LongPlay Coffee</strong>, delivered without interrupting weekday trading — and a trusted maintenance partnership ever since.</p>
+    <div class="phero-meta">
+      <div class="meta-pair"><span class="k">Location</span><span class="v">Cardiff</span></div>
+      <div class="meta-pair"><span class="k">Sector</span><span class="v">Hospitality · Speciality Coffee</span></div>
+      <div class="meta-pair"><span class="k">Services</span><span class="v">Electrical Fit-Out &amp; Ongoing</span></div>
+      <div class="meta-pair"><span class="k">Duration</span><span class="v">Full fit-out &amp; maintained</span></div>
+    </div>
+    <div class="phero-visual">
+      <svg viewBox="0 0 1600 600" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="cg" cx="50%" cy="50%"><stop offset="0" stop-color="#1f1c14"/><stop offset="1" stop-color="#0a0a0a"/></radialGradient></defs><rect width="1600" height="600" fill="url(#cg)"/><circle cx="800" cy="320" r="220" fill="none" stroke="#c9a961" stroke-width="1.5" opacity=".5"/><circle cx="800" cy="320" r="160" fill="none" stroke="#c9a961" stroke-width="1.5" opacity=".7"/><circle cx="800" cy="320" r="90" fill="#c9a961" opacity=".85"/><circle cx="800" cy="320" r="26" fill="#0a0a0a"/><g stroke="#c9a961" stroke-width="1" opacity=".45"><line x1="400" y1="500" x2="1200" y2="500"/><line x1="450" y1="530" x2="1150" y2="530"/></g><g fill="#c9a961" opacity=".7"><circle cx="580" cy="140" r="6"/><circle cx="1020" cy="140" r="6"/><circle cx="660" cy="90" r="4"/><circle cx="940" cy="90" r="4"/></g></svg>
+      <div class="overlay"></div>
+      <span class="tag">Hospitality</span>
+    </div>
+  </div>
+</section>
 
-<div class="phero-visual">
-<svg viewBox="0 0 1200 520" preserveAspectRatio="xMidYMid slice">
-<defs><linearGradient id="bg4" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#24201b"/><stop offset="1" stop-color="#080806"/></linearGradient></defs>
-<rect width="1200" height="520" fill="url(#bg4)"/>
-<g stroke="#c9a961" fill="none" opacity=".5"><rect x="120" y="140" width="960" height="280"/><line x1="120" y1="240" x2="1080" y2="240"/><line x1="120" y1="340" x2="1080" y2="340"/>
-<rect x="200" y="180" width="120" height="40"/><rect x="360" y="180" width="120" height="40"/><rect x="520" y="180" width="120" height="40"/><rect x="680" y="180" width="120" height="40"/><rect x="840" y="180" width="120" height="40"/></g>
-<g fill="#c9a961" opacity=".8"><circle cx="260" cy="280" r="3"/><circle cx="420" cy="280" r="3"/><circle cx="580" cy="280" r="3"/><circle cx="740" cy="280" r="3"/><circle cx="900" cy="280" r="3"/></g>
-<text x="32" y="490" font-family="monospace" font-size="12" fill="#c9a961" opacity=".7">LONGPLAY COFFEE · FULL FIT-OUT · ACTIVE PPM</text>
-</svg>
-<div class="overlay"></div><span class="tag">FIT-OUT + ONGOING MAINTENANCE</span>
-</div>
-</div></section>
+<section>
+  <div class="wrap body-grid">
+    <aside class="side">
+      <h4>Project at a glance</h4>
+      <ul>
+        <li>Client<strong>LongPlay Coffee</strong></li>
+        <li>Location<strong>Cardiff</strong></li>
+        <li>Services<strong>Electrical Fit-Out &amp; Ongoing</strong></li>
+        <li>Duration<strong>Full fit-out &amp; maintained</strong></li>
+        <li>Contract<strong>Hospitality</strong></li>
+      </ul>
+      <h4>Standards</h4>
+      <ul>
+        <li>BS 7671<strong>IET Wiring Regs</strong></li>
+        <li>BS 5839<strong>Fire detection</strong></li>
+        <li>BAFE<strong>SP203-1</strong></li>
+        <li>NICEIC<strong>Approved</strong></li>
+      </ul>
+      <a href="/contact.html" style="display:inline-flex;gap:10px;padding:14px 22px;border:1px solid var(--gold);color:var(--gold);font-family:var(--font-mono);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;transition:all .25s">Discuss a similar brief →</a>
+    </aside>
+    <div class="body">
+      <h2>Scope</h2><p>LongPlay Coffee is an independent speciality-coffee roaster in Cardiff. The brief covered the complete electrical fit-out of the venue — from mains distribution for espresso machines and grinders, through to scene-programmed lighting in the seating area and back-of-house service power.</p><p>Since completion, VoltSecure has managed every electrical need on site, from small reactive works to additional fit-out on expansion.</p>
+<h2>What we delivered</h2><ul class="deliverables"><li>Full electrical first and second fix across front-of-house and back-of-house</li><li>Dedicated circuits for espresso machines, grinders, refrigeration and roasting equipment</li><li>Scene-programmed lighting with occupancy control in seating and bar areas</li><li>Retail-grade data cabling and Wi-Fi access-point pre-provisioning</li><li>Emergency lighting and EICR to BS 5266</li><li>Ongoing maintenance contract — reactive and planned</li></ul>
+      <div class="pstats"><div class="pstat"><div class="n">5★</div><div class="l">Client review</div></div><div class="pstat"><div class="n">✓</div><div class="l">Zero trading downtime</div></div><div class="pstat"><div class="n">24/7</div><div class="l">Reactive cover</div></div><div class="pstat"><div class="n">BS 5266</div><div class="l">Emergency lighting</div></div></div>
+    </div>
+  </div>
+</section>
 
-<section><div class="wrap body-grid">
-<aside class="side">
-<h4>◆ Project details</h4>
-<ul>
-<li>Sector<strong>Hospitality</strong></li>
-<li>Scope<strong>Fit-out + PPM</strong></li>
-<li>Contract type<strong>Direct</strong></li>
-<li>Standard<strong>BS 7671</strong></li>
-<li>Certification<strong>NICEIC</strong></li>
-<li>Status<strong style="color:var(--gold)">Trading · active</strong></li>
-</ul>
-<h4>◆ Services delivered</h4>
-<ul>
-<li>Power<strong>Distribution</strong></li>
-<li>Lighting<strong>Feature + task</strong></li>
-<li>Equipment<strong>Espresso, grinders</strong></li>
-<li>Data<strong>EPoS cabling</strong></li>
-<li>Maintenance<strong>Scheduled PPM</strong></li>
-</ul>
-<a href="../index.html#contact" class="hero-cta">Discuss a fit-out →</a>
-</aside>
+<section class="testimonial-band">
+  <div class="wrap">
+    <div class="testimonial">
+      <div class="testimonial-stars">★ ★ ★ ★ ★</div>
+      <div class="mark">&ldquo;</div>
+      <p class="testimonial-quote">Volt Secure handled the full electrical fit-out for LongPlay Coffee and has managed all our electrical needs since then, proving to be a trusted partner. From the outset, Volt Secure has demonstrated unparalleled professionalism, delivering their services with precision and expertise. Their pricing is not only competitive but also fair, offering great value for the high-quality service they provide. Reliability and punctuality are evidently core values for them, as they consistently meet deadlines and exceed expectations. Volt Secure stands out as a company you can trust for all your security and electrical needs, and I highly recommend them.</p>
+      <div class="testimonial-author">
+        <strong>Gareth Vassay-Jones</strong>
+        <span>Owner, LongPlay Coffee</span>
+      </div>
+    </div>
+  </div>
+</section>
 
-<div class="body">
-<h2>The brief.</h2>
-<p>An independent coffee brand opening their first flagship needed the full electrical scope handled by a single accredited contractor — and then a maintenance partner who could keep the site trading through peak hours without drama. Because it's a hospitality fit-out, the electrical installation had to coordinate with the mechanical trades, the espresso suppliers and the shopfitters to a tight pre-opening programme.</p>
+<section class="more-proj">
+  <div class="wrap">
+    <div class="eyebrow" style="margin-bottom:16px">◆ More case studies</div>
+    <h2>Selected projects.</h2>
+    <div class="more-grid"><a href="/projects/old-gas-works.html" class="more-card">
+      <div class="lab">Modular Housing</div>
+      <h3>The Old Gas Works Site</h3>
+      <p>Grangetown, Cardiff · Full Electrical</p>
+      <div class="arr">Read case study →</div>
+    </a><a href="/projects/dwp-swansea.html" class="more-card">
+      <div class="lab">Public Sector</div>
+      <h3>DWP Office</h3>
+      <p>Swansea · Full Electrical Installation</p>
+      <div class="arr">Read case study →</div>
+    </a><a href="/projects/retail-cctv.html" class="more-card">
+      <div class="lab">National Retail</div>
+      <h3>Multi-National Retail CCTV Rollout</h3>
+      <p>UK &amp; Europe · CCTV &amp; IP Analytics</p>
+      <div class="arr">Read case study →</div>
+    </a></div>
+  </div>
+</section>
 
-<h2>What we delivered.</h2>
-<ul class="deliverables">
-<li><div><strong>Full electrical fit-out</strong> — power distribution, feature and task lighting, equipment circuits for espresso machines and grinders.</div></li>
-<li><div><strong>Data infrastructure</strong> — EPoS cabling and comms for front-of-house operations.</div></li>
-<li><div><strong>Commissioning &amp; certification</strong> to BS 7671 with a full NICEIC certificate handed to the client at sign-off.</div></li>
-<li><div><strong>Ongoing PPM</strong> — scheduled planned-preventative maintenance covering distribution boards, emergency lighting and equipment circuits.</div></li>
-</ul>
-
-<div class="pstats">
-<div class="pstat"><div class="n">1</div><div class="l">Contractor · start to finish</div></div>
-<div class="pstat"><div class="n">On</div><div class="l">Opening date</div></div>
-<div class="pstat"><div class="n">PPM</div><div class="l">Maintenance contract</div></div>
-<div class="pstat"><div class="n">★★★★★</div><div class="l">Client rating</div></div>
-</div>
-
-<h2>In the client's words.</h2>
-<p style="border-left:1px solid var(--gold);padding:20px 28px;font-family:var(--font-display);font-size:20px;color:#d6d1c4;line-height:1.5">"VoltSecure has truly set the bar high in the security industry. Their pricing is not only competitive but also fair, offering great value for the high-quality service they provide. Reliability and punctuality are evidently core values — they consistently meet deadlines and exceed expectations. VoltSecure handled the full electrical fit-out for LongPlay Coffee and has managed all our electrical needs since then, proving to be a trusted partner."
-<br/><span style="display:block;margin-top:16px;font-family:var(--font-mono);font-size:11px;color:var(--gold);letter-spacing:0.16em;text-transform:uppercase;font-style:normal">— Gareth Vassay-Jones · Owner, LongPlay Coffee</span></p>
-</div></div></section>
-
-<section class="nextband"><div class="wrap">
-<div class="eyebrow" style="margin-bottom:24px">◆ More projects</div>
-<div class="next-grid">
-<a class="nextlink" href="retail-cctv.html"><div class="dir">← Previous</div><h3>National Retail CCTV Rollout</h3><p>40+ sites · UK &amp; Europe</p></a>
-<a class="nextlink" href="old-gas-works.html"><div class="dir">Next →</div><h3>Old Gas Works — Cardiff</h3><p>48 homes · full electrical</p></a>
-</div>
-</div></section>
+<section class="ctaband">
+  <div class="wrap">
+    <div class="eyebrow">◆ Start a project</div>
+    <h2>Got a similar <em>brief</em>?</h2>
+    <p class="lead">Tell us the site, the scope and the timeline — we&rsquo;ll come back within one working day.</p>
+    <div class="cta-row">
+      <a href="/contact.html" class="btn-gold">Request a quote →</a>
+      <a href="tel:02922641046" class="btn-ghost">Call 02922 641046</a>
+    </div>
+  </div>
+</section>
 
 <footer class="vs-footer">
   <div class="wrap">
     <div class="vs-footer-grid">
-
       <div class="vs-footer-brand">
         <div>
           <img src="/assets/logo-horizontal.png" alt="VoltSecure"/>
@@ -122,65 +185,43 @@
           <span class="bafe">◆ BAFE 303517 · NICEIC · SSAIB · ECA</span>
         </div>
       </div>
-
-      <div class="vs-footer-col">
-        <h4>International</h4>
-        <ul>
-          <li><a href="/index.html"><span class="ext">↗</span> VoltSecure UK</a></li>
-          <li><a href="/contact.html"><span class="ext">↗</span> VoltSecure Deutschland</a></li>
-          <li><a href="/contact.html"><span class="ext">↗</span> VoltSecure Ireland</a></li>
-        </ul>
-      </div>
-
-      <div class="vs-footer-col">
-        <h4>About us</h4>
-        <ul>
-          <li><a href="/about.html">About us</a></li>
-          <li><a href="/accreditations.html">Accreditations</a></li>
-          <li><a href="/projects.html">Case studies</a></li>
-          <li><a href="/contact.html">Contact us</a></li>
-          <li><a href="/contact.html">ESG &amp; social value</a></li>
-        </ul>
-      </div>
-
-      <div class="vs-footer-col">
-        <h4>VoltSecure &amp; you</h4>
-        <ul>
-          <li><a href="/contact.html"><span class="ext">↗</span> Employees</a></li>
-          <li><a href="/contact.html"><span class="ext">↗</span> Jobs &amp; apprenticeships</a></li>
-          <li><a href="mailto:info@voltsecure.co.uk?subject=Media%20enquiry"><span class="ext">↗</span> Media enquiries</a></li>
-          <li><a href="/contact.html"><span class="ext">↗</span> Suppliers</a></li>
-        </ul>
-      </div>
-
-      <div class="vs-footer-col">
-        <h4>Follow us</h4>
-        <ul>
-          <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a></li>
-          <li><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a></li>
-          <li><a href="https://www.youtube.com/" target="_blank" rel="noopener">YouTube</a></li>
-        </ul>
-        <h4 style="margin-top:28px">Contact</h4>
-        <ul>
-          <li class="tel"><a href="tel:02922641046">02922 641046</a></li>
-          <li class="em"><a href="mailto:info@voltsecure.co.uk">info@voltsecure.co.uk</a></li>
-        </ul>
-      </div>
-
+      <div class="vs-footer-col"><h4>International</h4><ul>
+        <li><a href="/index.html"><span class="ext">↗</span> VoltSecure UK</a></li>
+        <li><a href="/contact.html"><span class="ext">↗</span> VoltSecure Deutschland</a></li>
+        <li><a href="/contact.html"><span class="ext">↗</span> VoltSecure Ireland</a></li>
+      </ul></div>
+      <div class="vs-footer-col"><h4>About us</h4><ul>
+        <li><a href="/about.html">About us</a></li>
+        <li><a href="/accreditations.html">Accreditations</a></li>
+        <li><a href="/projects.html">Case studies</a></li>
+        <li><a href="/contact.html">Contact us</a></li>
+        <li><a href="/contact.html">ESG &amp; social value</a></li>
+      </ul></div>
+      <div class="vs-footer-col"><h4>VoltSecure &amp; you</h4><ul>
+        <li><a href="/contact.html"><span class="ext">↗</span> Employees</a></li>
+        <li><a href="/contact.html"><span class="ext">↗</span> Jobs &amp; apprenticeships</a></li>
+        <li><a href="mailto:info@voltsecure.co.uk?subject=Media%20enquiry"><span class="ext">↗</span> Media enquiries</a></li>
+        <li><a href="/contact.html"><span class="ext">↗</span> Suppliers</a></li>
+      </ul></div>
+      <div class="vs-footer-col"><h4>Follow us</h4><ul>
+        <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://www.youtube.com/" target="_blank" rel="noopener">YouTube</a></li>
+      </ul><h4 style="margin-top:28px">Contact</h4><ul>
+        <li class="tel"><a href="tel:02922641046">02922 641046</a></li>
+        <li class="em"><a href="mailto:info@voltsecure.co.uk">info@voltsecure.co.uk</a></li>
+      </ul></div>
     </div>
-
     <div class="vs-footer-bot">
       <span>VoltSecure® Ltd · © 2026 · All rights reserved · BAFE 303517</span>
       <span class="vs-footer-policy">
-        <a href="/contact.html">Accessibility</a>
-        <a href="/contact.html">Carbon reduction plan</a>
-        <a href="/contact.html">Cookie policy</a>
-        <a href="/contact.html">Modern slavery statement</a>
-        <a href="/contact.html">Privacy notice</a>
-        <a href="/contact.html">Site terms</a>
+        <a href="/contact.html">Accessibility</a><a href="/contact.html">Carbon reduction plan</a><a href="/contact.html">Cookie policy</a><a href="/contact.html">Modern slavery statement</a><a href="/contact.html">Privacy notice</a><a href="/contact.html">Site terms</a>
       </span>
     </div>
   </div>
 </footer>
 
-</body></html>
+<script src="/assets/site.js" defer></script>
+
+</body>
+</html>
