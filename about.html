@@ -33,7 +33,18 @@ em{font-style:italic;color:var(--gold)}
 .nav-links a.current{color:var(--gold);opacity:1}
 .nav-cta{padding:10px 20px;border:1px solid var(--gold);color:var(--gold);font-size:12px;letter-spacing:0.16em;text-transform:uppercase;font-family:var(--font-mono);transition:all .25s}
 .nav-cta:hover{background:var(--gold);color:#0a0a0a}
-@media(max-width:860px){.nav-links{display:none}}
+.burger{display:none;flex-direction:column;gap:4px;padding:8px;background:none;border:none;cursor:pointer}
+.burger span{width:22px;height:1px;background:var(--gold);display:block}
+@media(max-width:860px){
+  .nav-links{display:none;position:fixed;inset:0;background:#0a0a0a;flex-direction:column;align-items:center;justify-content:center;gap:32px;z-index:999}
+  .nav-links.open{display:flex}
+  .nav-links::before{content:"";position:absolute;top:56px;left:50%;transform:translateX(-50%);width:140px;height:90px;background:url('assets/logo-gold.png') center/contain no-repeat}
+  .nav-links a{font-size:22px;letter-spacing:0.06em;opacity:1;color:var(--cream);font-family:var(--font-display);font-weight:400}
+  .nav-links a.current{color:var(--gold)}
+  .burger{display:flex;z-index:1001;position:relative}
+  .nav-cta{display:none}
+  .brand img{height:40px}
+}
 
 section{padding:120px 0;position:relative}
 .hero{padding:180px 0 80px;border-bottom:1px solid var(--line-soft)}
@@ -46,6 +57,19 @@ section{padding:120px 0;position:relative}
 @media(max-width:860px){.two-col{grid-template-columns:1fr;gap:40px}}
 .mark{position:sticky;top:120px}
 .mark img{height:120px;margin-bottom:24px}
+@media(max-width:860px){
+  .mark{position:static;top:auto}
+  .mark img{height:72px;margin-bottom:16px}
+  section{padding:72px 0}
+  .hero{padding:120px 0 56px}
+  h1{font-size:clamp(36px,9vw,56px)}
+  .ctaband{padding:72px 0}
+  .hero-cta,.hero-cta-ghost{display:block;text-align:center;margin:12px auto 0;max-width:320px}
+  .hero-cta-ghost{margin-left:auto}
+  .founder-feature{padding:24px!important;gap:28px!important}
+  .ff-img{aspect-ratio:1/1}
+  .tl-row{padding:24px 0}
+}
 .story p{margin-bottom:22px;color:#d6d1c4;font-size:16px;max-width:60ch}
 .story p + p{color:var(--mute)}
 
@@ -98,9 +122,30 @@ footer{background:#fbf8f2;color:#111;padding:60px 0 28px;border-top:1px solid va
       <a href="index.html#accreditations">Accreditations</a>
       <a href="index.html#contact">Contact</a>
     </div>
-    <a href="index.html#contact" class="nav-cta">Request a quote →</a>
+    <div style="display:flex;align-items:center;gap:14px">
+      <a href="index.html#contact" class="nav-cta">Request a quote →</a>
+      <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
   </div>
 </nav>
+<script>
+(function(){
+  const burger=document.querySelector('.burger');
+  const links=document.querySelector('.nav-links');
+  if(!burger||!links) return;
+  let open=false;
+  function set(o){
+    open=o;
+    links.classList.toggle('open',o);
+    document.body.style.overflow=o?'hidden':'';
+    burger.innerHTML=o
+      ?'<span style="transform:rotate(45deg) translate(3px,3px)"></span><span style="opacity:0"></span><span style="transform:rotate(-45deg) translate(3px,-3px)"></span>'
+      :'<span></span><span></span><span></span>';
+  }
+  burger.addEventListener('click',()=>set(!open));
+  links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>set(false)));
+})();
+</script>
 
 <section class="hero">
   <div class="wrap">
