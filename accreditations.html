@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Accreditations — VoltSecure</title>
+<meta name="description" content="VoltSecure's third-party accreditations across fire, electrical and security disciplines — BAFE, NICEIC, SSAIB, ECA, NSI, Constructionline, SafeContractor, CHAS."/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="assets/logo-mark-gold.png"/>
+<style>
+:root{
+  --bg:#0a0a0a;
+  --ink:#0f0f0f;
+  --panel:#131210;
+  --line:rgba(201,169,97,0.18);
+  --line-soft:rgba(255,255,255,0.06);
+  --gold:#c9a961;
+  --gold-bright:#d8bb78;
+  --gold-deep:#8f7640;
+  --cream:#f4efe6;
+  --mute:#8a8275;
+  --font-display:'Tenor Sans','Optima',serif;
+  --font-body:'Inter',system-ui,sans-serif;
+  --font-mono:'JetBrains Mono',ui-monospace,monospace;
+  --max:1200px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg);color:var(--cream);font-family:var(--font-body);font-weight:300;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+::selection{background:var(--gold);color:#111}
+
+.wrap{max-width:var(--max);margin:0 auto;padding:0 32px}
+@media(max-width:720px){.wrap{padding:0 20px}}
+.eyebrow{font-family:var(--font-mono);font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);font-weight:500}
+h1,h2,h3,h4{font-family:var(--font-display);font-weight:400;line-height:1.1;letter-spacing:-0.01em}
+h1{font-size:clamp(40px,6vw,80px)}
+h1 em{font-style:italic;color:var(--gold)}
+h2{font-size:clamp(28px,3.4vw,48px)}
+h3{font-size:clamp(20px,1.8vw,26px)}
+.lead{font-size:clamp(16px,1.2vw,19px);color:#d6d1c4;max-width:58ch;line-height:1.65}
+.rule-gold{height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);width:100%}
+
+/* ====== NAV (shared) ====== */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 0;backdrop-filter:blur(18px) saturate(140%);background:rgba(18,16,13,0.82);border-bottom:1px solid var(--line)}
+.nav::before{content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.6}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:32px;max-width:var(--max);margin:0 auto;padding:0 32px}
+.brand img{height:56px;width:auto}
+.nav-links{display:flex;gap:36px;align-items:center}
+.nav-links a{font-size:13px;letter-spacing:0.04em;opacity:.78;transition:opacity .2s;color:var(--cream)}
+.nav-links a:hover{opacity:1;color:var(--gold)}
+.nav-links a.current{color:var(--gold);opacity:1}
+.nav-cta{padding:10px 20px;border:1px solid var(--gold);color:var(--gold);font-size:12px;letter-spacing:0.16em;text-transform:uppercase;font-family:var(--font-mono);transition:all .25s}
+.nav-cta:hover{background:var(--gold);color:#0a0a0a}
+.burger{display:none;flex-direction:column;gap:4px;padding:8px}
+.burger span{width:22px;height:1px;background:var(--gold);display:block}
+@media(max-width:860px){
+  .nav-links{display:none;position:fixed;inset:0;background:#0a0a0a;flex-direction:column;align-items:center;justify-content:center;gap:32px;z-index:999}
+  .nav-links.open{display:flex}
+  .nav-links::before{content:"";position:absolute;top:56px;left:50%;transform:translateX(-50%);width:140px;height:90px;background:url('assets/logo-gold.png') center/contain no-repeat}
+  .nav-links a{font-size:22px;letter-spacing:0.06em;opacity:1;color:var(--cream);font-family:var(--font-display);font-weight:400}
+  .nav-links a.current{color:var(--gold)}
+  .burger{display:flex;z-index:1001;position:relative}
+  .nav-cta{display:none}
+  .nav-inner{padding:0 16px}
+  .brand img{height:40px}
+}
+@media(max-width:480px){.brand img{height:34px}}
+
+/* ====== HERO ====== */
+.page{padding:160px 0 96px;position:relative;overflow:hidden;background:radial-gradient(ellipse at 80% 10%,rgba(201,169,97,0.07),transparent 60%),var(--bg);text-align:center}
+.page h1{max-width:14ch;margin:22px auto 24px}
+.page .lead{margin:0 auto}
+@media(max-width:860px){.page{padding:112px 0 64px}}
+
+/* trust stats row */
+.truststrip{margin-top:48px;display:flex;flex-wrap:wrap;gap:36px;justify-content:center}
+.ts{display:flex;gap:12px;align-items:center;font-size:13px;color:#d6d1c4;letter-spacing:0.02em}
+.ts .ic{width:40px;height:40px;border:1px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);font-family:var(--font-mono);font-size:14px;flex-shrink:0}
+
+/* ====== logo wall ====== */
+.logowall{padding:64px 0;background:#0d0c0a;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.logowall .lab{text-align:center;font-family:var(--font-mono);font-size:11px;letter-spacing:0.22em;color:var(--mute);text-transform:uppercase;margin-bottom:40px}
+.logo-grid{display:grid;grid-template-columns:repeat(8,1fr);gap:16px;max-width:960px;margin:0 auto}
+@media(max-width:860px){.logo-grid{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:480px){.logo-grid{grid-template-columns:repeat(2,1fr)}}
+.logo-cell{aspect-ratio:1/1;background:#fbf8f2;border:1px solid var(--line-soft);display:flex;align-items:center;justify-content:center;padding:14px;transition:all .25s;color:#8f7640;position:relative}
+.logo-cell:hover{border-color:var(--gold);transform:translateY(-2px);box-shadow:0 12px 28px -16px rgba(201,169,97,0.35)}
+.logo-cell img{max-width:100%;max-height:100%;object-fit:contain}
+.logo-cell .txt{font-family:var(--font-display);font-size:14px;letter-spacing:0.02em;color:#8f7640;text-align:center;line-height:1.1}
+.logo-cell .txt small{display:block;font-family:var(--font-mono);font-size:8px;letter-spacing:0.14em;color:#b8a77a;margin-top:4px;text-transform:uppercase}
+
+/* ====== detail accordion ====== */
+.details-section{padding:120px 0}
+@media(max-width:860px){.details-section{padding:72px 0}}
+.section-head{text-align:center;max-width:640px;margin:0 auto 56px}
+.section-head h2{margin-bottom:14px}
+.section-head p{color:var(--mute);font-size:15px}
+
+.acc-list{max-width:880px;margin:0 auto;display:flex;flex-direction:column;gap:14px}
+.acc{border:1px solid var(--line-soft);background:linear-gradient(180deg,#14120e 0%,#0d0c0a 100%);transition:all .25s;overflow:hidden}
+.acc:hover{border-color:var(--line)}
+.acc[open]{border-color:var(--gold);box-shadow:0 16px 44px -24px rgba(201,169,97,0.25)}
+.acc summary{list-style:none;cursor:pointer;padding:22px 28px;display:flex;gap:20px;align-items:center;transition:background .2s}
+.acc summary::-webkit-details-marker{display:none}
+.acc summary:hover{background:rgba(201,169,97,0.03)}
+.acc-logo{width:64px;height:64px;flex:0 0 64px;background:#fbf8f2;display:flex;align-items:center;justify-content:center;padding:8px;border:1px solid var(--line-soft);color:#8f7640}
+.acc-logo img{max-width:100%;max-height:100%;object-fit:contain}
+.acc-logo .txt{font-family:var(--font-display);font-size:12px;color:#8f7640;text-align:center;line-height:1}
+.acc[open] .acc-logo{border-color:var(--gold);background:#fff7e6}
+.acc-head{flex:1;min-width:0;text-align:left}
+.acc-title{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:4px}
+.acc-name{font-family:var(--font-display);font-size:20px;color:var(--cream);font-weight:400}
+.acc-tag{font-family:var(--font-mono);font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);background:rgba(201,169,97,0.1);padding:3px 10px;border:1px solid var(--line)}
+.acc-desc{color:var(--mute);font-size:13.5px;line-height:1.55}
+.acc-chev{width:32px;height:32px;border:1px solid var(--line-soft);color:var(--gold);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .25s;font-family:var(--font-mono);font-size:14px}
+.acc[open] .acc-chev{transform:rotate(45deg);border-color:var(--gold);background:rgba(201,169,97,0.08)}
+
+.acc-body{padding:0 28px 28px;padding-left:calc(28px + 64px + 20px);display:flex;flex-direction:column;gap:20px;border-top:1px solid var(--line-soft);margin-top:0;padding-top:24px}
+@media(max-width:720px){.acc summary{padding:18px 20px;gap:14px}.acc-logo{width:52px;height:52px;flex:0 0 52px}.acc-body{padding:20px 20px 24px 20px}.acc-name{font-size:17px}}
+.acc-block h4{font-family:var(--font-mono);font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.acc-block h4::before{content:"◆";font-size:8px}
+.acc-block p{color:#c8c2b4;font-size:14.5px;line-height:1.7}
+.acc-block.highlight{background:rgba(201,169,97,0.05);border:1px solid var(--line);padding:20px 22px}
+.acc-block.highlight p{color:#e3ddd0}
+.svc-tags{display:flex;flex-wrap:wrap;gap:8px}
+.svc-tag{font-family:var(--font-mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--mute);padding:6px 12px;border:1px solid var(--line-soft);background:rgba(255,255,255,0.02)}
+
+/* ====== compliance strip ====== */
+.compliance{padding:96px 0;background:#0d0c0a;border-top:1px solid var(--line)}
+@media(max-width:860px){.compliance{padding:64px 0}}
+.compliance h2{text-align:center;margin-bottom:56px}
+.comp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;max-width:960px;margin:0 auto}
+@media(max-width:860px){.comp-grid{grid-template-columns:repeat(2,1fr)}}
+.comp{padding:28px 22px;border:1px solid var(--line-soft);background:rgba(255,255,255,0.015);text-align:center;transition:all .25s}
+.comp:hover{border-color:var(--gold);transform:translateY(-3px)}
+.comp-num{font-family:var(--font-mono);font-size:10px;letter-spacing:0.2em;color:var(--gold);margin-bottom:14px}
+.comp h3{font-size:18px;margin-bottom:10px;color:var(--cream)}
+.comp p{font-size:13px;color:var(--mute);line-height:1.6}
+
+/* ====== CTA ====== */
+.ctaband{padding:120px 0;background:#0d0c0a;border-top:1px solid var(--line);text-align:center;position:relative;overflow:hidden}
+.ctaband::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 20%,rgba(201,169,97,0.08),transparent 60%);pointer-events:none}
+.ctaband h2{font-size:clamp(36px,5vw,64px);margin:18px 0 20px}
+.ctaband h2 em{font-style:italic;color:var(--gold)}
+.ctaband .lead{margin:0 auto 40px}
+.cta-row{display:inline-flex;gap:18px;flex-wrap:wrap;justify-content:center}
+.btn-gold{display:inline-flex;align-items:center;gap:10px;padding:16px 32px;background:var(--gold);color:#0a0a0a;font-family:var(--font-mono);font-size:12px;letter-spacing:0.18em;text-transform:uppercase;font-weight:500;transition:all .25s}
+.btn-gold:hover{background:var(--cream);transform:translateY(-2px)}
+.btn-ghost{display:inline-flex;align-items:center;gap:10px;padding:16px 28px;border:1px solid var(--line);color:var(--cream);font-family:var(--font-mono);font-size:12px;letter-spacing:0.18em;text-transform:uppercase;transition:all .25s}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+@media(max-width:560px){.cta-row{flex-direction:column;width:100%}.btn-gold,.btn-ghost{width:100%;max-width:320px;justify-content:center}.ctaband{padding:80px 0}}
+
+/* ====== footer ====== */
+footer{background:#070707;color:var(--cream);padding:64px 0 24px;border-top:1px solid var(--line)}
+footer::before{content:"";display:block;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.5;margin-bottom:64px;margin-top:-65px}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:48px;margin-bottom:48px}
+@media(max-width:720px){.footer-grid{grid-template-columns:1fr;gap:32px}}
+.footer-brand img{height:48px;margin-bottom:18px}
+.footer-brand p{font-size:13px;color:var(--mute);max-width:34ch;line-height:1.6}
+.footer-col h4{font-family:var(--font-mono);font-size:11px;color:var(--gold);letter-spacing:0.18em;text-transform:uppercase;margin-bottom:16px;font-weight:500}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-col a{font-size:14px;color:var(--mute);transition:color .2s}
+.footer-col a:hover{color:var(--gold)}
+.footer-bot{border-top:1px solid var(--line-soft);padding-top:24px;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;font-family:var(--font-mono);font-size:11px;color:var(--mute);letter-spacing:0.08em}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand"><img src="assets/logo-horizontal.png" alt="VoltSecure"/></a>
+    <div class="nav-links">
+      <a href="index.html#services">Services</a>
+      <a href="index.html#work">Projects</a>
+      <a href="about.html">About</a>
+      <a href="accreditations.html" class="current">Accreditations</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div style="display:flex;align-items:center;gap:14px">
+      <a href="contact.html" class="nav-cta">Request a quote →</a>
+      <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="page">
+  <div class="wrap">
+    <div class="eyebrow">◆ Compliance · Trust · Standards</div>
+    <h1>Accreditations that <em>back</em> every installation.</h1>
+    <p class="lead">We hold recognised third-party accreditations across fire, electrical and security disciplines — helping clients reduce risk, meet compliance requirements, and trust the quality of every project we deliver.</p>
+    <div class="truststrip">
+      <div class="ts"><div class="ic">✓</div><span>8+ core accreditations</span></div>
+      <div class="ts"><div class="ic">◆</div><span>Fire · Electrical · Security · Compliance</span></div>
+      <div class="ts"><div class="ic">★</div><span>Commercial &amp; public-sector ready</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LOGO WALL ============ -->
+<section class="logowall">
+  <div class="wrap">
+    <p class="lab">Recognised by leading industry bodies</p>
+    <div class="logo-grid">
+      <div class="logo-cell" title="BAFE"><img src="assets/accred/bafe.jpeg" alt="BAFE"/></div>
+      <div class="logo-cell" title="NICEIC"><span class="txt">NICEIC<small>approved</small></span></div>
+      <div class="logo-cell" title="SSAIB"><img src="assets/accred/ssaib.jpg" alt="SSAIB"/></div>
+      <div class="logo-cell" title="ECA"><img src="assets/accred/eca.jpg" alt="ECA"/></div>
+      <div class="logo-cell" title="NSI"><span class="txt">NSI<small>Gold</small></span></div>
+      <div class="logo-cell" title="Constructionline"><span class="txt">Cline<small>Silver</small></span></div>
+      <div class="logo-cell" title="SafeContractor"><span class="txt">Safe<small>Contractor</small></span></div>
+      <div class="logo-cell" title="CHAS"><span class="txt">CHAS<small>SSIP</small></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DETAIL ACCORDION ============ -->
+<section class="details-section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow" style="margin-bottom:16px">◆ Explore each accreditation</div>
+      <h2>What each certification means.</h2>
+      <p>Understand what each certification covers and why it matters for your project.</p>
+    </div>
+
+    <div class="acc-list">
+
+      <details class="acc" open>
+        <summary>
+          <div class="acc-logo"><img src="assets/accred/bafe.jpeg" alt="BAFE"/></div>
+          <div class="acc-head">
+            <div class="acc-title"><span class="acc-name">BAFE</span><span class="acc-tag">Fire Compliance</span></div>
+            <div class="acc-desc">Third-party certified for fire protection services.</div>
+          </div>
+          <div class="acc-chev">+</div>
+        </summary>
+        <div class="acc-body">
+          <div class="acc-block"><h4>What it is</h4><p>BAFE (British Approvals for Fire Equipment) is the independent register of quality fire safety service providers in the UK. BAFE-registered companies are assessed by UKAS-accredited certification bodies.</p></div>
+          <div class="acc-block highlight"><h4>What this means for clients</h4><p>Guarantees that your fire alarm and detection systems are designed, installed and maintained by a company meeting the highest fire-safety standards. Essential for insurance compliance and regulatory sign-off.</p></div>
+          <div class="acc-block"><h4>Services covered</h4><div class="svc-tags"><span class="svc-tag">Fire alarm design &amp; install</span><span class="svc-tag">Fire detection systems</span><span class="svc-tag">Emergency lighting</span></div></div>
+        </div>
+      </details>
+
+      <details class="acc">
+        <summary>
+          <div class="acc-logo"><span class="txt">NICEIC</span></div>
+          <div class="acc-head">
+            <div class="acc-title"><span class="acc-name">NICEIC</span><span class="acc-tag">Electrical</span></div>
+            <div class="acc-desc">Approved contractor for electrical installation and testing.</div>
+          </div>
+          <div class="acc-chev">+</div>
+        </summary>
+        <div class="acc-body">
+          <div class="acc-block"><h4>What it is</h4><p>NICEIC (National Inspection Council for Electrical Installation Contracting) is the UK's leading voluntary regulatory body for the electrical contracting industry. Approved Contractors are assessed against the current edition of BS 7671.</p></div>
+          <div class="acc-block highlight"><h4>What this means for clients</h4><p>Your electrical installations are carried out by qualified engineers who are regularly reassessed. All work is covered by NICEIC's complaints process and insurance-backed guarantee.</p></div>
+          <div class="acc-block"><h4>Services covered</h4><div class="svc-tags"><span class="svc-tag">Commercial electrical install</span><span class="svc-tag">Testing &amp; inspection</span><span class="svc-tag">Electrical maintenance</span></div></div>
+        </div>
+      </details>
+
+      <details class="acc">
+        <summary>
+          <div class="acc-logo"><img src="assets/accred/ssaib.jpg" alt="SSAIB"/></div>
+          <div class="acc-head">
+            <div class="acc-title"><span class="acc-name">SSAIB</span><span class="acc-tag">Security</span></div>
+            <div class="acc-desc">Approved for design, installation and maintenance of electronic security systems.</div>
+          </div>
+          <div class="acc-chev">+</div>
+        </summary>
+        <div class="acc-body">
+          <div class="acc-block"><h4>What it is</h4><p>SSAIB is a leading certification body for organisations providing security systems, fire detection and alarm systems, and telecare services. SSAIB is a UKAS-accredited certification body.</p></div>
+          <div class="acc-block highlight"><h4>What this means for clients</h4><p>Assurance that security and fire systems are designed, installed, commissioned and maintained to the relevant European and British Standards. Required by many insurers and local authorities.</p></div>
+          <div class="acc-block"><h4>Services covered</h4><div class="svc-tags"><span class="svc-tag">Intruder alarms</span><span class="svc-tag">Access control</span><span class="svc-tag">CCTV systems</span></div></div>
+        </div>
+      </details>
+
+      <details class="acc">
+        <summary>
+          <div class="acc-logo"><img src="assets/accred/eca.jpg" alt="ECA"/></div>
+          <div class="acc-head">
+            <div class="acc-title"><span class="acc-name">ECA</span><span class="acc-tag">Electrical Trade</span></div>
+            <div class="acc-desc">Electrical Contractors' Association membership.</div>
+          </div>
+          <div class="acc-chev">+</div>
+        </summary>
+        <div class="acc-body">
+          <div class="acc-block"><h4>What it is</h4><p>The ECA (Electrical Contractors' Association) is the UK's leading trade association for electrical, electrotechnical and energy services companies. Membership demonstrates technical competence and financial stability.</p></div>
+          <div class="acc-block highlight"><h4>What this means for clients</h4><p>ECA members are regularly assessed and must demonstrate ongoing competence. ECA membership also provides access to dispute resolution and an insurance-backed warranty scheme.</p></div>
+          <div class="acc-block"><h4>Services covered</h4><div class="svc-tags"><span class="svc-tag">Electrical contracting</span><span class="svc-tag">Energy services</span><span class="svc-tag">Electrotechnical work</span></div></div>
+        </div>
+      </details>
+
+      <details class="acc">
+        <summary>
+          <div class="acc-logo"><span class="txt">NSI</span></div>
+          <div class="acc-head">
+            <div class="acc-title"><span class="acc-name">NSI</span><span class="acc-tag">Security &amp; Fire</span></div>
+            <div class="acc-desc">National Security Inspectorate approval for security and fire systems.</div>
+          </div>
+          <div class="acc-chev">+</div>
+        </summary>
+        <div class="acc-body">
+          <div class="acc-block"><h4>What it is</h4><p>NSI (National Security Inspectorate) is a UKAS-accredited certification body that audits companies providing security and fire safety services against recognised industry standards.</p></div>
+          <div class="acc-block highlight"><h4>What this means for clients</h4><p>NSI approval means our security and fire installations meet the standards required by police, fire services, insurers and local authorities.</p></div>
+          <div class="acc-block"><h4>Services covered</h4><div class="svc-tags"><span class="svc-tag">Security systems</span><span class="svc-tag">Fire safety</span><span class="svc-tag">Monitoring services</span></div></div>
+        </div>
+      </details>
+
+      <details class="acc">
+        <summary>
+          <div class="acc-logo"><span class="txt">Cline<br/><small style="font-family:var(--font-mono);font-size:8px;letter-spacing:0.14em;color:#b8a77a">Silver</small></span></div>
+          <div class="acc-head">
+            <div class="acc-title"><span class="acc-name">Constructionline Silver</span><span class="acc-tag">Procurement</span></div>
+            <div class="acc-desc">Pre-qualification for the UK construction industry.</div>
+          </div>
+          <div class="acc-chev">+</div>
+        </summary>
+        <div class="acc-body">
+          <div class="acc-block"><h4>What it is</h4><p>Constructionline is the UK's largest procurement and supply-chain management service. Silver membership includes PAS 91 pre-qualification and additional assessment of management systems.</p></div>
+          <div class="acc-block highlight"><h4>What this means for clients</h4><p>Simplifies your procurement process — Constructionline Silver confirms VoltSecure meets the standards required for public and private-sector contracts.</p></div>
+          <div class="acc-block"><h4>Services covered</h4><div class="svc-tags"><span class="svc-tag">Public-sector contracts</span><span class="svc-tag">Commercial projects</span><span class="svc-tag">Framework agreements</span></div></div>
+        </div>
+      </details>
+
+      <details class="acc">
+        <summary>
+          <div class="acc-logo"><span class="txt" style="font-size:10px">Safe<br/>Contractor</span></div>
+          <div class="acc-head">
+            <div class="acc-title"><span class="acc-name">SafeContractor</span><span class="acc-tag">Health &amp; Safety</span></div>
+            <div class="acc-desc">Health and safety accreditation for contractor competence.</div>
+          </div>
+          <div class="acc-chev">+</div>
+        </summary>
+        <div class="acc-body">
+          <div class="acc-block"><h4>What it is</h4><p>SafeContractor is an accreditation scheme that assesses contractor health and safety competence. It is widely recognised across the UK construction and facilities-management sectors.</p></div>
+          <div class="acc-block highlight"><h4>What this means for clients</h4><p>Confirms that VoltSecure meets rigorous health and safety standards. Accepted by major clients and principal contractors as proof of competence.</p></div>
+          <div class="acc-block"><h4>Services covered</h4><div class="svc-tags"><span class="svc-tag">Site safety management</span><span class="svc-tag">Risk assessment</span><span class="svc-tag">Method statements</span></div></div>
+        </div>
+      </details>
+
+      <details class="acc">
+        <summary>
+          <div class="acc-logo"><span class="txt">CHAS<br/><small style="font-family:var(--font-mono);font-size:8px;letter-spacing:0.14em;color:#b8a77a">SSIP</small></span></div>
+          <div class="acc-head">
+            <div class="acc-title"><span class="acc-name">CHAS</span><span class="acc-tag">Health &amp; Safety</span></div>
+            <div class="acc-desc">Contractors Health and Safety Assessment Scheme.</div>
+          </div>
+          <div class="acc-chev">+</div>
+        </summary>
+        <div class="acc-body">
+          <div class="acc-block"><h4>What it is</h4><p>CHAS (Contractors Health and Safety Assessment Scheme) is a founder member of SSIP (Safety Schemes in Procurement). It assesses health and safety policy, procedures and track record.</p></div>
+          <div class="acc-block highlight"><h4>What this means for clients</h4><p>CHAS accreditation gives you confidence that VoltSecure takes health and safety seriously and meets the standards expected by principal contractors and clients.</p></div>
+          <div class="acc-block"><h4>Services covered</h4><div class="svc-tags"><span class="svc-tag">H&amp;S policy compliance</span><span class="svc-tag">Contractor assessment</span><span class="svc-tag">Ongoing audits</span></div></div>
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMPLIANCE STRIP ============ -->
+<section class="compliance">
+  <div class="wrap">
+    <div class="eyebrow" style="text-align:center;margin-bottom:16px">◆ How we deliver</div>
+    <h2>Compliance &amp; delivery standards.</h2>
+    <div class="comp-grid">
+      <div class="comp"><div class="comp-num">01</div><h3>RAMS</h3><p>Risk assessments and method statements for every project, before first tool on site.</p></div>
+      <div class="comp"><div class="comp-num">02</div><h3>Documentation</h3><p>Full as-built drawings, test certificates and O&amp;M manuals delivered on handover.</p></div>
+      <div class="comp"><div class="comp-num">03</div><h3>Testing &amp; certification</h3><p>Independent testing and certification to BS and EN standards — BS 7671, BS 5839, BS EN 62676.</p></div>
+      <div class="comp"><div class="comp-num">04</div><h3>Commercial delivery</h3><p>Project management, scheduling and handover to programme — no surprises, no slip.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="ctaband">
+  <div class="wrap">
+    <div class="eyebrow">◆ Work with us</div>
+    <h2>Need a <em>compliant</em> installation partner?</h2>
+    <p class="lead">From fire and security to electrical and commercial maintenance — VoltSecure delivers work backed by recognised industry standards.</p>
+    <div class="cta-row">
+      <a href="contact.html" class="btn-gold">Request a quote →</a>
+      <a href="contact.html" class="btn-ghost">Talk to our team</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="assets/logo-horizontal.png" alt="VoltSecure"/>
+        <p>Fire, security &amp; electrical engineering for commercial estates across the UK and continental Europe.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="index.html#work">Projects</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="accreditations.html">Accreditations</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Registered</h4>
+        <ul>
+          <li>VoltSecure® Ltd</li>
+          <li>BAFE 303517</li>
+          <li>Unit 33 Albion Industrial Estate</li>
+          <li>Cilfynydd, Pontypridd CF37 4NX</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bot">
+      <span>© 2026 VoltSecure® Ltd · All rights reserved</span>
+      <span><a href="mailto:info@voltsecure.co.uk">info@voltsecure.co.uk</a> · <a href="tel:02922641046">02922 641046</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* mobile menu */
+(function(){
+  const burger=document.querySelector('.burger');
+  const links=document.querySelector('.nav-links');
+  if(!burger||!links) return;
+  let open=false;
+  function set(o){
+    open=o;
+    links.classList.toggle('open',o);
+    document.body.style.overflow=o?'hidden':'';
+    burger.innerHTML=o
+      ?'<span style="transform:rotate(45deg) translate(3px,3px)"></span><span style="opacity:0"></span><span style="transform:rotate(-45deg) translate(3px,-3px)"></span>'
+      :'<span></span><span></span><span></span>';
+  }
+  burger.addEventListener('click',()=>set(!open));
+  links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>set(false)));
+})();
+</script>
+
+</body>
+</html>
