@@ -37,10 +37,12 @@ em{font-style:italic;color:var(--gold)}
 .burger span{width:22px;height:1px;background:var(--gold);display:block}
 @media(max-width:860px){
   .nav{backdrop-filter:none;-webkit-backdrop-filter:none;background:#0a0a0a}
-  .nav-links{display:none;position:fixed;inset:0;background:#0a0a0a;flex-direction:column;align-items:center;justify-content:center;gap:32px;z-index:999}
+  .nav-links{display:none;position:fixed;inset:0;background:#0a0a0a;flex-direction:column;align-items:center;justify-content:center;gap:44px;z-index:999;padding:120px 20px 40px}
   .nav-links.open{display:flex}
-  .nav-links::before{content:"";position:absolute;top:56px;left:50%;transform:translateX(-50%);width:140px;height:90px;background:url('assets/logo-gold.png') center/contain no-repeat}
-  .nav-links a{font-size:22px;letter-spacing:0.06em;opacity:1;color:var(--cream);font-family:var(--font-display);font-weight:400}
+  .nav-links::before{content:"";position:absolute;top:72px;left:50%;transform:translateX(-50%);width:200px;height:130px;background:url('assets/logo-gold.png') center/contain no-repeat}
+  .nav-links::after{content:"";position:absolute;bottom:72px;left:50%;transform:translateX(-50%);width:40%;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.6}
+  .nav-links a{font-size:32px;letter-spacing:0.03em;opacity:1;color:var(--cream);font-family:var(--font-display);font-weight:400;padding:4px 16px;transition:color .2s}
+  .nav-links a:hover,.nav-links a:active{color:var(--gold)}
   .nav-links a.current{color:var(--gold)}
   .burger{display:flex;z-index:1001;position:relative}
   .nav-cta{display:none}
@@ -115,7 +117,7 @@ footer{background:#fbf8f2;color:#111;padding:60px 0 28px;border-top:1px solid va
 
 <nav class="nav">
   <div class="nav-inner">
-    <a href="index.html" class="brand"><img src="assets/logo-horizontal.png" alt="VoltSecure"/></a>
+    <a href="index.html" class="brand"><img src="assets/logo-landscape.svg" alt="VoltSecure"/></a>
     <div class="nav-links">
       <a href="index.html#services">Services</a>
       <a href="index.html#work">Projects</a>
