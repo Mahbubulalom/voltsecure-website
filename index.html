@@ -96,6 +96,7 @@ section{position:relative;padding:120px 0}
 
 /* nav mobile */
 @media(max-width:960px){
+  .nav{backdrop-filter:none;-webkit-backdrop-filter:none;background:#0a0a0a}
   .nav-links{display:none;position:fixed;inset:0;background:#0a0a0a;flex-direction:column;align-items:center;justify-content:center;gap:32px;z-index:999}
   .nav-links.open{display:flex}
   .nav-links::before{content:"";position:absolute;top:56px;left:50%;transform:translateX(-50%);width:140px;height:90px;background:url('assets/logo-gold.png') center/contain no-repeat}
