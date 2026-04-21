@@ -61,7 +61,7 @@ h3{font-size:clamp(20px,1.8vw,26px)}
   .nav{backdrop-filter:none;-webkit-backdrop-filter:none;background:#0a0a0a}
   .nav-links{display:none;position:fixed;inset:0;background:#0a0a0a;flex-direction:column;align-items:center;justify-content:center;gap:44px;z-index:999;padding:120px 20px 40px}
   .nav-links.open{display:flex}
-  .nav-links::before{content:"";position:absolute;top:72px;left:50%;transform:translateX(-50%);width:200px;height:130px;background:url('assets/logo-gold.png') center/contain no-repeat}
+  .nav-links::before{content:"";position:absolute;top:72px;left:50%;transform:translateX(-50%);width:200px;height:130px;background:url('/assets/logo-gold.png') center/contain no-repeat}
   .nav-links::after{content:"";position:absolute;bottom:72px;left:50%;transform:translateX(-50%);width:40%;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.6}
   .nav-links a{font-size:32px;letter-spacing:0.03em;opacity:1;color:var(--cream);font-family:var(--font-display);font-weight:400;padding:4px 16px;transition:color .2s}
   .nav-links a:hover,.nav-links a:active{color:var(--gold)}
@@ -170,21 +170,28 @@ footer::before{content:"";display:block;height:1px;background:linear-gradient(90
 .footer-col a:hover{color:var(--gold)}
 .footer-bot{border-top:1px solid var(--line-soft);padding-top:24px;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;font-family:var(--font-mono);font-size:11px;color:var(--mute);letter-spacing:0.08em}
 </style>
+<link rel="stylesheet" href="/assets/site.css"/>
+<script src="/assets/site.js" defer></script>
 </head>
 <body>
 
 <nav class="nav">
   <div class="nav-inner">
-    <a href="index.html" class="brand"><img src="assets/logo-horizontal.png" alt="VoltSecure"/></a>
+    <a href="/index.html" class="brand"><img src="/assets/logo-horizontal.png" alt="VoltSecure"/></a>
     <div class="nav-links">
-      <a href="index.html#services">Services</a>
-      <a href="index.html#work">Projects</a>
-      <a href="about.html">About</a>
-      <a href="accreditations.html" class="current">Accreditations</a>
-      <a href="contact.html">Contact</a>
+      <a href="/services.html">Services</a>
+      <a href="/projects.html">Projects</a>
+      <a href="/about.html">About</a>
+      <a href="/accreditations.html" class="current">Accreditations</a>
+      <a href="/contact.html">Contact</a>
+      <div class="nav-mobile-extras">
+        <button class="lang-toggle" type="button" aria-label="Switch language"></button>
+        <a href="/contact.html" class="mobile-cta">Request a quote →</a>
+      </div>
     </div>
-    <div style="display:flex;align-items:center;gap:14px">
-      <a href="contact.html" class="nav-cta">Request a quote →</a>
+    <div class="nav-right">
+      <button class="lang-toggle" type="button" aria-label="Switch language"></button>
+      <a href="/contact.html" class="nav-cta">Request a quote →</a>
       <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -392,37 +399,46 @@ footer::before{content:"";display:block;height:1px;background:linear-gradient(90
 </section>
 
 <!-- ============ FOOTER ============ -->
-<footer>
+<footer class="vs-footer">
   <div class="wrap">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <img src="assets/logo-horizontal.png" alt="VoltSecure"/>
+    <div class="vs-footer-grid">
+      <div class="vs-footer-brand">
+        <img src="/assets/logo-horizontal.png" alt="VoltSecure"/>
         <p>Fire, security &amp; electrical engineering for commercial estates across the UK and continental Europe.</p>
       </div>
-      <div class="footer-col">
-        <h4>Navigate</h4>
+      <div class="vs-footer-col">
+        <h4>Services</h4>
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="index.html#services">Services</a></li>
-          <li><a href="index.html#work">Projects</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="accreditations.html">Accreditations</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="/services/electrical-services.html">Electrical</a></li>
+          <li><a href="/services/fire.html">Fire alarms</a></li>
+          <li><a href="/services/cctv.html">CCTV</a></li>
+          <li><a href="/services/intruder.html">Intruder</a></li>
+          <li><a href="/services/access.html">Access control</a></li>
+          <li><a href="/services.html">All services →</a></li>
         </ul>
       </div>
-      <div class="footer-col">
-        <h4>Registered</h4>
+      <div class="vs-footer-col">
+        <h4>Company</h4>
         <ul>
-          <li>VoltSecure® Ltd</li>
-          <li>BAFE 303517</li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/projects.html">Case studies</a></li>
+          <li><a href="/accreditations.html">Accreditations</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="vs-footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:info@voltsecure.co.uk">info@voltsecure.co.uk</a></li>
+          <li><a href="tel:02922641046">02922 641046</a></li>
           <li>Unit 33 Albion Industrial Estate</li>
           <li>Cilfynydd, Pontypridd CF37 4NX</li>
         </ul>
       </div>
     </div>
-    <div class="footer-bot">
-      <span>© 2026 VoltSecure® Ltd · All rights reserved</span>
-      <span><a href="mailto:info@voltsecure.co.uk">info@voltsecure.co.uk</a> · <a href="tel:02922641046">02922 641046</a></span>
+    <div class="vs-footer-bot">
+      <span>© 2026 VoltSecure® Ltd · BAFE 303517 · All rights reserved</span>
+      <span class="vs-footer-policy"><a href="/privacy.html">Privacy</a> · <a href="/contact.html">Get in touch</a></span>
     </div>
   </div>
 </footer>

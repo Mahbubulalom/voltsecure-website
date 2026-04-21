@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Services — VoltSecure</title>
+<meta name="description" content="VoltSecure's full service range — fire, security, electrical, CCTV, access control, data, automation, aspirating detection and maintenance — across the UK and Europe."/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="/assets/logo-mark-gold.png"/>
+<link rel="stylesheet" href="/assets/site.css"/>
+<script src="/assets/site.js" defer></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#0a0a0a;color:#f4efe6;font-family:'Inter',system-ui,sans-serif;font-weight:300;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+::selection{background:#c9a961;color:#111}
+.wrap{max-width:1200px;margin:0 auto;padding:0 32px}
+@media(max-width:720px){.wrap{padding:0 20px}}
+.eyebrow{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:#c9a961;font-weight:500}
+h1,h2,h3{font-family:'Tenor Sans','Optima',serif;font-weight:400;line-height:1.1;letter-spacing:-0.01em}
+h1{font-size:clamp(42px,6vw,84px)}
+h1 em{font-style:italic;color:#c9a961}
+h2{font-size:clamp(28px,3.4vw,48px)}
+h3{font-size:clamp(20px,1.6vw,24px)}
+.lead{font-size:clamp(16px,1.2vw,19px);color:#d6d1c4;max-width:62ch;line-height:1.65;margin:0 auto}
+
+/* HERO */
+.page{padding:160px 0 96px;background:radial-gradient(ellipse at 80% 10%,rgba(201,169,97,0.07),transparent 60%),#0a0a0a;text-align:center}
+@media(max-width:860px){.page{padding:112px 0 56px}}
+.page h1{margin:22px auto 22px;max-width:16ch}
+
+/* service cards grid */
+.srv-section{padding:96px 0;border-top:1px solid rgba(255,255,255,0.06)}
+@media(max-width:860px){.srv-section{padding:64px 0}}
+.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid rgba(255,255,255,0.06)}
+@media(max-width:960px){.srv-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.srv-grid{grid-template-columns:1fr}}
+.srv{display:flex;flex-direction:column;padding:40px 30px;border-right:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06);transition:background .25s;text-decoration:none;color:inherit;min-height:280px}
+.srv:hover{background:rgba(201,169,97,0.04)}
+.srv:hover .srv-arr{color:#c9a961;transform:translate(4px,-4px)}
+.srv:hover h3{color:#c9a961}
+.srv-idx{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;color:#c9a961;letter-spacing:0.2em;margin-bottom:32px;display:flex;justify-content:space-between;align-items:center}
+.srv-arr{color:#8a8275;transition:all .3s;font-size:18px}
+.srv h3{margin-bottom:12px;color:#f4efe6;transition:color .3s}
+.srv p{color:#8a8275;font-size:14px;line-height:1.6;flex:1}
+.srv-tags{margin-top:20px;display:flex;flex-wrap:wrap;gap:6px}
+.stag{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:#8a8275;padding:4px 10px;border:1px solid rgba(255,255,255,0.06)}
+.srv:nth-child(3n){border-right:none}
+@media(max-width:960px){.srv:nth-child(3n){border-right:1px solid rgba(255,255,255,0.06)}.srv:nth-child(2n){border-right:none}}
+@media(max-width:560px){.srv{border-right:none!important}}
+
+/* CTA band */
+.ctaband{padding:120px 0;background:#0d0c0a;border-top:1px solid rgba(201,169,97,0.18);text-align:center}
+.ctaband h2{font-size:clamp(36px,5vw,64px);margin:18px 0 20px}
+.ctaband h2 em{font-style:italic;color:#c9a961}
+.cta-row{display:inline-flex;gap:18px;flex-wrap:wrap;justify-content:center;margin-top:32px}
+.btn-gold{display:inline-flex;align-items:center;gap:10px;padding:16px 32px;background:#c9a961;color:#0a0a0a;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;font-weight:500;transition:all .25s}
+.btn-gold:hover{background:#f4efe6;transform:translateY(-2px)}
+.btn-ghost{display:inline-flex;align-items:center;gap:10px;padding:16px 28px;border:1px solid rgba(201,169,97,0.18);color:#f4efe6;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;transition:all .25s}
+.btn-ghost:hover{border-color:#c9a961;color:#c9a961}
+@media(max-width:560px){.cta-row{flex-direction:column;width:100%}.btn-gold,.btn-ghost{width:100%;max-width:320px;justify-content:center}.ctaband{padding:80px 0}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/index.html" class="brand"><img src="/assets/logo-horizontal.png" alt="VoltSecure"/></a>
+    <div class="nav-links">
+      <a href="/services.html" class="current">Services</a>
+      <a href="/projects.html">Projects</a>
+      <a href="/about.html">About</a>
+      <a href="/accreditations.html">Accreditations</a>
+      <a href="/contact.html">Contact</a>
+      <div class="nav-mobile-extras">
+        <button class="lang-toggle" type="button" aria-label="Switch language"></button>
+        <a href="/contact.html" class="mobile-cta">Request a quote →</a>
+      </div>
+    </div>
+    <div class="nav-right">
+      <button class="lang-toggle" type="button" aria-label="Switch language"></button>
+      <a href="/contact.html" class="nav-cta">Request a quote →</a>
+      <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<section class="page">
+  <div class="wrap">
+    <div class="eyebrow">◆ What we do</div>
+    <h1>Engineering that <em>covers</em> every critical system.</h1>
+    <p class="lead">Nine disciplines, delivered by our own BAFE, NICEIC, SSAIB and ECA-certified engineers — from single-camera CCTV to multi-site fire detection and campus electrical installations.</p>
+  </div>
+</section>
+
+<section class="srv-section">
+  <div class="wrap">
+    <div class="srv-grid">
+      <a href="/services/electrical-services.html" class="srv">
+        <div class="srv-idx"><span>01 / ELECTRICAL</span><span class="srv-arr">↗</span></div>
+        <h3>Electrical Services</h3>
+        <p>Full commercial installations: containment, switchgear, power distribution, DALI lighting, EV charging and test &amp; inspection — designed and certified to BS 7671.</p>
+        <div class="srv-tags"><span class="stag">BS 7671</span><span class="stag">Part P</span><span class="stag">NICEIC</span></div>
+      </a>
+      <a href="/services/fire.html" class="srv">
+        <div class="srv-idx"><span>02 / FIRE</span><span class="srv-arr">↗</span></div>
+        <h3>Fire Alarms</h3>
+        <p>Addressable fire detection, disabled refuge systems and aspirating detection — BAFE SP203-1 certified across design, installation, commissioning and maintenance.</p>
+        <div class="srv-tags"><span class="stag">BS 5839-1</span><span class="stag">BS 5839-6</span><span class="stag">BAFE</span></div>
+      </a>
+      <a href="/services/cctv.html" class="srv">
+        <div class="srv-idx"><span>03 / CCTV</span><span class="srv-arr">↗</span></div>
+        <h3>CCTV &amp; Surveillance</h3>
+        <p>IP, thermal and AI-analytics systems for national retail, logistics and public realm — engineered and maintained to the BS EN 62676 series.</p>
+        <div class="srv-tags"><span class="stag">EN 62676</span><span class="stag">SSAIB</span><span class="stag">GDPR</span></div>
+      </a>
+      <a href="/services/intruder.html" class="srv">
+        <div class="srv-idx"><span>04 / INTRUDER</span><span class="srv-arr">↗</span></div>
+        <h3>Intruder Alarms</h3>
+        <p>Grade 2 &amp; Grade 3 intruder systems with URN-backed police response, compliant with PD 6662:2017 and BS 8243 confirmed signalling.</p>
+        <div class="srv-tags"><span class="stag">PD 6662</span><span class="stag">BS 8243</span><span class="stag">URN</span></div>
+      </a>
+      <a href="/services/access.html" class="srv">
+        <div class="srv-idx"><span>05 / ACCESS</span><span class="srv-arr">↗</span></div>
+        <h3>Access Control</h3>
+        <p>Card, biometric and mobile-credential access, turnstile integration, visitor management and lift control — to BS EN 60839-11-1.</p>
+        <div class="srv-tags"><span class="stag">EN 60839</span><span class="stag">Biometric</span><span class="stag">Mobile</span></div>
+      </a>
+      <a href="/services/data.html" class="srv">
+        <div class="srv-idx"><span>06 / DATA</span><span class="srv-arr">↗</span></div>
+        <h3>Data &amp; Networks</h3>
+        <p>Structured cabling, fibre backbones, comms cabinets and network infrastructure — tested, certified and documented for handover.</p>
+        <div class="srv-tags"><span class="stag">Cat 6A</span><span class="stag">OM4 / OS2</span><span class="stag">BICSI</span></div>
+      </a>
+      <a href="/services/automation.html" class="srv">
+        <div class="srv-idx"><span>07 / AUTOMATION</span><span class="srv-arr">↗</span></div>
+        <h3>Automation</h3>
+        <p>Gates, barriers, shutters and integrated BMS interfaces — commissioned alongside fire, access and intruder systems for unified control.</p>
+        <div class="srv-tags"><span class="stag">BMS</span><span class="stag">Integrated</span><span class="stag">BS EN 12453</span></div>
+      </a>
+      <a href="/services/air-aspirating-systems.html" class="srv">
+        <div class="srv-idx"><span>08 / ASPIRATING</span><span class="srv-arr">↗</span></div>
+        <h3>Air Aspirating</h3>
+        <p>Very early warning smoke detection for data centres, heritage and high-value environments — designed to BS 6266 and integrated with the main fire panel.</p>
+        <div class="srv-tags"><span class="stag">VESDA</span><span class="stag">BS 6266</span><span class="stag">EWS</span></div>
+      </a>
+      <a href="/contact.html" class="srv">
+        <div class="srv-idx"><span>09 / MAINTENANCE</span><span class="srv-arr">↗</span></div>
+        <h3>Planned Maintenance</h3>
+        <p>Scheduled servicing, 24/7 reactive cover and UK-wide engineer response — with a single portal for tickets, certificates and compliance records.</p>
+        <div class="srv-tags"><span class="stag">24/7</span><span class="stag">SLA</span><span class="stag">Portal</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="ctaband">
+  <div class="wrap">
+    <div class="eyebrow">◆ Work with us</div>
+    <h2>Can't see the <em>exact</em> service?</h2>
+    <p class="lead">We handle bespoke, multi-discipline scopes every week. Tell us the site and the brief — we'll come back within one working day.</p>
+    <div class="cta-row">
+      <a href="/contact.html" class="btn-gold">Request a quote →</a>
+      <a href="tel:02922641046" class="btn-ghost">Call 02922 641046</a>
+    </div>
+  </div>
+</section>
+
+<footer class="vs-footer">
+  <div class="wrap">
+    <div class="vs-footer-grid">
+      <div class="vs-footer-brand">
+        <img src="/assets/logo-horizontal.png" alt="VoltSecure"/>
+        <p>Fire, security &amp; electrical engineering for commercial estates across the UK and continental Europe.</p>
+      </div>
+      <div class="vs-footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="/services/electrical-services.html">Electrical</a></li>
+          <li><a href="/services/fire.html">Fire alarms</a></li>
+          <li><a href="/services/cctv.html">CCTV</a></li>
+          <li><a href="/services/intruder.html">Intruder</a></li>
+          <li><a href="/services/access.html">Access control</a></li>
+          <li><a href="/services.html">All services →</a></li>
+        </ul>
+      </div>
+      <div class="vs-footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/projects.html">Case studies</a></li>
+          <li><a href="/accreditations.html">Accreditations</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="vs-footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:info@voltsecure.co.uk">info@voltsecure.co.uk</a></li>
+          <li><a href="tel:02922641046">02922 641046</a></li>
+          <li>Unit 33 Albion Industrial Estate</li>
+          <li>Cilfynydd, Pontypridd CF37 4NX</li>
+        </ul>
+      </div>
+    </div>
+    <div class="vs-footer-bot">
+      <span>© 2026 VoltSecure® Ltd · BAFE 303517 · All rights reserved</span>
+      <span class="vs-footer-policy"><a href="/contact.html">Get in touch</a></span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

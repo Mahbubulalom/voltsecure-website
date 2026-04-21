@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Projects — VoltSecure</title>
+<meta name="description" content="Selected VoltSecure case studies — DWP Swansea, LongPlay Coffee, Old Gas Works and a national retail CCTV rollout. Fire, security, electrical and data across the UK and Europe."/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="/assets/logo-mark-gold.png"/>
+<link rel="stylesheet" href="/assets/site.css"/>
+<script src="/assets/site.js" defer></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#0a0a0a;color:#f4efe6;font-family:'Inter',system-ui,sans-serif;font-weight:300;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+::selection{background:#c9a961;color:#111}
+.wrap{max-width:1200px;margin:0 auto;padding:0 32px}
+@media(max-width:720px){.wrap{padding:0 20px}}
+.eyebrow{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:#c9a961;font-weight:500}
+h1,h2,h3{font-family:'Tenor Sans','Optima',serif;font-weight:400;line-height:1.1;letter-spacing:-0.01em}
+h1{font-size:clamp(42px,6vw,84px)}
+h1 em{font-style:italic;color:#c9a961}
+h2{font-size:clamp(28px,3.4vw,48px)}
+h3{font-size:clamp(22px,2vw,30px)}
+.lead{font-size:clamp(16px,1.2vw,19px);color:#d6d1c4;max-width:62ch;line-height:1.65;margin:0 auto}
+
+.page{padding:160px 0 96px;background:radial-gradient(ellipse at 80% 10%,rgba(201,169,97,0.07),transparent 60%),#0a0a0a;text-align:center}
+@media(max-width:860px){.page{padding:112px 0 56px}}
+.page h1{margin:22px auto 22px;max-width:18ch}
+
+.proj-section{padding:96px 0;border-top:1px solid rgba(255,255,255,0.06)}
+@media(max-width:860px){.proj-section{padding:64px 0}}
+.proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;max-width:1100px;margin:0 auto}
+@media(max-width:720px){.proj-grid{grid-template-columns:1fr;gap:20px}}
+.pcard{background:#0f0d0a;border:1px solid rgba(255,255,255,0.06);display:flex;flex-direction:column;transition:all .35s ease;overflow:hidden}
+.pcard:hover{transform:translateY(-6px);border-color:#c9a961;box-shadow:0 30px 60px -30px rgba(201,169,97,0.25)}
+.pcard:hover h3{color:#c9a961}
+.pcard:hover .pcta{color:#c9a961;letter-spacing:0.22em}
+.pmedia{position:relative;aspect-ratio:16/10;overflow:hidden;border-bottom:1px solid rgba(255,255,255,0.06);background:#14120e}
+.pmedia svg{width:100%;height:100%;display:block;transition:transform .6s ease}
+.pcard:hover .pmedia svg{transform:scale(1.04)}
+.pbadge{position:absolute;left:20px;bottom:16px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;color:#c9a961;letter-spacing:0.08em;background:rgba(8,7,6,0.85);padding:8px 14px;border:1px solid rgba(201,169,97,0.18);backdrop-filter:blur(6px)}
+.pbody{padding:32px 28px;display:flex;flex-direction:column;gap:14px;flex:1}
+.ptags{display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase}
+.ptag-gold{color:#c9a961}
+.ploc{color:#8a8275}
+.pbody h3{color:#f4efe6;transition:color .3s}
+.pbody p{color:#8a8275;font-size:14.5px;line-height:1.65}
+.ptag-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.ptag{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:#8a8275;padding:4px 10px;border:1px solid rgba(255,255,255,0.06)}
+.pcta{margin-top:auto;padding-top:20px;border-top:1px solid rgba(255,255,255,0.06);font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:#f4efe6;transition:all .3s}
+
+.ctaband{padding:120px 0;background:#0d0c0a;border-top:1px solid rgba(201,169,97,0.18);text-align:center}
+.ctaband h2{font-size:clamp(36px,5vw,64px);margin:18px 0 20px}
+.ctaband h2 em{font-style:italic;color:#c9a961}
+.cta-row{display:inline-flex;gap:18px;flex-wrap:wrap;justify-content:center;margin-top:32px}
+.btn-gold{display:inline-flex;align-items:center;gap:10px;padding:16px 32px;background:#c9a961;color:#0a0a0a;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;font-weight:500;transition:all .25s}
+.btn-gold:hover{background:#f4efe6;transform:translateY(-2px)}
+.btn-ghost{display:inline-flex;align-items:center;gap:10px;padding:16px 28px;border:1px solid rgba(201,169,97,0.18);color:#f4efe6;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;transition:all .25s}
+.btn-ghost:hover{border-color:#c9a961;color:#c9a961}
+@media(max-width:560px){.cta-row{flex-direction:column;width:100%}.btn-gold,.btn-ghost{width:100%;max-width:320px;justify-content:center}.ctaband{padding:80px 0}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/index.html" class="brand"><img src="/assets/logo-horizontal.png" alt="VoltSecure"/></a>
+    <div class="nav-links">
+      <a href="/services.html">Services</a>
+      <a href="/projects.html" class="current">Projects</a>
+      <a href="/about.html">About</a>
+      <a href="/accreditations.html">Accreditations</a>
+      <a href="/contact.html">Contact</a>
+      <div class="nav-mobile-extras">
+        <button class="lang-toggle" type="button" aria-label="Switch language"></button>
+        <a href="/contact.html" class="mobile-cta">Request a quote →</a>
+      </div>
+    </div>
+    <div class="nav-right">
+      <button class="lang-toggle" type="button" aria-label="Switch language"></button>
+      <a href="/contact.html" class="nav-cta">Request a quote →</a>
+      <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<section class="page">
+  <div class="wrap">
+    <div class="eyebrow">◆ Case studies</div>
+    <h1>Selected <em>projects</em>.</h1>
+    <p class="lead">Commercial estates, public-sector frameworks, national retail rollouts and heritage refurbishments — delivered to BAFE, NICEIC and SSAIB standards across the UK and continental Europe.</p>
+  </div>
+</section>
+
+<section class="proj-section">
+  <div class="wrap">
+    <div class="proj-grid">
+
+      <a href="/projects/dwp-swansea.html" class="pcard">
+        <div class="pmedia">
+          <svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1a1812"/><stop offset="1" stop-color="#0a0a0a"/></linearGradient></defs>
+            <rect width="400" height="250" fill="url(#g1)"/>
+            <rect x="60" y="80" width="280" height="140" fill="none" stroke="#c9a961" stroke-width="1.5" opacity=".6"/>
+            <rect x="80" y="100" width="36" height="100" fill="#c9a961" opacity=".25"/>
+            <rect x="130" y="100" width="36" height="100" fill="#c9a961" opacity=".35"/>
+            <rect x="180" y="100" width="36" height="100" fill="#c9a961" opacity=".25"/>
+            <rect x="230" y="100" width="36" height="100" fill="#c9a961" opacity=".4"/>
+            <rect x="280" y="100" width="36" height="100" fill="#c9a961" opacity=".25"/>
+            <circle cx="200" cy="50" r="14" fill="#c9a961" opacity=".6"/>
+          </svg>
+          <span class="pbadge">Public sector</span>
+        </div>
+        <div class="pbody">
+          <div class="ptags"><span class="ptag-gold">Fire · Access · Electrical</span><span class="ploc">Swansea, UK</span></div>
+          <h3>DWP Swansea</h3>
+          <p>Full fire detection, access control and electrical refurbishment for a Department for Work &amp; Pensions estate — delivered to Cabinet Office framework standards.</p>
+          <div class="ptag-row"><span class="ptag">BAFE</span><span class="ptag">BS 5839-1</span><span class="ptag">Gov framework</span></div>
+          <div class="pcta">Read case study →</div>
+        </div>
+      </a>
+
+      <a href="/projects/longplay.html" class="pcard">
+        <div class="pmedia">
+          <svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="g2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#201c14"/><stop offset="1" stop-color="#0a0a0a"/></linearGradient></defs>
+            <rect width="400" height="250" fill="url(#g2)"/>
+            <circle cx="200" cy="125" r="80" fill="none" stroke="#c9a961" stroke-width="1.2" opacity=".5"/>
+            <circle cx="200" cy="125" r="55" fill="none" stroke="#c9a961" stroke-width="1.2" opacity=".7"/>
+            <circle cx="200" cy="125" r="28" fill="#c9a961" opacity=".85"/>
+            <circle cx="200" cy="125" r="8" fill="#0a0a0a"/>
+          </svg>
+          <span class="pbadge">Hospitality</span>
+        </div>
+        <div class="pbody">
+          <div class="ptags"><span class="ptag-gold">Fire · Intruder · Audio</span><span class="ploc">Cardiff, UK</span></div>
+          <h3>LongPlay Coffee</h3>
+          <p>Fire alarm, intruder system and fully integrated audio for an independent speciality-coffee roaster — commissioned without interrupting weekday trading.</p>
+          <div class="ptag-row"><span class="ptag">BAFE SP203-1</span><span class="ptag">Grade 2</span><span class="ptag">Zoned audio</span></div>
+          <div class="pcta">Read case study →</div>
+        </div>
+      </a>
+
+      <a href="/projects/old-gas-works.html" class="pcard">
+        <div class="pmedia">
+          <svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="g3" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#1a1812"/><stop offset="1" stop-color="#0d0c0a"/></linearGradient></defs>
+            <rect width="400" height="250" fill="url(#g3)"/>
+            <rect x="40" y="140" width="70" height="80" fill="none" stroke="#c9a961" stroke-width="1.2" opacity=".55"/>
+            <rect x="120" y="110" width="70" height="110" fill="none" stroke="#c9a961" stroke-width="1.2" opacity=".7"/>
+            <rect x="200" y="130" width="70" height="90" fill="none" stroke="#c9a961" stroke-width="1.2" opacity=".6"/>
+            <rect x="280" y="100" width="70" height="120" fill="none" stroke="#c9a961" stroke-width="1.2" opacity=".8"/>
+            <circle cx="155" cy="140" r="5" fill="#c9a961"/>
+            <circle cx="235" cy="150" r="5" fill="#c9a961"/>
+            <circle cx="315" cy="130" r="5" fill="#c9a961"/>
+          </svg>
+          <span class="pbadge">Heritage</span>
+        </div>
+        <div class="pbody">
+          <div class="ptags"><span class="ptag-gold">Fire · Electrical · Data</span><span class="ploc">South Wales, UK</span></div>
+          <h3>Old Gas Works</h3>
+          <p>Listed-building refurbishment with addressable fire detection, discreet aspirating sampling and full electrical re-fit — compliant without compromising the fabric.</p>
+          <div class="ptag-row"><span class="ptag">VESDA</span><span class="ptag">Listed consent</span><span class="ptag">Cat A fit-out</span></div>
+          <div class="pcta">Read case study →</div>
+        </div>
+      </a>
+
+      <a href="/projects/retail-cctv.html" class="pcard">
+        <div class="pmedia">
+          <svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg">
+            <defs><radialGradient id="g4" cx="50%" cy="50%"><stop offset="0" stop-color="#2a241a"/><stop offset="1" stop-color="#0a0a0a"/></radialGradient></defs>
+            <rect width="400" height="250" fill="url(#g4)"/>
+            <circle cx="200" cy="125" r="100" fill="none" stroke="#c9a961" stroke-width="1" opacity=".25"/>
+            <circle cx="200" cy="125" r="70" fill="none" stroke="#c9a961" stroke-width="1" opacity=".4"/>
+            <g opacity=".9">
+              <circle cx="120" cy="80" r="5" fill="#c9a961"/>
+              <circle cx="280" cy="80" r="5" fill="#c9a961"/>
+              <circle cx="120" cy="170" r="5" fill="#c9a961"/>
+              <circle cx="280" cy="170" r="5" fill="#c9a961"/>
+              <circle cx="200" cy="60" r="5" fill="#c9a961"/>
+              <circle cx="200" cy="190" r="5" fill="#c9a961"/>
+              <circle cx="80" cy="125" r="5" fill="#c9a961"/>
+              <circle cx="320" cy="125" r="5" fill="#c9a961"/>
+            </g>
+            <rect x="180" y="110" width="40" height="30" fill="#c9a961" opacity=".8"/>
+          </svg>
+          <span class="pbadge">National retail</span>
+        </div>
+        <div class="pbody">
+          <div class="ptags"><span class="ptag-gold">CCTV · Analytics</span><span class="ploc">UK &amp; Europe</span></div>
+          <h3>Retail CCTV rollout</h3>
+          <p>Multi-site IP CCTV rollout for a high-street retailer across the UK and continental Europe — cloud-managed VMS, analytics and centralised remote support.</p>
+          <div class="ptag-row"><span class="ptag">BS EN 62676</span><span class="ptag">IP analytics</span><span class="ptag">Multi-site</span></div>
+          <div class="pcta">Read case study →</div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<section class="ctaband">
+  <div class="wrap">
+    <div class="eyebrow">◆ Start a project</div>
+    <h2>Got a brief that <em>looks like</em> one of these?</h2>
+    <p class="lead">Tell us the site, the scope and the timeline — we'll come back within one working day.</p>
+    <div class="cta-row">
+      <a href="/contact.html" class="btn-gold">Request a quote →</a>
+      <a href="tel:02922641046" class="btn-ghost">Call 02922 641046</a>
+    </div>
+  </div>
+</section>
+
+<footer class="vs-footer">
+  <div class="wrap">
+    <div class="vs-footer-grid">
+      <div class="vs-footer-brand">
+        <img src="/assets/logo-horizontal.png" alt="VoltSecure"/>
+        <p>Fire, security &amp; electrical engineering for commercial estates across the UK and continental Europe.</p>
+      </div>
+      <div class="vs-footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="/services/electrical-services.html">Electrical</a></li>
+          <li><a href="/services/fire.html">Fire alarms</a></li>
+          <li><a href="/services/cctv.html">CCTV</a></li>
+          <li><a href="/services/intruder.html">Intruder</a></li>
+          <li><a href="/services/access.html">Access control</a></li>
+          <li><a href="/services.html">All services →</a></li>
+        </ul>
+      </div>
+      <div class="vs-footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/projects.html">Case studies</a></li>
+          <li><a href="/accreditations.html">Accreditations</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="vs-footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:info@voltsecure.co.uk">info@voltsecure.co.uk</a></li>
+          <li><a href="tel:02922641046">02922 641046</a></li>
+          <li>Unit 33 Albion Industrial Estate</li>
+          <li>Cilfynydd, Pontypridd CF37 4NX</li>
+        </ul>
+      </div>
+    </div>
+    <div class="vs-footer-bot">
+      <span>© 2026 VoltSecure® Ltd · BAFE 303517 · All rights reserved</span>
+      <span class="vs-footer-policy"><a href="/contact.html">Get in touch</a></span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -6,19 +6,31 @@
 <link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="icon" href="../assets/logo-mark-gold.png"/>
 <link rel="stylesheet" href="_case.css"/>
+<link rel="stylesheet" href="/assets/site.css"/>
+<script src="/assets/site.js" defer></script>
 </head><body>
 
-<nav class="nav"><div class="nav-inner">
-<a href="../index.html" class="brand"><img src="../assets/logo-horizontal.png" alt="VoltSecure"/></a>
-<div class="nav-links">
-<a href="../index.html#services">Services</a>
-<a href="../index.html#work">Projects</a>
-<a href="../about.html">About</a>
-<a href="../index.html#accreditations">Accreditations</a>
-<a href="../index.html#contact">Contact</a>
-</div>
-<a href="../index.html#contact" class="nav-cta">Request a quote →</a>
-</div></nav>
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/index.html" class="brand"><img src="/assets/logo-horizontal.png" alt="VoltSecure"/></a>
+    <div class="nav-links">
+      <a href="/services.html">Services</a>
+      <a href="/projects.html" class="current">Projects</a>
+      <a href="/about.html">About</a>
+      <a href="/accreditations.html">Accreditations</a>
+      <a href="/contact.html">Contact</a>
+      <div class="nav-mobile-extras">
+        <button class="lang-toggle" type="button" aria-label="Switch language"></button>
+        <a href="/contact.html" class="mobile-cta">Request a quote →</a>
+      </div>
+    </div>
+    <div class="nav-right">
+      <button class="lang-toggle" type="button" aria-label="Switch language"></button>
+      <a href="/contact.html" class="nav-cta">Request a quote →</a>
+      <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
 
 <section class="phero"><div class="wrap">
 <div class="crumbs"><a href="../index.html">Home</a><span class="sep">/</span><a href="../index.html#work">Projects</a><span class="sep">/</span>Old Gas Works</div>
@@ -112,9 +124,48 @@
 </div>
 </div></section>
 
-<footer><div class="wrap foot">
-<div><a href="../index.html">← Back to home</a></div>
-<div>© 2026 VoltSecure® Ltd · BAFE 303517 · info@voltsecure.co.uk · 02922 641046</div>
-</div></footer>
+<footer class="vs-footer">
+  <div class="wrap">
+    <div class="vs-footer-grid">
+      <div class="vs-footer-brand">
+        <img src="/assets/logo-horizontal.png" alt="VoltSecure"/>
+        <p>Fire, security &amp; electrical engineering for commercial estates across the UK and continental Europe.</p>
+      </div>
+      <div class="vs-footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="/services/electrical-services.html">Electrical</a></li>
+          <li><a href="/services/fire.html">Fire alarms</a></li>
+          <li><a href="/services/cctv.html">CCTV</a></li>
+          <li><a href="/services/intruder.html">Intruder</a></li>
+          <li><a href="/services/access.html">Access control</a></li>
+          <li><a href="/services.html">All services →</a></li>
+        </ul>
+      </div>
+      <div class="vs-footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/projects.html">Case studies</a></li>
+          <li><a href="/accreditations.html">Accreditations</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="vs-footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:info@voltsecure.co.uk">info@voltsecure.co.uk</a></li>
+          <li><a href="tel:02922641046">02922 641046</a></li>
+          <li>Unit 33 Albion Industrial Estate</li>
+          <li>Cilfynydd, Pontypridd CF37 4NX</li>
+        </ul>
+      </div>
+    </div>
+    <div class="vs-footer-bot">
+      <span>© 2026 VoltSecure® Ltd · BAFE 303517 · All rights reserved</span>
+      <span class="vs-footer-policy"><a href="/privacy.html">Privacy</a> · <a href="/contact.html">Get in touch</a></span>
+    </div>
+  </div>
+</footer>
 
 </body></html>
