@@ -1,4 +1,4 @@
-/* VoltSecure — shared site scripts: mobile menu + lang toggle */
+/* VoltSecure - shared site scripts: mobile menu + lang toggle */
 (function(){
   const burger = document.querySelector('.burger');
   const links  = document.querySelector('.nav-links');
@@ -18,7 +18,7 @@
     links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
   }
 
-  /* language toggle — remembers preference, updates flag/label */
+  /* language toggle - remembers preference, updates flag/label */
   function flagSVG(lang){
     if(lang==='de'){
       return '<svg viewBox="0 0 24 16" width="22" height="14"><rect width="24" height="5.33" y="0" fill="#000"/><rect width="24" height="5.33" y="5.33" fill="#DD0000"/><rect width="24" height="5.33" y="10.66" fill="#FFCE00"/></svg>';
@@ -47,7 +47,7 @@
     // Fire a custom event so pages can do their own translation swap if they want
     document.dispatchEvent(new CustomEvent('voltlangchange', { detail: { lang: currentLang } }));
   });
-  /* projects.html — service-type filter */
+  /* projects.html - service-type filter */
   (function(){
     const grid = document.querySelector('.proj-grid');
     const buttons = document.querySelectorAll('.pf-btn');
@@ -66,7 +66,7 @@
     });
   })();
 
-  /* contact form — fire GA4 lead event on submit */
+  /* contact form - fire GA4 lead event on submit */
   (function(){
     const form = document.getElementById('contactForm');
     if(!form) return;

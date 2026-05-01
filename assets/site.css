@@ -1,5 +1,5 @@
 /* ==========================================================
-   VoltSecure — SHARED nav + footer + mobile menu
+   VoltSecure - SHARED nav + footer + mobile menu
    Load this FIRST (before page-specific <style>) so page CSS
    can still override if needed.
    ========================================================== */
@@ -34,14 +34,14 @@
 .burger{display:none;flex-direction:column;gap:4px;padding:8px;background:none;border:none;cursor:pointer}
 .burger span{width:22px;height:1px;background:var(--vs-gold);display:block}
 
-/* lang toggle button — shown on desktop in nav, also shown in mobile overlay */
+/* lang toggle button - shown on desktop in nav, also shown in mobile overlay */
 .lang-toggle{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border:1px solid var(--vs-line);background:transparent;color:var(--vs-cream);font-family:var(--vs-fmono);font-size:11px;letter-spacing:0.14em;cursor:pointer;transition:all .2s}
 .lang-toggle:hover{border-color:var(--vs-gold);color:var(--vs-gold)}
 .lang-toggle svg{border:1px solid var(--vs-line-soft);display:block}
 .lang-toggle .lt-label{color:var(--vs-mute);transition:color .2s}
 .lang-toggle:hover .lt-label{color:var(--vs-gold)}
 
-/* mobile extras inside overlay — hidden on desktop */
+/* mobile extras inside overlay - hidden on desktop */
 .nav-mobile-extras{display:none}
 
 /* ====== MOBILE MENU ====== */
@@ -146,7 +146,7 @@
 @media(max-width:640px){.vs-footer-bot{flex-direction:column;gap:14px}.vs-footer-policy{gap:14px}}
 
 
-/* ---- projects.html — service filter (added in checklist pass 1) ---- */
+/* ---- projects.html - service filter (added in checklist pass 1) ---- */
 .proj-filter{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 28px;padding:0;}
 .pf-btn{
   appearance:none;border:1px solid rgba(201,169,97,.32);background:transparent;
@@ -159,7 +159,7 @@
 .lead-hint{display:inline-block;margin-left:6px;color:#c9a961;font-style:normal;}
 
 
-/* ---- about.html — team grid + testimonials (added in checklist pass 1) ---- */
+/* ---- about.html - team grid + testimonials (added in checklist pass 1) ---- */
 .team-section{padding:96px 0;border-top:1px solid rgba(201,169,97,.12);}
 .team-section .lead{color:#b8b3a8;}
 .team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
@@ -182,7 +182,7 @@
 .at-card figcaption span{font:500 10px/1 'JetBrains Mono',monospace;letter-spacing:.14em;color:#c9a961;text-transform:uppercase;}
 
 
-/* ---- accreditations.html — group split (added in checklist pass 1) ---- */
+/* ---- accreditations.html - group split (added in checklist pass 1) ---- */
 .acc-group-title{
   font-family:'Tenor Sans',serif;font-size:18px;color:#c9a961;
   margin:32px 0 4px;padding:0 4px;letter-spacing:.02em;
