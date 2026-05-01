@@ -47,4 +47,36 @@
     // Fire a custom event so pages can do their own translation swap if they want
     document.dispatchEvent(new CustomEvent('voltlangchange', { detail: { lang: currentLang } }));
   });
+  /* projects.html — service-type filter */
+  (function(){
+    const grid = document.querySelector('.proj-grid');
+    const buttons = document.querySelectorAll('.pf-btn');
+    if(!grid || !buttons.length) return;
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const f = btn.dataset.filter;
+        buttons.forEach(b => b.classList.toggle('is-active', b===btn));
+        grid.querySelectorAll('.pcard').forEach(card => {
+          const services = (card.dataset.services || '').split(/\s+/);
+          const show = (f === 'all') || services.includes(f);
+          card.style.display = show ? '' : 'none';
+        });
+        if(typeof gtag === 'function') gtag('event','filter_projects',{filter:f});
+      });
+    });
+  })();
+
+  /* contact form — fire GA4 lead event on submit */
+  (function(){
+    const form = document.getElementById('contactForm');
+    if(!form) return;
+    form.addEventListener('submit', () => {
+      if(typeof gtag === 'function'){
+        gtag('event','generate_lead',{
+          form: 'contact',
+          service: (form.querySelector('[name=service]') || {}).value || '(unspecified)'
+        });
+      }
+    });
+  })();
 })();

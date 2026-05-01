@@ -172,6 +172,14 @@ footer::before{content:"";display:block;height:1px;background:linear-gradient(90
 </style>
 <link rel="stylesheet" href="/assets/site.css"/>
 <script src="/assets/site.js" defer></script>
+<!-- GA4 — replace G-XXXXXXXXXX with live measurement ID before launch (TODO Kai: GA4 ID) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-XXXXXXXXXX');
+</script>
 </head>
 <body>
 
@@ -238,6 +246,9 @@ footer::before{content:"";display:block;height:1px;background:linear-gradient(90
     </div>
 
     <div class="acc-list">
+
+      <h3 class="acc-group-title">Industry accreditations</h3>
+      <p class="acc-group-sub">Independent certifications held directly by VoltSecure — required by insurers, frameworks and Responsible Persons.</p>
 
       <details class="acc" open>
         <summary>
@@ -367,6 +378,59 @@ footer::before{content:"";display:block;height:1px;background:linear-gradient(90
         </div>
       </details>
 
+      <h3 class="acc-group-title">Vendor &amp; training partners</h3>
+      <p class="acc-group-sub">Manufacturer authorisations and engineer-level certifications.</p>
+
+      <details class="acc">
+        <summary>
+          <div class="acc-logo acc-logo--text">CTSP</div>
+          <div class="acc-head">
+            <div class="acc-title"><span class="acc-name">CTSP</span><span class="acc-tag">Certified Technical Security Professional</span></div>
+            <div class="acc-desc">Founder Cai is CTSP-certified — the technical-security industry's individual professional standard.</div>
+          </div>
+          <div class="acc-chev">+</div>
+        </summary>
+        <div class="acc-body">
+          <div class="acc-block"><h4>What it is</h4><p>CTSP is the Certified Technical Security Professional standard — an individual-level credential demonstrating engineer-grade competence across electronic security disciplines.</p></div>
+          <div class="acc-block highlight"><h4>What this means for clients</h4><p>Our managing director holds the certification personally — the same person signing off your project owns the technical standard, not just the company badge.</p></div>
+          <div class="acc-block"><h4>Services covered</h4><div class="svc-tags"><span class="svc-tag">Intruder design</span><span class="svc-tag">Access control</span><span class="svc-tag">CCTV systems</span></div></div>
+        </div>
+      </details>
+
+      <!-- TODO Kai: confirm HikVision partner status + supply current logo file at /assets/accred/hikvision.png -->
+      <details class="acc" data-vendor-todo>
+        <summary>
+          <div class="acc-logo acc-logo--text">HikVision</div>
+          <div class="acc-head">
+            <div class="acc-title"><span class="acc-name">HikVision</span><span class="acc-tag">CCTV vendor partner</span></div>
+            <div class="acc-desc">TODO Kai: confirm current partner tier (Silver / Gold / Platinum) — content placeholder.</div>
+          </div>
+          <div class="acc-chev">+</div>
+        </summary>
+        <div class="acc-body">
+          <div class="acc-block"><h4>What it is</h4><p>TODO Kai: short description of HikVision partner programme and tier.</p></div>
+          <div class="acc-block highlight"><h4>What this means for clients</h4><p>TODO Kai: client benefit copy.</p></div>
+          <div class="acc-block"><h4>Services covered</h4><div class="svc-tags"><span class="svc-tag">IP CCTV</span><span class="svc-tag">VMS integration</span></div></div>
+        </div>
+      </details>
+
+      <!-- TODO Kai: confirm Paxton accreditation status + supply current logo file at /assets/accred/paxton.png -->
+      <details class="acc" data-vendor-todo>
+        <summary>
+          <div class="acc-logo acc-logo--text">Paxton</div>
+          <div class="acc-head">
+            <div class="acc-title"><span class="acc-name">Paxton</span><span class="acc-tag">Access control vendor partner</span></div>
+            <div class="acc-desc">TODO Kai: confirm current partner level — content placeholder.</div>
+          </div>
+          <div class="acc-chev">+</div>
+        </summary>
+        <div class="acc-body">
+          <div class="acc-block"><h4>What it is</h4><p>TODO Kai: short description of Paxton partner programme.</p></div>
+          <div class="acc-block highlight"><h4>What this means for clients</h4><p>TODO Kai: client benefit copy.</p></div>
+          <div class="acc-block"><h4>Services covered</h4><div class="svc-tags"><span class="svc-tag">Net2 access control</span><span class="svc-tag">Paxton10 hybrid</span></div></div>
+        </div>
+      </details>
+
     </div>
   </div>
 </section>
@@ -415,8 +479,8 @@ footer::before{content:"";display:block;height:1px;background:linear-gradient(90
         <h4>International</h4>
         <ul>
           <li><a href="/index.html"><span class="ext">↗</span> VoltSecure UK</a></li>
-          <li><a href="/contact.html"><span class="ext">↗</span> VoltSecure Deutschland</a></li>
-          <li><a href="/contact.html"><span class="ext">↗</span> VoltSecure Ireland</a></li>
+          <li><a href="/deutschland.html"><span class="ext">↗</span> VoltSecure Deutschland</a></li>
+          <li><a href="/ireland.html"><span class="ext">↗</span> VoltSecure Ireland</a></li>
         </ul>
       </div>
 
@@ -460,12 +524,12 @@ footer::before{content:"";display:block;height:1px;background:linear-gradient(90
     <div class="vs-footer-bot">
       <span>VoltSecure® Ltd · © 2026 · All rights reserved · BAFE 303517</span>
       <span class="vs-footer-policy">
-        <a href="/contact.html">Accessibility</a>
-        <a href="/contact.html">Carbon reduction plan</a>
-        <a href="/contact.html">Cookie policy</a>
-        <a href="/contact.html">Modern slavery statement</a>
-        <a href="/contact.html">Privacy notice</a>
-        <a href="/contact.html">Site terms</a>
+        <a href="/accessibility.html">Accessibility</a>
+        <a href="/carbon-reduction.html">Carbon reduction plan</a>
+        <a href="/cookies.html">Cookie policy</a>
+        <a href="/modern-slavery.html">Modern slavery statement</a>
+        <a href="/privacy.html">Privacy notice</a>
+        <a href="/terms.html">Site terms</a>
       </span>
     </div>
   </div>

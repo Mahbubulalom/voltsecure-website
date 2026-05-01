@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en" data-default-lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>VoltSecure Ireland — Fire, Security &amp; Electrical Engineering</title>
+<meta name="description" content="VoltSecure Ireland — UK-grade fire, security and electrical engineering for commercial estates across the Republic of Ireland and Northern Ireland.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="/assets/logo-mark-gold.png" />
+<link rel="stylesheet" href="/assets/site.css"/>
+<script src="/assets/site.js" defer></script>
+<style>
+.region-hero{padding:160px 0 80px;border-bottom:1px solid var(--vs-line);background:linear-gradient(180deg,#0d0c0a 0%,#0a0a0a 100%)}
+.region-hero .eyebrow{font:500 11px/1 var(--vs-fmono);letter-spacing:.18em;color:var(--vs-gold);text-transform:uppercase;margin-bottom:18px}
+.region-hero h1{font-family:var(--vs-fdisplay);font-weight:400;font-size:clamp(40px,6vw,72px);color:var(--vs-cream);line-height:1.04;margin:0 0 24px;letter-spacing:-.01em}
+.region-hero h1 em{color:var(--vs-gold);font-style:normal}
+.region-hero .lead{max-width:680px;color:#b8b3a8;font-size:17px;line-height:1.65;margin:0 0 36px}
+.region-cta{display:inline-flex;align-items:center;gap:10px;padding:14px 28px;background:var(--vs-gold);color:#0a0a0a;font:500 13px/1 var(--vs-fbody);letter-spacing:.04em;text-decoration:none;border-radius:2px;transition:background .18s}
+.region-cta:hover{background:#d8b96e}
+.region-strip{padding:48px 0;border-bottom:1px solid var(--vs-line)}
+.region-strip-row{display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:center}
+.region-strip img{height:36px;width:auto;opacity:.85;filter:grayscale(.2)}
+.region-strip-note{font:500 11px/1 var(--vs-fmono);letter-spacing:.16em;color:var(--vs-mute);text-transform:uppercase}
+.region-section{padding:96px 0;border-bottom:1px solid var(--vs-line)}
+.region-section h2{font-family:var(--vs-fdisplay);font-weight:400;font-size:clamp(28px,3.5vw,40px);color:var(--vs-cream);line-height:1.15;margin:0 0 16px}
+.region-section h2 em{color:var(--vs-gold);font-style:normal}
+.region-section p.lead{max-width:680px;color:#b8b3a8;font-size:16px;line-height:1.65;margin:0 0 36px}
+.region-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+@media(max-width:860px){.region-grid{grid-template-columns:1fr}}
+.region-card{padding:28px 26px;border:1px solid var(--vs-line);background:#0d0c0a;display:flex;flex-direction:column;gap:10px}
+.region-card h3{font-family:var(--vs-fdisplay);font-size:22px;color:var(--vs-cream);margin:0;font-weight:400}
+.region-card .rc-loc{font:500 10px/1 var(--vs-fmono);letter-spacing:.16em;color:var(--vs-gold);text-transform:uppercase}
+.region-card p{color:#b8b3a8;font-size:14px;line-height:1.65;margin:0}
+.region-card[data-case-todo]{border-style:dashed}
+.region-card[data-case-todo]::before{content:'TODO Kai';display:inline-block;font:500 10px/1 var(--vs-fmono);letter-spacing:.16em;color:var(--vs-gold);text-transform:uppercase;padding:4px 8px;border:1px solid var(--vs-gold);align-self:flex-start;margin-bottom:8px}
+.region-contact{padding:96px 0;background:#0d0c0a;text-align:center}
+.region-contact h2{font-family:var(--vs-fdisplay);font-weight:400;font-size:clamp(28px,3.5vw,40px);color:var(--vs-cream);margin:0 0 16px}
+.region-contact .lead{max-width:560px;margin:0 auto 28px;color:#b8b3a8;line-height:1.65}
+.region-contact-row{display:flex;flex-wrap:wrap;gap:16px;justify-content:center}
+.region-contact-row a{padding:14px 28px;border:1px solid var(--vs-gold);color:var(--vs-cream);font:500 13px/1 var(--vs-fbody);letter-spacing:.04em;text-decoration:none;transition:background .18s,color .18s}
+.region-contact-row a:hover{background:var(--vs-gold);color:#0a0a0a}
+.region-contact-row a[data-todo]{border-style:dashed;color:var(--vs-mute)}
+</style>
+
+<!-- GA4 — replace G-XXXXXXXXXX with live measurement ID before launch (TODO Kai: GA4 ID) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-XXXXXXXXXX');
+</script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/index.html" class="brand"><img src="/assets/logo-horizontal.png" alt="VoltSecure"/></a>
+    <div class="nav-links">
+      <a href="/services.html">Services</a>
+      <a href="/projects.html">Projects</a>
+      <a href="/about.html">About</a>
+      <a href="/accreditations.html">Accreditations</a>
+      <a href="/contact.html">Contact</a>
+      <div class="nav-mobile-extras">
+        <button class="lang-toggle" type="button" aria-label="Switch language"></button>
+        <a href="/contact.html" class="mobile-cta">Request a quote →</a>
+      </div>
+    </div>
+    <div class="nav-right">
+      <button class="lang-toggle" type="button" aria-label="Switch language"></button>
+      <a href="/contact.html" class="nav-cta"><span class="cta-full">Request a quote</span><span class="cta-short">Quote</span> →</a>
+      <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<section class="region-hero">
+  <div class="wrap">
+    <div class="eyebrow">◆ VoltSecure Ireland</div>
+    <h1>UK-grade engineering<br/>for sites across <em>Ireland</em>.</h1>
+    <p class="lead">Fire detection, security, CCTV, access control and electrical installation — designed, installed, commissioned and maintained to BAFE, NICEIC, SSAIB and ECA standards. Cross-border delivery for UK groups with sites in the Republic and Northern Ireland.</p>
+    <a href="/contact.html" class="region-cta">Request a quote →</a>
+  </div>
+</section>
+
+<section class="region-strip">
+  <div class="wrap">
+    <div class="region-strip-row">
+      <span class="region-strip-note">◆ Accreditations</span>
+      <img src="/assets/accred/bafe.jpeg" alt="BAFE — UK Fire-Safety Register"/>
+      <img src="/assets/accred/niceic.png" alt="NICEIC — Electrical Approved Contractor"/>
+      <img src="/assets/accred/ssaib.jpg" alt="SSAIB — Security Systems Certification"/>
+      <img src="/assets/accred/eca.jpg" alt="ECA — Electrical Contractors' Association"/>
+    </div>
+  </div>
+</section>
+
+<section class="region-section">
+  <div class="wrap">
+    <div class="eyebrow" style="margin-bottom:16px;font:500 11px/1 var(--vs-fmono);letter-spacing:.18em;color:var(--vs-gold);text-transform:uppercase">◆ Services in Ireland</div>
+    <h2>What we deliver <em>on the ground</em>.</h2>
+    <p class="lead">The same nine disciplines we run in the UK — sequenced for cross-border framework agreements, IS 3218 fire-system referencing where it applies, and Irish-market insurance compliance.</p>
+    <div class="region-grid">
+      <div class="region-card">
+        <span class="rc-loc">Fire</span>
+        <h3>Fire detection &amp; alarms</h3>
+        <p>Conventional, addressable and aspirating systems to BS 5839 / IS 3218 — design, install, commission and maintain.</p>
+      </div>
+      <div class="region-card">
+        <span class="rc-loc">Security</span>
+        <h3>Security &amp; CCTV</h3>
+        <p>IP CCTV, intruder and access control to BS EN 62676 / EN 50131 with SSAIB-grade design and commissioning.</p>
+      </div>
+      <div class="region-card">
+        <span class="rc-loc">Electrical</span>
+        <h3>Electrical installation</h3>
+        <p>HV/LV distribution, sub-mains, small-power and lighting design — NICEIC certified, working to BS 7671 and Irish ETCI rules where required.</p>
+      </div>
+      <div class="region-card">
+        <span class="rc-loc">Maintenance</span>
+        <h3>Maintenance contracts</h3>
+        <p>Quarterly maintenance, 24/7 callout on live contracts and full insurer-ready documentation packs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="region-section">
+  <div class="wrap">
+    <div class="eyebrow" style="margin-bottom:16px;font:500 11px/1 var(--vs-fmono);letter-spacing:.18em;color:var(--vs-gold);text-transform:uppercase">◆ Selected Irish projects</div>
+    <h2>Case studies from <em>Ireland</em>.</h2>
+    <p class="lead">Reference projects will appear here once cleared for publication.</p>
+    <!-- TODO Kai: 2–3 Irish (ROI / NI) case studies. Each card needs: project name, city + county, sector,
+         scope of work, 1-line outcome, optional client name (if releasable), 1-3 photos in /assets/projects/<slug>.jpg -->
+    <div class="region-grid">
+      <article class="region-card" data-case-todo>
+        <span class="rc-loc">TODO Kai: city, county</span>
+        <h3>TODO Kai: project name 1</h3>
+        <p>TODO Kai: sector · scope · outcome (1–2 sentences).</p>
+      </article>
+      <article class="region-card" data-case-todo>
+        <span class="rc-loc">TODO Kai: city, county</span>
+        <h3>TODO Kai: project name 2</h3>
+        <p>TODO Kai: sector · scope · outcome.</p>
+      </article>
+      <article class="region-card" data-case-todo>
+        <span class="rc-loc">TODO Kai: city, county</span>
+        <h3>TODO Kai: project name 3 (optional)</h3>
+        <p>TODO Kai: sector · scope · outcome.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="region-section">
+  <div class="wrap">
+    <div class="eyebrow" style="margin-bottom:16px;font:500 11px/1 var(--vs-fmono);letter-spacing:.18em;color:var(--vs-gold);text-transform:uppercase">◆ Ireland team</div>
+    <h2>Engineers, not <em>resellers</em>.</h2>
+    <p class="lead">Bios for engineers handling Irish projects will appear here once approved.</p>
+    <!-- TODO Kai: 2–3 engineer bios + headshots — credentials relevant to Irish work (IS 3218, ETCI rules, etc.) -->
+  </div>
+</section>
+
+<section class="region-contact">
+  <div class="wrap">
+    <div class="eyebrow" style="margin-bottom:16px;font:500 11px/1 var(--vs-fmono);letter-spacing:.18em;color:var(--vs-gold);text-transform:uppercase">◆ Contact</div>
+    <h2>Talk to us <em>directly</em>.</h2>
+    <p class="lead">UK head office is reachable today. A local Irish phone number and email will be added once approved by Kai.</p>
+    <div class="region-contact-row">
+      <a href="mailto:info@voltsecure.co.uk?subject=Ireland%20enquiry">info@voltsecure.co.uk</a>
+      <a href="tel:02922641046">+44 2922 641046</a>
+      <!-- TODO Kai: add local IE phone number if applicable -->
+      <a href="#" data-todo>TODO Kai: local IE phone</a>
+      <!-- TODO Kai: add local IE email if applicable -->
+      <a href="#" data-todo>TODO Kai: local IE email</a>
+    </div>
+  </div>
+</section>
+
+<footer class="vs-footer">
+  <div class="wrap">
+    <div class="vs-footer-grid">
+
+      <div class="vs-footer-brand">
+        <div>
+          <img src="/assets/logo-horizontal.png" alt="VoltSecure"/>
+          <p>Fire, security &amp; electrical engineering for commercial estates across the UK, Ireland and continental Europe.</p>
+          <span class="bafe">◆ BAFE 303517 · NICEIC · SSAIB · ECA</span>
+        </div>
+      </div>
+
+      <div class="vs-footer-col">
+        <h4>International</h4>
+        <ul>
+          <li><a href="/index.html"><span class="ext">↗</span> VoltSecure UK</a></li>
+          <li><a href="/deutschland.html"><span class="ext">↗</span> VoltSecure Deutschland</a></li>
+          <li><a href="/ireland.html"><span class="ext">↗</span> VoltSecure Ireland</a></li>
+        </ul>
+      </div>
+
+      <div class="vs-footer-col">
+        <h4>About us</h4>
+        <ul>
+          <li><a href="/about.html">About us</a></li>
+          <li><a href="/accreditations.html">Accreditations</a></li>
+          <li><a href="/projects.html">Case studies</a></li>
+          <li><a href="/contact.html">Contact us</a></li>
+          <li><a href="/contact.html">ESG &amp; social value</a></li>
+        </ul>
+      </div>
+
+      <div class="vs-footer-col">
+        <h4>VoltSecure &amp; you</h4>
+        <ul>
+          <li><a href="/contact.html"><span class="ext">↗</span> Employees</a></li>
+          <li><a href="/contact.html"><span class="ext">↗</span> Jobs &amp; apprenticeships</a></li>
+          <li><a href="mailto:info@voltsecure.co.uk?subject=Media%20enquiry"><span class="ext">↗</span> Media enquiries</a></li>
+          <li><a href="/contact.html"><span class="ext">↗</span> Suppliers</a></li>
+        </ul>
+      </div>
+
+      <div class="vs-footer-col">
+        <h4>Follow us</h4>
+        <ul>
+          <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://www.youtube.com/" target="_blank" rel="noopener">YouTube</a></li>
+        </ul>
+        <h4 style="margin-top:28px">Contact</h4>
+        <ul>
+          <li class="tel"><a href="tel:02922641046">+44 2922 641046</a></li>
+          <li class="em"><a href="mailto:info@voltsecure.co.uk">info@voltsecure.co.uk</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="vs-footer-bot">
+      <span>VoltSecure® Ltd · © 2026 · All rights reserved · BAFE 303517</span>
+      <span class="vs-footer-policy">
+        <a href="/accessibility.html">Accessibility</a>
+        <a href="/carbon-reduction.html">Carbon reduction plan</a>
+        <a href="/cookies.html">Cookie policy</a>
+        <a href="/modern-slavery.html">Modern slavery statement</a>
+        <a href="/privacy.html">Privacy notice</a>
+        <a href="/terms.html">Site terms</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

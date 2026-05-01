@@ -53,6 +53,14 @@
 
 </style>
 <script src="/assets/site.js" defer></script>
+<!-- GA4 — replace G-XXXXXXXXXX with live measurement ID before launch (TODO Kai: GA4 ID) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-XXXXXXXXXX');
+</script>
 </head>
 <body>
 
@@ -91,6 +99,7 @@
       <div class="meta-pair"><span class="k">Duration</span><span class="v">Programme-managed</span></div>
     </div>
     <div class="phero-visual">
+      <!-- TODO Kai: hero photo for this case study. Replace inline <svg> below with: <img src="/assets/projects/dwp-swansea.jpg" alt="..." loading="lazy"/> -->
       <svg viewBox="0 0 1600 600" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="gg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1a1812"/><stop offset="1" stop-color="#0a0a0a"/></linearGradient></defs><rect width="1600" height="600" fill="url(#gg)"/><g fill="none" stroke="#c9a961" stroke-width="1.4" opacity=".6"><rect x="200" y="140" width="1200" height="360"/></g><g fill="#c9a961" opacity=".3"><rect x="240" y="180" width="100" height="80"/><rect x="360" y="180" width="100" height="80"/><rect x="480" y="180" width="100" height="80"/><rect x="600" y="180" width="100" height="80"/><rect x="720" y="180" width="100" height="80"/><rect x="840" y="180" width="100" height="80"/><rect x="960" y="180" width="100" height="80"/><rect x="1080" y="180" width="100" height="80"/><rect x="1200" y="180" width="100" height="80"/><rect x="1320" y="180" width="40" height="80"/><rect x="240" y="300" width="100" height="80"/><rect x="360" y="300" width="100" height="80"/><rect x="480" y="300" width="100" height="80"/><rect x="600" y="300" width="100" height="80"/><rect x="720" y="300" width="100" height="80"/><rect x="840" y="300" width="100" height="80"/><rect x="960" y="300" width="100" height="80"/><rect x="1080" y="300" width="100" height="80"/><rect x="1200" y="300" width="100" height="80"/><rect x="1320" y="300" width="40" height="80"/><rect x="240" y="400" width="100" height="60"/><rect x="360" y="400" width="100" height="60"/><rect x="480" y="400" width="100" height="60"/><rect x="600" y="400" width="100" height="60"/><rect x="720" y="400" width="100" height="60"/><rect x="840" y="400" width="100" height="60"/><rect x="960" y="400" width="100" height="60"/><rect x="1080" y="400" width="100" height="60"/><rect x="1200" y="400" width="100" height="60"/></g><circle cx="280" cy="100" r="8" fill="#c9a961"/><circle cx="680" cy="100" r="8" fill="#c9a961"/><circle cx="1080" cy="100" r="8" fill="#c9a961"/><g stroke="#c9a961" stroke-width="0.6" opacity=".2"><line x1="200" y1="500" x2="1400" y2="500"/><line x1="200" y1="530" x2="1400" y2="530"/></g></svg>
       <div class="overlay"></div>
       <span class="tag">Government framework</span>
@@ -129,6 +138,21 @@
 
 
 
+
+<!-- TODO Kai: client testimonial for this project. Replace placeholder copy + author below with real quote. Markup matches projects/longplay.html. -->
+<section class="testimonial-band" data-testimonial-todo>
+  <div class="wrap">
+    <div class="testimonial">
+      <div class="testimonial-stars">★ ★ ★ ★ ★</div>
+      <div class="mark">&ldquo;</div>
+      <p class="testimonial-quote"><em>Client testimonial for this project will appear here once approved by Kai. Markup matches the LongPlay case study so styling is already wired.</em></p>
+      <div class="testimonial-author">
+        <strong>TODO Kai: Client name</strong>
+        <span>TODO Kai: role, organisation</span>
+      </div>
+    </div>
+  </div>
+</section>
 <section class="more-proj">
   <div class="wrap">
     <div class="eyebrow" style="margin-bottom:16px">◆ More case studies</div>
@@ -176,8 +200,8 @@
       </div>
       <div class="vs-footer-col"><h4>International</h4><ul>
         <li><a href="/index.html"><span class="ext">↗</span> VoltSecure UK</a></li>
-        <li><a href="/contact.html"><span class="ext">↗</span> VoltSecure Deutschland</a></li>
-        <li><a href="/contact.html"><span class="ext">↗</span> VoltSecure Ireland</a></li>
+        <li><a href="/deutschland.html"><span class="ext">↗</span> VoltSecure Deutschland</a></li>
+        <li><a href="/ireland.html"><span class="ext">↗</span> VoltSecure Ireland</a></li>
       </ul></div>
       <div class="vs-footer-col"><h4>About us</h4><ul>
         <li><a href="/about.html">About us</a></li>
@@ -204,7 +228,7 @@
     <div class="vs-footer-bot">
       <span>VoltSecure® Ltd · © 2026 · All rights reserved · BAFE 303517</span>
       <span class="vs-footer-policy">
-        <a href="/contact.html">Accessibility</a><a href="/contact.html">Carbon reduction plan</a><a href="/contact.html">Cookie policy</a><a href="/contact.html">Modern slavery statement</a><a href="/contact.html">Privacy notice</a><a href="/contact.html">Site terms</a>
+        <a href="/accessibility.html">Accessibility</a><a href="/carbon-reduction.html">Carbon reduction plan</a><a href="/cookies.html">Cookie policy</a><a href="/modern-slavery.html">Modern slavery statement</a><a href="/privacy.html">Privacy notice</a><a href="/terms.html">Site terms</a>
       </span>
     </div>
   </div>

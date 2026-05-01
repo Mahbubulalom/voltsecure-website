@@ -144,3 +144,59 @@
 .vs-footer-bot a:hover{color:var(--vs-gold)}
 .vs-footer-policy{display:flex;gap:20px;flex-wrap:wrap}
 @media(max-width:640px){.vs-footer-bot{flex-direction:column;gap:14px}.vs-footer-policy{gap:14px}}
+
+
+/* ---- projects.html — service filter (added in checklist pass 1) ---- */
+.proj-filter{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 28px;padding:0;}
+.pf-btn{
+  appearance:none;border:1px solid rgba(201,169,97,.32);background:transparent;
+  color:#d8d4cc;font:500 12px/1 'Inter',sans-serif;letter-spacing:.06em;text-transform:uppercase;
+  padding:9px 14px;border-radius:999px;cursor:pointer;transition:all .18s ease;
+}
+.pf-btn:hover{border-color:#c9a961;color:#fff;}
+.pf-btn.is-active{background:#c9a961;border-color:#c9a961;color:#0a0a0a;}
+.pf-btn:focus-visible{outline:2px solid #c9a961;outline-offset:2px;}
+.lead-hint{display:inline-block;margin-left:6px;color:#c9a961;font-style:normal;}
+
+
+/* ---- about.html — team grid + testimonials (added in checklist pass 1) ---- */
+.team-section{padding:96px 0;border-top:1px solid rgba(201,169,97,.12);}
+.team-section .lead{color:#b8b3a8;}
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+@media(max-width:860px){.team-grid{grid-template-columns:1fr;}}
+.tm-card{padding:24px 22px;border:1px solid rgba(201,169,97,.18);background:#0d0c0a;display:flex;flex-direction:column;gap:8px;}
+.tm-photo{aspect-ratio:1/1;background:#14120e;display:flex;align-items:center;justify-content:center;border:1px solid rgba(201,169,97,.18);margin-bottom:12px;}
+.tm-ph{font:500 11px/1 'JetBrains Mono',monospace;letter-spacing:.18em;color:#8a8275;text-transform:uppercase;}
+.tm-card h3{font-family:'Tenor Sans',serif;font-size:20px;color:#f5f1e6;margin:0;}
+.tm-card .tm-role{font:500 11px/1 'JetBrains Mono',monospace;letter-spacing:.14em;color:#c9a961;text-transform:uppercase;}
+.tm-card p{color:#b8b3a8;font-size:14px;line-height:1.6;margin:0;}
+
+.about-testimonials{padding:96px 0;border-top:1px solid rgba(201,169,97,.12);background:#0d0c0a;}
+.at-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:36px;}
+@media(max-width:860px){.at-grid{grid-template-columns:1fr;}}
+.at-card{padding:28px 24px;border:1px solid rgba(201,169,97,.18);background:#0a0a0a;display:flex;flex-direction:column;gap:14px;margin:0;}
+.at-card .testimonial-stars{color:#c9a961;letter-spacing:6px;font-size:14px;}
+.at-card blockquote{margin:0;color:#e9e3d4;font-style:italic;font-size:15px;line-height:1.6;}
+.at-card figcaption{padding-top:14px;border-top:1px solid rgba(201,169,97,.16);display:flex;flex-direction:column;gap:3px;}
+.at-card figcaption strong{font-family:'Tenor Sans',serif;color:#f5f1e6;font-weight:400;font-size:15px;}
+.at-card figcaption span{font:500 10px/1 'JetBrains Mono',monospace;letter-spacing:.14em;color:#c9a961;text-transform:uppercase;}
+
+
+/* ---- accreditations.html — group split (added in checklist pass 1) ---- */
+.acc-group-title{
+  font-family:'Tenor Sans',serif;font-size:18px;color:#c9a961;
+  margin:32px 0 4px;padding:0 4px;letter-spacing:.02em;
+}
+.acc-group-title:first-child{margin-top:0;}
+.acc-group-sub{
+  color:#8a8275;font-size:13px;line-height:1.6;margin:0 0 18px;padding:0 4px;
+}
+.acc-logo--text{
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Tenor Sans',serif;color:#c9a961;font-size:14px;
+  letter-spacing:.06em;
+}
+[data-vendor-todo] .acc-name::after{
+  content:'· TODO';color:#8a8275;font-size:10px;font-family:'JetBrains Mono',monospace;
+  letter-spacing:.16em;margin-left:8px;vertical-align:middle;
+}

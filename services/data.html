@@ -12,6 +12,14 @@
 <link rel="stylesheet" href="_service.css"/>
 <link rel="stylesheet" href="/assets/site.css"/>
 <script src="/assets/site.js" defer></script>
+<!-- GA4 — replace G-XXXXXXXXXX with live measurement ID before launch (TODO Kai: GA4 ID) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-XXXXXXXXXX');
+</script>
 </head>
 <body>
 
@@ -58,6 +66,26 @@
   </div>
 </section>
 
+
+<!-- TODO Kai: hero photo for this service. Drop a real installation/team photo at /assets/services/data.jpg and replace the <svg> below with: <img src="/assets/services/data.jpg" alt="VoltSecure Data & networking engineers on site" loading="lazy"/> -->
+<section class="service-hero-media" data-hero-todo>
+  <div class="wrap">
+    <figure class="shm-frame">
+      <svg viewBox="0 0 1200 360" xmlns="http://www.w3.org/2000/svg" aria-label="Data & networking photo placeholder">
+        <defs><linearGradient id="shm-data" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1a1812"/><stop offset="1" stop-color="#0a0a0a"/></linearGradient></defs>
+        <rect width="1200" height="360" fill="url(#shm-data)"/>
+        <g stroke="#c9a961" stroke-width="1.4" fill="none" opacity=".35">
+          <path d="M40 40 L40 80 M40 40 L80 40"/>
+          <path d="M1160 40 L1160 80 M1160 40 L1120 40"/>
+          <path d="M40 320 L40 280 M40 320 L80 320"/>
+          <path d="M1160 320 L1160 280 M1160 320 L1120 320"/>
+        </g>
+        <text x="600" y="186" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="14" letter-spacing="6" fill="#c9a961">◆ PHOTO TO FOLLOW</text>
+        <text x="600" y="212" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" letter-spacing="2" fill="#8a8275">DATA & NETWORKING</text>
+      </svg>
+    </figure>
+  </div>
+</section>
 <section class="features">
   <div class="wrap">
     <div class="features-head">
@@ -184,8 +212,8 @@
         <h4>International</h4>
         <ul>
           <li><a href="/index.html"><span class="ext">↗</span> VoltSecure UK</a></li>
-          <li><a href="/contact.html"><span class="ext">↗</span> VoltSecure Deutschland</a></li>
-          <li><a href="/contact.html"><span class="ext">↗</span> VoltSecure Ireland</a></li>
+          <li><a href="/deutschland.html"><span class="ext">↗</span> VoltSecure Deutschland</a></li>
+          <li><a href="/ireland.html"><span class="ext">↗</span> VoltSecure Ireland</a></li>
         </ul>
       </div>
 
@@ -229,12 +257,12 @@
     <div class="vs-footer-bot">
       <span>VoltSecure® Ltd · © 2026 · All rights reserved · BAFE 303517</span>
       <span class="vs-footer-policy">
-        <a href="/contact.html">Accessibility</a>
-        <a href="/contact.html">Carbon reduction plan</a>
-        <a href="/contact.html">Cookie policy</a>
-        <a href="/contact.html">Modern slavery statement</a>
-        <a href="/contact.html">Privacy notice</a>
-        <a href="/contact.html">Site terms</a>
+        <a href="/accessibility.html">Accessibility</a>
+        <a href="/carbon-reduction.html">Carbon reduction plan</a>
+        <a href="/cookies.html">Cookie policy</a>
+        <a href="/modern-slavery.html">Modern slavery statement</a>
+        <a href="/privacy.html">Privacy notice</a>
+        <a href="/terms.html">Site terms</a>
       </span>
     </div>
   </div>
