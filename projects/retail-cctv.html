@@ -53,6 +53,14 @@
 
 </style>
 <script src="/assets/site.js" defer></script>
+<!-- GA4 — replace G-XXXXXXXXXX with live measurement ID before launch (TODO Kai: GA4 ID) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-XXXXXXXXXX');
+</script>
 </head>
 <body>
 
@@ -91,6 +99,7 @@
       <div class="meta-pair"><span class="k">Duration</span><span class="v">4 years</span></div>
     </div>
     <div class="phero-visual">
+      <!-- TODO Kai: hero photo for this case study. Replace inline <svg> below with: <img src="/assets/projects/retail-cctv.jpg" alt="..." loading="lazy"/> -->
       <svg viewBox="0 0 1600 600" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="rg" cx="50%" cy="50%"><stop offset="0" stop-color="#2a241a"/><stop offset="1" stop-color="#0a0a0a"/></radialGradient></defs><rect width="1600" height="600" fill="url(#rg)"/><g stroke="#c9a961" fill="none" opacity=".25"><circle cx="800" cy="300" r="260"/><circle cx="800" cy="300" r="180"/><circle cx="800" cy="300" r="100"/></g><g fill="#c9a961"><circle cx="400" cy="200" r="8"/><circle cx="1200" cy="200" r="8"/><circle cx="400" cy="400" r="8"/><circle cx="1200" cy="400" r="8"/><circle cx="800" cy="140" r="8"/><circle cx="800" cy="460" r="8"/><circle cx="280" cy="300" r="8"/><circle cx="1320" cy="300" r="8"/><circle cx="500" cy="150" r="6"/><circle cx="1100" cy="150" r="6"/><circle cx="500" cy="450" r="6"/><circle cx="1100" cy="450" r="6"/></g><g stroke="#c9a961" stroke-width="0.6" opacity=".35"><line x1="800" y1="300" x2="400" y2="200"/><line x1="800" y1="300" x2="1200" y2="200"/><line x1="800" y1="300" x2="400" y2="400"/><line x1="800" y1="300" x2="1200" y2="400"/><line x1="800" y1="300" x2="800" y2="140"/><line x1="800" y1="300" x2="800" y2="460"/><line x1="800" y1="300" x2="280" y2="300"/><line x1="800" y1="300" x2="1320" y2="300"/></g><rect x="740" y="270" width="120" height="70" fill="#c9a961" opacity=".85"/><rect x="770" y="290" width="60" height="30" fill="#0a0a0a"/></svg>
       <div class="overlay"></div>
       <span class="tag">National retail</span>
@@ -129,6 +138,21 @@
 
 
 
+
+<!-- TODO Kai: client testimonial for this project. Replace placeholder copy + author below with real quote. Markup matches projects/longplay.html. -->
+<section class="testimonial-band" data-testimonial-todo>
+  <div class="wrap">
+    <div class="testimonial">
+      <div class="testimonial-stars">★ ★ ★ ★ ★</div>
+      <div class="mark">&ldquo;</div>
+      <p class="testimonial-quote"><em>Client testimonial for this project will appear here once approved by Kai. Markup matches the LongPlay case study so styling is already wired.</em></p>
+      <div class="testimonial-author">
+        <strong>TODO Kai: Client name</strong>
+        <span>TODO Kai: role, organisation</span>
+      </div>
+    </div>
+  </div>
+</section>
 <section class="more-proj">
   <div class="wrap">
     <div class="eyebrow" style="margin-bottom:16px">◆ More case studies</div>
@@ -176,8 +200,8 @@
       </div>
       <div class="vs-footer-col"><h4>International</h4><ul>
         <li><a href="/index.html"><span class="ext">↗</span> VoltSecure UK</a></li>
-        <li><a href="/contact.html"><span class="ext">↗</span> VoltSecure Deutschland</a></li>
-        <li><a href="/contact.html"><span class="ext">↗</span> VoltSecure Ireland</a></li>
+        <li><a href="/deutschland.html"><span class="ext">↗</span> VoltSecure Deutschland</a></li>
+        <li><a href="/ireland.html"><span class="ext">↗</span> VoltSecure Ireland</a></li>
       </ul></div>
       <div class="vs-footer-col"><h4>About us</h4><ul>
         <li><a href="/about.html">About us</a></li>
@@ -204,7 +228,7 @@
     <div class="vs-footer-bot">
       <span>VoltSecure® Ltd · © 2026 · All rights reserved · BAFE 303517</span>
       <span class="vs-footer-policy">
-        <a href="/contact.html">Accessibility</a><a href="/contact.html">Carbon reduction plan</a><a href="/contact.html">Cookie policy</a><a href="/contact.html">Modern slavery statement</a><a href="/contact.html">Privacy notice</a><a href="/contact.html">Site terms</a>
+        <a href="/accessibility.html">Accessibility</a><a href="/carbon-reduction.html">Carbon reduction plan</a><a href="/cookies.html">Cookie policy</a><a href="/modern-slavery.html">Modern slavery statement</a><a href="/privacy.html">Privacy notice</a><a href="/terms.html">Site terms</a>
       </span>
     </div>
   </div>
