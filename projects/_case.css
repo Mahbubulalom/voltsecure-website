@@ -38,6 +38,7 @@ section{padding:80px 0;position:relative}
 /* hero visual */
 .phero-visual{aspect-ratio:21/9;margin-top:56px;background:#0f0d0a;border:1px solid var(--line-soft);position:relative;overflow:hidden}
 .phero-visual svg{width:100%;height:100%}
+.phero-visual img{width:100%;height:100%;object-fit:cover;display:block}
 .phero-visual .overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(0,0,0,0.6));pointer-events:none}
 .phero-visual .tag{position:absolute;left:24px;bottom:20px;font-family:var(--font-mono);font-size:12px;color:var(--gold);letter-spacing:0.12em;background:rgba(8,7,6,0.7);padding:8px 14px;border:1px solid var(--line);backdrop-filter:blur(6px)}
 
