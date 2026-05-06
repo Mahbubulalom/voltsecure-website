@@ -173,6 +173,7 @@ footer::before{content:"";display:block;height:1px;background:linear-gradient(90
   background:#0d0c0a;
 }
 .service-hero-media svg{display:block;width:100%;height:auto;}
+.service-hero-media img{display:block;width:100%;height:auto;aspect-ratio:1200/360;object-fit:cover;}
 .service-hero-media[data-hero-todo]::after{
   content:'TODO Kai: replace placeholder with real service photo';
   display:block;font:500 10px/1 'JetBrains Mono',monospace;letter-spacing:.16em;

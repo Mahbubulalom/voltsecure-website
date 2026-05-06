@@ -73,8 +73,8 @@ h3{font-size:clamp(22px,2vw,30px)}
 .pcard:hover h3{color:#c9a961}
 .pcard:hover .pcta{color:#c9a961;letter-spacing:0.22em}
 .pmedia{position:relative;aspect-ratio:16/10;overflow:hidden;border-bottom:1px solid rgba(255,255,255,0.06);background:#14120e}
-.pmedia svg{width:100%;height:100%;display:block;transition:transform .6s ease}
-.pcard:hover .pmedia svg{transform:scale(1.04)}
+.pmedia svg,.pmedia img{width:100%;height:100%;display:block;transition:transform .6s ease;object-fit:cover}
+.pcard:hover .pmedia svg,.pcard:hover .pmedia img{transform:scale(1.04)}
 .pbadge{position:absolute;left:20px;bottom:16px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;color:#c9a961;letter-spacing:0.08em;background:rgba(8,7,6,0.85);padding:8px 14px;border:1px solid rgba(201,169,97,0.18);backdrop-filter:blur(6px)}
 .pbody{padding:32px 28px;display:flex;flex-direction:column;gap:14px;flex:1}
 .ptags{display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase}
@@ -156,18 +156,7 @@ gtag('config', 'G-XXXXXXXXXX');
 
       <a href="/projects/dwp-swansea.html" class="pcard" data-services="fire access electrical">
         <div class="pmedia">
-          <!-- TODO Kai: real installation photo. Replace the SVG below with <img src="/assets/projects/<slug>.jpg" alt="..." loading="lazy"/> -->
-          <svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg">
-            <defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1a1812"/><stop offset="1" stop-color="#0a0a0a"/></linearGradient></defs>
-            <rect width="400" height="250" fill="url(#g1)"/>
-            <rect x="60" y="80" width="280" height="140" fill="none" stroke="#c9a961" stroke-width="1.5" opacity=".6"/>
-            <rect x="80" y="100" width="36" height="100" fill="#c9a961" opacity=".25"/>
-            <rect x="130" y="100" width="36" height="100" fill="#c9a961" opacity=".35"/>
-            <rect x="180" y="100" width="36" height="100" fill="#c9a961" opacity=".25"/>
-            <rect x="230" y="100" width="36" height="100" fill="#c9a961" opacity=".4"/>
-            <rect x="280" y="100" width="36" height="100" fill="#c9a961" opacity=".25"/>
-            <circle cx="200" cy="50" r="14" fill="#c9a961" opacity=".6"/>
-          </svg>
+          <img src="/assets/projects/dwp-swansea.jpg" alt="VoltSecure fleet — DWP Swansea programme" loading="lazy"/>
           <span class="pbadge">Public sector</span>
         </div>
         <div class="pbody">
@@ -181,15 +170,7 @@ gtag('config', 'G-XXXXXXXXXX');
 
       <a href="/projects/longplay.html" class="pcard" data-services="fire intruder electrical">
         <div class="pmedia">
-          <!-- TODO Kai: real installation photo. Replace the SVG below with <img src="/assets/projects/<slug>.jpg" alt="..." loading="lazy"/> -->
-          <svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg">
-            <defs><linearGradient id="g2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#201c14"/><stop offset="1" stop-color="#0a0a0a"/></linearGradient></defs>
-            <rect width="400" height="250" fill="url(#g2)"/>
-            <circle cx="200" cy="125" r="80" fill="none" stroke="#c9a961" stroke-width="1.2" opacity=".5"/>
-            <circle cx="200" cy="125" r="55" fill="none" stroke="#c9a961" stroke-width="1.2" opacity=".7"/>
-            <circle cx="200" cy="125" r="28" fill="#c9a961" opacity=".85"/>
-            <circle cx="200" cy="125" r="8" fill="#0a0a0a"/>
-          </svg>
+          <img src="/assets/projects/longplay.jpg" alt="VoltSecure-branded van livery — LongPlay Coffee fit-out" loading="lazy"/>
           <span class="pbadge">Hospitality</span>
         </div>
         <div class="pbody">
@@ -203,18 +184,7 @@ gtag('config', 'G-XXXXXXXXXX');
 
       <a href="/projects/old-gas-works.html" class="pcard" data-services="fire electrical data">
         <div class="pmedia">
-          <!-- TODO Kai: real installation photo. Replace the SVG below with <img src="/assets/projects/<slug>.jpg" alt="..." loading="lazy"/> -->
-          <svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg">
-            <defs><linearGradient id="g3" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#1a1812"/><stop offset="1" stop-color="#0d0c0a"/></linearGradient></defs>
-            <rect width="400" height="250" fill="url(#g3)"/>
-            <rect x="40" y="140" width="70" height="80" fill="none" stroke="#c9a961" stroke-width="1.2" opacity=".55"/>
-            <rect x="120" y="110" width="70" height="110" fill="none" stroke="#c9a961" stroke-width="1.2" opacity=".7"/>
-            <rect x="200" y="130" width="70" height="90" fill="none" stroke="#c9a961" stroke-width="1.2" opacity=".6"/>
-            <rect x="280" y="100" width="70" height="120" fill="none" stroke="#c9a961" stroke-width="1.2" opacity=".8"/>
-            <circle cx="155" cy="140" r="5" fill="#c9a961"/>
-            <circle cx="235" cy="150" r="5" fill="#c9a961"/>
-            <circle cx="315" cy="130" r="5" fill="#c9a961"/>
-          </svg>
+          <img src="/assets/projects/old-gas-works.jpg" alt="Industrial unit exterior — Old Gas Works site" loading="lazy"/>
           <span class="pbadge">Heritage</span>
         </div>
         <div class="pbody">
@@ -228,8 +198,7 @@ gtag('config', 'G-XXXXXXXXXX');
 
       <a href="/projects/law-firm-security-upgrade.html" class="pcard" data-services="cctv access intruder">
         <div class="pmedia">
-          <!-- TODO Kai: real installation photo. Replace the SVG below with <img src="/assets/projects/<slug>.jpg" alt="..." loading="lazy"/> -->
-          <svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" aria-label="Image coming soon"><defs><linearGradient id="anon1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#14120e"/><stop offset="1" stop-color="#0a0a0a"/></linearGradient></defs><rect width="400" height="250" fill="url(#anon1)"/><g stroke="#c9a961" stroke-width="1.6" fill="none" opacity=".4"><path d="M20 20 L20 50 M20 20 L50 20"/><path d="M380 20 L380 50 M380 20 L350 20"/><path d="M20 230 L20 200 M20 230 L50 230"/><path d="M380 230 L380 200 M380 230 L350 230"/></g><g opacity=".35" stroke="#c9a961" stroke-width="1" fill="none"><circle cx="200" cy="125" r="40"/><circle cx="200" cy="125" r="22"/></g><text x="200" y="130" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" letter-spacing="3" fill="#8a8275">◆ IMAGE TO FOLLOW</text></svg>
+          <img src="/assets/projects/law-firm.jpg" alt="Service-record paperwork on tablet — law-firm security upgrade" loading="lazy"/>
           <span class="pbadge">Legal · Anonymous</span>
         </div>
         <div class="pbody">
@@ -243,8 +212,7 @@ gtag('config', 'G-XXXXXXXXXX');
 
       <a href="/projects/national-retail-fire-programme.html" class="pcard" data-services="fire">
         <div class="pmedia">
-          <!-- TODO Kai: real installation photo. Replace the SVG below with <img src="/assets/projects/<slug>.jpg" alt="..." loading="lazy"/> -->
-          <svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" aria-label="Image coming soon"><defs><linearGradient id="anon2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#14120e"/><stop offset="1" stop-color="#0a0a0a"/></linearGradient></defs><rect width="400" height="250" fill="url(#anon2)"/><g stroke="#c9a961" stroke-width="1.6" fill="none" opacity=".4"><path d="M20 20 L20 50 M20 20 L50 20"/><path d="M380 20 L380 50 M380 20 L350 20"/><path d="M20 230 L20 200 M20 230 L50 230"/><path d="M380 230 L380 200 M380 230 L350 230"/></g><g opacity=".35" stroke="#c9a961" stroke-width="1" fill="none"><circle cx="200" cy="125" r="40"/><circle cx="200" cy="125" r="22"/></g><text x="200" y="130" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" letter-spacing="3" fill="#8a8275">◆ IMAGE TO FOLLOW</text></svg>
+          <img src="/assets/projects/national-retail-fire.jpg" alt="Branded installation tools — national retail fire programme" loading="lazy"/>
           <span class="pbadge">National retail · Anonymous</span>
         </div>
         <div class="pbody">
@@ -258,8 +226,7 @@ gtag('config', 'G-XXXXXXXXXX');
 
       <a href="/projects/data-centre-aspirating.html" class="pcard" data-services="aspirating fire">
         <div class="pmedia">
-          <!-- TODO Kai: real installation photo. Replace the SVG below with <img src="/assets/projects/<slug>.jpg" alt="..." loading="lazy"/> -->
-          <svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" aria-label="Image coming soon"><defs><linearGradient id="anon3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#14120e"/><stop offset="1" stop-color="#0a0a0a"/></linearGradient></defs><rect width="400" height="250" fill="url(#anon3)"/><g stroke="#c9a961" stroke-width="1.6" fill="none" opacity=".4"><path d="M20 20 L20 50 M20 20 L50 20"/><path d="M380 20 L380 50 M380 20 L350 20"/><path d="M20 230 L20 200 M20 230 L50 230"/><path d="M380 230 L380 200 M380 230 L350 230"/></g><g opacity=".35" stroke="#c9a961" stroke-width="1" fill="none"><circle cx="200" cy="125" r="40"/><circle cx="200" cy="125" r="22"/></g><text x="200" y="130" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" letter-spacing="3" fill="#8a8275">◆ IMAGE TO FOLLOW</text></svg>
+          <img src="/assets/projects/data-centre.jpg" alt="Technical wiring close-up — data-centre aspirating install" loading="lazy"/>
           <span class="pbadge">Data centre · Anonymous</span>
         </div>
         <div class="pbody">
@@ -273,8 +240,7 @@ gtag('config', 'G-XXXXXXXXXX');
 
       <a href="/projects/prime-residential-london.html" class="pcard" data-services="electrical automation">
         <div class="pmedia">
-          <!-- TODO Kai: real installation photo. Replace the SVG below with <img src="/assets/projects/<slug>.jpg" alt="..." loading="lazy"/> -->
-          <svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" aria-label="Image coming soon"><defs><linearGradient id="anon4" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#14120e"/><stop offset="1" stop-color="#0a0a0a"/></linearGradient></defs><rect width="400" height="250" fill="url(#anon4)"/><g stroke="#c9a961" stroke-width="1.6" fill="none" opacity=".4"><path d="M20 20 L20 50 M20 20 L50 20"/><path d="M380 20 L380 50 M380 20 L350 20"/><path d="M20 230 L20 200 M20 230 L50 230"/><path d="M380 230 L380 200 M380 230 L350 230"/></g><g opacity=".35" stroke="#c9a961" stroke-width="1" fill="none"><circle cx="200" cy="125" r="40"/><circle cx="200" cy="125" r="22"/></g><text x="200" y="130" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" letter-spacing="3" fill="#8a8275">◆ IMAGE TO FOLLOW</text></svg>
+          <img src="/assets/projects/prime-residential-london.jpg" alt="Premium VoltSecure van branding — prime residential London" loading="lazy"/>
           <span class="pbadge">Prime residential · Anonymous</span>
         </div>
         <div class="pbody">
@@ -288,24 +254,7 @@ gtag('config', 'G-XXXXXXXXXX');
 
       <a href="/projects/retail-cctv.html" class="pcard" data-services="cctv">
         <div class="pmedia">
-          <!-- TODO Kai: real installation photo. Replace the SVG below with <img src="/assets/projects/<slug>.jpg" alt="..." loading="lazy"/> -->
-          <svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg">
-            <defs><radialGradient id="g4" cx="50%" cy="50%"><stop offset="0" stop-color="#2a241a"/><stop offset="1" stop-color="#0a0a0a"/></radialGradient></defs>
-            <rect width="400" height="250" fill="url(#g4)"/>
-            <circle cx="200" cy="125" r="100" fill="none" stroke="#c9a961" stroke-width="1" opacity=".25"/>
-            <circle cx="200" cy="125" r="70" fill="none" stroke="#c9a961" stroke-width="1" opacity=".4"/>
-            <g opacity=".9">
-              <circle cx="120" cy="80" r="5" fill="#c9a961"/>
-              <circle cx="280" cy="80" r="5" fill="#c9a961"/>
-              <circle cx="120" cy="170" r="5" fill="#c9a961"/>
-              <circle cx="280" cy="170" r="5" fill="#c9a961"/>
-              <circle cx="200" cy="60" r="5" fill="#c9a961"/>
-              <circle cx="200" cy="190" r="5" fill="#c9a961"/>
-              <circle cx="80" cy="125" r="5" fill="#c9a961"/>
-              <circle cx="320" cy="125" r="5" fill="#c9a961"/>
-            </g>
-            <rect x="180" y="110" width="40" height="30" fill="#c9a961" opacity=".8"/>
-          </svg>
+          <img src="/assets/projects/retail-cctv.jpg" alt="Engineer running multi-site CCTV health check on tablet" loading="lazy"/>
           <span class="pbadge">National retail</span>
         </div>
         <div class="pbody">
