@@ -247,34 +247,32 @@ gtag('config', 'G-XXXXXXXXXX');
 .team-band-frame figcaption{margin-top:14px;font:500 11px/1 'JetBrains Mono',ui-monospace,monospace;letter-spacing:.16em;color:#8a8275;text-transform:uppercase;text-align:right}
 </style>
 
-<!-- TODO Kai: team bios + headshots beyond Cai. Drop new <article class="tm-card"> entries below with /assets/team/<name>.jpg and a 1-2 sentence bio. -->
-<section class="team-section" data-team-todo>
+<section class="team-section">
   <div class="wrap">
     <div class="eyebrow" style="margin-bottom:16px">◆ The wider team</div>
     <h2>Engineers, not <em>resellers</em>.</h2>
-    <p class="lead" style="max-width:680px;margin-bottom:36px">Every certification on this site is held by someone who actually works on your job. Bios for the wider team will appear here once approved by Kai.</p>
-    <div class="team-grid">
-      <article class="tm-card" data-team-stub>
-        <div class="tm-photo"><span class="tm-ph">◆ Photo to follow</span></div>
-        <h3>Terry Jones</h3>
-        <span class="tm-role">Co-founder · Business partner</span>
-        <p>TODO Kai: 1–2 sentence bio for Terry Jones, including discipline credentials.</p>
-      </article>
-      <article class="tm-card" data-team-stub>
-        <div class="tm-photo"><span class="tm-ph">◆ Photo to follow</span></div>
-        <h3>TODO Kai: Engineer name</h3>
-        <span class="tm-role">TODO Kai: role</span>
-        <p>TODO Kai: bio + relevant certifications (NICEIC, BAFE, SSAIB, etc.).</p>
-      </article>
-      <article class="tm-card" data-team-stub>
-        <div class="tm-photo"><span class="tm-ph">◆ Photo to follow</span></div>
-        <h3>TODO Kai: Engineer name</h3>
-        <span class="tm-role">TODO Kai: role</span>
-        <p>TODO Kai: bio + relevant certifications.</p>
-      </article>
+    <p class="lead" style="max-width:680px;margin-bottom:36px">Every certification on this site is held by someone who actually works on your job.</p>
+    <div class="tm-grid">
+      <figure class="tm-portrait"><img src="/assets/team/engineer-1.jpg" alt="VoltSecure engineer" loading="lazy"/></figure>
+      <figure class="tm-portrait"><img src="/assets/team/engineer-2.jpg" alt="VoltSecure engineer" loading="lazy"/></figure>
+      <figure class="tm-portrait"><img src="/assets/team/engineer-3.jpg" alt="VoltSecure engineer" loading="lazy"/></figure>
+      <figure class="tm-portrait"><img src="/assets/team/engineer-4.jpg" alt="VoltSecure engineer" loading="lazy"/></figure>
+      <figure class="tm-portrait"><img src="/assets/team/engineer-5.jpg" alt="VoltSecure engineer" loading="lazy"/></figure>
+      <figure class="tm-portrait"><img src="/assets/team/engineer-6.jpg" alt="VoltSecure engineer" loading="lazy"/></figure>
     </div>
   </div>
 </section>
+<style>
+.tm-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:16px;margin-top:8px}
+.tm-portrait{margin:0;position:relative;overflow:hidden;border:1px solid rgba(201,169,97,.16);border-radius:4px;background:#0d0c0a;aspect-ratio:4/5;transition:border-color .35s ease,transform .35s ease}
+.tm-portrait img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .6s ease,filter .35s ease;filter:saturate(0.92) contrast(1.02)}
+.tm-portrait::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(0,0,0,0.55));pointer-events:none;opacity:0.7;transition:opacity .35s ease}
+.tm-portrait:hover{border-color:var(--gold);transform:translateY(-4px)}
+.tm-portrait:hover img{transform:scale(1.05);filter:saturate(1.05) contrast(1.04)}
+.tm-portrait:hover::after{opacity:0.4}
+@media(max-width:1100px){.tm-grid{grid-template-columns:repeat(3,1fr);gap:14px}}
+@media(max-width:600px){.tm-grid{grid-template-columns:repeat(2,1fr);gap:10px;margin-top:4px}}
+</style>
 <section>
   <div class="wrap">
     <div class="eyebrow" style="margin-bottom:16px">◆ Milestones</div>
