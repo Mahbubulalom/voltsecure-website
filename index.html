@@ -598,8 +598,8 @@ gtag('config', 'G-XXXXXXXXXX');
 
       <!-- corner labels -->
       <div class="hvlabel tl"><span class="dot"></span> SYS · LIVE</div>
-      <div class="hvlabel tr">51.48°N · 3.18°W</div>
-      <div class="hvlabel bl">PERIMETER · OK</div>
+      <div class="hvlabel tr">51.58°N · 3.21°W</div>
+      <div class="hvlabel bl">INSTALLATIONS COMPLETE</div>
       <div class="hvlabel br" id="hvtime">00:00:00 GMT</div>
     </div>
   </div>
@@ -1142,12 +1142,19 @@ for(let i=0;i<60;i++){
   ticks.appendChild(line);
 }
 
-/* live time label */
+/* live time label - shows UK local time (BST/GMT auto-detected) */
 const hvtime = document.getElementById('hvtime');
 function updTime(){
   const d = new Date();
-  const p = n => String(n).padStart(2,'0');
-  hvtime.textContent = `${p(d.getUTCHours())}:${p(d.getUTCMinutes())}:${p(d.getUTCSeconds())} GMT`;
+  // Render hours/minutes/seconds in Europe/London zone
+  const parts = new Intl.DateTimeFormat('en-GB', {
+    timeZone: 'Europe/London',
+    hour: '2-digit', minute: '2-digit', second: '2-digit',
+    hour12: false, timeZoneName: 'short'
+  }).formatToParts(d);
+  const get = t => (parts.find(p => p.type === t) || {value:''}).value;
+  const tz = get('timeZoneName') || 'GMT';   // "BST" in summer, "GMT" in winter
+  hvtime.textContent = `${get('hour')}:${get('minute')}:${get('second')} ${tz}`;
 }
 setInterval(updTime, 1000); updTime();
 
