@@ -936,6 +936,8 @@ gtag('config', 'G-XXXXXXXXXX');
           <path d="M330,280 L360,270 L410,290 L440,330 L430,370 L400,400 L360,410 L340,380 L325,340 Z"/>
           <!-- Benelux/Germany -->
           <path d="M410,240 L460,230 L510,260 L530,310 L500,340 L450,320 L420,290 Z"/>
+          <!-- Austria (east of Germany) -->
+          <path d="M510,310 L545,305 L555,330 L540,345 L505,340 L500,325 Z"/>
           <!-- Spain outline sliver -->
           <path d="M300,410 L360,420 L370,450 L310,445 Z" opacity="0.4"/>
         </g>
@@ -1158,14 +1160,32 @@ function updTime(){
 }
 setInterval(updTime, 1000); updTime();
 
-/* map pings */
+/* map pings - HQ marker is bigger and labelled */
 const mapPings = document.getElementById('mapPings');
+const HQ = [248, 178, 'Caerphilly HQ'];  // South Wales
 const sites = [
-  [253,145,'Cardiff'],[263,200,'Bristol'],[245,175,'HQ'],
+  [253,145,'Cardiff'],[263,200,'Bristol'],
   [260,130,'Birmingham'],[270,100,'Manchester'],[255,80,'Glasgow'],
-  [140,170,'Dublin'],[380,330,'Paris'],[470,280,'Amsterdam'],
-  [500,310,'Cologne'],[420,370,'Lyon'],[290,135,'Leeds']
+  [140,170,'Dublin'],[200,210,'Belfast'],
+  [380,330,'Paris'],[470,280,'Amsterdam'],
+  [500,310,'Cologne'],[420,370,'Lyon'],
+  [540,325,'Vienna'],
+  [290,135,'Leeds']
 ];
+
+// HQ pin: larger gold dot + halo + persistent label
+const hqGroup = document.createElementNS('http://www.w3.org/2000/svg','g');
+hqGroup.innerHTML = `
+  <circle cx="${HQ[0]}" cy="${HQ[1]}" r="5" fill="#c9a961"/>
+  <circle cx="${HQ[0]}" cy="${HQ[1]}" r="14" fill="none" stroke="#c9a961" stroke-width="1.5" opacity="0.85">
+    <animate attributeName="r" values="5;28" dur="2.8s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.85;0" dur="2.8s" repeatCount="indefinite"/>
+  </circle>
+  <text x="${HQ[0]+10}" y="${HQ[1]-8}" font-family="'JetBrains Mono',monospace" font-size="10" fill="#c9a961" letter-spacing="0.06em">${HQ[2]}</text>
+`;
+mapPings.appendChild(hqGroup);
+
+// Other city pins
 sites.forEach(([x,y,n],i)=>{
   const g = document.createElementNS('http://www.w3.org/2000/svg','g');
   g.innerHTML = `
