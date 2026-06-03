@@ -42,6 +42,39 @@
 .region-contact-row a{padding:14px 28px;border:1px solid var(--vs-gold);color:var(--vs-cream);font:500 13px/1 var(--vs-fbody);letter-spacing:.04em;text-decoration:none;transition:background .18s,color .18s}
 .region-contact-row a:hover{background:var(--vs-gold);color:#0a0a0a}
 .region-contact-row a[data-todo]{border-style:dashed;color:var(--vs-mute)}
+
+@media(max-width:860px){
+  .region-hero{padding:108px 0 56px}
+  .region-hero h1{font-size:clamp(32px,7vw,52px)}
+  .region-hero .lead{font-size:15.5px;margin-bottom:24px}
+  .region-section{padding:64px 0}
+  .region-section .lead{font-size:15px;line-height:1.6;margin-bottom:24px}
+  .region-strip{padding:32px 0}
+  .region-strip-row{gap:18px}
+  .region-strip img{height:28px}
+  .region-contact{padding:64px 0}
+  .region-card{padding:22px 20px}
+  .region-card h3{font-size:19px}
+}
+@media(max-width:480px){
+  .region-hero{padding:88px 0 40px}
+  .region-hero h1{font-size:clamp(28px,8vw,40px)}
+  .region-hero .lead{font-size:14.5px}
+  .region-cta{width:100%;max-width:280px;justify-content:center;padding:14px 18px}
+  .region-section{padding:48px 0}
+  .region-section h2{font-size:clamp(22px,7vw,32px)}
+  .region-section .lead{font-size:14.5px}
+  .region-strip{padding:24px 0}
+  .region-strip img{height:24px}
+  .region-strip-note{font-size:10px;letter-spacing:.12em}
+  .region-contact{padding:48px 0}
+  .region-contact h2{font-size:clamp(22px,7vw,32px)}
+  .region-contact-row{gap:10px}
+  .region-contact-row a{width:100%;max-width:280px;text-align:center;padding:14px 18px}
+  .region-card{padding:18px 16px}
+  .region-card h3{font-size:18px}
+  .region-card p{font-size:13.5px}
+}
 </style>
 
 <!-- GA4 - replace G-XXXXXXXXXX with live measurement ID before launch (TODO Kai: GA4 ID) -->
