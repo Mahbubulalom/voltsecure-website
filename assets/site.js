@@ -1,3 +1,46 @@
+/* ==========================================================
+   VoltSecure - SHARED SITE CONFIG
+   Single source of truth for placeholders that still need
+   client confirmation before public launch. Change values
+   here and the whole site picks them up - no need to edit
+   40+ inlined footers.
+   ========================================================== */
+window.VS_CONFIG = {
+  social: {
+    // TODO Cai: confirm real VoltSecure URLs before launch
+    linkedin:  'https://www.linkedin.com/',
+    instagram: 'https://www.instagram.com/',
+    facebook:  'https://www.facebook.com/'
+  },
+  ga4: {
+    // TODO Cai: paste live GA4 measurement ID here (e.g. 'G-XXXXXXXXXX')
+    id: ''   // empty = analytics disabled; tag fires only when id is set
+  },
+  fca: {
+    // TODO Cai: confirm FCA accreditation tier wording shown on
+    // accreditations.html (e.g. 'Registered' / 'Authorised')
+    tier: 'Registered'
+  }
+};
+
+/* Rewrite the placeholder social links in the footer using the
+   config above. Runs once on DOMContentLoaded. */
+document.addEventListener('DOMContentLoaded', function(){
+  var cfg = (window.VS_CONFIG && window.VS_CONFIG.social) || {};
+  var match = {
+    'linkedin.com':  cfg.linkedin,
+    'instagram.com': cfg.instagram,
+    'facebook.com':  cfg.facebook
+  };
+  document.querySelectorAll('a[href]').forEach(function(a){
+    Object.keys(match).forEach(function(host){
+      if (a.href.indexOf(host) !== -1 && match[host]) {
+        a.href = match[host];
+      }
+    });
+  });
+});
+
 /* VoltSecure - shared site scripts: mobile menu + lang toggle */
 (function(){
   const burger = document.querySelector('.burger');
