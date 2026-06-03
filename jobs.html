@@ -12,25 +12,54 @@
 <link rel="stylesheet" href="/assets/site.css"/>
 <script src="/assets/site.js" defer></script>
 <style>
-.legal-page{padding:160px 0 96px;border-bottom:1px solid var(--vs-line);background:#0a0a0a}
+/* ============ Legal/info page - responsive across mobile/tablet/desktop ============ */
+.legal-page{padding:140px 0 96px;border-bottom:1px solid var(--vs-line);background:#0a0a0a;scroll-padding-top:80px}
+@media(max-width:860px){.legal-page{padding:104px 0 64px}}
+@media(max-width:480px){.legal-page{padding:84px 0 48px}}
+
 .legal-page .crumbs{font:500 11px/1 var(--vs-fmono);letter-spacing:.16em;color:var(--vs-mute);text-transform:uppercase;margin-bottom:18px}
 .legal-page .crumbs a{color:var(--vs-mute);text-decoration:none}
-.legal-page .crumbs a:hover{color:var(--vs-gold)}
+.legal-page .crumbs a:hover,.legal-page .crumbs a:focus-visible{color:var(--vs-gold);outline:none}
+
 .legal-page .eyebrow{font:500 11px/1 var(--vs-fmono);letter-spacing:.18em;color:var(--vs-gold);text-transform:uppercase;margin-bottom:18px}
-.legal-page h1{font-family:var(--vs-fdisplay);font-weight:400;font-size:clamp(32px,4.5vw,56px);color:var(--vs-cream);line-height:1.1;margin:0 0 16px;letter-spacing:-.01em}
+
+.legal-page h1{font-family:var(--vs-fdisplay);font-weight:400;font-size:clamp(28px,5vw,56px);color:var(--vs-cream);line-height:1.08;margin:0 0 16px;letter-spacing:-.01em}
 .legal-page h1 em{color:var(--vs-gold);font-style:normal}
-.legal-meta{font:500 12px/1.5 var(--vs-fmono);letter-spacing:.06em;color:var(--vs-mute);text-transform:uppercase;margin-bottom:48px}
+
+.legal-meta{font:500 12px/1.6 var(--vs-fmono);letter-spacing:.06em;color:var(--vs-mute);text-transform:uppercase;margin-bottom:40px}
 .legal-meta strong{color:var(--vs-gold);font-weight:500}
-.legal-body{max-width:780px;color:#cfc8b9;font-size:16px;line-height:1.78}
-.legal-body h2{font-family:var(--vs-fdisplay);font-weight:400;font-size:24px;color:var(--vs-cream);margin:48px 0 16px}
+@media(max-width:480px){.legal-meta{font-size:10.5px;letter-spacing:.05em;margin-bottom:28px;line-height:1.7}}
+
+.legal-body{max-width:760px;color:#cfc8b9;font-size:16px;line-height:1.78}
+.legal-body h2{font-family:var(--vs-fdisplay);font-weight:400;font-size:clamp(20px,2.4vw,26px);color:var(--vs-cream);margin:48px 0 16px;letter-spacing:-.005em}
 .legal-body h2:first-child{margin-top:0}
+.legal-body h2::after{content:"";display:block;width:42px;height:1px;background:var(--vs-gold);margin-top:10px;opacity:.55}
 .legal-body h3{font-family:var(--vs-fbody);font-weight:600;font-size:15px;color:var(--vs-cream);margin:28px 0 8px;letter-spacing:.02em}
 .legal-body p{margin:0 0 18px}
-.legal-body ul{margin:0 0 18px 0;padding-left:22px}
-.legal-body ul li{margin-bottom:8px}
-.legal-body a{color:var(--vs-gold);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
-.legal-banner{margin:0 0 36px;padding:18px 22px;border:1px dashed var(--vs-gold);background:rgba(201,169,97,.04);color:var(--vs-cream);font-size:14px;line-height:1.6}
-.legal-banner strong{color:var(--vs-gold)}
+.legal-body ul,.legal-body ol{margin:0 0 18px 0;padding-left:22px}
+.legal-body ul li,.legal-body ol li{margin-bottom:8px}
+.legal-body strong{color:var(--vs-cream);font-weight:500}
+.legal-body a{color:var(--vs-gold);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;transition:opacity .2s;word-wrap:break-word;overflow-wrap:break-word}
+.legal-body a:hover,.legal-body a:focus-visible{opacity:.75;outline:none}
+
+@media(max-width:720px){
+  .legal-body{font-size:15.5px;line-height:1.72}
+  .legal-body h2{margin:36px 0 12px}
+  .legal-body h2::after{margin-top:8px}
+  .legal-body p{margin-bottom:14px}
+  .legal-body ul,.legal-body ol{padding-left:20px}
+}
+@media(max-width:480px){
+  .legal-body{font-size:15px;line-height:1.7}
+  .legal-body h2{margin:32px 0 10px}
+  .legal-body h3{margin:22px 0 6px}
+  .legal-body ul,.legal-body ol{padding-left:18px}
+}
+
+.legal-banner{margin:0 0 36px;padding:18px 22px;border:1px dashed var(--vs-gold);background:rgba(201,169,97,.04);color:var(--vs-cream);font-size:14px;line-height:1.6;border-radius:2px}
+.legal-banner strong{color:var(--vs-gold);display:inline-block;margin-right:4px}
+.legal-banner a{color:var(--vs-gold);text-decoration:underline;word-wrap:break-word;overflow-wrap:break-word}
+@media(max-width:480px){.legal-banner{padding:14px 16px;font-size:13px;margin-bottom:28px;line-height:1.55}}
 .role-list{display:flex;flex-direction:column;gap:14px;margin:0 0 36px}
 .role{border:1px solid var(--vs-line-soft);background:rgba(255,255,255,0.012);padding:22px 24px;display:flex;flex-direction:column;gap:6px;transition:border-color .25s,transform .25s}
 .role:hover{border-color:var(--vs-gold);transform:translateY(-2px)}
@@ -74,7 +103,7 @@ gtag('config', 'G-XXXXXXXXXX');
     </div>
     <div class="nav-right">
       <button class="lang-toggle" type="button" aria-label="Switch language"></button>
-      <a href="/contact.html" class="nav-cta"><span class="cta-full">Request a quote</span><span class="cta-short">Quote</span> →</a>
+      <a href="/contact.html" class="nav-cta">Request a quote →</a>
       <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </div>
