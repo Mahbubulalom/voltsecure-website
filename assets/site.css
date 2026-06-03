@@ -95,15 +95,13 @@
   .brand img{height:56px}
   .nav-right .lang-toggle .lt-label{display:none}
   .nav-right .lang-toggle{padding:6px 8px;gap:0}
-  .nav-right .nav-cta .cta-full{display:none}
-  .nav-right .nav-cta .cta-short{display:inline}
-  .nav-right .nav-cta{padding:8px 12px;font-size:10px;letter-spacing:0.1em}
+  /* hide the top-bar CTA entirely on phones - burger menu carries its own .mobile-cta */
+  .nav-right .nav-cta{display:none}
   .nav-inner{padding:0 14px;gap:8px}
   .nav-right{gap:8px}
 }
 @media(max-width:420px){
   .brand img{height:50px}
-  .nav-right .nav-cta{font-size:9.5px;padding:7px 10px}
   .nav-right{gap:6px}
   .nav-inner{padding:0 12px;gap:6px}
   .nav-links>a{font-size:26px}
