@@ -16,7 +16,20 @@
   --vs-fdisplay:'Tenor Sans','Optima',serif;
   --vs-fbody:'Inter',system-ui,sans-serif;
   --vs-fmono:'JetBrains Mono',ui-monospace,monospace;
+  --vs-max:1200px;
 }
+
+/* ====== GLOBAL BASE + CONTAINER + OVERFLOW GUARD ======
+   Dark background and cream text applied at html/body so pages that
+   don't redeclare them (deutschland, ireland, etc.) still render on
+   brand instead of falling back to browser white.
+   .wrap is the shared max-width container used inside every section.
+   overflow-x:hidden on body prevents stray transforms / oversized
+   SVGs from forcing a horizontal scrollbar. */
+html,body{overflow-x:hidden;background:var(--vs-bg);color:var(--vs-cream);font-family:var(--vs-fbody);margin:0;padding:0}
+.wrap{max-width:var(--vs-max);margin:0 auto;padding:0 32px;box-sizing:border-box}
+@media(max-width:720px){.wrap{padding:0 20px}}
+@media(max-width:480px){.wrap{padding:0 16px}}
 
 /* ====== NAV ====== */
 .nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 0;background:rgba(10,10,10,0.94);border-bottom:1px solid var(--vs-line)}
