@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Employees - VoltSecure</title>
-<meta name="description" content="Information for VoltSecure team members - benefits, training, certifications, internal contacts and the engineer-led culture.">
+<title>ESG &amp; Social Value - VoltSecure</title>
+<meta name="description" content="VoltSecure's ESG and social-value commitments - apprenticeships, local employment, EV fleet transition, community sponsorship and supply-chain integrity across the UK and Europe.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -56,17 +56,16 @@
   .legal-body ul,.legal-body ol{padding-left:18px}
 }
 
-.legal-banner{margin:0 0 36px;padding:18px 22px;border:1px dashed var(--vs-gold);background:rgba(201,169,97,.04);color:var(--vs-cream);font-size:14px;line-height:1.6;border-radius:2px}
-.legal-banner strong{color:var(--vs-gold);display:inline-block;margin-right:4px}
-.legal-banner a{color:var(--vs-gold);text-decoration:underline;word-wrap:break-word;overflow-wrap:break-word}
-@media(max-width:480px){.legal-banner{padding:14px 16px;font-size:13px;margin-bottom:28px;line-height:1.55}}
-.cards-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:0 0 32px}
-.info-card{border:1px solid var(--vs-line-soft);background:rgba(255,255,255,0.012);padding:20px 18px;display:flex;flex-direction:column;gap:6px}
-.info-card .lbl{font:500 10.5px/1 var(--vs-fmono);letter-spacing:.16em;color:var(--vs-gold);text-transform:uppercase}
-.info-card .val{font-family:var(--vs-fdisplay);font-size:18px;color:var(--vs-cream)}
-.info-card .sub{font-size:13px;color:var(--vs-mute);line-height:1.5}
+/* ESG-specific pillar cards */
+.esg-pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:0 0 40px}
+@media(max-width:860px){.esg-pillars{grid-template-columns:1fr;gap:12px}}
+.esg-pillar{border:1px solid var(--vs-line-soft);background:rgba(255,255,255,0.012);padding:24px 22px;display:flex;flex-direction:column;gap:8px;transition:border-color .25s,transform .25s}
+.esg-pillar:hover{border-color:var(--vs-gold);transform:translateY(-3px)}
+.esg-pillar .lbl{font:500 10px/1 var(--vs-fmono);letter-spacing:.2em;color:var(--vs-gold);text-transform:uppercase}
+.esg-pillar h3{font-family:var(--vs-fdisplay);font-size:18px;color:var(--vs-cream);font-weight:400;margin:0;line-height:1.2}
+.esg-pillar p{color:var(--vs-mute);font-size:13.5px;line-height:1.6;margin:0}
 </style>
-<!-- GA4 - replace G-XXXXXXXXXX with live measurement ID before launch (TODO Kai: GA4 ID) -->
+<!-- GA4 - replace G-XXXXXXXXXX with live measurement ID before launch -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
 <script>
 window.dataLayer = window.dataLayer || [];
@@ -101,77 +100,84 @@ gtag('config', 'G-XXXXXXXXXX');
 
 <section class="legal-page">
   <div class="wrap">
-    <div class="crumbs"><a href="/index.html">Home</a> · <span>Employees</span></div>
-    <div class="eyebrow">◆ VoltSecure &amp; you · Employees</div>
-    <h1>For our <em>team</em>.</h1>
-    <p class="legal-meta">Internal information &amp; resources · VoltSecure® Ltd · BAFE 303517</p>
+    <div class="crumbs"><a href="/index.html">Home</a> · <span>ESG &amp; Social Value</span></div>
+    <div class="eyebrow">◆ About VoltSecure · ESG &amp; social value</div>
+    <h1>ESG &amp; <em>Social Value</em>.</h1>
+    <p class="legal-meta">Last updated <strong>2026</strong> · VoltSecure® Ltd · BAFE 303517 · Caerphilly HQ · Pontypridd Service Hub</p>
 
-    <div class="legal-banner">
-      <strong>Draft - pending sign-off.</strong> Placeholder content for the employee hub. Final benefits, links and contacts to be confirmed by Cai before launch. Send updates to <a href="mailto:admin@voltsecure.co.uk?subject=Employees%20page%20update">admin@voltsecure.co.uk</a>.
+    <div class="esg-pillars">
+      <div class="esg-pillar">
+        <span class="lbl">◆ Environmental</span>
+        <h3>EV fleet · UK supply chain · long-life systems</h3>
+        <p>Transitioning service vehicles to electric, prioritising UK suppliers, and designing installations for serviceability so customers replace fewer components over a system's life.</p>
+      </div>
+      <div class="esg-pillar">
+        <span class="lbl">◆ Social</span>
+        <h3>Apprenticeships · fair pay · local employment</h3>
+        <p>Funded electrical and FESS apprenticeships from year one, JIB-graded pay across the workforce, and community sponsorship across our South Wales home counties.</p>
+      </div>
+      <div class="esg-pillar">
+        <span class="lbl">◆ Governance</span>
+        <h3>UKAS-audited · accountable · transparent</h3>
+        <p>BAFE, NICEIC, SSAIB, ECA, JIB and Constructionline audits keep our technical, financial and labour-standard practices under independent ongoing review.</p>
+      </div>
     </div>
 
     <div class="legal-body">
 
-<h2>Welcome to VoltSecure.</h2>
-<p>Whether you're a first-week apprentice or a senior engineer, this page brings together the things you need most often - certifications, benefits, training and who to ask when something comes up.</p>
+<h2>Our approach</h2>
+<p>VoltSecure was founded by engineers who came up through the trade in South Wales. ESG and social value aren't a procurement checkbox for us - they're how the business has grown from a two-person start-up to a UK-and-Europe operating contractor with funded apprenticeships running on every job.</p>
+<p>This page sets out what we already do, what we measure, and where we want to improve.</p>
 
-<h2>Quick contacts</h2>
-<div class="cards-row">
-  <div class="info-card">
-    <span class="lbl">Pay &amp; HR</span>
-    <span class="val">02922 641046</span>
-    <span class="sub">Office hours, Mon-Fri. For urgent issues, leave a message and we'll come back same day.</span>
-  </div>
-  <div class="info-card">
-    <span class="lbl">Health, safety &amp; site</span>
-    <span class="val">SSIP-aligned</span>
-    <span class="sub">Report any near-miss or concern to your project manager - or call the office and we'll log it.</span>
-  </div>
-  <div class="info-card">
-    <span class="lbl">Wellness support</span>
-    <span class="val">EAP scheme</span>
-    <span class="sub">Confidential employee assistance line - mental health, financial advice, family support.</span>
-  </div>
-</div>
+<h2>Environmental</h2>
+<h3>Carbon reduction</h3>
+<p>Our full <a href="/carbon-reduction.html">Carbon Reduction Plan</a> sets out our baseline approach, 50% reduction target by 2030 and our path to Net Zero by 2050 - aligned with PPN 06/21 for public-sector contracting.</p>
 
-<h2>Pay, leave &amp; benefits</h2>
+<h3>Fleet</h3>
+<p>Our service-vehicle fleet is transitioning to electric where charging infrastructure makes it operationally viable. Engineer routes are scheduled to consolidate site visits, reducing total miles per project.</p>
+
+<h3>Supply chain</h3>
+<p>We prioritise UK suppliers and accredited distribution partners to minimise long-distance freight where alternatives exist. Equipment is specified for serviceability and long working life - the largest indirect emissions lever in our sector is the avoided replacement of working kit.</p>
+
+<h3>Energy</h3>
+<p>We buy electricity for our Caerphilly HQ and Pontypridd Service Hub under a renewable tariff. As an electrical contractor with growing capability in renewables, our own EV charging, solar PV and battery installations are being phased in.</p>
+
+<h2>Social</h2>
+<h3>Apprenticeships</h3>
+<p>We run funded apprenticeships in both <strong>electrical installation</strong> and <strong>Fire, Emergency &amp; Security Systems (FESS)</strong>. Apprentices are paid from day one with structured day-release at a partner college. No prior trade experience is required - attitude and willingness to learn matter more than entry qualifications.</p>
+
+<h3>Local employment</h3>
+<p>Headcount has more than doubled year on year since founding. Recruitment is local-first - across Caerphilly County Borough, Rhondda Cynon Taf, Cardiff City Council and the wider South Wales valleys.</p>
+
+<h3>Fair pay &amp; welfare</h3>
+<p>Every role is mapped to the Joint Industry Board grade for transparent, industry-standard rates. Pension contribution applies from day one, company sick pay sits above statutory minimums, and an Employee Assistance Programme provides confidential mental-health, financial and family support.</p>
+
+<h3>Community sponsorship</h3>
+<p>We sponsor local sport, community groups and youth clubs across our home boroughs - including Cardiff City FC partnerships, local bowls and lawn clubs (Llanbradach, Ystrad Mynach, Cwmaman / Maesycwmmer) and other community organisations whose work we see first-hand in the areas we live and work.</p>
+
+<h3>Modern slavery &amp; labour standards</h3>
+<p>Our <a href="/modern-slavery.html">Modern Slavery Statement</a> sets out the steps we take to keep our supply chain free of forced or coerced labour. We rely on Constructionline and SSIP-recognised checks across our subcontractor base.</p>
+
+<h2>Governance</h2>
+<h3>Accreditations and oversight</h3>
+<p>VoltSecure is audited by UKAS-accredited certification bodies across the disciplines we work in:</p>
 <ul>
-  <li><strong>JIB-graded pay scale.</strong> Every role mapped to the Joint Industry Board grade for fair, transparent rates.</li>
-  <li><strong>Pension.</strong> Employer contribution from day one - rate confirmed in your offer letter.</li>
-  <li><strong>Holiday.</strong> Statutory minimum plus extra service-based days - see your contract.</li>
-  <li><strong>Sick pay.</strong> Company sick-pay scheme above SSP, subject to length of service.</li>
-  <li><strong>Tools &amp; PPE.</strong> Company-issued PPE, branded workwear and full personal tool kit. Replacements through your project manager.</li>
-  <li><strong>Vehicle.</strong> Marked company vans for engineers; EV transition in progress where charging makes operational sense.</li>
+  <li><strong>BAFE SP203-1</strong> - fire detection &amp; alarm (design, install, commission, maintain)</li>
+  <li><strong>NICEIC</strong> - electrical Approved Contractor</li>
+  <li><strong>SSAIB</strong> - security systems certification</li>
+  <li><strong>ECA</strong> - Electrical Contractors' Association (company membership)</li>
+  <li><strong>JIB</strong> - Joint Industry Board, graded workforce</li>
+  <li><strong>Constructionline</strong> - UK government certification service</li>
+  <li><strong>SSIP</strong> - Safety Schemes in Procurement</li>
+  <li><strong>FCA</strong> - Financial Conduct Authority registration</li>
 </ul>
+<p>Audits are ongoing - certificates are not awarded once and forgotten. The full list with what each certification actually covers is on our <a href="/accreditations.html">accreditations page</a>.</p>
 
-<h2>Training &amp; certifications</h2>
-<p>VoltSecure is registered for funded apprenticeships in electrical installation and FESS (Fire, Emergency &amp; Security Systems). All engineers hold or are working toward the certifications below:</p>
-<ul>
-  <li>ECS Gold or relevant grade card</li>
-  <li>BS 7671 (18th Edition) qualification, where applicable</li>
-  <li>BAFE SP203-1 modules for fire-system roles</li>
-  <li>FIA / Skills for Security CPD on rolling cycle</li>
-  <li>Manufacturer training (HikVision, Paxton, Texecom, Advanced, etc.) - booked through your project manager</li>
-</ul>
-<p>Renewal reminders go out automatically 90 days before any certification expires. Don't wait for the email - flag it to the office as soon as you know.</p>
+<h3>Policies</h3>
+<p>Our published policy documents are linked from the site footer: <a href="/accessibility.html">Accessibility</a>, <a href="/carbon-reduction.html">Carbon Reduction Plan</a>, <a href="/cookies.html">Cookie Policy</a>, <a href="/modern-slavery.html">Modern Slavery Statement</a>, <a href="/privacy.html">Privacy Notice</a> and <a href="/terms.html">Site Terms</a>.</p>
 
-<h2>What we expect, day to day</h2>
-<ul>
-  <li><strong>Compliance is the standard, not the ceiling.</strong> Every job delivered to the relevant British / European Standard, every certificate signed off properly.</li>
-  <li><strong>Tidy site, tidy paperwork.</strong> Sites are left as we found them or better; documentation is uploaded the same day, not at month-end.</li>
-  <li><strong>Speak up.</strong> If something on site looks wrong, off-spec, or unsafe - stop work and call your PM. We'd rather lose an hour than create a defect.</li>
-  <li><strong>Look after each other.</strong> Apprentices learn from engineers, engineers learn from each other. Mentoring is part of the job, not a side task.</li>
-</ul>
-
-<h2>Useful links</h2>
-<ul>  <li><a href="/accreditations.html">VoltSecure accreditations &amp; standards</a></li>
-  <li><a href="/about.html">About VoltSecure</a></li>
-  <li><a href="/modern-slavery.html">Modern slavery statement</a></li>
-  <li><a href="/accessibility.html">Accessibility statement</a></li>
-</ul>
-
-<h2>Got a question?</h2>
-<p>If something isn't covered here, ring the office on <a href="tel:02922641046">02922 641046</a> or email <a href="mailto:admin@voltsecure.co.uk">admin@voltsecure.co.uk</a>. We'd rather you ask early than carry the question around all week.</p>
+<h2>What we report</h2>
+<p>This page is reviewed annually. As baseline emissions figures, apprenticeship numbers, supply-chain audit results and community investment totals are verified, they will be published here. For specific information for tender support or framework submissions, please <a href="/contact.html">get in touch</a>.</p>
 
     </div>
   </div>
@@ -224,7 +230,7 @@ gtag('config', 'G-XXXXXXXXXX');
         <ul>
           <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a></li>
           <li><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a></li>
-          <li><a href="https://www.youtube.com/" target="_blank" rel="noopener">YouTube</a></li>
+          <li><a href="https://www.facebook.com/" target="_blank" rel="noopener">Facebook</a></li>
         </ul>
         <h4 style="margin-top:28px">Contact</h4>
         <ul>
