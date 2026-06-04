@@ -23,7 +23,11 @@
 .testimonial-band{padding:96px 0;background:#0d0c0a;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 @media(max-width:860px){.testimonial-band{padding:64px 0}}
 .testimonial{max-width:760px;margin:0 auto;text-align:center}
-.testimonial .mark{font-family:var(--font-display);font-size:80px;color:var(--gold);line-height:0.4;height:30px;margin-bottom:16px}
+/* Decorative " mark above the testimonial - line-height:1 means the
+   glyph occupies its natural box; the negative margin-top lets it sit
+   slightly above the visual flow without ever overlapping the quote
+   text below. Same trick used in .quote-band on projects.html. */
+.testimonial .mark{display:block;font-family:var(--font-display);font-size:clamp(56px,7vw,80px);line-height:1;color:var(--gold);margin:-12px 0 16px}
 .testimonial-quote{font-family:var(--font-display);font-size:clamp(20px,2.2vw,26px);color:var(--cream);line-height:1.55;margin-bottom:32px}
 .testimonial-author{display:inline-flex;flex-direction:column;gap:4px;padding-top:20px;border-top:1px solid var(--line-soft)}
 .testimonial-author strong{font-family:var(--font-display);font-size:18px;color:var(--cream);font-weight:400}
