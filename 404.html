@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en" data-default-lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Page not found - VoltSecure</title>
+<meta name="description" content="The page you were looking for could not be found. Head back to the VoltSecure homepage or get in touch.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="/assets/logo-mark-gold.png" />
+<link rel="stylesheet" href="/assets/site.css"/>
+<script src="/assets/site.js" defer></script>
+<style>
+/* ============ 404 hero - matches site dark/gold language ============ */
+.nf{position:relative;min-height:calc(100vh - 200px);padding:160px 0 96px;background:radial-gradient(ellipse at 70% 20%,rgba(201,169,97,0.08),transparent 55%),var(--vs-bg);display:flex;align-items:center;overflow:hidden}
+@media(max-width:860px){.nf{padding:108px 0 64px;min-height:auto}}
+@media(max-width:480px){.nf{padding:88px 0 48px}}
+
+/* Decorative gold rings echoing the radar visual on the homepage */
+.nf::before{content:"";position:absolute;top:50%;right:-200px;width:520px;height:520px;border:1px solid var(--vs-gold);border-radius:50%;opacity:.06;transform:translateY(-50%);pointer-events:none}
+.nf::after{content:"";position:absolute;top:50%;right:-120px;width:360px;height:360px;border:1px solid var(--vs-gold);border-radius:50%;opacity:.08;transform:translateY(-50%);pointer-events:none}
+@media(max-width:720px){.nf::before,.nf::after{display:none}}
+
+.nf-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:80px;align-items:center;position:relative;z-index:1}
+@media(max-width:860px){.nf-grid{grid-template-columns:1fr;gap:40px}}
+
+.nf-eyebrow{font:500 11px/1 var(--vs-fmono);letter-spacing:.22em;color:var(--vs-gold);text-transform:uppercase;margin-bottom:24px}
+.nf-mark{font-family:var(--vs-fdisplay);font-weight:400;font-size:clamp(96px,16vw,200px);line-height:.9;color:var(--vs-cream);letter-spacing:-.04em;margin:0 0 18px;background:linear-gradient(180deg,var(--vs-cream) 0%,var(--vs-gold) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.nf h1{font-family:var(--vs-fdisplay);font-weight:400;font-size:clamp(28px,4vw,44px);color:var(--vs-cream);line-height:1.1;margin:0 0 18px;letter-spacing:-.005em}
+.nf h1 em{color:var(--vs-gold);font-style:normal}
+.nf-lead{color:#cfc8b9;font-size:clamp(15px,1.2vw,17px);line-height:1.7;max-width:48ch;margin:0 0 36px}
+
+.nf-actions{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:48px}
+.nf-btn{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;font:500 12px/1 var(--vs-fmono);letter-spacing:.18em;text-transform:uppercase;text-decoration:none;transition:all .25s;border-radius:0;white-space:nowrap}
+.nf-btn--primary{background:var(--vs-gold);color:#0a0a0a}
+.nf-btn--primary:hover{background:var(--vs-cream);transform:translateY(-2px);box-shadow:0 12px 28px -12px rgba(201,169,97,0.4)}
+.nf-btn--ghost{border:1px solid var(--vs-line);color:var(--vs-cream)}
+.nf-btn--ghost:hover{border-color:var(--vs-gold);color:var(--vs-gold)}
+@media(max-width:480px){.nf-btn{width:100%;justify-content:center;padding:14px 18px}}
+
+.nf-helpful{border-top:1px solid var(--vs-line-soft);padding-top:28px}
+.nf-helpful .lab{font:500 10px/1 var(--vs-fmono);letter-spacing:.2em;color:var(--vs-gold);text-transform:uppercase;margin-bottom:14px}
+.nf-helpful ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:6px}
+.nf-helpful a{color:#cfc8b9;text-decoration:none;font-size:14.5px;line-height:1.6;display:inline-flex;align-items:center;gap:10px;transition:color .2s}
+.nf-helpful a::before{content:"→";color:var(--vs-gold);font-family:var(--vs-fmono);transition:transform .2s}
+.nf-helpful a:hover{color:var(--vs-gold)}
+.nf-helpful a:hover::before{transform:translateX(3px)}
+
+.nf-aside{position:relative}
+.nf-aside-card{border:1px solid var(--vs-line);background:linear-gradient(180deg,rgba(255,255,255,0.012) 0%,rgba(0,0,0,0.15) 100%);padding:36px 32px;border-radius:2px}
+.nf-aside-card .lbl{font:500 10.5px/1 var(--vs-fmono);letter-spacing:.18em;color:var(--vs-gold);text-transform:uppercase;margin-bottom:14px}
+.nf-aside-card h3{font-family:var(--vs-fdisplay);font-weight:400;font-size:22px;color:var(--vs-cream);margin:0 0 12px;line-height:1.2}
+.nf-aside-card p{font-size:14.5px;color:#cfc8b9;line-height:1.6;margin:0 0 24px}
+.nf-aside-card .meta{display:flex;flex-direction:column;gap:10px;padding-top:20px;border-top:1px solid var(--vs-line-soft);font-size:13px}
+.nf-aside-card .meta a{color:var(--vs-cream);text-decoration:none;display:inline-flex;gap:8px;align-items:center;transition:color .2s}
+.nf-aside-card .meta a:hover{color:var(--vs-gold)}
+.nf-aside-card .meta .ico{color:var(--vs-gold);font-family:var(--vs-fmono);font-size:12px;width:18px;text-align:center}
+@media(max-width:480px){.nf-aside-card{padding:24px 20px}}
+</style>
+</head>
+<body>
+
+<!-- ===== shared nav ===== -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/index.html" class="brand"><img src="/assets/logo-horizontal.png" alt="VoltSecure"/></a>
+    <div class="nav-links">
+      <a href="/services.html">Services</a>
+      <a href="/projects.html">Projects</a>
+      <a href="/about.html">About</a>
+      <a href="/accreditations.html">Accreditations</a>
+      <a href="/contact.html">Contact</a>
+      <div class="nav-mobile-extras">
+        <button class="lang-toggle" type="button" aria-label="Switch language"></button>
+        <a href="/contact.html" class="mobile-cta">Request a quote →</a>
+      </div>
+    </div>
+    <div class="nav-right">
+      <button class="lang-toggle" type="button" aria-label="Switch language"></button>
+      <a href="/contact.html" class="nav-cta">Request a quote →</a>
+      <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== 404 hero ===== -->
+<section class="nf">
+  <div class="wrap">
+    <div class="nf-grid">
+
+      <div>
+        <div class="nf-eyebrow">◆ Error 404 · page not found</div>
+        <div class="nf-mark">404</div>
+        <h1>Page <em>not found</em>.</h1>
+        <p class="nf-lead">The page you were looking for has either moved, been retired, or the link you followed isn't quite right. No drama - here's the way back.</p>
+
+        <div class="nf-actions">
+          <a href="/index.html" class="nf-btn nf-btn--primary">Back to home →</a>
+          <a href="/contact.html" class="nf-btn nf-btn--ghost">Contact us</a>
+          <a href="/contact.html?source=404" class="nf-btn nf-btn--ghost">Request a quote</a>
+        </div>
+
+        <div class="nf-helpful">
+          <div class="lab">◆ Try one of these</div>
+          <ul>
+            <li><a href="/services.html">Our services - fire, security &amp; electrical</a></li>
+            <li><a href="/projects.html">Case studies &amp; example projects</a></li>
+            <li><a href="/about.html">About VoltSecure</a></li>
+            <li><a href="/accreditations.html">Accreditations &amp; memberships</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <aside class="nf-aside">
+        <div class="nf-aside-card">
+          <div class="lbl">◆ Talk to a person</div>
+          <h3>Couldn't find what you needed?</h3>
+          <p>Tell us what you were after and we'll point you to the right page - or come back with a quote within one working day.</p>
+          <div class="meta">
+            <a href="tel:02922641046"><span class="ico">☎</span> 02922 641046</a>
+            <a href="mailto:admin@voltsecure.co.uk"><span class="ico">@</span> admin@voltsecure.co.uk</a>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== shared footer (kept identical to other pages) ===== -->
+<footer class="vs-footer">
+  <div class="wrap">
+    <div class="vs-footer-grid">
+
+      <div class="vs-footer-brand">
+        <div>
+          <img src="/assets/logo-horizontal.png" alt="VoltSecure"/>
+          <p>Fire, security &amp; electrical engineering for commercial estates across the UK, Ireland and continental Europe.</p>
+          <span class="bafe">◆ BAFE 303517 · NICEIC · SSAIB · ECA</span>
+        </div>
+      </div>
+
+      <div class="vs-footer-col">
+        <h4>International</h4>
+        <ul>
+          <li><a href="/index.html"><span class="ext">↗</span> VoltSecure UK</a></li>
+          <li><a href="/deutschland.html"><span class="ext">↗</span> VoltSecure Deutschland</a></li>
+          <li><a href="/ireland.html"><span class="ext">↗</span> VoltSecure Ireland</a></li>
+        </ul>
+      </div>
+
+      <div class="vs-footer-col">
+        <h4>About us</h4>
+        <ul>
+          <li><a href="/about.html">About us</a></li>
+          <li><a href="/accreditations.html">Accreditations</a></li>
+          <li><a href="/projects.html">Case studies</a></li>
+          <li><a href="/contact.html">Contact us</a></li>
+          <li><a href="/esg.html">ESG &amp; social value</a></li>
+        </ul>
+      </div>
+
+      <div class="vs-footer-col">
+        <h4>VoltSecure &amp; you</h4>
+        <ul>
+          <li><a href="/employees.html"><span class="ext">↗</span> Employees</a></li>
+          <li><a href="/jobs.html"><span class="ext">↗</span> Jobs &amp; apprenticeships</a></li>
+          <li><a href="mailto:admin@voltsecure.co.uk?subject=Media%20enquiry"><span class="ext">↗</span> Media enquiries</a></li>
+          <li><a href="/suppliers.html"><span class="ext">↗</span> Suppliers</a></li>
+        </ul>
+      </div>
+
+      <div class="vs-footer-col">
+        <h4>Follow us</h4>
+        <ul>
+          <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://www.facebook.com/" target="_blank" rel="noopener">Facebook</a></li>
+        </ul>
+        <h4 style="margin-top:28px">Contact</h4>
+        <ul>
+          <li class="tel"><a href="tel:02922641046">02922 641046</a></li>
+          <li class="em"><a href="mailto:admin@voltsecure.co.uk">admin@voltsecure.co.uk</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="vs-footer-bot">
+      <span>VoltSecure® Ltd · © 2026 · All rights reserved · BAFE 303517</span>
+      <span class="vs-footer-policy">
+        <a href="/accessibility.html">Accessibility</a>
+        <a href="/carbon-reduction.html">Carbon reduction plan</a>
+        <a href="/cookies.html">Cookie policy</a>
+        <a href="/modern-slavery.html">Modern slavery statement</a>
+        <a href="/privacy.html">Privacy notice</a>
+        <a href="/terms.html">Site terms</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
