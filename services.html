@@ -9,8 +9,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="icon" href="/assets/logo-mark-gold.png"/>
-<link rel="stylesheet" href="/assets/site.css"/>
-<script src="/assets/site.js" defer></script>
+<link rel="stylesheet" href="/assets/site.css?v=20260604b"/>
+<script src="/assets/site.js?v=20260604b" defer></script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{background:#0a0a0a;color:#f4efe6;font-family:'Inter',system-ui,sans-serif;font-weight:300;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
@@ -62,7 +62,13 @@ h3{font-size:clamp(20px,1.6vw,24px)}
 .btn-gold:hover{background:#f4efe6;transform:translateY(-2px)}
 .btn-ghost{display:inline-flex;align-items:center;gap:10px;padding:16px 28px;border:1px solid rgba(201,169,97,0.18);color:#f4efe6;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;transition:all .25s}
 .btn-ghost:hover{border-color:#c9a961;color:#c9a961}
-@media(max-width:560px){.cta-row{flex-direction:column;width:100%}.btn-gold,.btn-ghost{width:100%;max-width:320px;justify-content:center}.ctaband{padding:80px 0}}
+@media(max-width:560px){
+  /* stack vertically and CENTRE on the cross-axis - was defaulting to stretch
+     which combined with max-width:320px left-aligned the capped buttons */
+  .cta-row{flex-direction:column;width:100%;align-items:center;display:flex}
+  .btn-gold,.btn-ghost{width:100%;max-width:320px;justify-content:center;box-sizing:border-box}
+  .ctaband{padding:80px 0}
+}
 </style>
 <!-- GA4 - replace G-XXXXXXXXXX with live measurement ID before launch (TODO Kai: GA4 ID) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>

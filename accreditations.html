@@ -136,9 +136,14 @@ h3{font-size:clamp(20px,1.8vw,26px)}
 .compliance{padding:96px 0;background:#0d0c0a;border-top:1px solid var(--line)}
 @media(max-width:860px){.compliance{padding:64px 0}}
 .compliance h2{text-align:center;margin-bottom:56px}
-.comp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;max-width:960px;margin:0 auto}
-@media(max-width:860px){.comp-grid{grid-template-columns:repeat(2,1fr)}}
+/* minmax(0,1fr) keeps columns equal even when card content min-width
+   would otherwise grow one column wider than the other (was 155/175 at 390px). */
+.comp-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;max-width:960px;margin:0 auto}
+@media(max-width:860px){.comp-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* one card per row at narrow phones - 2-col was leaving only ~110px content per card */
+@media(max-width:480px){.comp-grid{grid-template-columns:1fr;gap:16px;max-width:420px}}
 .comp{padding:28px 22px;border:1px solid var(--line-soft);background:rgba(255,255,255,0.015);text-align:center;transition:all .25s}
+.comp p,.comp h3{overflow-wrap:anywhere}
 .comp:hover{border-color:var(--gold);transform:translateY(-3px)}
 .comp-num{font-family:var(--font-mono);font-size:10px;letter-spacing:0.2em;color:var(--gold);margin-bottom:14px}
 .comp h3{font-size:18px;margin-bottom:10px;color:var(--cream)}
@@ -170,8 +175,8 @@ footer::before{content:"";display:block;height:1px;background:linear-gradient(90
 .footer-col a:hover{color:var(--gold)}
 .footer-bot{border-top:1px solid var(--line-soft);padding-top:24px;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;font-family:var(--font-mono);font-size:11px;color:var(--mute);letter-spacing:0.08em}
 </style>
-<link rel="stylesheet" href="/assets/site.css"/>
-<script src="/assets/site.js" defer></script>
+<link rel="stylesheet" href="/assets/site.css?v=20260604b"/>
+<script src="/assets/site.js?v=20260604b" defer></script>
 <!-- GA4 - replace G-XXXXXXXXXX with live measurement ID before launch (TODO Kai: GA4 ID) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
 <script>
