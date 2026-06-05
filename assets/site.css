@@ -156,6 +156,36 @@ html,body{overflow-x:hidden;background:var(--vs-bg);color:var(--vs-cream);font-f
 .vs-footer-policy{display:flex;gap:20px;flex-wrap:wrap}
 @media(max-width:640px){.vs-footer-bot{flex-direction:column;gap:14px}.vs-footer-policy{gap:14px}}
 
+/* ====== FOOTER mobile centring - keep desktop unchanged ======
+   At <=640 the grid stacks into 1-2 cols and content was hugging the left
+   edge, leaving a visibly empty right side. Centring the stack here
+   balances the column visually without changing typography or colours. */
+@media(max-width:640px){
+  .vs-footer{text-align:center}
+  /* brand block: inner div holds img + p + bafe pill; flex-centre them */
+  .vs-footer-brand{align-items:center;text-align:center}
+  .vs-footer-brand > div{display:flex;flex-direction:column;align-items:center;width:100%}
+  .vs-footer-brand img{margin:0 0 14px}
+  .vs-footer-brand p{max-width:34ch;margin:0 auto}
+  .vs-footer-brand .bafe{align-self:center}
+  /* link lists: centre the column of links and the h4 heading */
+  .vs-footer-col{text-align:center}
+  .vs-footer-col ul{align-items:center}
+  .vs-footer-col a{justify-content:center}
+  /* increase tap target without changing visual rhythm too much */
+  .vs-footer-col ul{gap:14px}
+  .vs-footer-col a{padding:4px 0;min-height:32px}
+  /* bottom strip: copyright + policy links both centred */
+  .vs-footer-bot{text-align:center;align-items:center}
+  .vs-footer-policy{justify-content:center}
+}
+@media(max-width:420px){
+  /* one column at smallest widths - keep the centred treatment, just
+     consistent spacing between groups since gap:28px from <=640 still
+     applies via the grid rule */
+  .vs-footer-grid{gap:32px}
+}
+
 
 /* ---- projects.html - service filter (added in checklist pass 1) ---- */
 .proj-filter{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 28px;padding:0;}

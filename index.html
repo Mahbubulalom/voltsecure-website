@@ -141,8 +141,10 @@ section{position:relative;padding:120px 0}
   .hero-grid{grid-template-columns:1fr;gap:32px}
   .hero-visual{display:none} /* hide radar on mobile - too complex, not readable */
   .hero h1{font-size:clamp(40px,9vw,64px)}
-  .hero-trust-row{gap:10px}
-  .hero-trust-row .tcell{width:calc((100% - 30px)/4);height:52px;padding:8px}
+  /* 6 logos forced to 3x2 - higher-specificity selector so it beats the */
+  /* base .hero-trust-row .tcell rule which appears later in the stylesheet */
+  .hero .hero-trust-row{gap:10px;justify-content:center}
+  .hero .hero-trust-row .tcell{width:calc((100% - 20px)/3);height:56px;padding:8px}
   .hero-trust{margin-top:40px}
   .hero-meta{flex-direction:column;align-items:flex-start;gap:16px}
 }
@@ -324,15 +326,19 @@ section{position:relative;padding:120px 0}
 .accred .eyebrow{color:var(--gold-deep)}
 .accred h2{color:#111}
 .accred .lead{color:#4a4538}
-.accred-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:64px}
-@media(max-width:960px){.accred-grid{grid-template-columns:repeat(2,1fr)}}
+/* minmax(0,1fr) forces equal-width columns even when a card has long
+   unbreakable content (e.g. SSAIB's "PD 6662 · EN 62676 · EN 60839").
+   Bare 1fr = minmax(auto,1fr), which lets content blow a column wider
+   than its share - that was making mobile cols 193px vs 153px. */
+.accred-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;margin-top:64px}
+@media(max-width:960px){.accred-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .acard{background:#fff;border:1px solid #ece4d1;padding:28px 24px;display:flex;flex-direction:column;gap:16px;min-height:220px;position:relative;transition:all .25s}
 .acard:hover{transform:translateY(-4px);box-shadow:0 20px 40px -20px rgba(143,118,64,0.25);border-color:var(--gold)}
 .acard-logo{height:68px;display:flex;align-items:center;justify-content:flex-start}
 .acard-logo img{max-height:100%;width:auto;max-width:140px;object-fit:contain}
 .acard-title{font-family:var(--font-display);font-size:18px;color:#111;margin-top:auto}
 .acard-sub{font-size:12px;color:#6b6354;line-height:1.5}
-.acard-std{font-family:var(--font-mono);font-size:10px;letter-spacing:0.14em;color:var(--gold-deep);text-transform:uppercase;margin-top:8px}
+.acard-std{font-family:var(--font-mono);font-size:10px;letter-spacing:0.14em;color:var(--gold-deep);text-transform:uppercase;margin-top:8px;overflow-wrap:anywhere;word-break:break-word}
 
 /* ---------- premium projects grid / carousel ---------- */
 .projects-grid{display:flex;gap:24px;padding:4px 2px;width:max-content}
@@ -472,8 +478,8 @@ footer a:hover{color:var(--gold)}
   50%{opacity:1}
 }
 </style>
-<link rel="stylesheet" href="/assets/site.css"/>
-<script src="/assets/site.js" defer></script>
+<link rel="stylesheet" href="/assets/site.css?v=20260604b"/>
+<script src="/assets/site.js?v=20260604b" defer></script>
 <!-- GA4 - replace G-XXXXXXXXXX with live measurement ID before launch (TODO Kai: GA4 ID) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
 <script>
