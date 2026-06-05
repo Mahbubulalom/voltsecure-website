@@ -95,9 +95,12 @@ h2{font-size:clamp(28px,3vw,40px)}
 .form-card .sub{font-size:14px;color:var(--mute);margin-bottom:36px}
 @media(max-width:560px){.form-card{padding:28px 22px}}
 
-.field-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-@media(max-width:560px){.field-grid{grid-template-columns:1fr;gap:16px}}
-.field{display:flex;flex-direction:column;gap:8px}
+/* minmax(0,1fr) prevents the select's longest option from blowing the
+   column wider than the card (was rendering inputs at 363px inside a 280px
+   container - everything cut off on the right). */
+.field-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px}
+@media(max-width:560px){.field-grid{grid-template-columns:minmax(0,1fr);gap:16px}}
+.field{display:flex;flex-direction:column;gap:8px;min-width:0}
 .field.full{grid-column:1 / -1}
 .field label{font-family:var(--font-mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold)}
 .field label .req{color:var(--gold-bright);margin-left:2px}
@@ -105,10 +108,36 @@ h2{font-size:clamp(28px,3vw,40px)}
   background:rgba(255,255,255,0.02);border:1px solid var(--line);color:var(--cream);
   padding:14px 16px;font:inherit;font-size:15px;font-family:var(--font-body);font-weight:300;
   transition:all .2s;border-radius:0;
+  width:100%;min-width:0;max-width:100%;box-sizing:border-box;
 }
 .field input:focus,.field textarea:focus,.field select:focus{outline:none;border-color:var(--gold);background:rgba(201,169,97,0.04);box-shadow:0 0 0 3px rgba(201,169,97,0.08)}
 .field textarea{resize:vertical;min-height:140px;line-height:1.55}
 .field input::placeholder,.field textarea::placeholder{color:#5c564c}
+
+/* ====== inline field validation ====== */
+.field-error{display:none;font-family:var(--font-mono);font-size:11px;letter-spacing:0.06em;color:#e8826b;margin-top:2px;line-height:1.4}
+.field-error.show{display:block}
+.field.invalid input,.field.invalid textarea,.field.invalid select{border-color:#c94c4c;background:rgba(201,76,76,0.04)}
+.field.invalid input:focus,.field.invalid textarea:focus,.field.invalid select:focus{border-color:#c94c4c;box-shadow:0 0 0 3px rgba(201,76,76,0.12)}
+.consent.invalid{color:#e8826b}
+.consent.invalid input{outline:1px solid #c94c4c;outline-offset:2px}
+
+/* ====== select dropdown - explicit dark theme for option contrast ====== */
+.field select{
+  color-scheme:dark;
+  -webkit-appearance:none;-moz-appearance:none;appearance:none;
+  background-color:rgba(255,255,255,0.02);
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path fill='none' stroke='%23c9a961' stroke-width='1.5' d='M1 1.5l5 5 5-5'/></svg>");
+  background-repeat:no-repeat;
+  background-position:right 16px center;
+  padding-right:44px;
+  cursor:pointer;
+}
+.field select:hover{border-color:rgba(201,169,97,0.5)}
+.field select option{background-color:#0d0c0a;color:var(--cream);padding:10px 12px;font-weight:400}
+.field select option:disabled,.field select option[value=""]{color:#5c564c}
+.field select option:hover,.field select option:focus,.field select option:checked{background:linear-gradient(rgba(201,169,97,0.18),rgba(201,169,97,0.18)),#0d0c0a;color:var(--cream)}
+.field select:invalid{color:#5c564c}
 .field-hint{font-size:11px;color:var(--mute);font-family:var(--font-mono);letter-spacing:0.06em}
 
 .consent{display:flex;gap:12px;align-items:flex-start;margin-top:24px;font-size:12px;color:var(--mute);line-height:1.5}
@@ -145,8 +174,8 @@ footer::before{content:"";display:block;height:1px;background:linear-gradient(90
 .footer-col a:hover{color:var(--gold)}
 .footer-bot{border-top:1px solid var(--line-soft);padding-top:24px;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;font-family:var(--font-mono);font-size:11px;color:var(--mute);letter-spacing:0.08em}
 </style>
-<link rel="stylesheet" href="/assets/site.css"/>
-<script src="/assets/site.js" defer></script>
+<link rel="stylesheet" href="/assets/site.css?v=20260604b"/>
+<script src="/assets/site.js?v=20260604b" defer></script>
 <!-- GA4 - replace G-XXXXXXXXXX with live measurement ID before launch (TODO Kai: GA4 ID) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
 <script>
@@ -244,17 +273,20 @@ gtag('config', 'G-XXXXXXXXXX');
         <div class="field-grid">
           <div class="field">
             <label for="name">Name <span class="req">*</span></label>
-            <input type="text" id="name" name="name" placeholder="Your full name" required autocomplete="name">
+            <input type="text" id="name" name="name" placeholder="Your full name" required autocomplete="name" aria-describedby="err-name">
+            <span class="field-error" id="err-name" aria-live="polite"></span>
           </div>
 
           <div class="field">
             <label for="email">Email <span class="req">*</span></label>
-            <input type="email" id="email" name="email" placeholder="you@company.com" required autocomplete="email">
+            <input type="email" id="email" name="email" placeholder="you@company.com" required autocomplete="email" aria-describedby="err-email">
+            <span class="field-error" id="err-email" aria-live="polite"></span>
           </div>
 
           <div class="field">
             <label for="phone">Phone <span class="req">*</span></label>
-            <input type="tel" id="phone" name="phone" placeholder="+44 …" required autocomplete="tel">
+            <input type="tel" id="phone" name="phone" placeholder="+44 …" required autocomplete="tel" aria-describedby="err-phone">
+            <span class="field-error" id="err-phone" aria-live="polite"></span>
           </div>
 
           <div class="field">
@@ -277,15 +309,17 @@ gtag('config', 'G-XXXXXXXXXX');
 
           <div class="field full">
             <label for="message">Project details <span class="req">*</span></label>
-            <textarea id="message" name="message" placeholder="Site location, scope, timeline, anything else we should know…" required></textarea>
-            <span class="field-hint">We'll use this to prepare an accurate first response.</span>
+            <textarea id="message" name="message" placeholder="Site location, scope, timeline, anything else we should know…" required aria-describedby="err-message msg-hint"></textarea>
+            <span class="field-hint" id="msg-hint">We'll use this to prepare an accurate first response.</span>
+            <span class="field-error" id="err-message" aria-live="polite"></span>
           </div>
         </div>
 
-        <label class="consent">
-          <input type="checkbox" name="consent" required>
+        <label class="consent" id="consentWrap">
+          <input type="checkbox" name="consent" id="consent" required aria-describedby="err-consent">
           <span>I agree to VoltSecure contacting me about this enquiry. Details are stored securely and never shared with third parties.</span>
         </label>
+        <span class="field-error" id="err-consent" aria-live="polite" style="display:block;margin-top:6px"></span>
 
         <div class="submit-row">
           <button type="submit" class="submit-btn" id="submitBtn">Send enquiry →</button>
@@ -404,12 +438,108 @@ gtag('config', 'G-XXXXXXXXXX');
   links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>set(false)));
 })();
 
-/* ===== form: AJAX submit so user stays on page + sees status ===== */
+/* ===== form: validate + AJAX submit so user stays on page + sees status ===== */
 (function(){
   const form=document.getElementById('contactForm');
   const status=document.getElementById('formStatus');
   const btn=document.getElementById('submitBtn');
   if(!form) return;
+
+  // Re-usable helpers ----------------------------------------------------
+  const EMAIL_RE=/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  // Phone: at least 7 digits, allow +, spaces, hyphens, parens
+  const PHONE_RE=/^\+?[0-9 ()\-]{7,}$/;
+
+  function setError(fieldEl, errEl, msg){
+    if(fieldEl) fieldEl.classList.add('invalid');
+    if(errEl){ errEl.textContent=msg; errEl.classList.add('show'); }
+  }
+  function clearError(fieldEl, errEl){
+    if(fieldEl) fieldEl.classList.remove('invalid');
+    if(errEl){ errEl.textContent=''; errEl.classList.remove('show'); }
+  }
+
+  // Validation map: each entry returns '' (valid) or an error string.
+  const checks=[
+    { input:'name', err:'err-name', validate:(v)=>{
+        if(!v.trim()) return 'Please enter your name.';
+        if(v.trim().length<2) return 'Name looks too short.';
+        return '';
+      }
+    },
+    { input:'email', err:'err-email', validate:(v)=>{
+        if(!v.trim()) return 'Please enter your email address.';
+        if(!EMAIL_RE.test(v.trim())) return 'Please enter a valid email address (e.g. name@company.com).';
+        return '';
+      }
+    },
+    { input:'phone', err:'err-phone', validate:(v)=>{
+        if(!v.trim()) return 'Please enter a phone number we can reach you on.';
+        if(!PHONE_RE.test(v.trim())) return 'Please enter a valid phone number (digits, spaces, +, - allowed).';
+        return '';
+      }
+    },
+    { input:'message', err:'err-message', validate:(v)=>{
+        if(!v.trim()) return 'Please tell us a little about the project.';
+        if(v.trim().length<10) return 'A few more details would help us reply accurately.';
+        return '';
+      }
+    }
+  ];
+
+  function validateField(c){
+    const input=document.getElementById(c.input);
+    const errEl=document.getElementById(c.err);
+    const fieldWrap=input ? input.closest('.field') : null;
+    const msg=c.validate(input ? input.value : '');
+    if(msg){ setError(fieldWrap, errEl, msg); return false; }
+    clearError(fieldWrap, errEl);
+    return true;
+  }
+
+  function validateConsent(){
+    const cb=document.getElementById('consent');
+    const wrap=document.getElementById('consentWrap');
+    const errEl=document.getElementById('err-consent');
+    if(cb && !cb.checked){
+      if(wrap) wrap.classList.add('invalid');
+      if(errEl){ errEl.textContent='Please tick the box to confirm you are happy for us to contact you.'; errEl.classList.add('show'); }
+      return false;
+    }
+    if(wrap) wrap.classList.remove('invalid');
+    if(errEl){ errEl.textContent=''; errEl.classList.remove('show'); }
+    return true;
+  }
+
+  function validateAll(){
+    let ok=true;
+    checks.forEach((c)=>{ if(!validateField(c)) ok=false; });
+    if(!validateConsent()) ok=false;
+    return ok;
+  }
+
+  // Live validation: clear error once the user fixes a field; re-validate on blur.
+  checks.forEach((c)=>{
+    const el=document.getElementById(c.input);
+    if(!el) return;
+    el.addEventListener('input', ()=>{
+      const errEl=document.getElementById(c.err);
+      const fieldWrap=el.closest('.field');
+      if(fieldWrap && fieldWrap.classList.contains('invalid')){
+        const msg=c.validate(el.value);
+        if(!msg) clearError(fieldWrap, errEl);
+        else if(errEl) errEl.textContent=msg;
+      }
+    });
+    el.addEventListener('blur', ()=>{
+      const fieldWrap=el.closest('.field');
+      if(el.value || (fieldWrap && fieldWrap.classList.contains('invalid'))) validateField(c);
+    });
+  });
+  const consentEl=document.getElementById('consent');
+  if(consentEl) consentEl.addEventListener('change', validateConsent);
+
+  let submitting=false;
 
   // Show success message if ?sent=1 in URL (fallback for non-JS submits)
   if(new URLSearchParams(location.search).get('sent')==='1'){
@@ -420,8 +550,21 @@ gtag('config', 'G-XXXXXXXXXX');
 
   form.addEventListener('submit', async (e)=>{
     e.preventDefault();
+    if(submitting) return;   // hard guard against double-submits
+
     status.className='status';
     status.textContent='';
+
+    if(!validateAll()){
+      status.className='status err';
+      status.textContent='Please correct the highlighted fields and try again.';
+      const firstBad=form.querySelector('.field.invalid input, .field.invalid textarea, .field.invalid select');
+      if(firstBad){ firstBad.focus(); }
+      else if(consentEl && !consentEl.checked){ consentEl.focus(); }
+      return;
+    }
+
+    submitting=true;
     btn.disabled=true;
     btn.textContent='Sending…';
 
@@ -436,6 +579,9 @@ gtag('config', 'G-XXXXXXXXXX');
         status.className='status ok';
         status.textContent='✓ Thanks - your enquiry has landed in our inbox. We\u2019ll reply within one working day.';
         form.reset();
+        form.querySelectorAll('.field.invalid').forEach(f=>f.classList.remove('invalid'));
+        form.querySelectorAll('.field-error').forEach(el=>{el.textContent='';el.classList.remove('show');});
+        const cw=document.getElementById('consentWrap'); if(cw) cw.classList.remove('invalid');
         btn.textContent='Send enquiry →';
       } else {
         throw new Error('Network error');
@@ -445,6 +591,7 @@ gtag('config', 'G-XXXXXXXXXX');
       status.innerHTML='Something went wrong sending the form. Please email <a href="mailto:admin@voltsecure.co.uk" style="color:var(--gold);text-decoration:underline">admin@voltsecure.co.uk</a> directly, or call 02922 641046.';
       btn.textContent='Try again →';
     } finally {
+      submitting=false;
       btn.disabled=false;
     }
   });
