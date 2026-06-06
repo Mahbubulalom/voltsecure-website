@@ -156,6 +156,14 @@ html,body{overflow-x:hidden;background:var(--vs-bg);color:var(--vs-cream);font-f
 .vs-footer-policy{display:flex;gap:20px;flex-wrap:wrap}
 @media(max-width:640px){.vs-footer-bot{flex-direction:column;gap:14px}.vs-footer-policy{gap:14px}}
 
+/* ====== FOOTER social icon row ====== */
+.vs-footer-social{list-style:none;display:flex;gap:12px;padding:0;margin:0}
+.vs-footer-social li{margin:0;line-height:1}
+.vs-footer-social a{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;color:var(--vs-mute);border:1px solid var(--vs-line);background:transparent;transition:color .25s,border-color .25s,transform .25s,background .25s;text-decoration:none}
+.vs-footer-social a:hover,.vs-footer-social a:focus-visible{color:var(--vs-gold);border-color:var(--vs-gold);transform:translateY(-2px);background:rgba(201,169,97,.06);outline:none}
+.vs-footer-social a svg{width:18px;height:18px;display:block;fill:currentColor}
+@media(max-width:640px){.vs-footer-social{justify-content:center}}
+
 /* ====== FOOTER mobile centring - keep desktop unchanged ======
    At <=640 the grid stacks into 1-2 cols and content was hugging the left
    edge, leaving a visibly empty right side. Centring the stack here
