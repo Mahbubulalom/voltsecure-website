@@ -191,8 +191,25 @@ section{position:relative;padding:120px 0}
 /* coverage */
 @media(max-width:960px){
   .coverage{padding:72px 0}
-  .coverage-map{display:none} /* replace with stats only on mobile */
+  /* Globe stays visible on mobile - it's now a proper D3 map worth showing.
+     Force a workable min-height so it doesn't get squished into a strip. */
+  .coverage-map{margin-top:32px;min-height:280px}
   .coverage-stats{grid-template-columns:1fr 1fr;gap:16px}
+}
+/* HUD bottom strip: at narrower widths the three bottom labels collide.
+   Hide the side coords below 1080px so only "LIVE · 51 NODES ACTIVE" shows;
+   below 560px hide the top tag too so the small phone view is uncluttered. */
+@media(max-width:1080px){
+  .coverage-map .cg-tag-coords-l,
+  .coverage-map .cg-tag-coords-r{display:none}
+}
+@media(max-width:560px){
+  .coverage-map .cg-tag-top{font-size:8px;letter-spacing:0.18em;top:12px}
+  .coverage-map .cg-tag-bottom{font-size:8px;letter-spacing:0.18em;bottom:12px}
+  .coverage-map .cg-corner{width:14px;height:14px;top:8px;left:8px}
+  .coverage-map .cg-corner.tr{top:8px;right:8px;left:auto}
+  .coverage-map .cg-corner.bl{bottom:8px;left:8px;top:auto}
+  .coverage-map .cg-corner.br{bottom:8px;right:8px;top:auto;left:auto}
 }
 @media(max-width:480px){
   .coverage-stats{grid-template-columns:1fr}
@@ -530,12 +547,12 @@ footer a:hover{color:var(--gold)}
   50%{opacity:1}
 }
 </style>
-<link rel="stylesheet" href="/assets/site.css?v=20260606k"/>
-<script src="/assets/site.js?v=20260606k" defer></script>
+<link rel="stylesheet" href="/assets/site.css?v=20260606l"/>
+<script src="/assets/site.js?v=20260606l" defer></script>
 <!-- D3 + TopoJSON for the orthographic coverage globe (loaded once, cached) -->
 <script src="https://cdn.jsdelivr.net/npm/d3@7" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/topojson-client@3" defer></script>
-<script src="/assets/coverage-globe.js?v=20260606k" defer></script>
+<script src="/assets/coverage-globe.js?v=20260606l" defer></script>
 <!-- GA4 - replace G-XXXXXXXXXX with live measurement ID before launch (TODO Kai: GA4 ID) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
 <script>
