@@ -76,9 +76,10 @@
     filter: blur(0.5px);
     z-index: 1;
   }
+  /* Anti-clockwise sweep so it reads like a real radar */
   @keyframes sweep {
-    from { transform: rotate(0deg);   }
-    to   { transform: rotate(360deg); }
+    from { transform: rotate(360deg); }
+    to   { transform: rotate(0deg);   }
   }
 
   svg.full { width: 100%; height: 100%; display: block; overflow: visible; }
@@ -397,7 +398,7 @@
         L 405 -260"
         fill="none" stroke="var(--gold)" stroke-width="0.9" opacity="0.28"/>
 
-      <!-- IRELAND -->
+      <!-- IRELAND - bumped fill + stroke so the landmass reads clearly against the dark radar -->
       <path d="
         M -100 -172
         L -116 -162
@@ -420,8 +421,8 @@
         L -88 -132
         L -96 -154
         Z"
-        fill="var(--land-uk)" stroke="var(--gold)" stroke-width="1.4"
-        opacity="0.95" filter="url(#softblur)"/>
+        fill="rgba(212,180,106,0.30)" stroke="var(--gold)" stroke-width="1.8"
+        opacity="1" filter="url(#softblur)"/>
 
       <!-- GREAT BRITAIN — Cardiff at (0,0) -->
       <path d="
@@ -536,6 +537,7 @@
 
     <!-- ============== NETWORK CONNECTION LINES (Cardiff → each city) ============== -->
     <g class="network">
+      <line x1="0" y1="0" x2="-74" y2="-82"/>
       <line x1="0" y1="0" x2="73" y2="-1"/>
       <line x1="0" y1="0" x2="0" y2="-197"/>
       <line x1="0" y1="0" x2="194" y2="-39"/>
@@ -561,7 +563,8 @@
         <circle cx="0" cy="0" r="26" fill="none" stroke="var(--gold)" stroke-width="0.6" opacity="0.5" stroke-dasharray="3 4"/>
         <circle cx="0" cy="0" r="40" fill="none" stroke="var(--gold)" stroke-width="0.4" opacity="0.25" stroke-dasharray="1 5"/>
 
-        <!-- UK -->
+        <!-- UK & Ireland -->
+        <circle cx="-74"  cy="-82"  r="4.2" class="city-dot"/> <!-- Dublin -->
         <circle cx="73"   cy="-1"   r="4.5" class="city-dot"/> <!-- London -->
         <circle cx="0"    cy="-197" r="3.8" class="city-dot"/> <!-- Edinburgh -->
 
@@ -599,6 +602,7 @@
     <div class="city hq" style="left: 50%; top: 58.5%;"><span class="name">CARDIFF</span><span class="sub">HQ · 51.58°N</span></div>
     <div class="city"    style="left: 60.5%; top: 47.5%;"><span class="name">LONDON</span></div>
     <div class="city mobile-hide" style="left: 41%;   top: 28%;"><span class="name">EDINBURGH</span></div>
+    <div class="city"    style="left: 43%;   top: 41.8%;"><span class="name">DUBLIN</span></div>
     <div class="city"    style="left: 72%;   top: 43%;"><span class="name">AMSTERDAM</span></div>
     <div class="city mobile-hide" style="left: 71.5%; top: 55.5%;"><span class="name">BRUSSELS</span></div>
     <div class="city"    style="left: 57.5%; top: 63%;"><span class="name">PARIS</span></div>
