@@ -497,8 +497,8 @@ footer a:hover{color:var(--gold)}
   50%{opacity:1}
 }
 </style>
-<link rel="stylesheet" href="/assets/site.css?v=20260606d"/>
-<script src="/assets/site.js?v=20260606d" defer></script>
+<link rel="stylesheet" href="/assets/site.css?v=20260606e"/>
+<script src="/assets/site.js?v=20260606e" defer></script>
 <!-- GA4 - replace G-XXXXXXXXXX with live measurement ID before launch (TODO Kai: GA4 ID) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
 <script>
@@ -779,20 +779,38 @@ gtag('config', 'G-XXXXXXXXXX');
   .tbh-text{font-size:17px}
 }
 
-/* ====== Trusted by - client logo grid ====== */
-.trustband{padding:80px 0 96px;background:#0a0a0a;border-bottom:1px solid var(--line-soft)}
+/* ====== Trusted by - scrolling client-logo marquee, 2 rows opposite directions ====== */
+.trustband{padding:80px 0 96px;background:#0a0a0a;border-bottom:1px solid var(--line-soft);overflow:hidden}
 .trustband .tb-head{text-align:center;margin-bottom:48px}
 .trustband .tb-eyebrow{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:500}
 .trustband .tb-h{font-family:'Tenor Sans','Optima',serif;font-weight:400;font-size:clamp(28px,3.4vw,44px);color:var(--cream);margin:14px 0 10px;line-height:1.15}
 .trustband .tb-h em{font-style:italic;color:var(--gold)}
 .trustband .tb-sub{color:var(--mute);font-size:14px;max-width:54ch;margin:0 auto}
-.trustband .tb-grid{display:grid;grid-template-columns:repeat(8,1fr);gap:18px;max-width:1240px;margin:0 auto}
-@media(max-width:1080px){.trustband .tb-grid{grid-template-columns:repeat(4,1fr)}}
-@media(max-width:560px){.trustband .tb-grid{grid-template-columns:repeat(2,1fr);gap:12px}}
-.trustband .tb-cell{aspect-ratio:3/2;background:#fbf8f2;border:1px solid var(--line-soft);display:flex;align-items:center;justify-content:center;padding:18px;transition:all .25s;position:relative;overflow:hidden}
+/* Marquee viewport: edges fade out via mask for the "endless conveyor" feel */
+.trustband .tb-marquee{position:relative;width:100%;overflow:hidden;mask-image:linear-gradient(90deg,transparent 0,#000 6%,#000 94%,transparent 100%);-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 6%,#000 94%,transparent 100%)}
+.trustband .tb-row{display:flex;gap:24px;align-items:center;width:max-content;will-change:transform}
+.trustband .tb-row + .tb-row{margin-top:24px}
+.trustband .tb-row.left{animation:tbScrollLeft 60s linear infinite}
+.trustband .tb-row.right{animation:tbScrollRight 70s linear infinite}
+@keyframes tbScrollLeft{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes tbScrollRight{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+.trustband .tb-row:hover{animation-play-state:paused}
+.trustband .tb-cell{flex:0 0 auto;width:200px;height:120px;background:#fbf8f2;border:1px solid var(--line-soft);display:flex;align-items:center;justify-content:center;padding:18px;transition:border-color .25s,transform .25s,box-shadow .25s}
 .trustband .tb-cell:hover{border-color:var(--gold);transform:translateY(-2px);box-shadow:0 12px 28px -16px rgba(201,169,97,.35)}
 .trustband .tb-cell img{max-width:100%;max-height:100%;object-fit:contain;display:block}
-@media(max-width:560px){.trustband{padding:56px 0 64px}.trustband .tb-head{margin-bottom:32px}.trustband .tb-cell{padding:12px}}
+@media(max-width:720px){
+  .trustband{padding:56px 0 64px}
+  .trustband .tb-head{margin-bottom:32px}
+  .trustband .tb-cell{width:150px;height:96px;padding:14px}
+  .trustband .tb-row{gap:16px}
+  .trustband .tb-row + .tb-row{margin-top:16px}
+  .trustband .tb-row.left{animation-duration:42s}
+  .trustband .tb-row.right{animation-duration:50s}
+}
+@media(prefers-reduced-motion:reduce){
+  .trustband .tb-row.left,.trustband .tb-row.right{animation:none;flex-wrap:wrap;justify-content:center;width:100%}
+  .trustband .tb-marquee{mask-image:none;-webkit-mask-image:none}
+}
 </style>
 
 <!-- ============ TRUSTED BY ============ -->
@@ -803,23 +821,47 @@ gtag('config', 'G-XXXXXXXXXX');
       <h2 class="tb-h">Clients who put their <em>critical systems</em> in our hands.</h2>
       <p class="tb-sub">National retailers, public-sector frameworks, principal contractors, hospitality and local authorities - delivered to BAFE, NICEIC and SSAIB standards across the UK and Europe.</p>
     </div>
-    <div class="tb-grid rv">
-      <div class="tb-cell"><img src="/assets/clients/welsh-government.jpg" alt="Welsh Government / Llywodraeth Cymru" loading="lazy"/></div>
-      <div class="tb-cell"><img src="/assets/clients/caerphilly-council.jpg" alt="Caerphilly County Borough Council" loading="lazy"/></div>
-      <div class="tb-cell"><img src="/assets/clients/cardiff-council.jpg" alt="Cardiff Council / Caerdydd" loading="lazy"/></div>
-      <div class="tb-cell"><img src="/assets/clients/faw.jpg" alt="Football Association of Wales" loading="lazy"/></div>
-      <div class="tb-cell"><img src="/assets/clients/lloyds-bank.jpg" alt="Lloyds Bank" loading="lazy"/></div>
-      <div class="tb-cell"><img src="/assets/clients/tk-maxx.jpg" alt="TK Maxx" loading="lazy"/></div>
-      <div class="tb-cell"><img src="/assets/clients/holland-barrett.jpg" alt="Holland & Barrett" loading="lazy"/></div>
-      <div class="tb-cell"><img src="/assets/clients/amey.jpg" alt="Amey" loading="lazy"/></div>
-      <div class="tb-cell"><img src="/assets/clients/wates.jpg" alt="Wates" loading="lazy"/></div>
-      <div class="tb-cell"><img src="/assets/clients/bjf-group.jpg" alt="BJF Group" loading="lazy"/></div>
-      <div class="tb-cell"><img src="/assets/clients/jtekt.jpg" alt="JTEKT" loading="lazy"/></div>
-      <div class="tb-cell"><img src="/assets/clients/rj-lifts.jpg" alt="RJ Lifts Group" loading="lazy"/></div>
-      <div class="tb-cell"><img src="/assets/clients/moore-interiors.jpg" alt="Moore Interiors" loading="lazy"/></div>
-      <div class="tb-cell"><img src="/assets/clients/jem-office-interiors.jpg" alt="JEM Office Interiors" loading="lazy"/></div>
-      <div class="tb-cell"><img src="/assets/clients/st-brides.jpg" alt="St Brides Spa Hotel" loading="lazy"/></div>
-      <div class="tb-cell"><img src="/assets/clients/birmingham-city.jpg" alt="Birmingham City Football Club" loading="lazy"/></div>
+    <div class="tb-marquee rv">
+      <!-- Row 1 (scrolls right -> left). Sequence duplicated so the loop seams at -50% are invisible. -->
+      <div class="tb-row left" aria-label="Trusted by - row 1">
+        <div class="tb-cell"><img src="/assets/clients/welsh-government.jpg" alt="Welsh Government / Llywodraeth Cymru" loading="lazy"/></div>
+        <div class="tb-cell"><img src="/assets/clients/caerphilly-council.jpg" alt="Caerphilly County Borough Council" loading="lazy"/></div>
+        <div class="tb-cell"><img src="/assets/clients/cardiff-council.jpg" alt="Cardiff Council / Caerdydd" loading="lazy"/></div>
+        <div class="tb-cell"><img src="/assets/clients/faw.jpg" alt="Football Association of Wales" loading="lazy"/></div>
+        <div class="tb-cell"><img src="/assets/clients/lloyds-bank.jpg" alt="Lloyds Bank" loading="lazy"/></div>
+        <div class="tb-cell"><img src="/assets/clients/tk-maxx.jpg" alt="TK Maxx" loading="lazy"/></div>
+        <div class="tb-cell"><img src="/assets/clients/holland-barrett.jpg" alt="Holland & Barrett" loading="lazy"/></div>
+        <div class="tb-cell"><img src="/assets/clients/amey.jpg" alt="Amey" loading="lazy"/></div>
+        <!-- duplicate for seamless loop -->
+        <div class="tb-cell" aria-hidden="true"><img src="/assets/clients/welsh-government.jpg" alt="" loading="lazy"/></div>
+        <div class="tb-cell" aria-hidden="true"><img src="/assets/clients/caerphilly-council.jpg" alt="" loading="lazy"/></div>
+        <div class="tb-cell" aria-hidden="true"><img src="/assets/clients/cardiff-council.jpg" alt="" loading="lazy"/></div>
+        <div class="tb-cell" aria-hidden="true"><img src="/assets/clients/faw.jpg" alt="" loading="lazy"/></div>
+        <div class="tb-cell" aria-hidden="true"><img src="/assets/clients/lloyds-bank.jpg" alt="" loading="lazy"/></div>
+        <div class="tb-cell" aria-hidden="true"><img src="/assets/clients/tk-maxx.jpg" alt="" loading="lazy"/></div>
+        <div class="tb-cell" aria-hidden="true"><img src="/assets/clients/holland-barrett.jpg" alt="" loading="lazy"/></div>
+        <div class="tb-cell" aria-hidden="true"><img src="/assets/clients/amey.jpg" alt="" loading="lazy"/></div>
+      </div>
+      <!-- Row 2 (scrolls left -> right for visual counter-rhythm) -->
+      <div class="tb-row right" aria-label="Trusted by - row 2">
+        <div class="tb-cell"><img src="/assets/clients/wates.jpg" alt="Wates" loading="lazy"/></div>
+        <div class="tb-cell"><img src="/assets/clients/bjf-group.jpg" alt="BJF Group" loading="lazy"/></div>
+        <div class="tb-cell"><img src="/assets/clients/jtekt.jpg" alt="JTEKT" loading="lazy"/></div>
+        <div class="tb-cell"><img src="/assets/clients/rj-lifts.jpg" alt="RJ Lifts Group" loading="lazy"/></div>
+        <div class="tb-cell"><img src="/assets/clients/moore-interiors.jpg" alt="Moore Interiors" loading="lazy"/></div>
+        <div class="tb-cell"><img src="/assets/clients/jem-office-interiors.jpg" alt="JEM Office Interiors" loading="lazy"/></div>
+        <div class="tb-cell"><img src="/assets/clients/st-brides.jpg" alt="St Brides Spa Hotel" loading="lazy"/></div>
+        <div class="tb-cell"><img src="/assets/clients/birmingham-city.jpg" alt="Birmingham City Football Club" loading="lazy"/></div>
+        <!-- duplicate for seamless loop -->
+        <div class="tb-cell" aria-hidden="true"><img src="/assets/clients/wates.jpg" alt="" loading="lazy"/></div>
+        <div class="tb-cell" aria-hidden="true"><img src="/assets/clients/bjf-group.jpg" alt="" loading="lazy"/></div>
+        <div class="tb-cell" aria-hidden="true"><img src="/assets/clients/jtekt.jpg" alt="" loading="lazy"/></div>
+        <div class="tb-cell" aria-hidden="true"><img src="/assets/clients/rj-lifts.jpg" alt="" loading="lazy"/></div>
+        <div class="tb-cell" aria-hidden="true"><img src="/assets/clients/moore-interiors.jpg" alt="" loading="lazy"/></div>
+        <div class="tb-cell" aria-hidden="true"><img src="/assets/clients/jem-office-interiors.jpg" alt="" loading="lazy"/></div>
+        <div class="tb-cell" aria-hidden="true"><img src="/assets/clients/st-brides.jpg" alt="" loading="lazy"/></div>
+        <div class="tb-cell" aria-hidden="true"><img src="/assets/clients/birmingham-city.jpg" alt="" loading="lazy"/></div>
+      </div>
     </div>
   </div>
 </section>
