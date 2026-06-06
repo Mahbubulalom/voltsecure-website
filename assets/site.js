@@ -7,10 +7,10 @@
    ========================================================== */
 window.VS_CONFIG = {
   social: {
-    // TODO Cai: confirm real VoltSecure URLs before launch
-    linkedin:  'https://www.linkedin.com/',
-    instagram: 'https://www.instagram.com/',
-    facebook:  'https://www.facebook.com/'
+    // Live VoltSecure social URLs (confirmed by Cai)
+    linkedin:  'https://uk.linkedin.com/company/voltsecure',
+    instagram: 'https://www.instagram.com/voltsecure?igsh=aWlmdTFjbWRqbXNz',
+    facebook:  'https://www.facebook.com/share/1EnC5jBUYE/?mibextid=wwXIfr'
   },
   ga4: {
     // TODO Cai: paste live GA4 measurement ID here (e.g. 'G-XXXXXXXXXX')
