@@ -281,7 +281,7 @@ section{position:relative;padding:120px 0}
 .hero-visual{aspect-ratio:1/1;position:relative;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono','JetBrains Mono',ui-monospace,monospace}
 .hero-visual svg.hero-radar{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
 .hero-visual .hero-sweep{position:absolute;inset:0;border-radius:50%;background:conic-gradient(from -90deg,rgba(243,212,136,0.40) 0deg,rgba(243,212,136,0.22) 22deg,rgba(243,212,136,0.08) 55deg,transparent 85deg,transparent 360deg);animation:heroSweep 8s linear infinite;mix-blend-mode:screen;-webkit-mask:radial-gradient(circle,black 0%,black 49%,transparent 49.5%);mask:radial-gradient(circle,black 0%,black 49%,transparent 49.5%);filter:blur(0.5px);z-index:1;pointer-events:none}
-@keyframes heroSweep{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes heroSweep{from{transform:rotate(360deg)}to{transform:rotate(0deg)}}
 .hero-visual .hero-vlogo{position:absolute;top:50%;left:50%;width:13%;aspect-ratio:1/1;transform:translate(-50%,-50%);pointer-events:none;z-index:6;filter:drop-shadow(0 0 18px rgba(243,212,136,0.45)) drop-shadow(0 0 4px rgba(212,180,106,0.6))}
 .hero-visual .hero-vlogo svg{position:static;width:100%;height:100%;overflow:visible}
 .hero-visual .hero-cities{position:absolute;inset:0;z-index:5;pointer-events:none}
@@ -424,6 +424,39 @@ section{position:relative;padding:120px 0}
 .coverage-stat strong{font-family:var(--font-display);font-size:36px;color:var(--gold);display:block;line-height:1}
 .coverage-stat span{font-size:12px;color:var(--mute);margin-top:8px;display:block;letter-spacing:0.04em}
 
+/* ---------- coverage globe (orthographic D3 map) ---------- */
+.coverage-map .map-card{position:relative;width:100%;height:100%;overflow:hidden;border-radius:6px;background:radial-gradient(ellipse at 45% 50%,#0d1119 0%,#050810 60%,#02030a 100%);box-shadow:inset 0 0 0 1px rgba(201,169,97,0.22),inset 0 0 120px rgba(0,0,0,0.6),0 30px 80px rgba(0,0,0,0.5)}
+.coverage-map .cg-corner{position:absolute;width:24px;height:24px;border:1px solid var(--gold);opacity:0.65;z-index:5;pointer-events:none}
+.coverage-map .cg-corner.tl{top:14px;left:14px;border-right:none;border-bottom:none}
+.coverage-map .cg-corner.tr{top:14px;right:14px;border-left:none;border-bottom:none}
+.coverage-map .cg-corner.bl{bottom:14px;left:14px;border-right:none;border-top:none}
+.coverage-map .cg-corner.br{bottom:14px;right:14px;border-left:none;border-top:none}
+.coverage-map .cg-tag-top,.coverage-map .cg-tag-bottom,.coverage-map .cg-tag-coords-l,.coverage-map .cg-tag-coords-r{position:absolute;font-family:var(--font-mono);text-transform:uppercase;z-index:5;pointer-events:none}
+.coverage-map .cg-tag-top{top:18px;left:50%;transform:translateX(-50%);font-size:10px;letter-spacing:0.36em;color:var(--gold);opacity:0.85}
+.coverage-map .cg-tag-bottom{bottom:18px;left:50%;transform:translateX(-50%);font-size:9px;letter-spacing:0.28em;color:#b89455;opacity:0.7}
+.coverage-map .cg-tag-coords-l{bottom:18px;left:50px;font-size:8px;letter-spacing:0.22em;color:#b89455;opacity:0.6}
+.coverage-map .cg-tag-coords-r{bottom:18px;right:50px;font-size:8px;letter-spacing:0.22em;color:#b89455;opacity:0.6}
+.coverage-map svg#coverage-globe-svg{width:100%;height:100%;display:block}
+/* HQ pulse halo */
+@keyframes cgHqPulse{0%{r:8;opacity:0.9}100%{r:38;opacity:0}}
+.coverage-map .cg-hq-pulse{animation:cgHqPulse 2.6s ease-out infinite}
+.coverage-map .cg-hq-pulse-delay{animation:cgHqPulse 2.6s ease-out infinite;animation-delay:1.3s}
+/* Connection line dash flow */
+@keyframes cgFlow{from{stroke-dashoffset:0}to{stroke-dashoffset:-100}}
+.coverage-map .cg-connection{stroke-dasharray:2 6;animation:cgFlow 6s linear infinite}
+/* Labels */
+.coverage-map .cg-city-label{font-family:var(--font-mono);font-size:11px;font-weight:400;letter-spacing:1.8px;fill:#fff5d6;paint-order:stroke;stroke:rgba(4,5,10,0.9);stroke-width:4;stroke-linejoin:round}
+.coverage-map .cg-city-label-hq{font-family:var(--font-mono);font-size:13px;font-weight:500;letter-spacing:2.5px;fill:#f3d488;paint-order:stroke;stroke:rgba(4,5,10,0.95);stroke-width:5;stroke-linejoin:round}
+.coverage-map .cg-city-label-sub{font-family:var(--font-mono);font-size:8px;letter-spacing:1.5px;fill:var(--gold);paint-order:stroke;stroke:rgba(4,5,10,0.9);stroke-width:3;opacity:0.85}
+.coverage-map .cg-country-label{font-family:var(--font-mono);font-weight:400;letter-spacing:3px;fill:#b89455;opacity:0.45}
+@media(max-width:560px){
+  .coverage-map .cg-tag-top{font-size:8px;letter-spacing:0.22em}
+  .coverage-map .cg-tag-bottom,.coverage-map .cg-tag-coords-l,.coverage-map .cg-tag-coords-r{font-size:7px}
+  .coverage-map .cg-tag-coords-l{left:24px}
+  .coverage-map .cg-tag-coords-r{right:24px}
+  .coverage-map .cg-corner{width:16px;height:16px}
+}
+
 /* ---------- testimonials carousel ---------- */
 .testis{padding:140px 0;overflow:hidden}
 .testi-marquee{margin-top:72px;position:relative;overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 60px,#000 calc(100% - 60px),transparent)}
@@ -497,8 +530,12 @@ footer a:hover{color:var(--gold)}
   50%{opacity:1}
 }
 </style>
-<link rel="stylesheet" href="/assets/site.css?v=20260606g"/>
-<script src="/assets/site.js?v=20260606g" defer></script>
+<link rel="stylesheet" href="/assets/site.css?v=20260606k"/>
+<script src="/assets/site.js?v=20260606k" defer></script>
+<!-- D3 + TopoJSON for the orthographic coverage globe (loaded once, cached) -->
+<script src="https://cdn.jsdelivr.net/npm/d3@7" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/topojson-client@3" defer></script>
+<script src="/assets/coverage-globe.js?v=20260606k" defer></script>
 <!-- GA4 - replace G-XXXXXXXXXX with live measurement ID before launch (TODO Kai: GA4 ID) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
 <script>
@@ -628,9 +665,9 @@ gtag('config', 'G-XXXXXXXXXX');
             fill="none" stroke="var(--gold)" stroke-width="1.1" opacity="0.32"/>
           <path d="M 290 -110 L 318 -140 L 350 -178 L 380 -220 L 405 -260"
             fill="none" stroke="var(--gold)" stroke-width="0.9" opacity="0.28"/>
-          <!-- IRELAND -->
+          <!-- IRELAND - bumped fill + stroke so the landmass reads clearly against the dark radar -->
           <path d="M -100 -172 L -116 -162 L -132 -148 L -148 -130 L -160 -108 L -170 -85 L -178 -60 L -180 -32 L -174 -8 L -160 8 L -140 16 L -118 14 L -98 4 L -82 -12 L -72 -34 L -68 -58 L -72 -82 L -78 -108 L -88 -132 L -96 -154 Z"
-            fill="rgba(212,180,106,0.18)" stroke="var(--gold)" stroke-width="1.4" opacity="0.95" filter="url(#heroSoftblur)"/>
+            fill="rgba(212,180,106,0.28)" stroke="var(--gold)" stroke-width="1.8" opacity="1" filter="url(#heroSoftblur)"/>
           <!-- GREAT BRITAIN (Cardiff at 0,0) -->
           <path d="M -5 -316 L 3 -315 L 12 -300 L 18 -278 L 26 -258 L 26 -240 L 18 -222 L 22 -208 L 28 -195 L 34 -178 L 38 -154 L 50 -138 L 60 -126 L 67 -110 L 70 -92 L 76 -78 L 90 -68 L 108 -64 L 122 -58 L 118 -49 L 112 -38 L 108 -25 L 108 -8 L 110 8 L 108 22 L 95 28 L 80 30 L 60 30 L 36 30 L 12 34 L -10 38 L -28 45 L -45 55 L -61 62 L -57 56 L -42 44 L -33 30 L -25 18 L -23 10 L -28 5 L -16 8 L -8 12 L 4 4 L 11 -1 L 14 1 L 5 -5 L 0 0 L -8 -2 L -18 -6 L -37 -8 L -43 -10 L -50 -18 L -43 -23 L -36 -26 L -22 -41 L -21 -55 L -37 -59 L -32 -65 L -26 -73 L -35 -80 L -25 -78 L -15 -81 L 5 -85 L 8 -98 L 8 -114 L -2 -120 L -10 -135 L -6 -150 L 6 -150 L 4 -155 L -10 -158 L -25 -158 L -45 -139 L -50 -150 L -42 -160 L -35 -175 L -50 -167 L -63 -169 L -55 -182 L -50 -200 L -55 -217 L -52 -228 L -55 -238 L -64 -243 L -55 -255 L -48 -270 L -52 -283 L -48 -298 L -44 -314 L -32 -316 L -18 -316 Z"
             fill="rgba(212,180,106,0.18)" stroke="var(--gold)" stroke-width="1.5" opacity="1" filter="url(#heroSoftblur)"/>
@@ -649,6 +686,7 @@ gtag('config', 'G-XXXXXXXXXX');
 
         <!-- Network connection lines Cardiff -> each city -->
         <g class="hero-network">
+          <line x1="0" y1="0" x2="-74" y2="-82"/>
           <line x1="0" y1="0" x2="73" y2="-1"/>
           <line x1="0" y1="0" x2="0" y2="-197"/>
           <line x1="0" y1="0" x2="194" y2="-39"/>
@@ -672,6 +710,7 @@ gtag('config', 'G-XXXXXXXXXX');
             <circle cx="0" cy="0" r="14" fill="none" stroke="#f3d488" stroke-width="1" opacity="0.85"/>
             <circle cx="0" cy="0" r="26" fill="none" stroke="var(--gold)" stroke-width="0.6" opacity="0.5" stroke-dasharray="3 4"/>
             <circle cx="0" cy="0" r="40" fill="none" stroke="var(--gold)" stroke-width="0.4" opacity="0.25" stroke-dasharray="1 5"/>
+            <circle cx="-74" cy="-82"  r="4.2" class="hero-city-dot"/>
             <circle cx="73"  cy="-1"   r="4.5" class="hero-city-dot"/>
             <circle cx="0"   cy="-197" r="3.8" class="hero-city-dot"/>
             <circle cx="194" cy="-39"  r="3.8" class="hero-city-dot"/>
@@ -698,6 +737,7 @@ gtag('config', 'G-XXXXXXXXXX');
         <div class="hero-city hq" style="left:50%;top:58.5%"><span class="name">CARDIFF</span><span class="sub">HQ · 51.58°N</span></div>
         <div class="hero-city" style="left:60.5%;top:47.5%"><span class="name">LONDON</span></div>
         <div class="hero-city" style="left:41%;top:28%"><span class="name">EDINBURGH</span></div>
+        <div class="hero-city" style="left:43%;top:41.8%"><span class="name">DUBLIN</span></div>
         <div class="hero-city" style="left:72%;top:43%"><span class="name">AMSTERDAM</span></div>
         <div class="hero-city" style="left:71.5%;top:55.5%"><span class="name">BRUSSELS</span></div>
         <div class="hero-city" style="left:57.5%;top:63%"><span class="name">PARIS</span></div>
@@ -1142,32 +1182,19 @@ gtag('config', 'G-XXXXXXXXXX');
       </div>
     </div>
 
-    <div class="coverage-map">
-      <svg viewBox="0 0 600 480" style="width:100%;height:100%" id="mapSVG">
-        <defs>
-          <radialGradient id="ping" cx="50%" cy="50%">
-            <stop offset="0%" stop-color="#c9a961" stop-opacity="1"/>
-            <stop offset="100%" stop-color="#c9a961" stop-opacity="0"/>
-          </radialGradient>
-        </defs>
-        <!-- rough UK + Western Europe silhouettes, hand-simplified -->
-        <g fill="none" stroke="#c9a961" stroke-width="1" opacity="0.6">
-          <!-- Ireland -->
-          <path d="M120,140 Q110,170 125,200 Q150,220 170,200 Q175,170 165,145 Q145,130 120,140 Z"/>
-          <!-- UK -->
-          <path d="M220,80 Q200,100 210,140 L200,170 L210,200 Q225,225 260,235 L280,270 L270,300 L290,320 L320,310 L330,280 L320,250 Q300,220 305,190 L295,160 Q305,130 295,100 Q270,75 240,75 Q225,75 220,80 Z"/>
-          <!-- France -->
-          <path d="M330,280 L360,270 L410,290 L440,330 L430,370 L400,400 L360,410 L340,380 L325,340 Z"/>
-          <!-- Benelux/Germany -->
-          <path d="M410,240 L460,230 L510,260 L530,310 L500,340 L450,320 L420,290 Z"/>
-          <!-- Austria (east of Germany) -->
-          <path d="M510,310 L545,305 L555,330 L540,345 L505,340 L500,325 Z"/>
-          <!-- Spain outline sliver -->
-          <path d="M300,410 L360,420 L370,450 L310,445 Z" opacity="0.4"/>
-        </g>
-        <!-- dots for offices/sites -->
-        <g id="mapPings"></g>
-      </svg>
+    <div class="coverage-map rv">
+      <!-- ============== 3D ORTHOGRAPHIC GLOBE MAP (D3 + TopoJSON) ============== -->
+      <div class="map-card">
+        <div class="cg-corner tl"></div>
+        <div class="cg-corner tr"></div>
+        <div class="cg-corner bl"></div>
+        <div class="cg-corner br"></div>
+        <div class="cg-tag-top">VOLT &middot; EUROPEAN OPERATIONAL NETWORK</div>
+        <div class="cg-tag-bottom">LIVE &middot; 51 NODES ACTIVE</div>
+        <div class="cg-tag-coords-l">CAERPHILLY HQ &middot; 51.58&deg;N &middot; 3.22&deg;W</div>
+        <div class="cg-tag-coords-r">PROJ &middot; ORTHOGRAPHIC</div>
+        <svg id="coverage-globe-svg" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" aria-hidden="true"></svg>
+      </div>
     </div>
   </div>
 </section>
@@ -1374,42 +1401,8 @@ function updTime(){
 }
 setInterval(updTime, 1000); updTime();
 
-/* map pings - HQ marker is bigger and labelled */
-const mapPings = document.getElementById('mapPings');
-const HQ = [248, 178, 'Caerphilly HQ'];  // South Wales
-const sites = [
-  [253,145,'Cardiff'],[263,200,'Bristol'],
-  [260,130,'Birmingham'],[270,100,'Manchester'],[255,80,'Glasgow'],
-  [140,170,'Dublin'],[200,210,'Belfast'],
-  [380,330,'Paris'],[470,280,'Amsterdam'],
-  [500,310,'Cologne'],[420,370,'Lyon'],
-  [540,325,'Vienna'],
-  [290,135,'Leeds']
-];
-
-// HQ pin: larger gold dot + halo + persistent label
-const hqGroup = document.createElementNS('http://www.w3.org/2000/svg','g');
-hqGroup.innerHTML = `
-  <circle cx="${HQ[0]}" cy="${HQ[1]}" r="5" fill="#c9a961"/>
-  <circle cx="${HQ[0]}" cy="${HQ[1]}" r="14" fill="none" stroke="#c9a961" stroke-width="1.5" opacity="0.85">
-    <animate attributeName="r" values="5;28" dur="2.8s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.85;0" dur="2.8s" repeatCount="indefinite"/>
-  </circle>
-  <text x="${HQ[0]+10}" y="${HQ[1]-8}" font-family="'JetBrains Mono',monospace" font-size="10" fill="#c9a961" letter-spacing="0.06em">${HQ[2]}</text>
-`;
-mapPings.appendChild(hqGroup);
-
-// Other city pins
-sites.forEach(([x,y,n],i)=>{
-  const g = document.createElementNS('http://www.w3.org/2000/svg','g');
-  g.innerHTML = `
-    <circle cx="${x}" cy="${y}" r="3" fill="#c9a961"/>
-    <circle cx="${x}" cy="${y}" r="12" fill="none" stroke="#c9a961" opacity="0.6">
-      <animate attributeName="r" values="3;22" dur="2.4s" begin="${i*0.3}s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0.7;0" dur="2.4s" begin="${i*0.3}s" repeatCount="indefinite"/>
-    </circle>`;
-  mapPings.appendChild(g);
-});
+/* Coverage map is now rendered as a 3D orthographic globe by
+   /assets/coverage-globe.js using D3 + TopoJSON. No JS needed here. */
 
 /* ========= tweaks (edit-mode protocol) ========= */
 const tweaks = document.getElementById('tweaks');

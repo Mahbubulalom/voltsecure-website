@@ -434,6 +434,8 @@ document.addEventListener('DOMContentLoaded', function(){
     "First major accreditations": "Erste wichtige Akkreditierungen",
     "Passes NICEIC, SSAIB and Constructionline within year one. Lands first large commercial electrical contract.": "Besteht im ersten Jahr NICEIC, SSAIB und Constructionline. Gewinnt den ersten großen kommerziellen Elektrovertrag.",
     "Cai founds VoltSecure with business partner Terry Jones - hitting the ground running on the back end of the pandemic.": "Cai gründet VoltSecure mit Geschäftspartner Terry Jones - mit Vollgas am Ende der Pandemie gestartet.",
+    "European contract begins": "Erster europäischer Vertrag",
+    "Wins the company's first long-term European contract. Work starts in the UK, expands into Ireland, then rolls into Germany. Sets the foundation for the multi-country security and electrical programme that now runs across five nations.": "Gewinnt den ersten langfristigen europäischen Vertrag des Unternehmens. Die Arbeit beginnt in Großbritannien, weitet sich auf Irland aus und rollt dann nach Deutschland. Legt den Grundstein für das mehrländerübergreifende Sicherheits- und Elektroprogramm, das heute fünf Länder umfasst.",
     "ECA & FSA accreditations": "ECA- und FSA-Akkreditierungen",
     "Joins the Electrical Contractors' Association and the Fire & Security Association - among the most recognised electrical and life-safety memberships in the UK industry.": "Tritt der Electrical Contractors' Association und der Fire & Security Association bei - zu den anerkanntesten Mitgliedschaften für Elektrik und Lebenssicherheit in der britischen Branche.",
     "Engineer and premises growth": "Wachstum bei Ingenieuren und Standorten",
