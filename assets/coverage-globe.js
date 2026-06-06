@@ -9,61 +9,102 @@
   'use strict';
 
   // ============== DATA: cities + country labels =============
+  // 51 operational cities across UK, Ireland, Belgium, Netherlands,
+  // Germany and Austria. label:true = name shown on the map (17 most
+  // distinctive); the rest render as unlabelled dots so the network
+  // reads dense without overloading the small map area.
   const cities = [
-    { name: 'CAERPHILLY', lat: 51.578, lon: -3.22, hq: true, country: 'GB' },
-    { name: 'LONDON',     lat: 51.507, lon: -0.128,         country: 'GB' },
-    { name: 'MANCHESTER', lat: 53.480, lon: -2.244,         country: 'GB' },
-    { name: 'EDINBURGH',  lat: 55.953, lon: -3.188,         country: 'GB' },
-    { name: 'DUBLIN',     lat: 53.349, lon: -6.260,         country: 'IE' },
-    { name: 'AMSTERDAM',  lat: 52.370, lon:  4.895,         country: 'NL' },
-    { name: 'BRUSSELS',   lat: 50.851, lon:  4.351,         country: 'BE' },
-    { name: 'PARIS',      lat: 48.857, lon:  2.351,         country: 'FR' },
-    { name: 'LYON',       lat: 45.764, lon:  4.835,         country: 'FR' },
-    { name: 'MARSEILLE',  lat: 43.296, lon:  5.370,         country: 'FR' },
-    { name: 'HAMBURG',    lat: 53.551, lon:  9.993,         country: 'DE' },
-    { name: 'FRANKFURT',  lat: 50.110, lon:  8.682,         country: 'DE' },
-    { name: 'BERLIN',     lat: 52.520, lon: 13.405,         country: 'DE' },
-    { name: 'MUNICH',     lat: 48.137, lon: 11.575,         country: 'DE' },
-    { name: 'ZURICH',     lat: 47.376, lon:  8.541,         country: 'CH' },
-    { name: 'VIENNA',     lat: 48.208, lon: 16.373,         country: 'AT' },
-    { name: 'SALZBURG',   lat: 47.811, lon: 13.033,         country: 'AT' }
+    // UK (16) - Caerphilly is HQ
+    { name: 'CAERPHILLY',      lat: 51.578, lon: -3.220, hq: true,    country: 'GB' },
+    { name: 'CARDIFF',         lat: 51.481, lon: -3.179, label: true, country: 'GB' },
+    { name: 'SWANSEA',         lat: 51.621, lon: -3.943,              country: 'GB' },
+    { name: 'BRISTOL',         lat: 51.454, lon: -2.587, label: true, country: 'GB' },
+    { name: 'LONDON',          lat: 51.507, lon: -0.128, label: true, country: 'GB' },
+    { name: 'WREXHAM',         lat: 53.043, lon: -2.992,              country: 'GB' },
+    { name: 'LIVERPOOL',       lat: 53.408, lon: -2.991, label: true, country: 'GB' },
+    { name: 'CHESTERFIELD',    lat: 53.235, lon: -1.426,              country: 'GB' },
+    { name: 'BIRMINGHAM',      lat: 52.486, lon: -1.890, label: true, country: 'GB' },
+    { name: 'BRIDGEND',        lat: 51.504, lon: -3.578,              country: 'GB' },
+    { name: 'NEATH',           lat: 51.660, lon: -3.806,              country: 'GB' },
+    { name: 'SAUNDERSFOOT',    lat: 51.708, lon: -4.706,              country: 'GB' },
+    { name: 'CARMARTHEN',      lat: 51.857, lon: -4.310,              country: 'GB' },
+    { name: 'PEMBROKE',        lat: 51.674, lon: -4.911,              country: 'GB' },
+    { name: 'MERTHYR TYDFIL',  lat: 51.744, lon: -3.380,              country: 'GB' },
+    { name: 'NEWPORT',         lat: 51.588, lon: -2.998,              country: 'GB' },
+    // Ireland (7)
+    { name: 'DUBLIN',          lat: 53.349, lon: -6.260, label: true, country: 'IE' },
+    { name: 'WATERFORD',       lat: 52.259, lon: -7.110,              country: 'IE' },
+    { name: 'LIMERICK',        lat: 52.668, lon: -8.630,              country: 'IE' },
+    { name: 'GALWAY',          lat: 53.270, lon: -9.057,              country: 'IE' },
+    { name: 'CORK',            lat: 51.898, lon: -8.475, label: true, country: 'IE' },
+    { name: 'SLIGO',           lat: 54.270, lon: -8.476,              country: 'IE' },
+    { name: 'CASTLEBAR',       lat: 53.854, lon: -9.298,              country: 'IE' },
+    // Belgium (3)
+    { name: 'BRUSSELS',        lat: 50.851, lon:  4.351, label: true, country: 'BE' },
+    { name: 'ANTWERP',         lat: 51.219, lon:  4.402,              country: 'BE' },
+    { name: 'LIEGE',           lat: 50.633, lon:  5.567,              country: 'BE' },
+    // Netherlands (3)
+    { name: 'ROTTERDAM',       lat: 51.924, lon:  4.477, label: true, country: 'NL' },
+    { name: 'AMSTERDAM',       lat: 52.370, lon:  4.895, label: true, country: 'NL' },
+    { name: 'TILBURG',         lat: 51.586, lon:  5.094,              country: 'NL' },
+    // Germany (17)
+    { name: 'HAMBURG',         lat: 53.551, lon:  9.993, label: true, country: 'DE' },
+    { name: 'HANNOVER',        lat: 52.375, lon:  9.732,              country: 'DE' },
+    { name: 'BREMEN',          lat: 53.080, lon:  8.804,              country: 'DE' },
+    { name: 'DUSSELDORF',      lat: 51.227, lon:  6.773,              country: 'DE' },
+    { name: 'COLOGNE',         lat: 50.937, lon:  6.960,              country: 'DE' },
+    { name: 'FRANKFURT',       lat: 50.110, lon:  8.682, label: true, country: 'DE' },
+    { name: 'STUTTGART',       lat: 48.775, lon:  9.182,              country: 'DE' },
+    { name: 'HEIDELBERG',      lat: 49.398, lon:  8.673,              country: 'DE' },
+    { name: 'TRIER',           lat: 49.749, lon:  6.638,              country: 'DE' },
+    { name: 'HALLE',           lat: 51.482, lon: 11.969,              country: 'DE' },
+    { name: 'REUTLINGEN',      lat: 48.491, lon:  9.214,              country: 'DE' },
+    { name: 'SINGEN',          lat: 47.760, lon:  8.840,              country: 'DE' },
+    { name: 'BOEBLINGEN',      lat: 48.685, lon:  9.013,              country: 'DE' },
+    { name: 'WILHELMSHAVEN',   lat: 53.529, lon:  8.110,              country: 'DE' },
+    { name: 'MUNICH',          lat: 48.137, lon: 11.575, label: true, country: 'DE' },
+    { name: 'LEIPZIG',         lat: 51.339, lon: 12.378,              country: 'DE' },
+    { name: 'BERLIN',          lat: 52.520, lon: 13.405, label: true, country: 'DE' },
+    // Austria (5)
+    { name: 'VIENNA',          lat: 48.208, lon: 16.373, label: true, country: 'AT' },
+    { name: 'SALZBURG',        lat: 47.811, lon: 13.033, label: true, country: 'AT' },
+    { name: 'GRAZ',            lat: 47.071, lon: 15.439,              country: 'AT' },
+    { name: 'LINZ',            lat: 48.306, lon: 14.286,              country: 'AT' },
+    { name: 'INNSBRUCK',       lat: 47.269, lon: 11.404,              country: 'AT' }
   ];
 
   const countryLabels = [
     { name: 'UNITED KINGDOM', lat: 53.5, lon: -2.5,  size: 12 },
     { name: 'IRELAND',        lat: 53.3, lon: -8.0,  size: 11 },
-    { name: 'FRANCE',         lat: 46.5, lon:  2.5,  size: 14 },
-    { name: 'GERMANY',        lat: 51.0, lon: 10.5,  size: 13 },
-    { name: 'AUSTRIA',        lat: 47.4, lon: 14.0,  size: 11 },
-    { name: 'SWITZERLAND',    lat: 46.8, lon:  8.2,  size:  9 },
     { name: 'NETHERLANDS',    lat: 52.4, lon:  5.6,  size:  9 },
     { name: 'BELGIUM',        lat: 50.5, lon:  4.4,  size:  9 },
-    { name: 'DENMARK',        lat: 55.8, lon: 10.0,  size:  9 },
-    { name: 'CZECHIA',        lat: 49.8, lon: 15.5,  size:  9 },
-    { name: 'ITALY',          lat: 44.5, lon: 11.5,  size: 11 },
-    { name: 'SPAIN',          lat: 41.0, lon: -3.5,  size: 11 }
+    { name: 'GERMANY',        lat: 51.0, lon: 10.5,  size: 13 },
+    { name: 'AUSTRIA',        lat: 47.4, lon: 14.0,  size: 11 }
   ];
 
   // ISO 3166-1 numeric codes of countries we highlight as operational
-  const operationalISO = new Set(['826','372','250','276','040','528','056','756']);
+  // GB (826), Ireland (372), Belgium (056), Netherlands (528),
+  // Germany (276), Austria (040)
+  const operationalISO = new Set(['826','372','056','528','276','040']);
 
-  // Label offsets per city (radial nudges so labels don't sit on top of pins)
+  // Label offsets per labeled city (radial nudges so labels don't sit on top
+  // of pins). Unlabeled cities fall through to the default offset.
   const labelOffsets = {
-    CAERPHILLY: { dx:  14, dy: -10, dyl: 4,  anchor: 'start' },
-    LONDON:     { dx: -12, dy:  16,           anchor: 'end' },
-    MANCHESTER: { dx: -12, dy:  -2,           anchor: 'end' },
-    EDINBURGH:  { dx: -12, dy:  -2,           anchor: 'end' },
+    CAERPHILLY: { dx: -14, dy: -10, dyl: 4,  anchor: 'end' },
+    CARDIFF:    { dx: -12, dy:  16,           anchor: 'end' },
+    BRISTOL:    { dx:  14, dy:  16,           anchor: 'start' },
+    LONDON:     { dx:  14, dy:  16,           anchor: 'start' },
+    LIVERPOOL:  { dx: -12, dy:  -2,           anchor: 'end' },
+    BIRMINGHAM: { dx:  14, dy:   2,           anchor: 'start' },
     DUBLIN:     { dx: -12, dy:   2,           anchor: 'end' },
+    CORK:       { dx: -12, dy:   2,           anchor: 'end' },
+    BRUSSELS:   { dx: -12, dy:  16,           anchor: 'end' },
     AMSTERDAM:  { dx:  14, dy:  -2,           anchor: 'start' },
-    BRUSSELS:   { dx:  14, dy:  12,           anchor: 'start' },
-    PARIS:      { dx:  14, dy:  -2,           anchor: 'start' },
-    LYON:       { dx:  14, dy:   4,           anchor: 'start' },
-    MARSEILLE:  { dx:  14, dy:   4,           anchor: 'start' },
+    ROTTERDAM:  { dx: -12, dy:  16,           anchor: 'end' },
     HAMBURG:    { dx: -12, dy:  -2,           anchor: 'end' },
     FRANKFURT:  { dx: -12, dy:  16,           anchor: 'end' },
     BERLIN:     { dx:  14, dy:  -2,           anchor: 'start' },
     MUNICH:     { dx: -12, dy:  16,           anchor: 'end' },
-    ZURICH:     { dx:  14, dy:  -2,           anchor: 'start' },
     VIENNA:     { dx:  14, dy:   4,           anchor: 'start' },
     SALZBURG:   { dx: -12, dy:  -2,           anchor: 'end' }
   };
@@ -257,10 +298,11 @@
       .attr('font-size', function(d) { return d.size; })
       .text(function(d) { return d.name; });
 
-    // Connection lines (HQ -> each city as great circles)
+    // Connection lines (HQ -> labeled cities only as great circles).
+    // Skipping unlabeled cities keeps the radial pattern legible at 51 nodes.
     const hq = cities.find(function(c) { return c.hq; });
     const hqPoint = [hq.lon, hq.lat];
-    const connectionLines = cities.filter(function(c) { return !c.hq; }).map(function(c) {
+    const connectionLines = cities.filter(function(c) { return !c.hq && c.label; }).map(function(c) {
       return { type: 'LineString', coordinates: [hqPoint, [c.lon, c.lat]] };
     });
 
@@ -312,20 +354,25 @@
           .attr('cx', -2.5).attr('cy', -3).attr('r', 2)
           .attr('fill', '#ffffff').attr('opacity', 0.85);
       } else {
+        // Labeled cities get a bigger, brighter pin; unlabeled secondary
+        // cities get a smaller dot so the network reads without crowding.
+        const isMajor = c.label === true;
         g.append('circle')
-          .attr('r', 8).attr('fill', '#f3d488')
-          .attr('opacity', 0.20).attr('filter', 'url(#cg-softGlow)');
+          .attr('r', isMajor ? 8 : 5).attr('fill', '#f3d488')
+          .attr('opacity', isMajor ? 0.20 : 0.14).attr('filter', 'url(#cg-softGlow)');
         g.append('circle')
-          .attr('r', 5).attr('fill', 'url(#cg-pinGrad)');
+          .attr('r', isMajor ? 5 : 3).attr('fill', 'url(#cg-pinGrad)');
         g.append('circle')
-          .attr('cx', -1.4).attr('cy', -1.8).attr('r', 1.1)
+          .attr('cx', isMajor ? -1.4 : -1).attr('cy', isMajor ? -1.8 : -1.2)
+          .attr('r', isMajor ? 1.1 : 0.7)
           .attr('fill', '#ffffff').attr('opacity', 0.75);
       }
     });
 
-    // City labels
+    // City labels - only HQ + cities with label:true (~17 of 51 nodes)
     const labelGroup = svg.append('g').attr('class', 'cg-city-labels');
     cities.forEach(function(c) {
+      if (!c.hq && !c.label) return;
       const p = projection([c.lon, c.lat]);
       if (!p) return;
       const off = labelOffsets[c.name] || { dx: 12, dy: 4, anchor: 'start' };
