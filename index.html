@@ -277,15 +277,34 @@ section{position:relative;padding:120px 0}
 .hero-trust-row .tcell .txt{font-family:var(--font-display);font-size:15px;letter-spacing:0.02em;color:#8f7640;text-align:center;line-height:1;font-weight:400}
 .hero-trust-row .tcell .txt small{display:block;font-family:var(--font-mono);font-size:8px;letter-spacing:0.14em;color:#b8a77a;margin-top:3px;text-transform:uppercase}
 
-/* ---------- hero visual (animated) ---------- */
-.hero-visual{aspect-ratio:1/1;position:relative;display:flex;align-items:center;justify-content:center}
-.hero-visual svg{position:absolute;inset:0;width:100%;height:100%}
-.hvlabel{position:absolute;font-family:var(--font-mono);font-size:10px;letter-spacing:0.16em;color:var(--gold);opacity:.8;text-transform:uppercase;display:flex;align-items:center;gap:8px;pointer-events:none}
+/* ---------- hero visual (animated radar - Volt EU network) ---------- */
+.hero-visual{aspect-ratio:1/1;position:relative;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono','JetBrains Mono',ui-monospace,monospace}
+.hero-visual svg.hero-radar{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.hero-visual .hero-sweep{position:absolute;inset:0;border-radius:50%;background:conic-gradient(from -90deg,rgba(243,212,136,0.40) 0deg,rgba(243,212,136,0.22) 22deg,rgba(243,212,136,0.08) 55deg,transparent 85deg,transparent 360deg);animation:heroSweep 8s linear infinite;mix-blend-mode:screen;-webkit-mask:radial-gradient(circle,black 0%,black 49%,transparent 49.5%);mask:radial-gradient(circle,black 0%,black 49%,transparent 49.5%);filter:blur(0.5px);z-index:1;pointer-events:none}
+@keyframes heroSweep{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.hero-visual .hero-vlogo{position:absolute;top:50%;left:50%;width:13%;aspect-ratio:1/1;transform:translate(-50%,-50%);pointer-events:none;z-index:6;filter:drop-shadow(0 0 18px rgba(243,212,136,0.45)) drop-shadow(0 0 4px rgba(212,180,106,0.6))}
+.hero-visual .hero-vlogo svg{position:static;width:100%;height:100%;overflow:visible}
+.hero-visual .hero-cities{position:absolute;inset:0;z-index:5;pointer-events:none}
+.hero-visual .hero-city{position:absolute;transform:translate(-50%,-50%);font-size:clamp(8px,0.78vw,11px);font-weight:400;letter-spacing:0.18em;color:#f3d488;white-space:nowrap;text-shadow:0 0 8px rgba(0,0,0,0.95),0 0 4px rgba(0,0,0,0.9),0 0 2px rgba(0,0,0,1)}
+.hero-visual .hero-city .name{display:block}
+.hero-visual .hero-city .sub{display:block;font-size:0.7em;color:#b89455;margin-top:2px;letter-spacing:0.20em}
+.hero-visual .hero-city.hq .name{color:#fff5d6;font-weight:500;letter-spacing:0.24em;font-size:1.15em}
+.hero-visual .hero-city.hq .sub{color:#f3d488}
+.hero-visual .hero-city.edge-right{transform:translate(-100%,-50%);padding-right:4px}
+.hero-visual .hero-city-dot{transform-origin:center;transform-box:fill-box;animation:heroCityPulse 3.4s ease-in-out infinite}
+.hero-visual .hero-city-dot:nth-child(2n){animation-delay:0.5s}
+.hero-visual .hero-city-dot:nth-child(3n){animation-delay:1.2s}
+@keyframes heroCityPulse{0%,100%{opacity:0.8}50%{opacity:1}}
+.hero-visual .hero-network line{stroke:var(--gold);stroke-width:0.6;fill:none;opacity:0.4;stroke-dasharray:3 8;animation:heroDataflow 6s linear infinite}
+@keyframes heroDataflow{from{stroke-dashoffset:0}to{stroke-dashoffset:-110}}
+.hero-visual .hero-map{filter:drop-shadow(0 0 6px rgba(212,180,106,0.20))}
+/* HUD labels - keep original positions and style */
+.hvlabel{position:absolute;font-family:var(--font-mono);font-size:11px;letter-spacing:0.16em;color:var(--gold);opacity:.9;text-transform:uppercase;display:flex;align-items:center;gap:8px;pointer-events:none;z-index:7;text-shadow:0 0 6px rgba(0,0,0,0.9)}
 .hvlabel .dot{width:6px;height:6px;background:var(--gold);border-radius:50%;box-shadow:0 0 10px var(--gold)}
-.hvlabel.tl{top:8%;left:4%}
-.hvlabel.tr{top:14%;right:4%}
-.hvlabel.bl{bottom:12%;left:4%}
-.hvlabel.br{bottom:8%;right:4%}
+.hvlabel.tl{top:4%;left:4%}
+.hvlabel.tr{top:4%;right:4%}
+.hvlabel.bl{bottom:4%;left:4%}
+.hvlabel.br{bottom:4%;right:4%}
 
 /* ---------- marquee ---------- */
 .marquee{padding:28px 0;border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);overflow:hidden;background:rgba(255,255,255,0.01)}
@@ -547,65 +566,166 @@ gtag('config', 'G-XXXXXXXXXX');
 
     <!-- Animated hero visual -->
     <div class="hero-visual" id="heroVisual">
-      <!-- radar / scan rings SVG -->
-      <svg viewBox="0 0 600 600" id="heroSVG" aria-hidden="true">
+      <!-- ============ VOLT EU NETWORK RADAR ============ -->
+      <svg class="hero-radar" id="heroSVG" viewBox="-500 -500 1000 1000" aria-hidden="true">
         <defs>
-          <radialGradient id="gold-rad" cx="50%" cy="50%">
-            <stop offset="0%" stop-color="#c9a961" stop-opacity="0.25"/>
-            <stop offset="60%" stop-color="#c9a961" stop-opacity="0.04"/>
-            <stop offset="100%" stop-color="#c9a961" stop-opacity="0"/>
+          <radialGradient id="heroRingGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#d4b46a" stop-opacity="0.06"/>
+            <stop offset="60%" stop-color="#d4b46a" stop-opacity="0.025"/>
+            <stop offset="100%" stop-color="#d4b46a" stop-opacity="0"/>
           </radialGradient>
-          <linearGradient id="scan-grad" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stop-color="#c9a961" stop-opacity="0"/>
-            <stop offset="50%" stop-color="#c9a961" stop-opacity="0.5"/>
-            <stop offset="100%" stop-color="#c9a961" stop-opacity="0"/>
-          </linearGradient>
-          <filter id="glow"><feGaussianBlur stdDeviation="2"/></filter>
+          <radialGradient id="heroCenterGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#f3d488" stop-opacity="0.12"/>
+            <stop offset="40%" stop-color="#f3d488" stop-opacity="0.04"/>
+            <stop offset="100%" stop-color="#f3d488" stop-opacity="0"/>
+          </radialGradient>
+          <filter id="heroSoftblur"><feGaussianBlur stdDeviation="0.4"/></filter>
+          <filter id="heroCityGlow">
+            <feGaussianBlur stdDeviation="2" result="b"/>
+            <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
         </defs>
 
-        <!-- ambient glow -->
-        <circle cx="300" cy="300" r="300" fill="url(#gold-rad)"/>
+        <!-- background fills -->
+        <circle cx="0" cy="0" r="490" fill="url(#heroRingGlow)"/>
+        <circle cx="0" cy="0" r="110" fill="url(#heroCenterGlow)"/>
 
-        <!-- concentric rings -->
-        <g stroke="#c9a961" fill="none" opacity="0.2">
-          <circle cx="300" cy="300" r="80"/>
-          <circle cx="300" cy="300" r="140"/>
-          <circle cx="300" cy="300" r="200"/>
-          <circle cx="300" cy="300" r="260" stroke-dasharray="2 8"/>
+        <!-- Outer steady ring -->
+        <circle cx="0" cy="0" r="490" fill="none" stroke="var(--gold)" stroke-width="1.2" opacity="0.35"/>
+        <circle cx="0" cy="0" r="486" fill="none" stroke="var(--gold)" stroke-width="0.4" opacity="0.18"/>
+
+        <!-- Tick marks generated by JS -->
+        <g id="heroTicks" stroke="var(--gold)" stroke-width="1"></g>
+
+        <!-- Inner concentric rings -->
+        <g fill="none" stroke="var(--gold)">
+          <circle cx="0" cy="0" r="420" stroke-width="0.5" opacity="0.10" stroke-dasharray="2 6"/>
+          <circle cx="0" cy="0" r="335" stroke-width="0.6" opacity="0.18"/>
+          <circle cx="0" cy="0" r="235" stroke-width="0.6" opacity="0.18"/>
+          <circle cx="0" cy="0" r="135" stroke-width="0.6" opacity="0.24"/>
+          <circle cx="0" cy="0" r="55"  stroke-width="0.6" opacity="0.32"/>
         </g>
 
-        <!-- grid crosshairs -->
-        <g stroke="#c9a961" opacity="0.12" stroke-width="1">
-          <line x1="0" y1="300" x2="600" y2="300"/>
-          <line x1="300" y1="0" x2="300" y2="600"/>
+        <!-- Crosshair -->
+        <g stroke="var(--gold)" stroke-width="0.6" opacity="0.20">
+          <line x1="-480" y1="0" x2="480" y2="0"/>
+          <line x1="0" y1="-480" x2="0" y2="480"/>
         </g>
 
-        <!-- scan sweep (rotating) -->
-        <g id="scan" style="transform-origin:300px 300px;animation:spin 6s linear infinite">
-          <path d="M 300 300 L 560 300 A 260 260 0 0 0 420 75 Z" fill="url(#scan-grad)" opacity="0.7"/>
+        <!-- ============ MAP ============ -->
+        <g class="hero-map">
+          <!-- CONTINENTAL EUROPE -->
+          <path d="M 192 -40 L 184 -22 L 181 8 L 166 22 L 152 30 L 120 24 L 98 52 L 78 88 L 56 108 L 38 120 L 14 130 L -10 134 L -22 152 L -2 164 L 18 172 L 38 186 L 50 212 L 56 240 L 60 270 L 56 300 L 50 330 L 40 352 L 22 362 L 0 365 L -16 366 L -8 376 L 35 380 L 90 382 L 145 380 L 195 365 L 230 350 L 258 335 L 280 318 L 305 308 L 332 302 L 355 294 L 380 280 L 400 260 L 416 240 L 432 215 L 450 192 L 465 165 L 472 140 L 470 115 L 462 92 L 452 70 L 442 50 L 434 30 L 432 10 L 438 -10 L 432 -28 L 420 -48 L 410 -68 L 400 -86 L 390 -105 L 378 -120 L 360 -130 L 338 -132 L 312 -126 L 290 -110 L 270 -94 L 250 -82 L 228 -68 L 210 -58 L 198 -48 Z"
+            fill="rgba(212,180,106,0.10)" stroke="var(--gold)" stroke-width="1.4" opacity="0.65" filter="url(#heroSoftblur)"/>
+          <!-- Iberian Peninsula hint -->
+          <path d="M -16 366 L -50 380 L -90 395 L -130 412 L -170 432 L -200 458 L -215 488"
+            fill="none" stroke="var(--gold)" stroke-width="1" opacity="0.40"/>
+          <!-- Italian peninsula hint -->
+          <path d="M 305 308 L 318 332 L 335 358 L 355 380 L 378 402 L 400 422 L 422 444"
+            fill="none" stroke="var(--gold)" stroke-width="1" opacity="0.40"/>
+          <!-- Scandinavian + Baltic hints -->
+          <path d="M 198 -48 L 215 -85 L 240 -125 L 275 -170 L 312 -220 L 342 -270 L 365 -320 L 380 -370"
+            fill="none" stroke="var(--gold)" stroke-width="1.1" opacity="0.32"/>
+          <path d="M 290 -110 L 318 -140 L 350 -178 L 380 -220 L 405 -260"
+            fill="none" stroke="var(--gold)" stroke-width="0.9" opacity="0.28"/>
+          <!-- IRELAND -->
+          <path d="M -100 -172 L -116 -162 L -132 -148 L -148 -130 L -160 -108 L -170 -85 L -178 -60 L -180 -32 L -174 -8 L -160 8 L -140 16 L -118 14 L -98 4 L -82 -12 L -72 -34 L -68 -58 L -72 -82 L -78 -108 L -88 -132 L -96 -154 Z"
+            fill="rgba(212,180,106,0.18)" stroke="var(--gold)" stroke-width="1.4" opacity="0.95" filter="url(#heroSoftblur)"/>
+          <!-- GREAT BRITAIN (Cardiff at 0,0) -->
+          <path d="M -5 -316 L 3 -315 L 12 -300 L 18 -278 L 26 -258 L 26 -240 L 18 -222 L 22 -208 L 28 -195 L 34 -178 L 38 -154 L 50 -138 L 60 -126 L 67 -110 L 70 -92 L 76 -78 L 90 -68 L 108 -64 L 122 -58 L 118 -49 L 112 -38 L 108 -25 L 108 -8 L 110 8 L 108 22 L 95 28 L 80 30 L 60 30 L 36 30 L 12 34 L -10 38 L -28 45 L -45 55 L -61 62 L -57 56 L -42 44 L -33 30 L -25 18 L -23 10 L -28 5 L -16 8 L -8 12 L 4 4 L 11 -1 L 14 1 L 5 -5 L 0 0 L -8 -2 L -18 -6 L -37 -8 L -43 -10 L -50 -18 L -43 -23 L -36 -26 L -22 -41 L -21 -55 L -37 -59 L -32 -65 L -26 -73 L -35 -80 L -25 -78 L -15 -81 L 5 -85 L 8 -98 L 8 -114 L -2 -120 L -10 -135 L -6 -150 L 6 -150 L 4 -155 L -10 -158 L -25 -158 L -45 -139 L -50 -150 L -42 -160 L -35 -175 L -50 -167 L -63 -169 L -55 -182 L -50 -200 L -55 -217 L -52 -228 L -55 -238 L -64 -243 L -55 -255 L -48 -270 L -52 -283 L -48 -298 L -44 -314 L -32 -316 L -18 -316 Z"
+            fill="rgba(212,180,106,0.18)" stroke="var(--gold)" stroke-width="1.5" opacity="1" filter="url(#heroSoftblur)"/>
         </g>
 
-        <!-- hexagon (brand mark echo) -->
-        <g id="hex" style="transform-origin:300px 300px">
-          <polygon points="300,180 405,240 405,360 300,420 195,360 195,240"
-                   fill="none" stroke="#c9a961" stroke-width="1.5" opacity="0.7"/>
-          <polygon points="300,200 390,248 390,352 300,400 210,352 210,248"
-                   fill="none" stroke="#c9a961" stroke-width="0.5" opacity="0.3"/>
-          <!-- V inside -->
-          <path d="M 240 230 L 300 380 L 360 230" fill="none" stroke="#c9a961" stroke-width="2" opacity="0.9"/>
+        <!-- Country labels on landmasses -->
+        <g font-family="IBM Plex Mono,monospace" font-weight="400" fill="#b89455" opacity="0.55" letter-spacing="3" text-anchor="middle" style="font-size:13px">
+          <text x="-30" y="-130">UNITED KINGDOM</text>
+          <text x="-130" y="-60">IRELAND</text>
+          <text x="100"  y="200">FRANCE</text>
+          <text x="345"  y="0">GERMANY</text>
+          <text x="430"  y="195">AUSTRIA</text>
+          <text x="200"  y="-5">NL · BE</text>
+          <text x="265"  y="220">SWITZ.</text>
         </g>
 
-        <!-- sensor dots -->
-        <g id="sensors"></g>
+        <!-- Network connection lines Cardiff -> each city -->
+        <g class="hero-network">
+          <line x1="0" y1="0" x2="73" y2="-1"/>
+          <line x1="0" y1="0" x2="0" y2="-197"/>
+          <line x1="0" y1="0" x2="194" y2="-39"/>
+          <line x1="0" y1="0" x2="181" y2="28"/>
+          <line x1="0" y1="0" x2="133" y2="115"/>
+          <line x1="0" y1="0" x2="193" y2="252"/>
+          <line x1="0" y1="0" x2="205" y2="360"/>
+          <line x1="0" y1="0" x2="316" y2="-91"/>
+          <line x1="0" y1="0" x2="398" y2="-46"/>
+          <line x1="0" y1="0" x2="285" y2="61"/>
+          <line x1="0" y1="0" x2="354" y2="147"/>
+          <line x1="0" y1="0" x2="281" y2="180"/>
+          <line x1="0" y1="0" x2="469" y2="144"/>
+          <line x1="0" y1="0" x2="389" y2="162"/>
+        </g>
 
-        <!-- ticks on outer ring -->
-        <g stroke="#c9a961" opacity="0.5" id="ticks"></g>
+        <!-- City dots -->
+        <g filter="url(#heroCityGlow)">
+          <g fill="#f3d488">
+            <circle cx="0" cy="0" r="5" class="hero-city-dot"/>
+            <circle cx="0" cy="0" r="14" fill="none" stroke="#f3d488" stroke-width="1" opacity="0.85"/>
+            <circle cx="0" cy="0" r="26" fill="none" stroke="var(--gold)" stroke-width="0.6" opacity="0.5" stroke-dasharray="3 4"/>
+            <circle cx="0" cy="0" r="40" fill="none" stroke="var(--gold)" stroke-width="0.4" opacity="0.25" stroke-dasharray="1 5"/>
+            <circle cx="73"  cy="-1"   r="4.5" class="hero-city-dot"/>
+            <circle cx="0"   cy="-197" r="3.8" class="hero-city-dot"/>
+            <circle cx="194" cy="-39"  r="3.8" class="hero-city-dot"/>
+            <circle cx="181" cy="28"   r="3.5" class="hero-city-dot"/>
+            <circle cx="133" cy="115"  r="4.5" class="hero-city-dot"/>
+            <circle cx="193" cy="252"  r="3.8" class="hero-city-dot"/>
+            <circle cx="205" cy="360"  r="3.8" class="hero-city-dot"/>
+            <circle cx="316" cy="-91"  r="3.8" class="hero-city-dot"/>
+            <circle cx="398" cy="-46"  r="4.5" class="hero-city-dot"/>
+            <circle cx="285" cy="61"   r="4"   class="hero-city-dot"/>
+            <circle cx="354" cy="147"  r="4"   class="hero-city-dot"/>
+            <circle cx="281" cy="180"  r="3.5" class="hero-city-dot"/>
+            <circle cx="469" cy="144"  r="4.5" class="hero-city-dot"/>
+            <circle cx="389" cy="162"  r="3.5" class="hero-city-dot"/>
+          </g>
+        </g>
       </svg>
 
-      <!-- corner labels -->
+      <!-- Animated sweep overlay -->
+      <div class="hero-sweep"></div>
+
+      <!-- City labels (HTML overlay) -->
+      <div class="hero-cities">
+        <div class="hero-city hq" style="left:50%;top:58.5%"><span class="name">CARDIFF</span><span class="sub">HQ · 51.58°N</span></div>
+        <div class="hero-city" style="left:60.5%;top:47.5%"><span class="name">LONDON</span></div>
+        <div class="hero-city" style="left:41%;top:28%"><span class="name">EDINBURGH</span></div>
+        <div class="hero-city" style="left:72%;top:43%"><span class="name">AMSTERDAM</span></div>
+        <div class="hero-city" style="left:71.5%;top:55.5%"><span class="name">BRUSSELS</span></div>
+        <div class="hero-city" style="left:57.5%;top:63%"><span class="name">PARIS</span></div>
+        <div class="hero-city" style="left:64%;top:75%"><span class="name">LYON</span></div>
+        <div class="hero-city" style="left:66%;top:85.5%"><span class="name">MARSEILLE</span></div>
+        <div class="hero-city" style="left:79%;top:38%"><span class="name">HAMBURG</span></div>
+        <div class="hero-city" style="left:87.5%;top:41%"><span class="name">BERLIN</span></div>
+        <div class="hero-city" style="left:79.5%;top:53%"><span class="name">FRANKFURT</span></div>
+        <div class="hero-city" style="left:87%;top:62%"><span class="name">MUNICH</span></div>
+        <div class="hero-city" style="left:72%;top:70.5%"><span class="name">ZURICH</span></div>
+        <div class="hero-city edge-right" style="left:96%;top:61.5%"><span class="name">VIENNA</span></div>
+        <div class="hero-city" style="left:92%;top:70%"><span class="name">SALZBURG</span></div>
+      </div>
+
+      <!-- V Hexagon at Cardiff -->
+      <div class="hero-vlogo">
+        <svg viewBox="-100 -100 200 200" aria-hidden="true">
+          <polygon points="0,-92 80,-46 80,46 0,92 -80,46 -80,-46" fill="none" stroke="#f3d488" stroke-width="0.6" opacity="0.35"/>
+          <polygon points="0,-82 71,-41 71,41 0,82 -71,41 -71,-41" fill="rgba(5,4,2,0.95)" stroke="#f3d488" stroke-width="2.5" opacity="1"/>
+          <polygon points="0,-66 57,-33 57,33 0,66 -57,33 -57,-33" fill="none" stroke="var(--gold)" stroke-width="1.3" opacity="0.55"/>
+          <path d="M -46 -46 L 0 56 L 46 -46" fill="none" stroke="#f3d488" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+
+      <!-- HUD corner labels -->
       <div class="hvlabel tl"><span class="dot"></span> SYS · LIVE</div>
-      <div class="hvlabel tr">51.58°N · 3.21°W</div>
-      <div class="hvlabel bl">INSTALLATIONS COMPLETE</div>
+      <div class="hvlabel tr">VOLT · EU NETWORK</div>
+      <div class="hvlabel bl">15 NODES · 7 NATIONS · ACTIVE</div>
       <div class="hvlabel br" id="hvtime">00:00:00 GMT</div>
     </div>
   </div>
@@ -1131,36 +1251,26 @@ const io = new IntersectionObserver(es => {
 }, {threshold: 0.1});
 document.querySelectorAll('.rv').forEach(el => io.observe(el));
 
-/* ========= hero SVG extras ========= */
-const sensors = document.getElementById('sensors');
-const sensorPositions = [
-  [300,120],[465,210],[465,390],[300,480],[135,390],[135,210],
-  [220,160],[380,160],[440,300],[380,440],[220,440],[160,300]
-];
-sensorPositions.forEach(([x,y],i)=>{
-  const g = document.createElementNS('http://www.w3.org/2000/svg','g');
-  g.innerHTML = `
-    <circle cx="${x}" cy="${y}" r="3" fill="#c9a961"/>
-    <circle cx="${x}" cy="${y}" r="10" fill="none" stroke="#c9a961" opacity="0.5">
-      <animate attributeName="r" values="3;18" dur="3s" begin="${i*0.25}s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0.8;0" dur="3s" begin="${i*0.25}s" repeatCount="indefinite"/>
-    </circle>`;
-  sensors.appendChild(g);
-});
-
-/* outer ticks */
-const ticks = document.getElementById('ticks');
-for(let i=0;i<60;i++){
-  const a = (i/60)*Math.PI*2;
-  const r1 = 275, r2 = i%5===0?285:280;
-  const x1 = 300+Math.cos(a)*r1, y1 = 300+Math.sin(a)*r1;
-  const x2 = 300+Math.cos(a)*r2, y2 = 300+Math.sin(a)*r2;
-  const line = document.createElementNS('http://www.w3.org/2000/svg','line');
-  line.setAttribute('x1',x1); line.setAttribute('y1',y1);
-  line.setAttribute('x2',x2); line.setAttribute('y2',y2);
-  line.setAttribute('stroke-width', i%5===0?'1.5':'0.5');
-  ticks.appendChild(line);
-}
+/* ========= hero EU-network radar - outer tick marks =========
+   New radar uses viewBox -500 -500 1000 1000, so ticks live around r=468-496
+   and centre on (0,0) instead of the old (300,300). */
+(function(){
+  const ticks = document.getElementById('heroTicks');
+  if(!ticks) return;
+  const N = 96, ns = 'http://www.w3.org/2000/svg';
+  for(let i=0;i<N;i++){
+    const a = (i/N)*Math.PI*2;
+    const major = i%8===0;
+    const r1 = 468, r2 = major ? 496 : 484;
+    const line = document.createElementNS(ns,'line');
+    line.setAttribute('x1', Math.cos(a)*r1);
+    line.setAttribute('y1', Math.sin(a)*r1);
+    line.setAttribute('x2', Math.cos(a)*r2);
+    line.setAttribute('y2', Math.sin(a)*r2);
+    line.setAttribute('opacity', major ? 0.8 : 0.35);
+    ticks.appendChild(line);
+  }
+})();
 
 /* live time label - shows UK local time (BST/GMT auto-detected) */
 const hvtime = document.getElementById('hvtime');
@@ -1234,16 +1344,16 @@ function applyTweaks(){
     document.documentElement.style.setProperty('--mute', '#8a8275');
     document.documentElement.style.setProperty('--line-soft','rgba(255,255,255,0.06)');
   }
+  /* hero animation tweaks - new EU-network radar uses a CSS conic-gradient
+     sweep, not the old #scan element. Keep the tweak hook but no-op safely. */
   const hero = document.getElementById('heroSVG');
-  if(TW.heroAnim==='grid'){
-    hero.querySelector('#scan').style.animation='none';
-    hero.querySelector('#scan path').setAttribute('opacity','0');
-  } else if(TW.heroAnim==='particles'){
-    hero.querySelector('#scan path').setAttribute('opacity','0.3');
-    hero.querySelector('#scan').style.animation='spin 20s linear infinite';
-  } else {
-    hero.querySelector('#scan path').setAttribute('opacity','0.7');
-    hero.querySelector('#scan').style.animation='spin 6s linear infinite';
+  if(hero){
+    const sweep = document.querySelector('.hero-visual .hero-sweep');
+    if(sweep){
+      if(TW.heroAnim==='grid'){ sweep.style.animation='none'; sweep.style.opacity='0'; }
+      else if(TW.heroAnim==='particles'){ sweep.style.animation='heroSweep 16s linear infinite'; sweep.style.opacity='0.6'; }
+      else { sweep.style.animation='heroSweep 8s linear infinite'; sweep.style.opacity='1'; }
+    }
   }
   document.querySelectorAll('.sw').forEach(s => s.classList.toggle('active', s.dataset.accent===TW.accent));
   document.getElementById('twHero').value = TW.heroAnim;
