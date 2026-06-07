@@ -16,7 +16,20 @@
   --vs-fdisplay:'Tenor Sans','Optima',serif;
   --vs-fbody:'Inter',system-ui,sans-serif;
   --vs-fmono:'JetBrains Mono',ui-monospace,monospace;
+  --vs-max:1200px;
 }
+
+/* ====== GLOBAL BASE + CONTAINER + OVERFLOW GUARD ======
+   Dark background and cream text applied at html/body so pages that
+   don't redeclare them (deutschland, ireland, etc.) still render on
+   brand instead of falling back to browser white.
+   .wrap is the shared max-width container used inside every section.
+   overflow-x:hidden on body prevents stray transforms / oversized
+   SVGs from forcing a horizontal scrollbar. */
+html,body{overflow-x:hidden;background:var(--vs-bg);color:var(--vs-cream);font-family:var(--vs-fbody);margin:0;padding:0}
+.wrap{max-width:var(--vs-max);margin:0 auto;padding:0 32px;box-sizing:border-box}
+@media(max-width:720px){.wrap{padding:0 20px}}
+@media(max-width:480px){.wrap{padding:0 16px}}
 
 /* ====== NAV ====== */
 .nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 0;background:rgba(10,10,10,0.94);border-bottom:1px solid var(--vs-line)}
@@ -95,15 +108,13 @@
   .brand img{height:56px}
   .nav-right .lang-toggle .lt-label{display:none}
   .nav-right .lang-toggle{padding:6px 8px;gap:0}
-  .nav-right .nav-cta .cta-full{display:none}
-  .nav-right .nav-cta .cta-short{display:inline}
-  .nav-right .nav-cta{padding:8px 12px;font-size:10px;letter-spacing:0.1em}
+  /* hide the top-bar CTA entirely on phones - burger menu carries its own .mobile-cta */
+  .nav-right .nav-cta{display:none}
   .nav-inner{padding:0 14px;gap:8px}
   .nav-right{gap:8px}
 }
 @media(max-width:420px){
   .brand img{height:50px}
-  .nav-right .nav-cta{font-size:9.5px;padding:7px 10px}
   .nav-right{gap:6px}
   .nav-inner{padding:0 12px;gap:6px}
   .nav-links>a{font-size:26px}
@@ -144,6 +155,44 @@
 .vs-footer-bot a:hover{color:var(--vs-gold)}
 .vs-footer-policy{display:flex;gap:20px;flex-wrap:wrap}
 @media(max-width:640px){.vs-footer-bot{flex-direction:column;gap:14px}.vs-footer-policy{gap:14px}}
+
+/* ====== FOOTER social icon row ====== */
+.vs-footer-social{list-style:none;display:flex;gap:12px;padding:0;margin:0}
+.vs-footer-social li{margin:0;line-height:1}
+.vs-footer-social a{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;color:var(--vs-mute);border:1px solid var(--vs-line);background:transparent;transition:color .25s,border-color .25s,transform .25s,background .25s;text-decoration:none}
+.vs-footer-social a:hover,.vs-footer-social a:focus-visible{color:var(--vs-gold);border-color:var(--vs-gold);transform:translateY(-2px);background:rgba(201,169,97,.06);outline:none}
+.vs-footer-social a svg{width:18px;height:18px;display:block;fill:currentColor}
+@media(max-width:640px){.vs-footer-social{justify-content:center}}
+
+/* ====== FOOTER mobile centring - keep desktop unchanged ======
+   At <=640 the grid stacks into 1-2 cols and content was hugging the left
+   edge, leaving a visibly empty right side. Centring the stack here
+   balances the column visually without changing typography or colours. */
+@media(max-width:640px){
+  .vs-footer{text-align:center}
+  /* brand block: inner div holds img + p + bafe pill; flex-centre them */
+  .vs-footer-brand{align-items:center;text-align:center}
+  .vs-footer-brand > div{display:flex;flex-direction:column;align-items:center;width:100%}
+  .vs-footer-brand img{margin:0 0 14px}
+  .vs-footer-brand p{max-width:34ch;margin:0 auto}
+  .vs-footer-brand .bafe{align-self:center}
+  /* link lists: centre the column of links and the h4 heading */
+  .vs-footer-col{text-align:center}
+  .vs-footer-col ul{align-items:center}
+  .vs-footer-col a{justify-content:center}
+  /* increase tap target without changing visual rhythm too much */
+  .vs-footer-col ul{gap:14px}
+  .vs-footer-col a{padding:4px 0;min-height:32px}
+  /* bottom strip: copyright + policy links both centred */
+  .vs-footer-bot{text-align:center;align-items:center}
+  .vs-footer-policy{justify-content:center}
+}
+@media(max-width:420px){
+  /* one column at smallest widths - keep the centred treatment, just
+     consistent spacing between groups since gap:28px from <=640 still
+     applies via the grid rule */
+  .vs-footer-grid{gap:32px}
+}
 
 
 /* ---- projects.html - service filter (added in checklist pass 1) ---- */

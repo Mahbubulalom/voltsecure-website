@@ -4,13 +4,13 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Projects - VoltSecure</title>
-<meta name="description" content="Selected VoltSecure case studies - DWP Swansea, LongPlay Coffee, Old Gas Works and a national retail CCTV rollout. Fire, security, electrical and data across the UK and Europe."/>
+<meta name="description" content="VoltSecure case studies - European retail security rollout, DWP Assessment Centre Swansea, Islwyn Bowls LED upgrade, Matchworks Liverpool refurbishment, Holland &amp; Barrett rollout, Lloyds Bank programme, and earlier commercial project types across heritage, legal, national retail, data centre and prime residential."/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="icon" href="/assets/logo-mark-gold.png"/>
-<link rel="stylesheet" href="/assets/site.css"/>
-<script src="/assets/site.js" defer></script>
+<link rel="stylesheet" href="/assets/site.css?v=20260607a"/>
+<script src="/assets/site.js?v=20260607a" defer></script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{background:#0a0a0a;color:#f4efe6;font-family:'Inter',system-ui,sans-serif;font-weight:300;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
@@ -55,11 +55,17 @@ h3{font-size:clamp(22px,2vw,30px)}
 .spons-card h3{color:#f4efe6;font-size:19px;font-family:'Tenor Sans','Optima',serif;font-weight:400;line-height:1.2}
 .spons-card .role{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.16em;color:#c9a961;text-transform:uppercase}
 .spons-card p{color:#8a8275;font-size:13.5px;line-height:1.55}
-.quote-band{max-width:820px;margin:72px auto 0;padding:40px 44px;border:1px solid rgba(201,169,97,0.24);background:rgba(201,169,97,0.04);text-align:center;position:relative}
-.quote-band::before{content:"“";position:absolute;top:-30px;left:50%;transform:translateX(-50%);font-family:'Tenor Sans','Optima',serif;font-size:90px;color:#c9a961;line-height:1;background:#0d0c0a;padding:0 14px}
-.quote-band .q{font-family:'Tenor Sans','Optima',serif;font-size:clamp(17px,1.6vw,20px);color:#f4efe6;line-height:1.65;font-style:italic;margin-bottom:24px}
-.quote-band .a{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:0.16em;color:#c9a961;text-transform:uppercase}
-@media(max-width:560px){.quote-band{padding:32px 24px}.quote-band::before{font-size:70px;top:-24px}}
+/* Quote band: the decorative " mark sits above the panel's top edge.
+   - top:-0.5em pulls the mark up by half its own line-height regardless
+     of size, so it never drops further into the text than intended.
+   - line-height:1 + a generous padding-top on the panel guarantees the
+     mark's descender ends above the testimonial copy on every viewport.
+   - background:var(--bg) creates the "cutout" effect through the border. */
+.quote-band{max-width:820px;margin:84px auto 0;padding:60px 44px 40px;border:1px solid rgba(201,169,97,0.24);background:rgba(201,169,97,0.04);text-align:center;position:relative}
+.quote-band::before{content:"“";position:absolute;top:0;left:50%;transform:translate(-50%,-55%);font-family:'Tenor Sans','Optima',serif;font-size:clamp(64px,7vw,90px);line-height:1;color:#c9a961;background:#0d0c0a;padding:0 14px;pointer-events:none}
+.quote-band .q{font-family:'Tenor Sans','Optima',serif;font-size:clamp(17px,1.6vw,20px);color:#f4efe6;line-height:1.65;font-style:italic;margin-bottom:24px;position:relative;z-index:1}
+.quote-band .a{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:0.16em;color:#c9a961;text-transform:uppercase;position:relative;z-index:1}
+@media(max-width:560px){.quote-band{padding:48px 24px 32px}}
 
 /* award strip */
 .awards{padding:64px 0;border-top:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06);background:#0d0c0a}
@@ -123,7 +129,7 @@ gtag('config', 'G-XXXXXXXXXX');
     </div>
     <div class="nav-right">
       <button class="lang-toggle" type="button" aria-label="Switch language"></button>
-      <a href="/contact.html" class="nav-cta"><span class="cta-full">Request a quote</span><span class="cta-short">Quote</span> →</a>
+      <a href="/contact.html" class="nav-cta">Request a quote →</a>
       <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -154,19 +160,93 @@ gtag('config', 'G-XXXXXXXXXX');
 
     <div class="proj-grid">
 
-      <a href="/projects/dwp-swansea.html" class="pcard" data-services="fire access electrical">
+      <!-- ===== FLAGSHIP + new case studies (6) ===== -->
+
+      <a href="/projects/european-retail-rollout.html" class="pcard" data-services="cctv access intruder">
         <div class="pmedia">
-          <img src="/assets/projects/dwp-swansea.jpg" alt="VoltSecure fleet - DWP Swansea programme" loading="lazy"/>
-          <span class="pbadge">Public sector</span>
+          <img src="/assets/projects/european-retail-rollout.jpg" alt="High-street retail facade (TK Maxx, Cardiff) - representative European retail security rollout site" loading="lazy"/>
+          <span class="pbadge">Flagship · International</span>
         </div>
         <div class="pbody">
-          <div class="ptags"><span class="ptag-gold">Fire · Access · Electrical</span><span class="ploc">Swansea, UK</span></div>
-          <h3>DWP Swansea</h3>
-          <p>Full fire detection, access control and electrical refurbishment for a Department for Work &amp; Pensions estate - delivered to Cabinet Office framework standards.</p>
-          <div class="ptag-row"><span class="ptag">BAFE</span><span class="ptag">BS 5839-1</span><span class="ptag">Gov framework</span></div>
+          <div class="ptags"><span class="ptag-gold">CCTV · Security · Multi-site</span><span class="ploc">DE · AT · NL · IE</span></div>
+          <h3>European Retail Security Rollout</h3>
+          <p>Specialist CCTV and video-surveillance works delivered across stores in Germany, Austria, the Netherlands and Ireland - consistent standards, minimal disruption to live retail operations.</p>
+          <div class="ptag-row"><span class="ptag">BS EN 62676</span><span class="ptag">Multi-country</span><span class="ptag">Live retail</span></div>
           <div class="pcta">Read case study →</div>
         </div>
       </a>
+
+      <a href="/projects/dwp-swansea.html" class="pcard" data-services="electrical fire access">
+        <div class="pmedia">
+          <img src="/assets/projects/dwp-assessment-centre.jpg" alt="DWP Assessment Centre - Canolfan Asesu signage above entrance" loading="lazy"/>
+          <span class="pbadge">Public sector</span>
+        </div>
+        <div class="pbody">
+          <div class="ptags"><span class="ptag-gold">Full Electrical Installation</span><span class="ploc">Swansea, UK</span></div>
+          <h3>DWP Assessment Centre, Swansea</h3>
+          <p>Full electrical installation for a live commercial refurbishment in a busy public-sector environment - delivered to programme, with the compliance trail demanded by Cabinet Office frameworks.</p>
+          <div class="ptag-row"><span class="ptag">BS 7671</span><span class="ptag">Public sector</span><span class="ptag">Programme-managed</span></div>
+          <div class="pcta">Read case study →</div>
+        </div>
+      </a>
+
+      <a href="/projects/islwyn-bowls.html" class="pcard" data-services="electrical">
+        <div class="pmedia">
+          <img src="/assets/projects/islwyn-bowls.jpg" alt="Islwyn Indoor Bowls Club green - lit by the new LED upgrade" loading="lazy"/>
+          <span class="pbadge">Community · Sports</span>
+        </div>
+        <div class="pbody">
+          <div class="ptags"><span class="ptag-gold">LED Lighting Upgrade</span><span class="ploc">Islwyn, South Wales</span></div>
+          <h3>Islwyn Indoor Bowls Club</h3>
+          <p>Energy-efficient LED upgrade for a community sports facility - approximately 168 fittings replaced with safe access methods around restricted roof purlins.</p>
+          <div class="ptag-row"><span class="ptag">LED</span><span class="ptag">~168 fittings</span><span class="ptag">Catenary</span></div>
+          <div class="pcta">Read case study →</div>
+        </div>
+      </a>
+
+      <a href="/projects/matchworks-liverpool.html" class="pcard" data-services="electrical data">
+        <div class="pmedia">
+          <img src="/assets/projects/matchworks.jpg" alt="The Matchworks building, Liverpool - landmark commercial refurbishment site" loading="lazy"/>
+          <span class="pbadge">Commercial refurbishment</span>
+        </div>
+        <div class="pbody">
+          <div class="ptags"><span class="ptag-gold">Full Floor Electrical Refurb</span><span class="ploc">Liverpool</span></div>
+          <h3>The Matchworks Building</h3>
+          <p>Full-floor electrical refurbishment within one of Liverpool's landmark commercial buildings - containment, distribution, lighting, power, testing and handover as a complete package.</p>
+          <div class="ptag-row"><span class="ptag">BS 7671</span><span class="ptag">Containment</span><span class="ptag">Lighting controls</span></div>
+          <div class="pcta">Read case study →</div>
+        </div>
+      </a>
+
+      <a href="/projects/holland-barrett.html" class="pcard" data-services="electrical fire data">
+        <div class="pmedia">
+          <img src="/assets/projects/holland-barrett.jpg" alt="Holland &amp; Barrett Southampton - treatment-room rollout under way" loading="lazy"/>
+          <span class="pbadge">National retail rollout</span>
+        </div>
+        <div class="pbody">
+          <div class="ptags"><span class="ptag-gold">Electrical · Lighting · Data · Fire</span><span class="ploc">UK-wide</span></div>
+          <h3>Holland &amp; Barrett Treatment Rooms</h3>
+          <p>National rollout creating treatment rooms within live H&amp;B stores - electrical, emergency lighting, data and fire alarm works delivered without interrupting trading.</p>
+          <div class="ptag-row"><span class="ptag">BS 5266</span><span class="ptag">BS 5839</span><span class="ptag">Live store</span></div>
+          <div class="pcta">Read case study →</div>
+        </div>
+      </a>
+
+      <a href="/projects/lloyds-bank.html" class="pcard" data-services="electrical">
+        <div class="pmedia">
+          <img src="/assets/projects/lloyds-bank.jpg" alt="Lloyds Bank branch reception with rampant-horse feature wall" loading="lazy"/>
+          <span class="pbadge">Banking · Regional programme</span>
+        </div>
+        <div class="pbody">
+          <div class="ptags"><span class="ptag-gold">Electrical Refurbishment</span><span class="ploc">Wales &amp; the West</span></div>
+          <h3>Lloyds Bank Refurbishment Programme</h3>
+          <p>Electrical refurbishment works across multiple Lloyds Bank sites in Wales and the West - power, containment, lighting and small power delivered to consistent standards.</p>
+          <div class="ptag-row"><span class="ptag">BS 7671</span><span class="ptag">Multi-site</span><span class="ptag">Banking</span></div>
+          <div class="pcta">Read case study →</div>
+        </div>
+      </a>
+
+      <!-- ===== Earlier project types (6) ===== -->
 
       <a href="/projects/longplay.html" class="pcard" data-services="fire intruder electrical">
         <div class="pmedia">
@@ -189,7 +269,7 @@ gtag('config', 'G-XXXXXXXXXX');
         </div>
         <div class="pbody">
           <div class="ptags"><span class="ptag-gold">Fire · Electrical · Data</span><span class="ploc">South Wales, UK</span></div>
-          <h3>Old Gas Works</h3>
+          <h3>Heritage Building Refurb</h3>
           <p>Listed-building refurbishment with addressable fire detection, discreet aspirating sampling and full electrical re-fit - compliant without compromising the fabric.</p>
           <div class="ptag-row"><span class="ptag">VESDA</span><span class="ptag">Listed consent</span><span class="ptag">Cat A fit-out</span></div>
           <div class="pcta">Read case study →</div>
@@ -199,11 +279,11 @@ gtag('config', 'G-XXXXXXXXXX');
       <a href="/projects/law-firm-security-upgrade.html" class="pcard" data-services="cctv access intruder">
         <div class="pmedia">
           <img src="/assets/projects/law-firm.jpg" alt="Service-record paperwork on tablet - law-firm security upgrade" loading="lazy"/>
-          <span class="pbadge">Legal · Anonymous</span>
+          <span class="pbadge">Legal</span>
         </div>
         <div class="pbody">
-          <div class="ptags"><span class="ptag-gold">Anonymous case study</span><span class="ploc">London</span></div>
-          <h3>Private Law Firm - Integrated Security</h3>
+          <div class="ptags"><span class="ptag-gold">CCTV · Access · Intruder</span><span class="ploc">London</span></div>
+          <h3>Private Law Firm Security</h3>
           <p>Grade 3 intruder with URN-backed police response, biometric access on strongroom and file areas, and GDPR-compliant IP CCTV for a central London private law firm.</p>
           <div class="ptag-row"><span class="ptag">Grade 3</span><span class="ptag">BS 8243</span><span class="ptag">GDPR</span></div>
           <div class="pcta">Read case study →</div>
@@ -213,10 +293,10 @@ gtag('config', 'G-XXXXXXXXXX');
       <a href="/projects/national-retail-fire-programme.html" class="pcard" data-services="fire">
         <div class="pmedia">
           <img src="/assets/projects/national-retail-fire.jpg" alt="Branded installation tools - national retail fire programme" loading="lazy"/>
-          <span class="pbadge">National retail · Anonymous</span>
+          <span class="pbadge">National retail</span>
         </div>
         <div class="pbody">
-          <div class="ptags"><span class="ptag-gold">Anonymous case study</span><span class="ploc">UK-wide</span></div>
+          <div class="ptags"><span class="ptag-gold">Fire detection</span><span class="ploc">UK-wide</span></div>
           <h3>Multi-Site Fire Alarm Refresh</h3>
           <p>A rolling BAFE SP203-1 fire detection refresh programme across a well-known high-street retailer&rsquo;s UK estate - standardised, remotely monitored, zero trading hours lost.</p>
           <div class="ptag-row"><span class="ptag">BAFE</span><span class="ptag">Multi-site</span><span class="ptag">Rolling</span></div>
@@ -227,11 +307,11 @@ gtag('config', 'G-XXXXXXXXXX');
       <a href="/projects/data-centre-aspirating.html" class="pcard" data-services="aspirating fire">
         <div class="pmedia">
           <img src="/assets/projects/data-centre.jpg" alt="Technical wiring close-up - data-centre aspirating install" loading="lazy"/>
-          <span class="pbadge">Data centre · Anonymous</span>
+          <span class="pbadge">Data centre</span>
         </div>
         <div class="pbody">
-          <div class="ptags"><span class="ptag-gold">Anonymous case study</span><span class="ploc">Midlands</span></div>
-          <h3>Tier 3 Data Centre - VESDA</h3>
+          <div class="ptags"><span class="ptag-gold">Aspirating · Fire</span><span class="ploc">Midlands</span></div>
+          <h3>Tier 3 Data Centre VESDA</h3>
           <p>Very early warning aspirating smoke detection across cold aisles, UPS hall and plant for a Tier 3 colocation data centre - BS 6266 Class A, integrated to main panel and BMS.</p>
           <div class="ptag-row"><span class="ptag">VESDA-E</span><span class="ptag">BS 6266</span><span class="ptag">Tier 3</span></div>
           <div class="pcta">Read case study →</div>
@@ -241,27 +321,13 @@ gtag('config', 'G-XXXXXXXXXX');
       <a href="/projects/prime-residential-london.html" class="pcard" data-services="electrical automation">
         <div class="pmedia">
           <img src="/assets/projects/prime-residential-london.jpg" alt="Premium VoltSecure van branding - prime residential London" loading="lazy"/>
-          <span class="pbadge">Prime residential · Anonymous</span>
+          <span class="pbadge">Prime residential</span>
         </div>
         <div class="pbody">
-          <div class="ptags"><span class="ptag-gold">Anonymous case study</span><span class="ploc">London</span></div>
+          <div class="ptags"><span class="ptag-gold">Electrical · Automation</span><span class="ploc">London</span></div>
           <h3>Prime Central London Residence</h3>
           <p>Full electrical rewire, KNX scene lighting, Lutron shading, AV distribution and EV charging for a prime residential gut-refurb - every accessory coordinated to the architect&rsquo;s drawing set.</p>
           <div class="ptag-row"><span class="ptag">BS 7671</span><span class="ptag">KNX</span><span class="ptag">Lutron</span></div>
-          <div class="pcta">Read case study →</div>
-        </div>
-      </a>
-
-      <a href="/projects/retail-cctv.html" class="pcard" data-services="cctv">
-        <div class="pmedia">
-          <img src="/assets/projects/retail-cctv.jpg" alt="Engineer running multi-site CCTV health check on tablet" loading="lazy"/>
-          <span class="pbadge">National retail</span>
-        </div>
-        <div class="pbody">
-          <div class="ptags"><span class="ptag-gold">CCTV · Analytics</span><span class="ploc">UK &amp; Europe</span></div>
-          <h3>Retail CCTV rollout</h3>
-          <p>Multi-site IP CCTV rollout for a high-street retailer across the UK and continental Europe - cloud-managed VMS, analytics and centralised remote support.</p>
-          <div class="ptag-row"><span class="ptag">BS EN 62676</span><span class="ptag">IP analytics</span><span class="ptag">Multi-site</span></div>
           <div class="pcta">Read case study →</div>
         </div>
       </a>
@@ -325,7 +391,7 @@ gtag('config', 'G-XXXXXXXXXX');
     </div>
 
     <div class="quote-band">
-      <p class="q">Volt Secure has recently stepped into our local community spotlight by sponsoring the youth football club, Cwmaman FC under-15s. Cai committed himself fully, always staying in contact, even designing the kit himself. A great example of community engagement, sponsorship and youth development.</p>
+      <p class="q">Volt Secure has recently stepped into our local community spotlight by sponsoring the youth football club, Cwmaman FC under-15s. Cai committed himself fully, always staying in contact, even designing the kit himself. A genuine reflection of community engagement, sponsorship and youth development.</p>
       <div class="a">Gregory Manning · Team Coach, Cwmaman FC</div>
     </div>
   </div>
@@ -371,7 +437,7 @@ gtag('config', 'G-XXXXXXXXXX');
           <li><a href="/accreditations.html">Accreditations</a></li>
           <li><a href="/projects.html">Case studies</a></li>
           <li><a href="/contact.html">Contact us</a></li>
-          <li><a href="/contact.html">ESG &amp; social value</a></li>
+          <li><a href="/esg.html">ESG &amp; social value</a></li>
         </ul>
       </div>
 
@@ -380,22 +446,22 @@ gtag('config', 'G-XXXXXXXXXX');
         <ul>
           <li><a href="/employees.html"><span class="ext">↗</span> Employees</a></li>
           <li><a href="/jobs.html"><span class="ext">↗</span> Jobs &amp; apprenticeships</a></li>
-          <li><a href="mailto:info@voltsecure.co.uk?subject=Media%20enquiry"><span class="ext">↗</span> Media enquiries</a></li>
+          <li><a href="mailto:admin@voltsecure.co.uk?subject=Media%20enquiry"><span class="ext">↗</span> Media enquiries</a></li>
           <li><a href="/suppliers.html"><span class="ext">↗</span> Suppliers</a></li>
         </ul>
       </div>
 
       <div class="vs-footer-col">
         <h4>Follow us</h4>
-        <ul>
-          <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a></li>
-          <li><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a></li>
-          <li><a href="https://www.youtube.com/" target="_blank" rel="noopener">YouTube</a></li>
+        <ul class="vs-footer-social">
+          <li><a href="https://uk.linkedin.com/company/voltsecure" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.85 0-2.14 1.45-2.14 2.94v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg></a></li>
+          <li><a href="https://www.instagram.com/voltsecure?igsh=aWlmdTFjbWRqbXNz" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63 3.36.93 2.69 1.34 2.03 2c-.66.66-1.07 1.33-1.37 2.11-.3.76-.5 1.64-.56 2.91C.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.3.78.71 1.45 1.37 2.11.66.66 1.33 1.07 2.11 1.37.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.78-.3 1.45-.71 2.11-1.37.66-.66 1.07-1.33 1.37-2.11.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.3-.78-.71-1.45-1.37-2.11C21.31 1.34 20.64.93 19.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 1 0 12 18.16 6.16 6.16 0 0 0 12 5.84zm0 10.16A4 4 0 1 1 12 8a4 4 0 0 1 0 8zm6.41-11.85a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg></a></li>
+          <li><a href="https://www.facebook.com/share/1EnC5jBUYE/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22.68 0H1.32C.59 0 0 .59 0 1.32v21.36C0 23.41.59 24 1.32 24h11.5v-9.29H9.69V11.1h3.13V8.41c0-3.1 1.89-4.79 4.66-4.79 1.33 0 2.46.1 2.79.14v3.24h-1.92c-1.5 0-1.79.71-1.79 1.76v2.31h3.59l-.47 3.62h-3.12V24h6.12c.73 0 1.32-.59 1.32-1.32V1.32C24 .59 23.41 0 22.68 0z"/></svg></a></li>
         </ul>
         <h4 style="margin-top:28px">Contact</h4>
         <ul>
           <li class="tel"><a href="tel:02922641046">02922 641046</a></li>
-          <li class="em"><a href="mailto:info@voltsecure.co.uk">info@voltsecure.co.uk</a></li>
+          <li class="em"><a href="mailto:admin@voltsecure.co.uk">admin@voltsecure.co.uk</a></li>
         </ul>
       </div>
 

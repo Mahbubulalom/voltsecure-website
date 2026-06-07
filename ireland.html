@@ -9,8 +9,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="icon" href="/assets/logo-mark-gold.png" />
-<link rel="stylesheet" href="/assets/site.css"/>
-<script src="/assets/site.js" defer></script>
+<link rel="stylesheet" href="/assets/site.css?v=20260607a"/>
+<script src="/assets/site.js?v=20260607a" defer></script>
 <style>
 .region-hero{padding:160px 0 80px;border-bottom:1px solid var(--vs-line);background:linear-gradient(180deg,#0d0c0a 0%,#0a0a0a 100%)}
 .region-hero .eyebrow{font:500 11px/1 var(--vs-fmono);letter-spacing:.18em;color:var(--vs-gold);text-transform:uppercase;margin-bottom:18px}
@@ -33,8 +33,6 @@
 .region-card h3{font-family:var(--vs-fdisplay);font-size:22px;color:var(--vs-cream);margin:0;font-weight:400}
 .region-card .rc-loc{font:500 10px/1 var(--vs-fmono);letter-spacing:.16em;color:var(--vs-gold);text-transform:uppercase}
 .region-card p{color:#b8b3a8;font-size:14px;line-height:1.65;margin:0}
-.region-card[data-case-todo]{border-style:dashed}
-.region-card[data-case-todo]::before{content:'TODO Kai';display:inline-block;font:500 10px/1 var(--vs-fmono);letter-spacing:.16em;color:var(--vs-gold);text-transform:uppercase;padding:4px 8px;border:1px solid var(--vs-gold);align-self:flex-start;margin-bottom:8px}
 .region-contact{padding:96px 0;background:#0d0c0a;text-align:center}
 .region-contact h2{font-family:var(--vs-fdisplay);font-weight:400;font-size:clamp(28px,3.5vw,40px);color:var(--vs-cream);margin:0 0 16px}
 .region-contact .lead{max-width:560px;margin:0 auto 28px;color:#b8b3a8;line-height:1.65}
@@ -42,6 +40,39 @@
 .region-contact-row a{padding:14px 28px;border:1px solid var(--vs-gold);color:var(--vs-cream);font:500 13px/1 var(--vs-fbody);letter-spacing:.04em;text-decoration:none;transition:background .18s,color .18s}
 .region-contact-row a:hover{background:var(--vs-gold);color:#0a0a0a}
 .region-contact-row a[data-todo]{border-style:dashed;color:var(--vs-mute)}
+
+@media(max-width:860px){
+  .region-hero{padding:108px 0 56px}
+  .region-hero h1{font-size:clamp(32px,7vw,52px)}
+  .region-hero .lead{font-size:15.5px;margin-bottom:24px}
+  .region-section{padding:64px 0}
+  .region-section .lead{font-size:15px;line-height:1.6;margin-bottom:24px}
+  .region-strip{padding:32px 0}
+  .region-strip-row{gap:18px}
+  .region-strip img{height:28px}
+  .region-contact{padding:64px 0}
+  .region-card{padding:22px 20px}
+  .region-card h3{font-size:19px}
+}
+@media(max-width:480px){
+  .region-hero{padding:88px 0 40px}
+  .region-hero h1{font-size:clamp(28px,8vw,40px)}
+  .region-hero .lead{font-size:14.5px}
+  .region-cta{width:100%;max-width:280px;justify-content:center;padding:14px 18px}
+  .region-section{padding:48px 0}
+  .region-section h2{font-size:clamp(22px,7vw,32px)}
+  .region-section .lead{font-size:14.5px}
+  .region-strip{padding:24px 0}
+  .region-strip img{height:24px}
+  .region-strip-note{font-size:10px;letter-spacing:.12em}
+  .region-contact{padding:48px 0}
+  .region-contact h2{font-size:clamp(22px,7vw,32px)}
+  .region-contact-row{gap:10px}
+  .region-contact-row a{width:100%;max-width:280px;text-align:center;padding:14px 18px}
+  .region-card{padding:18px 16px}
+  .region-card h3{font-size:18px}
+  .region-card p{font-size:13.5px}
+}
 </style>
 
 <!-- GA4 - replace G-XXXXXXXXXX with live measurement ID before launch (TODO Kai: GA4 ID) -->
@@ -71,7 +102,7 @@ gtag('config', 'G-XXXXXXXXXX');
     </div>
     <div class="nav-right">
       <button class="lang-toggle" type="button" aria-label="Switch language"></button>
-      <a href="/contact.html" class="nav-cta"><span class="cta-full">Request a quote</span><span class="cta-short">Quote</span> →</a>
+      <a href="/contact.html" class="nav-cta">Request a quote →</a>
       <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -132,26 +163,7 @@ gtag('config', 'G-XXXXXXXXXX');
   <div class="wrap">
     <div class="eyebrow" style="margin-bottom:16px;font:500 11px/1 var(--vs-fmono);letter-spacing:.18em;color:var(--vs-gold);text-transform:uppercase">◆ Selected Irish projects</div>
     <h2>Case studies from <em>Ireland</em>.</h2>
-    <p class="lead">Reference projects will appear here once cleared for publication.</p>
-    <!-- TODO Kai: 2–3 Irish (ROI / NI) case studies. Each card needs: project name, city + county, sector,
-         scope of work, 1-line outcome, optional client name (if releasable), 1-3 photos in /assets/projects/<slug>.jpg -->
-    <div class="region-grid">
-      <article class="region-card" data-case-todo>
-        <span class="rc-loc">TODO Kai: city, county</span>
-        <h3>TODO Kai: project name 1</h3>
-        <p>TODO Kai: sector · scope · outcome (1–2 sentences).</p>
-      </article>
-      <article class="region-card" data-case-todo>
-        <span class="rc-loc">TODO Kai: city, county</span>
-        <h3>TODO Kai: project name 2</h3>
-        <p>TODO Kai: sector · scope · outcome.</p>
-      </article>
-      <article class="region-card" data-case-todo>
-        <span class="rc-loc">TODO Kai: city, county</span>
-        <h3>TODO Kai: project name 3 (optional)</h3>
-        <p>TODO Kai: sector · scope · outcome.</p>
-      </article>
-    </div>
+    <p class="lead">Project references from our Irish work are being prepared for publication. For information on past or current Ireland-side projects, please <a href="/contact.html" style="color:var(--vs-gold);text-decoration:underline">get in touch</a>.</p>
   </div>
 </section>
 
@@ -168,14 +180,10 @@ gtag('config', 'G-XXXXXXXXXX');
   <div class="wrap">
     <div class="eyebrow" style="margin-bottom:16px;font:500 11px/1 var(--vs-fmono);letter-spacing:.18em;color:var(--vs-gold);text-transform:uppercase">◆ Contact</div>
     <h2>Talk to us <em>directly</em>.</h2>
-    <p class="lead">UK head office is reachable today. A local Irish phone number and email will be added once approved by Kai.</p>
+    <p class="lead">Our Caerphilly HQ is reachable today. For projects on the island of Ireland, contact us using the details below and we will route your enquiry to the right team.</p>
     <div class="region-contact-row">
-      <a href="mailto:info@voltsecure.co.uk?subject=Ireland%20enquiry">info@voltsecure.co.uk</a>
+      <a href="mailto:admin@voltsecure.co.uk?subject=Ireland%20enquiry">admin@voltsecure.co.uk</a>
       <a href="tel:02922641046">+44 2922 641046</a>
-      <!-- TODO Kai: add local IE phone number if applicable -->
-      <a href="#" data-todo>TODO Kai: local IE phone</a>
-      <!-- TODO Kai: add local IE email if applicable -->
-      <a href="#" data-todo>TODO Kai: local IE email</a>
     </div>
   </div>
 </section>
@@ -208,7 +216,7 @@ gtag('config', 'G-XXXXXXXXXX');
           <li><a href="/accreditations.html">Accreditations</a></li>
           <li><a href="/projects.html">Case studies</a></li>
           <li><a href="/contact.html">Contact us</a></li>
-          <li><a href="/contact.html">ESG &amp; social value</a></li>
+          <li><a href="/esg.html">ESG &amp; social value</a></li>
         </ul>
       </div>
 
@@ -217,22 +225,22 @@ gtag('config', 'G-XXXXXXXXXX');
         <ul>
           <li><a href="/employees.html"><span class="ext">↗</span> Employees</a></li>
           <li><a href="/jobs.html"><span class="ext">↗</span> Jobs &amp; apprenticeships</a></li>
-          <li><a href="mailto:info@voltsecure.co.uk?subject=Media%20enquiry"><span class="ext">↗</span> Media enquiries</a></li>
+          <li><a href="mailto:admin@voltsecure.co.uk?subject=Media%20enquiry"><span class="ext">↗</span> Media enquiries</a></li>
           <li><a href="/suppliers.html"><span class="ext">↗</span> Suppliers</a></li>
         </ul>
       </div>
 
       <div class="vs-footer-col">
         <h4>Follow us</h4>
-        <ul>
-          <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a></li>
-          <li><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a></li>
-          <li><a href="https://www.youtube.com/" target="_blank" rel="noopener">YouTube</a></li>
+        <ul class="vs-footer-social">
+          <li><a href="https://uk.linkedin.com/company/voltsecure" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.85 0-2.14 1.45-2.14 2.94v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg></a></li>
+          <li><a href="https://www.instagram.com/voltsecure?igsh=aWlmdTFjbWRqbXNz" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63 3.36.93 2.69 1.34 2.03 2c-.66.66-1.07 1.33-1.37 2.11-.3.76-.5 1.64-.56 2.91C.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.3.78.71 1.45 1.37 2.11.66.66 1.33 1.07 2.11 1.37.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.78-.3 1.45-.71 2.11-1.37.66-.66 1.07-1.33 1.37-2.11.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.3-.78-.71-1.45-1.37-2.11C21.31 1.34 20.64.93 19.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 1 0 12 18.16 6.16 6.16 0 0 0 12 5.84zm0 10.16A4 4 0 1 1 12 8a4 4 0 0 1 0 8zm6.41-11.85a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg></a></li>
+          <li><a href="https://www.facebook.com/share/1EnC5jBUYE/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22.68 0H1.32C.59 0 0 .59 0 1.32v21.36C0 23.41.59 24 1.32 24h11.5v-9.29H9.69V11.1h3.13V8.41c0-3.1 1.89-4.79 4.66-4.79 1.33 0 2.46.1 2.79.14v3.24h-1.92c-1.5 0-1.79.71-1.79 1.76v2.31h3.59l-.47 3.62h-3.12V24h6.12c.73 0 1.32-.59 1.32-1.32V1.32C24 .59 23.41 0 22.68 0z"/></svg></a></li>
         </ul>
         <h4 style="margin-top:28px">Contact</h4>
         <ul>
           <li class="tel"><a href="tel:02922641046">+44 2922 641046</a></li>
-          <li class="em"><a href="mailto:info@voltsecure.co.uk">info@voltsecure.co.uk</a></li>
+          <li class="em"><a href="mailto:admin@voltsecure.co.uk">admin@voltsecure.co.uk</a></li>
         </ul>
       </div>
 

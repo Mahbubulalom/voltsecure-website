@@ -141,8 +141,10 @@ section{position:relative;padding:120px 0}
   .hero-grid{grid-template-columns:1fr;gap:32px}
   .hero-visual{display:none} /* hide radar on mobile - too complex, not readable */
   .hero h1{font-size:clamp(40px,9vw,64px)}
-  .hero-trust-row{gap:10px}
-  .hero-trust-row .tcell{width:calc((100% - 30px)/4);height:52px;padding:8px}
+  /* 6 logos forced to 3x2 - higher-specificity selector so it beats the */
+  /* base .hero-trust-row .tcell rule which appears later in the stylesheet */
+  .hero .hero-trust-row{gap:10px;justify-content:center}
+  .hero .hero-trust-row .tcell{width:calc((100% - 20px)/3);height:56px;padding:8px}
   .hero-trust{margin-top:40px}
   .hero-meta{flex-direction:column;align-items:flex-start;gap:16px}
 }
@@ -189,8 +191,25 @@ section{position:relative;padding:120px 0}
 /* coverage */
 @media(max-width:960px){
   .coverage{padding:72px 0}
-  .coverage-map{display:none} /* replace with stats only on mobile */
+  /* Globe stays visible on mobile - it's now a proper D3 map worth showing.
+     Force a workable min-height so it doesn't get squished into a strip. */
+  .coverage-map{margin-top:32px;min-height:280px}
   .coverage-stats{grid-template-columns:1fr 1fr;gap:16px}
+}
+/* HUD bottom strip: at narrower widths the three bottom labels collide.
+   Hide the side coords below 1080px so only "LIVE · 51 NODES ACTIVE" shows;
+   below 560px hide the top tag too so the small phone view is uncluttered. */
+@media(max-width:1080px){
+  .coverage-map .cg-tag-coords-l,
+  .coverage-map .cg-tag-coords-r{display:none}
+}
+@media(max-width:560px){
+  .coverage-map .cg-tag-top{font-size:8px;letter-spacing:0.18em;top:12px}
+  .coverage-map .cg-tag-bottom{font-size:8px;letter-spacing:0.18em;bottom:12px}
+  .coverage-map .cg-corner{width:14px;height:14px;top:8px;left:8px}
+  .coverage-map .cg-corner.tr{top:8px;right:8px;left:auto}
+  .coverage-map .cg-corner.bl{bottom:8px;left:8px;top:auto}
+  .coverage-map .cg-corner.br{bottom:8px;right:8px;top:auto;left:auto}
 }
 @media(max-width:480px){
   .coverage-stats{grid-template-columns:1fr}
@@ -275,15 +294,34 @@ section{position:relative;padding:120px 0}
 .hero-trust-row .tcell .txt{font-family:var(--font-display);font-size:15px;letter-spacing:0.02em;color:#8f7640;text-align:center;line-height:1;font-weight:400}
 .hero-trust-row .tcell .txt small{display:block;font-family:var(--font-mono);font-size:8px;letter-spacing:0.14em;color:#b8a77a;margin-top:3px;text-transform:uppercase}
 
-/* ---------- hero visual (animated) ---------- */
-.hero-visual{aspect-ratio:1/1;position:relative;display:flex;align-items:center;justify-content:center}
-.hero-visual svg{position:absolute;inset:0;width:100%;height:100%}
-.hvlabel{position:absolute;font-family:var(--font-mono);font-size:10px;letter-spacing:0.16em;color:var(--gold);opacity:.8;text-transform:uppercase;display:flex;align-items:center;gap:8px;pointer-events:none}
+/* ---------- hero visual (animated radar - Volt EU network) ---------- */
+.hero-visual{aspect-ratio:1/1;position:relative;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono','JetBrains Mono',ui-monospace,monospace}
+.hero-visual svg.hero-radar{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.hero-visual .hero-sweep{position:absolute;inset:0;border-radius:50%;background:conic-gradient(from -90deg,rgba(243,212,136,0.40) 0deg,rgba(243,212,136,0.22) 22deg,rgba(243,212,136,0.08) 55deg,transparent 85deg,transparent 360deg);animation:heroSweep 8s linear infinite;mix-blend-mode:screen;-webkit-mask:radial-gradient(circle,black 0%,black 49%,transparent 49.5%);mask:radial-gradient(circle,black 0%,black 49%,transparent 49.5%);filter:blur(0.5px);z-index:1;pointer-events:none}
+@keyframes heroSweep{from{transform:rotate(360deg)}to{transform:rotate(0deg)}}
+.hero-visual .hero-vlogo{position:absolute;top:50%;left:50%;width:13%;aspect-ratio:1/1;transform:translate(-50%,-50%);pointer-events:none;z-index:6;filter:drop-shadow(0 0 18px rgba(243,212,136,0.45)) drop-shadow(0 0 4px rgba(212,180,106,0.6))}
+.hero-visual .hero-vlogo svg{position:static;width:100%;height:100%;overflow:visible}
+.hero-visual .hero-cities{position:absolute;inset:0;z-index:5;pointer-events:none}
+.hero-visual .hero-city{position:absolute;transform:translate(-50%,-50%);font-size:clamp(8px,0.78vw,11px);font-weight:400;letter-spacing:0.18em;color:#f3d488;white-space:nowrap;text-shadow:0 0 8px rgba(0,0,0,0.95),0 0 4px rgba(0,0,0,0.9),0 0 2px rgba(0,0,0,1)}
+.hero-visual .hero-city .name{display:block}
+.hero-visual .hero-city .sub{display:block;font-size:0.7em;color:#b89455;margin-top:2px;letter-spacing:0.20em}
+.hero-visual .hero-city.hq .name{color:#fff5d6;font-weight:500;letter-spacing:0.24em;font-size:1.15em}
+.hero-visual .hero-city.hq .sub{color:#f3d488}
+.hero-visual .hero-city.edge-right{transform:translate(-100%,-50%);padding-right:4px}
+.hero-visual .hero-city-dot{transform-origin:center;transform-box:fill-box;animation:heroCityPulse 3.4s ease-in-out infinite}
+.hero-visual .hero-city-dot:nth-child(2n){animation-delay:0.5s}
+.hero-visual .hero-city-dot:nth-child(3n){animation-delay:1.2s}
+@keyframes heroCityPulse{0%,100%{opacity:0.8}50%{opacity:1}}
+.hero-visual .hero-network line{stroke:var(--gold);stroke-width:0.6;fill:none;opacity:0.4;stroke-dasharray:3 8;animation:heroDataflow 6s linear infinite}
+@keyframes heroDataflow{from{stroke-dashoffset:0}to{stroke-dashoffset:-110}}
+.hero-visual .hero-map{filter:drop-shadow(0 0 6px rgba(212,180,106,0.20))}
+/* HUD labels - keep original positions and style */
+.hvlabel{position:absolute;font-family:var(--font-mono);font-size:11px;letter-spacing:0.16em;color:var(--gold);opacity:.9;text-transform:uppercase;display:flex;align-items:center;gap:8px;pointer-events:none;z-index:7;text-shadow:0 0 6px rgba(0,0,0,0.9)}
 .hvlabel .dot{width:6px;height:6px;background:var(--gold);border-radius:50%;box-shadow:0 0 10px var(--gold)}
-.hvlabel.tl{top:8%;left:4%}
-.hvlabel.tr{top:14%;right:4%}
-.hvlabel.bl{bottom:12%;left:4%}
-.hvlabel.br{bottom:8%;right:4%}
+.hvlabel.tl{top:4%;left:4%}
+.hvlabel.tr{top:4%;right:4%}
+.hvlabel.bl{bottom:4%;left:4%}
+.hvlabel.br{bottom:4%;right:4%}
 
 /* ---------- marquee ---------- */
 .marquee{padding:28px 0;border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);overflow:hidden;background:rgba(255,255,255,0.01)}
@@ -324,15 +362,19 @@ section{position:relative;padding:120px 0}
 .accred .eyebrow{color:var(--gold-deep)}
 .accred h2{color:#111}
 .accred .lead{color:#4a4538}
-.accred-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:64px}
-@media(max-width:960px){.accred-grid{grid-template-columns:repeat(2,1fr)}}
+/* minmax(0,1fr) forces equal-width columns even when a card has long
+   unbreakable content (e.g. SSAIB's "PD 6662 · EN 62676 · EN 60839").
+   Bare 1fr = minmax(auto,1fr), which lets content blow a column wider
+   than its share - that was making mobile cols 193px vs 153px. */
+.accred-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;margin-top:64px}
+@media(max-width:960px){.accred-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .acard{background:#fff;border:1px solid #ece4d1;padding:28px 24px;display:flex;flex-direction:column;gap:16px;min-height:220px;position:relative;transition:all .25s}
 .acard:hover{transform:translateY(-4px);box-shadow:0 20px 40px -20px rgba(143,118,64,0.25);border-color:var(--gold)}
 .acard-logo{height:68px;display:flex;align-items:center;justify-content:flex-start}
 .acard-logo img{max-height:100%;width:auto;max-width:140px;object-fit:contain}
 .acard-title{font-family:var(--font-display);font-size:18px;color:#111;margin-top:auto}
 .acard-sub{font-size:12px;color:#6b6354;line-height:1.5}
-.acard-std{font-family:var(--font-mono);font-size:10px;letter-spacing:0.14em;color:var(--gold-deep);text-transform:uppercase;margin-top:8px}
+.acard-std{font-family:var(--font-mono);font-size:10px;letter-spacing:0.14em;color:var(--gold-deep);text-transform:uppercase;margin-top:8px;overflow-wrap:anywhere;word-break:break-word}
 
 /* ---------- premium projects grid / carousel ---------- */
 .projects-grid{display:flex;gap:24px;padding:4px 2px;width:max-content}
@@ -398,6 +440,39 @@ section{position:relative;padding:120px 0}
 .coverage-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:40px;padding-top:40px;border-top:1px solid var(--line-soft)}
 .coverage-stat strong{font-family:var(--font-display);font-size:36px;color:var(--gold);display:block;line-height:1}
 .coverage-stat span{font-size:12px;color:var(--mute);margin-top:8px;display:block;letter-spacing:0.04em}
+
+/* ---------- coverage globe (orthographic D3 map) ---------- */
+.coverage-map .map-card{position:relative;width:100%;height:100%;overflow:hidden;border-radius:6px;background:radial-gradient(ellipse at 45% 50%,#0d1119 0%,#050810 60%,#02030a 100%);box-shadow:inset 0 0 0 1px rgba(201,169,97,0.22),inset 0 0 120px rgba(0,0,0,0.6),0 30px 80px rgba(0,0,0,0.5)}
+.coverage-map .cg-corner{position:absolute;width:24px;height:24px;border:1px solid var(--gold);opacity:0.65;z-index:5;pointer-events:none}
+.coverage-map .cg-corner.tl{top:14px;left:14px;border-right:none;border-bottom:none}
+.coverage-map .cg-corner.tr{top:14px;right:14px;border-left:none;border-bottom:none}
+.coverage-map .cg-corner.bl{bottom:14px;left:14px;border-right:none;border-top:none}
+.coverage-map .cg-corner.br{bottom:14px;right:14px;border-left:none;border-top:none}
+.coverage-map .cg-tag-top,.coverage-map .cg-tag-bottom,.coverage-map .cg-tag-coords-l,.coverage-map .cg-tag-coords-r{position:absolute;font-family:var(--font-mono);text-transform:uppercase;z-index:5;pointer-events:none}
+.coverage-map .cg-tag-top{top:18px;left:50%;transform:translateX(-50%);font-size:10px;letter-spacing:0.36em;color:var(--gold);opacity:0.85}
+.coverage-map .cg-tag-bottom{bottom:18px;left:50%;transform:translateX(-50%);font-size:9px;letter-spacing:0.28em;color:#b89455;opacity:0.7}
+.coverage-map .cg-tag-coords-l{bottom:18px;left:50px;font-size:8px;letter-spacing:0.22em;color:#b89455;opacity:0.6}
+.coverage-map .cg-tag-coords-r{bottom:18px;right:50px;font-size:8px;letter-spacing:0.22em;color:#b89455;opacity:0.6}
+.coverage-map svg#coverage-globe-svg{width:100%;height:100%;display:block}
+/* HQ pulse halo */
+@keyframes cgHqPulse{0%{r:8;opacity:0.9}100%{r:38;opacity:0}}
+.coverage-map .cg-hq-pulse{animation:cgHqPulse 2.6s ease-out infinite}
+.coverage-map .cg-hq-pulse-delay{animation:cgHqPulse 2.6s ease-out infinite;animation-delay:1.3s}
+/* Connection line dash flow */
+@keyframes cgFlow{from{stroke-dashoffset:0}to{stroke-dashoffset:-100}}
+.coverage-map .cg-connection{stroke-dasharray:2 6;animation:cgFlow 6s linear infinite}
+/* Labels */
+.coverage-map .cg-city-label{font-family:var(--font-mono);font-size:11px;font-weight:400;letter-spacing:1.8px;fill:#fff5d6;paint-order:stroke;stroke:rgba(4,5,10,0.9);stroke-width:4;stroke-linejoin:round}
+.coverage-map .cg-city-label-hq{font-family:var(--font-mono);font-size:13px;font-weight:500;letter-spacing:2.5px;fill:#f3d488;paint-order:stroke;stroke:rgba(4,5,10,0.95);stroke-width:5;stroke-linejoin:round}
+.coverage-map .cg-city-label-sub{font-family:var(--font-mono);font-size:8px;letter-spacing:1.5px;fill:var(--gold);paint-order:stroke;stroke:rgba(4,5,10,0.9);stroke-width:3;opacity:0.85}
+.coverage-map .cg-country-label{font-family:var(--font-mono);font-weight:400;letter-spacing:3px;fill:#b89455;opacity:0.45}
+@media(max-width:560px){
+  .coverage-map .cg-tag-top{font-size:8px;letter-spacing:0.22em}
+  .coverage-map .cg-tag-bottom,.coverage-map .cg-tag-coords-l,.coverage-map .cg-tag-coords-r{font-size:7px}
+  .coverage-map .cg-tag-coords-l{left:24px}
+  .coverage-map .cg-tag-coords-r{right:24px}
+  .coverage-map .cg-corner{width:16px;height:16px}
+}
 
 /* ---------- testimonials carousel ---------- */
 .testis{padding:140px 0;overflow:hidden}
@@ -472,8 +547,12 @@ footer a:hover{color:var(--gold)}
   50%{opacity:1}
 }
 </style>
-<link rel="stylesheet" href="/assets/site.css"/>
-<script src="/assets/site.js" defer></script>
+<link rel="stylesheet" href="/assets/site.css?v=20260607a"/>
+<script src="/assets/site.js?v=20260607a" defer></script>
+<!-- D3 + TopoJSON for the orthographic coverage globe (loaded once, cached) -->
+<script src="https://cdn.jsdelivr.net/npm/d3@7" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/topojson-client@3" defer></script>
+<script src="/assets/coverage-globe.js?v=20260607a" defer></script>
 <!-- GA4 - replace G-XXXXXXXXXX with live measurement ID before launch (TODO Kai: GA4 ID) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
 <script>
@@ -502,7 +581,7 @@ gtag('config', 'G-XXXXXXXXXX');
     </div>
     <div class="nav-right">
       <button class="lang-toggle" type="button" aria-label="Switch language"></button>
-      <a href="/contact.html" class="nav-cta"><span class="cta-full">Request a quote</span><span class="cta-short">Quote</span> →</a>
+      <a href="/contact.html" class="nav-cta">Request a quote →</a>
       <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -541,65 +620,169 @@ gtag('config', 'G-XXXXXXXXXX');
 
     <!-- Animated hero visual -->
     <div class="hero-visual" id="heroVisual">
-      <!-- radar / scan rings SVG -->
-      <svg viewBox="0 0 600 600" id="heroSVG" aria-hidden="true">
+      <!-- ============ VOLT EU NETWORK RADAR ============ -->
+      <svg class="hero-radar" id="heroSVG" viewBox="-500 -500 1000 1000" aria-hidden="true">
         <defs>
-          <radialGradient id="gold-rad" cx="50%" cy="50%">
-            <stop offset="0%" stop-color="#c9a961" stop-opacity="0.25"/>
-            <stop offset="60%" stop-color="#c9a961" stop-opacity="0.04"/>
-            <stop offset="100%" stop-color="#c9a961" stop-opacity="0"/>
+          <radialGradient id="heroRingGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#d4b46a" stop-opacity="0.06"/>
+            <stop offset="60%" stop-color="#d4b46a" stop-opacity="0.025"/>
+            <stop offset="100%" stop-color="#d4b46a" stop-opacity="0"/>
           </radialGradient>
-          <linearGradient id="scan-grad" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stop-color="#c9a961" stop-opacity="0"/>
-            <stop offset="50%" stop-color="#c9a961" stop-opacity="0.5"/>
-            <stop offset="100%" stop-color="#c9a961" stop-opacity="0"/>
-          </linearGradient>
-          <filter id="glow"><feGaussianBlur stdDeviation="2"/></filter>
+          <radialGradient id="heroCenterGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#f3d488" stop-opacity="0.12"/>
+            <stop offset="40%" stop-color="#f3d488" stop-opacity="0.04"/>
+            <stop offset="100%" stop-color="#f3d488" stop-opacity="0"/>
+          </radialGradient>
+          <filter id="heroSoftblur"><feGaussianBlur stdDeviation="0.4"/></filter>
+          <filter id="heroCityGlow">
+            <feGaussianBlur stdDeviation="2" result="b"/>
+            <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
         </defs>
 
-        <!-- ambient glow -->
-        <circle cx="300" cy="300" r="300" fill="url(#gold-rad)"/>
+        <!-- background fills -->
+        <circle cx="0" cy="0" r="490" fill="url(#heroRingGlow)"/>
+        <circle cx="0" cy="0" r="110" fill="url(#heroCenterGlow)"/>
 
-        <!-- concentric rings -->
-        <g stroke="#c9a961" fill="none" opacity="0.2">
-          <circle cx="300" cy="300" r="80"/>
-          <circle cx="300" cy="300" r="140"/>
-          <circle cx="300" cy="300" r="200"/>
-          <circle cx="300" cy="300" r="260" stroke-dasharray="2 8"/>
+        <!-- Outer steady ring -->
+        <circle cx="0" cy="0" r="490" fill="none" stroke="var(--gold)" stroke-width="1.2" opacity="0.35"/>
+        <circle cx="0" cy="0" r="486" fill="none" stroke="var(--gold)" stroke-width="0.4" opacity="0.18"/>
+
+        <!-- Tick marks generated by JS -->
+        <g id="heroTicks" stroke="var(--gold)" stroke-width="1"></g>
+
+        <!-- Inner concentric rings -->
+        <g fill="none" stroke="var(--gold)">
+          <circle cx="0" cy="0" r="420" stroke-width="0.5" opacity="0.10" stroke-dasharray="2 6"/>
+          <circle cx="0" cy="0" r="335" stroke-width="0.6" opacity="0.18"/>
+          <circle cx="0" cy="0" r="235" stroke-width="0.6" opacity="0.18"/>
+          <circle cx="0" cy="0" r="135" stroke-width="0.6" opacity="0.24"/>
+          <circle cx="0" cy="0" r="55"  stroke-width="0.6" opacity="0.32"/>
         </g>
 
-        <!-- grid crosshairs -->
-        <g stroke="#c9a961" opacity="0.12" stroke-width="1">
-          <line x1="0" y1="300" x2="600" y2="300"/>
-          <line x1="300" y1="0" x2="300" y2="600"/>
+        <!-- Crosshair -->
+        <g stroke="var(--gold)" stroke-width="0.6" opacity="0.20">
+          <line x1="-480" y1="0" x2="480" y2="0"/>
+          <line x1="0" y1="-480" x2="0" y2="480"/>
         </g>
 
-        <!-- scan sweep (rotating) -->
-        <g id="scan" style="transform-origin:300px 300px;animation:spin 6s linear infinite">
-          <path d="M 300 300 L 560 300 A 260 260 0 0 0 420 75 Z" fill="url(#scan-grad)" opacity="0.7"/>
+        <!-- ============ MAP ============ -->
+        <g class="hero-map">
+          <!-- CONTINENTAL EUROPE -->
+          <path d="M 192 -40 L 184 -22 L 181 8 L 166 22 L 152 30 L 120 24 L 98 52 L 78 88 L 56 108 L 38 120 L 14 130 L -10 134 L -22 152 L -2 164 L 18 172 L 38 186 L 50 212 L 56 240 L 60 270 L 56 300 L 50 330 L 40 352 L 22 362 L 0 365 L -16 366 L -8 376 L 35 380 L 90 382 L 145 380 L 195 365 L 230 350 L 258 335 L 280 318 L 305 308 L 332 302 L 355 294 L 380 280 L 400 260 L 416 240 L 432 215 L 450 192 L 465 165 L 472 140 L 470 115 L 462 92 L 452 70 L 442 50 L 434 30 L 432 10 L 438 -10 L 432 -28 L 420 -48 L 410 -68 L 400 -86 L 390 -105 L 378 -120 L 360 -130 L 338 -132 L 312 -126 L 290 -110 L 270 -94 L 250 -82 L 228 -68 L 210 -58 L 198 -48 Z"
+            fill="rgba(212,180,106,0.10)" stroke="var(--gold)" stroke-width="1.4" opacity="0.65" filter="url(#heroSoftblur)"/>
+          <!-- Iberian Peninsula hint -->
+          <path d="M -16 366 L -50 380 L -90 395 L -130 412 L -170 432 L -200 458 L -215 488"
+            fill="none" stroke="var(--gold)" stroke-width="1" opacity="0.40"/>
+          <!-- Italian peninsula hint -->
+          <path d="M 305 308 L 318 332 L 335 358 L 355 380 L 378 402 L 400 422 L 422 444"
+            fill="none" stroke="var(--gold)" stroke-width="1" opacity="0.40"/>
+          <!-- Scandinavian + Baltic hints -->
+          <path d="M 198 -48 L 215 -85 L 240 -125 L 275 -170 L 312 -220 L 342 -270 L 365 -320 L 380 -370"
+            fill="none" stroke="var(--gold)" stroke-width="1.1" opacity="0.32"/>
+          <path d="M 290 -110 L 318 -140 L 350 -178 L 380 -220 L 405 -260"
+            fill="none" stroke="var(--gold)" stroke-width="0.9" opacity="0.28"/>
+          <!-- IRELAND - bumped fill + stroke so the landmass reads clearly against the dark radar -->
+          <path d="M -100 -172 L -116 -162 L -132 -148 L -148 -130 L -160 -108 L -170 -85 L -178 -60 L -180 -32 L -174 -8 L -160 8 L -140 16 L -118 14 L -98 4 L -82 -12 L -72 -34 L -68 -58 L -72 -82 L -78 -108 L -88 -132 L -96 -154 Z"
+            fill="rgba(212,180,106,0.28)" stroke="var(--gold)" stroke-width="1.8" opacity="1" filter="url(#heroSoftblur)"/>
+          <!-- GREAT BRITAIN (Cardiff at 0,0) -->
+          <path d="M -5 -316 L 3 -315 L 12 -300 L 18 -278 L 26 -258 L 26 -240 L 18 -222 L 22 -208 L 28 -195 L 34 -178 L 38 -154 L 50 -138 L 60 -126 L 67 -110 L 70 -92 L 76 -78 L 90 -68 L 108 -64 L 122 -58 L 118 -49 L 112 -38 L 108 -25 L 108 -8 L 110 8 L 108 22 L 95 28 L 80 30 L 60 30 L 36 30 L 12 34 L -10 38 L -28 45 L -45 55 L -61 62 L -57 56 L -42 44 L -33 30 L -25 18 L -23 10 L -28 5 L -16 8 L -8 12 L 4 4 L 11 -1 L 14 1 L 5 -5 L 0 0 L -8 -2 L -18 -6 L -37 -8 L -43 -10 L -50 -18 L -43 -23 L -36 -26 L -22 -41 L -21 -55 L -37 -59 L -32 -65 L -26 -73 L -35 -80 L -25 -78 L -15 -81 L 5 -85 L 8 -98 L 8 -114 L -2 -120 L -10 -135 L -6 -150 L 6 -150 L 4 -155 L -10 -158 L -25 -158 L -45 -139 L -50 -150 L -42 -160 L -35 -175 L -50 -167 L -63 -169 L -55 -182 L -50 -200 L -55 -217 L -52 -228 L -55 -238 L -64 -243 L -55 -255 L -48 -270 L -52 -283 L -48 -298 L -44 -314 L -32 -316 L -18 -316 Z"
+            fill="rgba(212,180,106,0.18)" stroke="var(--gold)" stroke-width="1.5" opacity="1" filter="url(#heroSoftblur)"/>
         </g>
 
-        <!-- hexagon (brand mark echo) -->
-        <g id="hex" style="transform-origin:300px 300px">
-          <polygon points="300,180 405,240 405,360 300,420 195,360 195,240"
-                   fill="none" stroke="#c9a961" stroke-width="1.5" opacity="0.7"/>
-          <polygon points="300,200 390,248 390,352 300,400 210,352 210,248"
-                   fill="none" stroke="#c9a961" stroke-width="0.5" opacity="0.3"/>
-          <!-- V inside -->
-          <path d="M 240 230 L 300 380 L 360 230" fill="none" stroke="#c9a961" stroke-width="2" opacity="0.9"/>
+        <!-- Country labels on landmasses -->
+        <g font-family="IBM Plex Mono,monospace" font-weight="400" fill="#b89455" opacity="0.55" letter-spacing="3" text-anchor="middle" style="font-size:13px">
+          <text x="-30" y="-130">UNITED KINGDOM</text>
+          <text x="-130" y="-60">IRELAND</text>
+          <text x="100"  y="200">FRANCE</text>
+          <text x="345"  y="0">GERMANY</text>
+          <text x="430"  y="195">AUSTRIA</text>
+          <text x="200"  y="-5">NL · BE</text>
+          <text x="265"  y="220">SWITZ.</text>
         </g>
 
-        <!-- sensor dots -->
-        <g id="sensors"></g>
+        <!-- Network connection lines Cardiff -> each city -->
+        <g class="hero-network">
+          <line x1="0" y1="0" x2="-74" y2="-82"/>
+          <line x1="0" y1="0" x2="73" y2="-1"/>
+          <line x1="0" y1="0" x2="0" y2="-197"/>
+          <line x1="0" y1="0" x2="194" y2="-39"/>
+          <line x1="0" y1="0" x2="181" y2="28"/>
+          <line x1="0" y1="0" x2="133" y2="115"/>
+          <line x1="0" y1="0" x2="193" y2="252"/>
+          <line x1="0" y1="0" x2="205" y2="360"/>
+          <line x1="0" y1="0" x2="316" y2="-91"/>
+          <line x1="0" y1="0" x2="398" y2="-46"/>
+          <line x1="0" y1="0" x2="285" y2="61"/>
+          <line x1="0" y1="0" x2="354" y2="147"/>
+          <line x1="0" y1="0" x2="281" y2="180"/>
+          <line x1="0" y1="0" x2="469" y2="144"/>
+          <line x1="0" y1="0" x2="389" y2="162"/>
+        </g>
 
-        <!-- ticks on outer ring -->
-        <g stroke="#c9a961" opacity="0.5" id="ticks"></g>
+        <!-- City dots -->
+        <g filter="url(#heroCityGlow)">
+          <g fill="#f3d488">
+            <circle cx="0" cy="0" r="5" class="hero-city-dot"/>
+            <circle cx="0" cy="0" r="14" fill="none" stroke="#f3d488" stroke-width="1" opacity="0.85"/>
+            <circle cx="0" cy="0" r="26" fill="none" stroke="var(--gold)" stroke-width="0.6" opacity="0.5" stroke-dasharray="3 4"/>
+            <circle cx="0" cy="0" r="40" fill="none" stroke="var(--gold)" stroke-width="0.4" opacity="0.25" stroke-dasharray="1 5"/>
+            <circle cx="-74" cy="-82"  r="4.2" class="hero-city-dot"/>
+            <circle cx="73"  cy="-1"   r="4.5" class="hero-city-dot"/>
+            <circle cx="0"   cy="-197" r="3.8" class="hero-city-dot"/>
+            <circle cx="194" cy="-39"  r="3.8" class="hero-city-dot"/>
+            <circle cx="181" cy="28"   r="3.5" class="hero-city-dot"/>
+            <circle cx="133" cy="115"  r="4.5" class="hero-city-dot"/>
+            <circle cx="193" cy="252"  r="3.8" class="hero-city-dot"/>
+            <circle cx="205" cy="360"  r="3.8" class="hero-city-dot"/>
+            <circle cx="316" cy="-91"  r="3.8" class="hero-city-dot"/>
+            <circle cx="398" cy="-46"  r="4.5" class="hero-city-dot"/>
+            <circle cx="285" cy="61"   r="4"   class="hero-city-dot"/>
+            <circle cx="354" cy="147"  r="4"   class="hero-city-dot"/>
+            <circle cx="281" cy="180"  r="3.5" class="hero-city-dot"/>
+            <circle cx="469" cy="144"  r="4.5" class="hero-city-dot"/>
+            <circle cx="389" cy="162"  r="3.5" class="hero-city-dot"/>
+          </g>
+        </g>
       </svg>
 
-      <!-- corner labels -->
+      <!-- Animated sweep overlay -->
+      <div class="hero-sweep"></div>
+
+      <!-- City labels (HTML overlay) -->
+      <div class="hero-cities">
+        <div class="hero-city hq" style="left:50%;top:58.5%"><span class="name">CARDIFF</span><span class="sub">HQ · 51.58°N</span></div>
+        <div class="hero-city" style="left:60.5%;top:47.5%"><span class="name">LONDON</span></div>
+        <div class="hero-city" style="left:41%;top:28%"><span class="name">EDINBURGH</span></div>
+        <div class="hero-city" style="left:43%;top:41.8%"><span class="name">DUBLIN</span></div>
+        <div class="hero-city" style="left:72%;top:43%"><span class="name">AMSTERDAM</span></div>
+        <div class="hero-city" style="left:71.5%;top:55.5%"><span class="name">BRUSSELS</span></div>
+        <div class="hero-city" style="left:57.5%;top:63%"><span class="name">PARIS</span></div>
+        <div class="hero-city" style="left:64%;top:75%"><span class="name">LYON</span></div>
+        <div class="hero-city" style="left:66%;top:85.5%"><span class="name">MARSEILLE</span></div>
+        <div class="hero-city" style="left:79%;top:38%"><span class="name">HAMBURG</span></div>
+        <div class="hero-city" style="left:87.5%;top:41%"><span class="name">BERLIN</span></div>
+        <div class="hero-city" style="left:79.5%;top:53%"><span class="name">FRANKFURT</span></div>
+        <div class="hero-city" style="left:87%;top:62%"><span class="name">MUNICH</span></div>
+        <div class="hero-city" style="left:72%;top:70.5%"><span class="name">ZURICH</span></div>
+        <div class="hero-city edge-right" style="left:96%;top:61.5%"><span class="name">VIENNA</span></div>
+        <div class="hero-city" style="left:92%;top:70%"><span class="name">SALZBURG</span></div>
+      </div>
+
+      <!-- V Hexagon at Cardiff -->
+      <div class="hero-vlogo">
+        <svg viewBox="-100 -100 200 200" aria-hidden="true">
+          <polygon points="0,-92 80,-46 80,46 0,92 -80,46 -80,-46" fill="none" stroke="#f3d488" stroke-width="0.6" opacity="0.35"/>
+          <polygon points="0,-82 71,-41 71,41 0,82 -71,41 -71,-41" fill="rgba(5,4,2,0.95)" stroke="#f3d488" stroke-width="2.5" opacity="1"/>
+          <polygon points="0,-66 57,-33 57,33 0,66 -57,33 -57,-33" fill="none" stroke="var(--gold)" stroke-width="1.3" opacity="0.55"/>
+          <path d="M -46 -46 L 0 56 L 46 -46" fill="none" stroke="#f3d488" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+
+      <!-- HUD corner labels -->
       <div class="hvlabel tl"><span class="dot"></span> SYS · LIVE</div>
-      <div class="hvlabel tr">51.48°N · 3.18°W</div>
-      <div class="hvlabel bl">PERIMETER · OK</div>
+      <div class="hvlabel tr">VOLT · EU NETWORK</div>
+      <div class="hvlabel bl">15 NODES · 7 NATIONS · ACTIVE</div>
       <div class="hvlabel br" id="hvtime">00:00:00 GMT</div>
     </div>
   </div>
@@ -652,7 +835,97 @@ gtag('config', 'G-XXXXXXXXXX');
   .tbh-caption{left:20px;right:20px;bottom:24px}
   .tbh-text{font-size:17px}
 }
+
+/* ====== Trusted by - scrolling client-logo marquee, 2 rows opposite directions ====== */
+.trustband{padding:80px 0 96px;background:#0a0a0a;border-bottom:1px solid var(--line-soft);overflow:hidden}
+.trustband .tb-head{text-align:center;margin-bottom:48px}
+.trustband .tb-eyebrow{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:500}
+.trustband .tb-h{font-family:'Tenor Sans','Optima',serif;font-weight:400;font-size:clamp(28px,3.4vw,44px);color:var(--cream);margin:14px 0 10px;line-height:1.15}
+.trustband .tb-h em{font-style:italic;color:var(--gold)}
+.trustband .tb-sub{color:var(--mute);font-size:14px;max-width:54ch;margin:0 auto}
+/* Marquee viewport: edges fade out via mask for the "endless conveyor" feel */
+.trustband .tb-marquee{position:relative;width:100%;overflow:hidden;mask-image:linear-gradient(90deg,transparent 0,#000 6%,#000 94%,transparent 100%);-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 6%,#000 94%,transparent 100%)}
+.trustband .tb-row{display:flex;gap:24px;align-items:center;width:max-content;will-change:transform}
+.trustband .tb-row + .tb-row{margin-top:24px}
+.trustband .tb-row.left{animation:tbScrollLeft 60s linear infinite}
+.trustband .tb-row.right{animation:tbScrollRight 70s linear infinite}
+@keyframes tbScrollLeft{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes tbScrollRight{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+.trustband .tb-row:hover{animation-play-state:paused}
+.trustband .tb-cell{flex:0 0 auto;width:200px;height:120px;background:#fbf8f2;border:1px solid var(--line-soft);display:flex;align-items:center;justify-content:center;padding:18px;transition:border-color .25s,transform .25s,box-shadow .25s}
+.trustband .tb-cell:hover{border-color:var(--gold);transform:translateY(-2px);box-shadow:0 12px 28px -16px rgba(201,169,97,.35)}
+.trustband .tb-cell img{max-width:100%;max-height:100%;object-fit:contain;display:block}
+@media(max-width:720px){
+  .trustband{padding:56px 0 64px}
+  .trustband .tb-head{margin-bottom:32px}
+  .trustband .tb-cell{width:150px;height:96px;padding:14px}
+  .trustband .tb-row{gap:16px}
+  .trustband .tb-row + .tb-row{margin-top:16px}
+  .trustband .tb-row.left{animation-duration:42s}
+  .trustband .tb-row.right{animation-duration:50s}
+}
+@media(prefers-reduced-motion:reduce){
+  .trustband .tb-row.left,.trustband .tb-row.right{animation:none;flex-wrap:wrap;justify-content:center;width:100%}
+  .trustband .tb-marquee{mask-image:none;-webkit-mask-image:none}
+}
 </style>
+
+<!-- ============ TRUSTED BY ============ -->
+<section class="trustband" id="trusted-by">
+  <div class="wrap">
+    <div class="tb-head rv">
+      <div class="tb-eyebrow">◆ Trusted by</div>
+      <h2 class="tb-h">Clients who put their <em>critical systems</em> in our hands.</h2>
+      <p class="tb-sub">National retailers, public-sector frameworks, principal contractors, hospitality and local authorities - delivered to BAFE, NICEIC and SSAIB standards across the UK and Europe.</p>
+    </div>
+    <div class="tb-marquee rv">
+      <!-- Row 1 (scrolls right -> left). Sequence duplicated so the loop seams at -50% are invisible. -->
+      <div class="tb-row left" aria-label="Trusted by - row 1">
+        <div class="tb-cell"><img src="/assets/clients/welsh-government.jpg" alt="Welsh Government / Llywodraeth Cymru" loading="lazy"/></div>
+        <div class="tb-cell"><img src="/assets/clients/caerphilly-council.jpg" alt="Caerphilly County Borough Council" loading="lazy"/></div>
+        <div class="tb-cell"><img src="/assets/clients/cardiff-council.jpg" alt="Cardiff Council / Caerdydd" loading="lazy"/></div>
+        <div class="tb-cell"><img src="/assets/clients/faw.jpg" alt="Football Association of Wales" loading="lazy"/></div>
+        <div class="tb-cell"><img src="/assets/clients/lloyds-bank.jpg" alt="Lloyds Bank" loading="lazy"/></div>
+        <div class="tb-cell"><img src="/assets/clients/tk-maxx.jpg" alt="TK Maxx" loading="lazy"/></div>
+        <div class="tb-cell"><img src="/assets/clients/holland-barrett.jpg" alt="Holland & Barrett" loading="lazy"/></div>
+        <div class="tb-cell"><img src="/assets/clients/amey.jpg" alt="Amey" loading="lazy"/></div>
+        <div class="tb-cell"><img src="/assets/clients/cooke-arkwright.jpeg?v=20260607b" alt="Cooke &amp; Arkwright" loading="lazy"/></div>
+        <!-- duplicate for seamless loop -->
+        <div class="tb-cell" aria-hidden="true"><img src="/assets/clients/welsh-government.jpg" alt="" loading="lazy"/></div>
+        <div class="tb-cell" aria-hidden="true"><img src="/assets/clients/caerphilly-council.jpg" alt="" loading="lazy"/></div>
+        <div class="tb-cell" aria-hidden="true"><img src="/assets/clients/cardiff-council.jpg" alt="" loading="lazy"/></div>
+        <div class="tb-cell" aria-hidden="true"><img src="/assets/clients/faw.jpg" alt="" loading="lazy"/></div>
+        <div class="tb-cell" aria-hidden="true"><img src="/assets/clients/lloyds-bank.jpg" alt="" loading="lazy"/></div>
+        <div class="tb-cell" aria-hidden="true"><img src="/assets/clients/tk-maxx.jpg" alt="" loading="lazy"/></div>
+        <div class="tb-cell" aria-hidden="true"><img src="/assets/clients/holland-barrett.jpg" alt="" loading="lazy"/></div>
+        <div class="tb-cell" aria-hidden="true"><img src="/assets/clients/amey.jpg" alt="" loading="lazy"/></div>
+        <div class="tb-cell" aria-hidden="true"><img src="/assets/clients/cooke-arkwright.jpeg?v=20260607b" alt="" loading="lazy"/></div>
+      </div>
+      <!-- Row 2 (scrolls left -> right for visual counter-rhythm) -->
+      <div class="tb-row right" aria-label="Trusted by - row 2">
+        <div class="tb-cell"><img src="/assets/clients/wates.jpg" alt="Wates" loading="lazy"/></div>
+        <div class="tb-cell"><img src="/assets/clients/bjf-group.jpg" alt="BJF Group" loading="lazy"/></div>
+        <div class="tb-cell"><img src="/assets/clients/jtekt.jpg" alt="JTEKT" loading="lazy"/></div>
+        <div class="tb-cell"><img src="/assets/clients/rj-lifts.jpg" alt="RJ Lifts Group" loading="lazy"/></div>
+        <div class="tb-cell"><img src="/assets/clients/moore-interiors.jpg" alt="Moore Interiors" loading="lazy"/></div>
+        <div class="tb-cell"><img src="/assets/clients/jem-office-interiors.jpg" alt="JEM Office Interiors" loading="lazy"/></div>
+        <div class="tb-cell"><img src="/assets/clients/st-brides.jpg" alt="St Brides Spa Hotel" loading="lazy"/></div>
+        <div class="tb-cell"><img src="/assets/clients/birmingham-city.jpg" alt="Birmingham City Football Club" loading="lazy"/></div>
+        <div class="tb-cell"><img src="/assets/clients/dragon-hvac.jpeg?v=20260607b" alt="Dragon HVAC Ltd" loading="lazy"/></div>
+        <!-- duplicate for seamless loop -->
+        <div class="tb-cell" aria-hidden="true"><img src="/assets/clients/wates.jpg" alt="" loading="lazy"/></div>
+        <div class="tb-cell" aria-hidden="true"><img src="/assets/clients/bjf-group.jpg" alt="" loading="lazy"/></div>
+        <div class="tb-cell" aria-hidden="true"><img src="/assets/clients/jtekt.jpg" alt="" loading="lazy"/></div>
+        <div class="tb-cell" aria-hidden="true"><img src="/assets/clients/rj-lifts.jpg" alt="" loading="lazy"/></div>
+        <div class="tb-cell" aria-hidden="true"><img src="/assets/clients/moore-interiors.jpg" alt="" loading="lazy"/></div>
+        <div class="tb-cell" aria-hidden="true"><img src="/assets/clients/jem-office-interiors.jpg" alt="" loading="lazy"/></div>
+        <div class="tb-cell" aria-hidden="true"><img src="/assets/clients/st-brides.jpg" alt="" loading="lazy"/></div>
+        <div class="tb-cell" aria-hidden="true"><img src="/assets/clients/birmingham-city.jpg" alt="" loading="lazy"/></div>
+        <div class="tb-cell" aria-hidden="true"><img src="/assets/clients/dragon-hvac.jpeg?v=20260607b" alt="" loading="lazy"/></div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ============ SERVICES ============ -->
 <section id="services">
@@ -674,53 +947,65 @@ gtag('config', 'G-XXXXXXXXXX');
         <p>Full commercial installations: containment, switchgear, power distribution, DALI lighting, EV charging and test &amp; inspection - designed and certified to BS&nbsp;7671.</p>
         <div class="service-tags"><span class="stag">BS 7671</span><span class="stag">Part P</span><span class="stag">NICEIC</span></div>
       </a>
+      <a href="services/maintenance.html" class="service">
+        <div class="service-idx"><span>02 / MAINTENANCE</span><span class="service-arrow">↗</span></div>
+        <h3>Planned Maintenance &amp; Compliance</h3>
+        <p>Planned maintenance, compliance visits and reactive support for fire, security, CCTV, access control and electrical systems - with a single portal for tickets, certificates and compliance records.</p>
+        <div class="service-tags"><span class="stag">24/7</span><span class="stag">SLA</span><span class="stag">Compliance</span></div>
+      </a>
       <a href="services/fire.html" class="service">
-        <div class="service-idx"><span>02 / FIRE</span><span class="service-arrow">↗</span></div>
+        <div class="service-idx"><span>03 / FIRE</span><span class="service-arrow">↗</span></div>
         <h3>Fire Alarms</h3>
         <p>Addressable fire detection, disabled refuge systems and aspirating detection - BAFE SP203-1 certified across design, installation, commissioning and maintenance.</p>
         <div class="service-tags"><span class="stag">BS 5839-1</span><span class="stag">BS 5839-6</span><span class="stag">BAFE</span></div>
       </a>
       <a href="services/cctv.html" class="service">
-        <div class="service-idx"><span>03 / CCTV</span><span class="service-arrow">↗</span></div>
+        <div class="service-idx"><span>04 / CCTV</span><span class="service-arrow">↗</span></div>
         <h3>CCTV &amp; Surveillance</h3>
         <p>IP, thermal and AI-analytics systems for national retail, logistics and public realm - engineered and maintained to the BS&nbsp;EN&nbsp;62676 series.</p>
         <div class="service-tags"><span class="stag">EN 62676</span><span class="stag">SSAIB</span><span class="stag">GDPR</span></div>
       </a>
       <a href="services/intruder.html" class="service">
-        <div class="service-idx"><span>04 / INTRUDER</span><span class="service-arrow">↗</span></div>
+        <div class="service-idx"><span>05 / INTRUDER</span><span class="service-arrow">↗</span></div>
         <h3>Intruder Alarms</h3>
         <p>Grade 2 &amp; Grade 3 intruder systems with URN-backed police response, compliant with PD&nbsp;6662:2017 and BS&nbsp;8243 confirmed signalling.</p>
         <div class="service-tags"><span class="stag">PD 6662</span><span class="stag">BS 8243</span><span class="stag">URN</span></div>
       </a>
       <a href="services/access.html" class="service">
-        <div class="service-idx"><span>05 / ACCESS</span><span class="service-arrow">↗</span></div>
+        <div class="service-idx"><span>06 / ACCESS</span><span class="service-arrow">↗</span></div>
         <h3>Access Control</h3>
         <p>Card, biometric and mobile-credential access, turnstile integration, visitor management and lift control - to BS&nbsp;EN&nbsp;60839-11-1.</p>
         <div class="service-tags"><span class="stag">EN 60839</span><span class="stag">Biometric</span><span class="stag">Mobile</span></div>
       </a>
       <a href="services/data.html" class="service">
-        <div class="service-idx"><span>06 / DATA</span><span class="service-arrow">↗</span></div>
+        <div class="service-idx"><span>07 / DATA</span><span class="service-arrow">↗</span></div>
         <h3>Data &amp; Networks</h3>
         <p>Structured cabling, fibre backbones, comms cabinets and network infrastructure - tested, certified and documented for handover.</p>
         <div class="service-tags"><span class="stag">Cat 6A</span><span class="stag">OM4 / OS2</span><span class="stag">BICSI</span></div>
       </a>
+      <a href="services/renewable-energy.html" class="service">
+        <div class="service-idx"><span>08 / RENEWABLES</span><span class="service-arrow">↗</span></div>
+        <h3>Renewable Energy</h3>
+        <p>Design, installation and maintenance for renewable energy systems - EV charging infrastructure, solar PV, battery storage and associated electrical works.</p>
+        <div class="service-tags"><span class="stag">EV</span><span class="stag">Solar PV</span><span class="stag">Battery</span></div>
+      </a>
       <a href="services/automation.html" class="service">
-        <div class="service-idx"><span>07 / AUTOMATION</span><span class="service-arrow">↗</span></div>
+        <div class="service-idx"><span>09 / AUTOMATION</span><span class="service-arrow">↗</span></div>
         <h3>Building Automation</h3>
         <p>Gates, barriers, shutters and integrated BMS interfaces - commissioned alongside fire, access and intruder systems for unified control.</p>
         <div class="service-tags"><span class="stag">BMS</span><span class="stag">Integrated</span><span class="stag">BS EN 12453</span></div>
       </a>
       <a href="services/air-aspirating-systems.html" class="service">
-        <div class="service-idx"><span>08 / ASPIRATING</span><span class="service-arrow">↗</span></div>
+        <div class="service-idx"><span>10 / ASPIRATING</span><span class="service-arrow">↗</span></div>
         <h3>Air Aspirating</h3>
         <p>Very early warning smoke detection for data centres, heritage and high-value environments - designed to BS&nbsp;6266 and integrated with the main fire panel.</p>
         <div class="service-tags"><span class="stag">VESDA</span><span class="stag">BS 6266</span><span class="stag">EWS</span></div>
       </a>
-      <a href="contact.html" class="service">
-        <div class="service-idx"><span>09 / MAINTENANCE</span><span class="service-arrow">↗</span></div>
-        <h3>Planned Maintenance</h3>
-        <p>Scheduled servicing, 24/7 reactive cover and UK-wide engineer response - with a single portal for tickets, certificates and compliance records.</p>
-        <div class="service-tags"><span class="stag">24/7</span><span class="stag">SLA</span><span class="stag">Portal</span></div>
+      <a href="services/facilities-management.html" class="service">
+        <div class="service-idx"><span>11 / FM SUPPORT</span><span class="service-arrow">↗</span></div>
+        <h3>Facilities Management Support</h3>
+        <p>Supporting FM clients, commercial landlords and building operators with planned maintenance, reactive callouts, compliance works and small project delivery across electrical, fire and security systems.</p>
+        <div class="service-tags"><span class="stag">PPM</span><span class="stag">Reactive</span><span class="stag">Compliance</span></div>
       </a>
     </div>
   </div>
@@ -730,9 +1015,9 @@ gtag('config', 'G-XXXXXXXXXX');
 <section class="bigstats">
   <div class="wrap">
     <div class="bigstats-grid">
-      <div class="bigstat"><div class="n countup" data-to="4" data-suffix="+">0</div><div class="l" data-i18n="stat1">Years of commercial delivery</div></div>
+      <div class="bigstat"><div class="n countup" data-to="5" data-suffix="+">0</div><div class="l" data-i18n="stat1">Years of commercial delivery</div></div>
       <div class="bigstat"><div class="n countup" data-to="500" data-suffix="+">0</div><div class="l" data-i18n="stat2">Projects completed</div></div>
-      <div class="bigstat"><div class="n countup" data-to="8">0</div><div class="l" data-i18n="stat3">Industry accreditations</div></div>
+      <div class="bigstat"><div class="n countup" data-to="8" data-suffix="+">0</div><div class="l" data-i18n="stat3">Accreditations &amp; memberships</div></div>
       <div class="bigstat"><div class="n" style="font-size:clamp(36px,3.8vw,56px)" data-i18n="stat4n">UK &amp; Europe</div><div class="l" data-i18n="stat4">Operational coverage</div></div>
     </div>
   </div>
@@ -836,58 +1121,58 @@ gtag('config', 'G-XXXXXXXXXX');
     <div class="carousel-wrap rv">
       <div class="carousel" id="carousel">
     <div class="projects-grid">
-      <article class="pcard" onclick="location.href='projects/old-gas-works.html'">
+      <article class="pcard" onclick="location.href='projects/european-retail-rollout.html'">
         <div class="pcard-media">
-          <img src="/assets/projects/old-gas-works.jpg" alt="VoltSecure depot exterior - industrial unit base of operations" loading="lazy"/>
-          <span class="pcard-badge">48 homes · Full electrical</span>
+          <img src="/assets/projects/european-retail-rollout.jpg" alt="High-street retail site - European retail security rollout" loading="lazy"/>
+          <span class="pcard-badge">Flagship · International</span>
         </div>
         <div class="pcard-body">
-          <div class="pcard-tags"><span class="ptag gold">Residential - Modular</span><span class="ploc">◉ Cardiff</span></div>
-          <h3>The Old Gas Works</h3>
-          <p>48 relocatable modular homes across three apartment blocks. First &amp; second fix, Inspection &amp; Test, communal lighting, street lighting and EV charging.</p>
-          <div class="ptag-row"><span class="stag">Electrical install</span><span class="stag">Distribution</span><span class="stag">Certification</span><span class="stag">EV charging</span></div>
+          <div class="pcard-tags"><span class="ptag gold">CCTV · Security · Multi-site</span><span class="ploc">◉ DE · AT · NL · IE</span></div>
+          <h3>European Retail Security Rollout</h3>
+          <p>Specialist CCTV and video-surveillance installations across stores in Germany, Austria, the Netherlands and Ireland - consistent standards across countries, minimal disruption to live retail trading.</p>
+          <div class="ptag-row"><span class="stag">BS EN 62676</span><span class="stag">Multi-country</span><span class="stag">Live retail</span><span class="stag">Logistics</span></div>
           <div class="pcard-cta">View case study →</div>
         </div>
       </article>
 
       <article class="pcard" onclick="location.href='projects/dwp-swansea.html'">
         <div class="pcard-media">
-          <img src="/assets/projects/dwp-swansea.jpg" alt="VoltSecure multi-van fleet - DWP Swansea programme" loading="lazy"/>
-          <span class="pcard-badge">Full fit-out · Delivered on schedule</span>
+          <img src="/assets/projects/dwp-assessment-centre.jpg" alt="DWP Assessment Centre entrance - Canolfan Asesu" loading="lazy"/>
+          <span class="pcard-badge">Public sector · On programme</span>
         </div>
         <div class="pcard-body">
-          <div class="pcard-tags"><span class="ptag gold">Government &amp; Public Sector</span><span class="ploc">◉ Swansea</span></div>
-          <h3>DWP Office</h3>
-          <p>Full electrical installation - containment, switchgear, power, DALI lighting, addressable fire alarm and disabled refuge. On programme, on budget.</p>
-          <div class="ptag-row"><span class="stag">Electrical</span><span class="stag">DALI lighting</span><span class="stag">Fire alarm</span><span class="stag">Data infrastructure</span></div>
+          <div class="pcard-tags"><span class="ptag gold">Full Electrical Installation</span><span class="ploc">◉ Swansea</span></div>
+          <h3>DWP Assessment Centre, Swansea</h3>
+          <p>Full electrical installation for a live commercial refurbishment in a busy public-sector environment - delivered to programme, ready for testing, commissioning and handover.</p>
+          <div class="ptag-row"><span class="stag">Containment</span><span class="stag">Lighting &amp; power</span><span class="stag">Testing</span><span class="stag">Public sector</span></div>
           <div class="pcard-cta">View case study →</div>
         </div>
       </article>
 
-      <article class="pcard" onclick="location.href='projects/retail-cctv.html'">
+      <article class="pcard" onclick="location.href='projects/holland-barrett.html'">
         <div class="pcard-media">
-          <img src="/assets/projects/retail-cctv.jpg" alt="VoltSecure engineer running multi-site CCTV health check on tablet" loading="lazy"/>
-          <span class="pcard-badge">40+ sites · Ongoing multi-year</span>
+          <img src="/assets/projects/holland-barrett.jpg" alt="Holland &amp; Barrett Southampton - live store treatment-room rollout" loading="lazy"/>
+          <span class="pcard-badge">National rollout · Live stores</span>
         </div>
         <div class="pcard-body">
-          <div class="pcard-tags"><span class="ptag gold">Retail · Multi-site</span><span class="ploc">◉ UK &amp; EU</span></div>
-          <h3>National Retail CCTV Rollout</h3>
-          <p>Integrated CCTV design, supply and commissioning for a high-street retailer across the UK and Europe. Staggered mobilisation, BS EN 62676 commissioning packs delivered per site.</p>
-          <div class="ptag-row"><span class="stag">CCTV</span><span class="stag">IP &amp; analytics</span><span class="stag">Multi-site</span><span class="stag">Rollout PM</span></div>
+          <div class="pcard-tags"><span class="ptag gold">Electrical · Lighting · Data · Fire</span><span class="ploc">◉ UK-wide</span></div>
+          <h3>Holland &amp; Barrett Treatment Rooms</h3>
+          <p>National rollout creating treatment rooms in live H&amp;B stores. Full electrical package - power, lighting, emergency lighting, data and fire alarm alterations - delivered without disrupting trading.</p>
+          <div class="ptag-row"><span class="stag">BS 5266</span><span class="stag">BS 5839</span><span class="stag">Multi-site</span><span class="stag">Live store</span></div>
           <div class="pcard-cta">View case study →</div>
         </div>
       </article>
 
-      <article class="pcard" onclick="location.href='projects/longplay.html'">
+      <article class="pcard" onclick="location.href='projects/lloyds-bank.html'">
         <div class="pcard-media">
-          <img src="/assets/projects/longplay.jpg" alt="VoltSecure-branded van side livery - LongPlay Coffee fit-out" loading="lazy"/>
-          <span class="pcard-badge">Fit-out + active maintenance</span>
+          <img src="/assets/projects/lloyds-bank.jpg" alt="Lloyds Bank branch reception with iconic rampant-horse wall" loading="lazy"/>
+          <span class="pcard-badge">Banking · Regional programme</span>
         </div>
         <div class="pcard-body">
-          <div class="pcard-tags"><span class="ptag gold">Hospitality · Retail</span><span class="ploc">◉ South Wales</span></div>
-          <h3>LongPlay Coffee - Fit-out</h3>
-          <p>Full electrical fit-out and ongoing maintenance contract. Cited by the owner as a benchmark for professionalism, pricing and reliability.</p>
-          <div class="ptag-row"><span class="stag">Fit-out</span><span class="stag">PPM</span><span class="stag">Small commercial</span></div>
+          <div class="pcard-tags"><span class="ptag gold">Electrical Refurbishment</span><span class="ploc">◉ Wales &amp; the West</span></div>
+          <h3>Lloyds Bank Refurbishment</h3>
+          <p>Multi-site electrical refurbishment across Lloyds Bank sites in Wales and the West - consistent standards, sensitive commercial premises, programme-managed throughout.</p>
+          <div class="ptag-row"><span class="stag">BS 7671</span><span class="stag">Multi-site</span><span class="stag">Banking</span><span class="stag">Programme</span></div>
           <div class="pcard-cta">View case study →</div>
         </div>
       </article>
@@ -896,7 +1181,7 @@ gtag('config', 'G-XXXXXXXXXX');
     </div></div>
     </div>
     <div class="rv" style="margin-top:56px;text-align:center">
-      <a href="#" class="hero-cta-ghost">View all projects →</a>
+      <a href="/projects.html" class="hero-cta-ghost">View all projects →</a>
     </div>
   </div>
 </section>
@@ -906,42 +1191,31 @@ gtag('config', 'G-XXXXXXXXXX');
   <div class="wrap coverage-grid">
     <div class="rv">
       <div class="eyebrow" style="margin-bottom:20px">◆ Coverage</div>
-      <h2>Headquartered in Wales.<br/><em style="color:var(--gold);font-style:italic">Operating across the continent.</em></h2>
+      <h2>Headquartered in South Wales.<br/><em style="color:var(--gold);font-style:italic">Operating across the continent.</em></h2>
       <p class="lead" style="margin-top:28px">
-        From our base in Pontypridd we mobilise engineer teams across mainland UK and continental Europe. Our national-retail CCTV programme alone covers more than forty live sites in five countries - all managed from a single coordination desk.
+        Operating from our Caerphilly HQ and Pontypridd Service Hub, we mobilise engineer teams across South Wales, the UK, Ireland and continental Europe. Our national-retail security programme alone covers more than forty live sites in five countries - all managed from a single coordination desk.
       </p>
       <div class="coverage-stats">
-        <div class="coverage-stat"><strong>UK</strong><span>Mainland England, Wales, Scotland</span></div>
-        <div class="coverage-stat"><strong>EU</strong><span>Ireland, France, Netherlands, Germany</span></div>
+        <div class="coverage-stat"><strong>UK</strong><span>England, Wales, Scotland · Northern Ireland</span></div>
+        <div class="coverage-stat"><strong>EU</strong><span>Ireland, France, Netherlands, Germany, Austria</span></div>
         <div class="coverage-stat"><strong>4h</strong><span>Engineer response · SLA sites</span></div>
         <div class="coverage-stat"><strong>1 PM</strong><span>Per project - one point of contact</span></div>
       </div>
     </div>
 
-    <div class="coverage-map">
-      <svg viewBox="0 0 600 480" style="width:100%;height:100%" id="mapSVG">
-        <defs>
-          <radialGradient id="ping" cx="50%" cy="50%">
-            <stop offset="0%" stop-color="#c9a961" stop-opacity="1"/>
-            <stop offset="100%" stop-color="#c9a961" stop-opacity="0"/>
-          </radialGradient>
-        </defs>
-        <!-- rough UK + Western Europe silhouettes, hand-simplified -->
-        <g fill="none" stroke="#c9a961" stroke-width="1" opacity="0.6">
-          <!-- Ireland -->
-          <path d="M120,140 Q110,170 125,200 Q150,220 170,200 Q175,170 165,145 Q145,130 120,140 Z"/>
-          <!-- UK -->
-          <path d="M220,80 Q200,100 210,140 L200,170 L210,200 Q225,225 260,235 L280,270 L270,300 L290,320 L320,310 L330,280 L320,250 Q300,220 305,190 L295,160 Q305,130 295,100 Q270,75 240,75 Q225,75 220,80 Z"/>
-          <!-- France -->
-          <path d="M330,280 L360,270 L410,290 L440,330 L430,370 L400,400 L360,410 L340,380 L325,340 Z"/>
-          <!-- Benelux/Germany -->
-          <path d="M410,240 L460,230 L510,260 L530,310 L500,340 L450,320 L420,290 Z"/>
-          <!-- Spain outline sliver -->
-          <path d="M300,410 L360,420 L370,450 L310,445 Z" opacity="0.4"/>
-        </g>
-        <!-- dots for offices/sites -->
-        <g id="mapPings"></g>
-      </svg>
+    <div class="coverage-map rv">
+      <!-- ============== 3D ORTHOGRAPHIC GLOBE MAP (D3 + TopoJSON) ============== -->
+      <div class="map-card">
+        <div class="cg-corner tl"></div>
+        <div class="cg-corner tr"></div>
+        <div class="cg-corner bl"></div>
+        <div class="cg-corner br"></div>
+        <div class="cg-tag-top">VOLT &middot; EUROPEAN OPERATIONAL NETWORK</div>
+        <div class="cg-tag-bottom">LIVE &middot; 51 NODES ACTIVE</div>
+        <div class="cg-tag-coords-l">CAERPHILLY HQ &middot; 51.58&deg;N &middot; 3.22&deg;W</div>
+        <div class="cg-tag-coords-r">PROJ &middot; ORTHOGRAPHIC</div>
+        <svg id="coverage-globe-svg" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" aria-hidden="true"></svg>
+      </div>
     </div>
   </div>
 </section>
@@ -977,12 +1251,12 @@ gtag('config', 'G-XXXXXXXXXX');
   </svg>
   <div class="wrap ctaband-inner rv">
     <div class="eyebrow">◆ Let's build it right</div>
-    <h2>Bring us in <em>early</em>.<br/>You'll save months.</h2>
+    <h2>Bring us in <em>early</em>.<br/>We'll help avoid delays.</h2>
     <p class="lead" style="margin:0 auto;text-align:center">
       Whether you're spec'ing a new fit-out, tendering a framework or replacing an ageing system, we're happy to sit down with your design team and work the detail out properly - before the walls go up.
     </p>
     <div class="ctaband-actions">
-      <a href="mailto:info@voltsecure.co.uk" class="hero-cta">info@voltsecure.co.uk</a>
+      <a href="mailto:admin@voltsecure.co.uk" class="hero-cta">admin@voltsecure.co.uk</a>
       <a href="tel:02922641046" class="hero-cta-ghost">02922 641046</a>
     </div>
   </div>
@@ -1017,7 +1291,7 @@ gtag('config', 'G-XXXXXXXXXX');
           <li><a href="/accreditations.html">Accreditations</a></li>
           <li><a href="/projects.html">Case studies</a></li>
           <li><a href="/contact.html">Contact us</a></li>
-          <li><a href="/contact.html">ESG &amp; social value</a></li>
+          <li><a href="/esg.html">ESG &amp; social value</a></li>
         </ul>
       </div>
 
@@ -1026,22 +1300,22 @@ gtag('config', 'G-XXXXXXXXXX');
         <ul>
           <li><a href="/employees.html"><span class="ext">↗</span> Employees</a></li>
           <li><a href="/jobs.html"><span class="ext">↗</span> Jobs &amp; apprenticeships</a></li>
-          <li><a href="mailto:info@voltsecure.co.uk?subject=Media%20enquiry"><span class="ext">↗</span> Media enquiries</a></li>
+          <li><a href="mailto:admin@voltsecure.co.uk?subject=Media%20enquiry"><span class="ext">↗</span> Media enquiries</a></li>
           <li><a href="/suppliers.html"><span class="ext">↗</span> Suppliers</a></li>
         </ul>
       </div>
 
       <div class="vs-footer-col">
         <h4>Follow us</h4>
-        <ul>
-          <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a></li>
-          <li><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a></li>
-          <li><a href="https://www.youtube.com/" target="_blank" rel="noopener">YouTube</a></li>
+        <ul class="vs-footer-social">
+          <li><a href="https://uk.linkedin.com/company/voltsecure" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.85 0-2.14 1.45-2.14 2.94v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg></a></li>
+          <li><a href="https://www.instagram.com/voltsecure?igsh=aWlmdTFjbWRqbXNz" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63 3.36.93 2.69 1.34 2.03 2c-.66.66-1.07 1.33-1.37 2.11-.3.76-.5 1.64-.56 2.91C.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.3.78.71 1.45 1.37 2.11.66.66 1.33 1.07 2.11 1.37.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.78-.3 1.45-.71 2.11-1.37.66-.66 1.07-1.33 1.37-2.11.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.3-.78-.71-1.45-1.37-2.11C21.31 1.34 20.64.93 19.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 1 0 12 18.16 6.16 6.16 0 0 0 12 5.84zm0 10.16A4 4 0 1 1 12 8a4 4 0 0 1 0 8zm6.41-11.85a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg></a></li>
+          <li><a href="https://www.facebook.com/share/1EnC5jBUYE/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22.68 0H1.32C.59 0 0 .59 0 1.32v21.36C0 23.41.59 24 1.32 24h11.5v-9.29H9.69V11.1h3.13V8.41c0-3.1 1.89-4.79 4.66-4.79 1.33 0 2.46.1 2.79.14v3.24h-1.92c-1.5 0-1.79.71-1.79 1.76v2.31h3.59l-.47 3.62h-3.12V24h6.12c.73 0 1.32-.59 1.32-1.32V1.32C24 .59 23.41 0 22.68 0z"/></svg></a></li>
         </ul>
         <h4 style="margin-top:28px">Contact</h4>
         <ul>
           <li class="tel"><a href="tel:02922641046">02922 641046</a></li>
-          <li class="em"><a href="mailto:info@voltsecure.co.uk">info@voltsecure.co.uk</a></li>
+          <li class="em"><a href="mailto:admin@voltsecure.co.uk">admin@voltsecure.co.uk</a></li>
         </ul>
       </div>
 
@@ -1111,64 +1385,45 @@ const io = new IntersectionObserver(es => {
 }, {threshold: 0.1});
 document.querySelectorAll('.rv').forEach(el => io.observe(el));
 
-/* ========= hero SVG extras ========= */
-const sensors = document.getElementById('sensors');
-const sensorPositions = [
-  [300,120],[465,210],[465,390],[300,480],[135,390],[135,210],
-  [220,160],[380,160],[440,300],[380,440],[220,440],[160,300]
-];
-sensorPositions.forEach(([x,y],i)=>{
-  const g = document.createElementNS('http://www.w3.org/2000/svg','g');
-  g.innerHTML = `
-    <circle cx="${x}" cy="${y}" r="3" fill="#c9a961"/>
-    <circle cx="${x}" cy="${y}" r="10" fill="none" stroke="#c9a961" opacity="0.5">
-      <animate attributeName="r" values="3;18" dur="3s" begin="${i*0.25}s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0.8;0" dur="3s" begin="${i*0.25}s" repeatCount="indefinite"/>
-    </circle>`;
-  sensors.appendChild(g);
-});
+/* ========= hero EU-network radar - outer tick marks =========
+   New radar uses viewBox -500 -500 1000 1000, so ticks live around r=468-496
+   and centre on (0,0) instead of the old (300,300). */
+(function(){
+  const ticks = document.getElementById('heroTicks');
+  if(!ticks) return;
+  const N = 96, ns = 'http://www.w3.org/2000/svg';
+  for(let i=0;i<N;i++){
+    const a = (i/N)*Math.PI*2;
+    const major = i%8===0;
+    const r1 = 468, r2 = major ? 496 : 484;
+    const line = document.createElementNS(ns,'line');
+    line.setAttribute('x1', Math.cos(a)*r1);
+    line.setAttribute('y1', Math.sin(a)*r1);
+    line.setAttribute('x2', Math.cos(a)*r2);
+    line.setAttribute('y2', Math.sin(a)*r2);
+    line.setAttribute('opacity', major ? 0.8 : 0.35);
+    ticks.appendChild(line);
+  }
+})();
 
-/* outer ticks */
-const ticks = document.getElementById('ticks');
-for(let i=0;i<60;i++){
-  const a = (i/60)*Math.PI*2;
-  const r1 = 275, r2 = i%5===0?285:280;
-  const x1 = 300+Math.cos(a)*r1, y1 = 300+Math.sin(a)*r1;
-  const x2 = 300+Math.cos(a)*r2, y2 = 300+Math.sin(a)*r2;
-  const line = document.createElementNS('http://www.w3.org/2000/svg','line');
-  line.setAttribute('x1',x1); line.setAttribute('y1',y1);
-  line.setAttribute('x2',x2); line.setAttribute('y2',y2);
-  line.setAttribute('stroke-width', i%5===0?'1.5':'0.5');
-  ticks.appendChild(line);
-}
-
-/* live time label */
+/* live time label - shows UK local time (BST/GMT auto-detected) */
 const hvtime = document.getElementById('hvtime');
 function updTime(){
   const d = new Date();
-  const p = n => String(n).padStart(2,'0');
-  hvtime.textContent = `${p(d.getUTCHours())}:${p(d.getUTCMinutes())}:${p(d.getUTCSeconds())} GMT`;
+  // Render hours/minutes/seconds in Europe/London zone
+  const parts = new Intl.DateTimeFormat('en-GB', {
+    timeZone: 'Europe/London',
+    hour: '2-digit', minute: '2-digit', second: '2-digit',
+    hour12: false, timeZoneName: 'short'
+  }).formatToParts(d);
+  const get = t => (parts.find(p => p.type === t) || {value:''}).value;
+  const tz = get('timeZoneName') || 'GMT';   // "BST" in summer, "GMT" in winter
+  hvtime.textContent = `${get('hour')}:${get('minute')}:${get('second')} ${tz}`;
 }
 setInterval(updTime, 1000); updTime();
 
-/* map pings */
-const mapPings = document.getElementById('mapPings');
-const sites = [
-  [253,145,'Cardiff'],[263,200,'Bristol'],[245,175,'HQ'],
-  [260,130,'Birmingham'],[270,100,'Manchester'],[255,80,'Glasgow'],
-  [140,170,'Dublin'],[380,330,'Paris'],[470,280,'Amsterdam'],
-  [500,310,'Cologne'],[420,370,'Lyon'],[290,135,'Leeds']
-];
-sites.forEach(([x,y,n],i)=>{
-  const g = document.createElementNS('http://www.w3.org/2000/svg','g');
-  g.innerHTML = `
-    <circle cx="${x}" cy="${y}" r="3" fill="#c9a961"/>
-    <circle cx="${x}" cy="${y}" r="12" fill="none" stroke="#c9a961" opacity="0.6">
-      <animate attributeName="r" values="3;22" dur="2.4s" begin="${i*0.3}s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0.7;0" dur="2.4s" begin="${i*0.3}s" repeatCount="indefinite"/>
-    </circle>`;
-  mapPings.appendChild(g);
-});
+/* Coverage map is now rendered as a 3D orthographic globe by
+   /assets/coverage-globe.js using D3 + TopoJSON. No JS needed here. */
 
 /* ========= tweaks (edit-mode protocol) ========= */
 const tweaks = document.getElementById('tweaks');
@@ -1189,16 +1444,16 @@ function applyTweaks(){
     document.documentElement.style.setProperty('--mute', '#8a8275');
     document.documentElement.style.setProperty('--line-soft','rgba(255,255,255,0.06)');
   }
+  /* hero animation tweaks - new EU-network radar uses a CSS conic-gradient
+     sweep, not the old #scan element. Keep the tweak hook but no-op safely. */
   const hero = document.getElementById('heroSVG');
-  if(TW.heroAnim==='grid'){
-    hero.querySelector('#scan').style.animation='none';
-    hero.querySelector('#scan path').setAttribute('opacity','0');
-  } else if(TW.heroAnim==='particles'){
-    hero.querySelector('#scan path').setAttribute('opacity','0.3');
-    hero.querySelector('#scan').style.animation='spin 20s linear infinite';
-  } else {
-    hero.querySelector('#scan path').setAttribute('opacity','0.7');
-    hero.querySelector('#scan').style.animation='spin 6s linear infinite';
+  if(hero){
+    const sweep = document.querySelector('.hero-visual .hero-sweep');
+    if(sweep){
+      if(TW.heroAnim==='grid'){ sweep.style.animation='none'; sweep.style.opacity='0'; }
+      else if(TW.heroAnim==='particles'){ sweep.style.animation='heroSweep 16s linear infinite'; sweep.style.opacity='0.6'; }
+      else { sweep.style.animation='heroSweep 8s linear infinite'; sweep.style.opacity='1'; }
+    }
   }
   document.querySelectorAll('.sw').forEach(s => s.classList.toggle('active', s.dataset.accent===TW.accent));
   document.getElementById('twHero').value = TW.heroAnim;
@@ -1342,7 +1597,7 @@ const DE_MAP = {
   "Bring us in":"Holen Sie uns",
   "early":"früh",
   ".":".",
-  "You'll save months.":"dazu - das spart Monate.",
+  "We'll help avoid delays.":"wir helfen, Verzögerungen zu vermeiden.",
   "Whether you're spec'ing a new fit-out, tendering a framework or replacing an ageing system, we're happy to sit down with your design team and work the detail out properly - before the walls go up.":"Egal, ob Sie einen neuen Ausbau planen, einen Rahmenvertrag ausschreiben oder eine veraltete Anlage erneuern - wir setzen uns gerne mit Ihrem Planungsteam zusammen und arbeiten die Details sauber aus, bevor die Wände stehen.",
   // footer
   "International":"International",
@@ -1384,7 +1639,7 @@ const DE_MAP = {
   // cta extras
   "Bring us in":"Holen Sie uns",
   "early":"früh",
-  "You'll save months.":"dazu - das spart Monate.",
+  "We'll help avoid delays.":"wir helfen, Verzögerungen zu vermeiden.",
   "Whether you're spec'ing a new fit-out, tendering a framework or replacing an ageing system, we're happy to sit down with your design team and work the detail out properly - before the walls go up.":"Ob neuer Ausbau, Rahmenvertragsausschreibung oder Erneuerung einer veralteten Anlage - wir setzen uns mit Ihrem Planungsteam zusammen und arbeiten die Details sauber aus, bevor die Wände stehen.",
   // services h2 split + lead
   "One contractor.":"Ein Auftragnehmer.",
@@ -1433,9 +1688,9 @@ const DE_MAP = {
   "PPM":"PPM",
   "Small commercial":"Klein-Gewerbe",
   // coverage h2
-  "Headquartered in Wales.":"Hauptsitz in Wales.",
+  "Headquartered in South Wales.":"Hauptsitz in Südwales.",
   "Operating across the continent.":"Tätig auf dem ganzen Kontinent.",
-  "From our base in Pontypridd we mobilise engineer teams across mainland UK and continental Europe. Our national-retail CCTV programme alone covers more than forty live sites in five countries - with a single point of accountability and consolidated reporting.":"Von unserer Basis in Pontypridd aus mobilisieren wir Ingenieur­teams in ganz Großbritannien und Kontinentaleuropa. Allein unser nationales Retail-CCTV-Programm umfasst über vierzig aktive Standorte in fünf Ländern - mit einer einzigen Verantwortungsstelle und konsolidiertem Reporting."
+  "Operating from our Caerphilly HQ and Pontypridd Service Hub, we mobilise engineer teams across South Wales, the UK, Ireland and continental Europe. Our national-retail security programme alone covers more than forty live sites in five countries - all managed from a single coordination desk.":"Von unserem Hauptsitz in Caerphilly und unserem Service-Hub in Pontypridd aus mobilisieren wir Ingenieur­teams in Südwales, Großbritannien, Irland und Kontinentaleuropa. Allein unser nationales Retail-Sicherheits­programm umfasst über vierzig aktive Standorte in fünf Ländern - alles aus einer zentralen Koordinationsstelle gesteuert."
 };
 
 // collect every visible text node once, outside nav language switcher

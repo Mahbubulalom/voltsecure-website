@@ -95,9 +95,12 @@ h2{font-size:clamp(28px,3vw,40px)}
 .form-card .sub{font-size:14px;color:var(--mute);margin-bottom:36px}
 @media(max-width:560px){.form-card{padding:28px 22px}}
 
-.field-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-@media(max-width:560px){.field-grid{grid-template-columns:1fr;gap:16px}}
-.field{display:flex;flex-direction:column;gap:8px}
+/* minmax(0,1fr) prevents the select's longest option from blowing the
+   column wider than the card (was rendering inputs at 363px inside a 280px
+   container - everything cut off on the right). */
+.field-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px}
+@media(max-width:560px){.field-grid{grid-template-columns:minmax(0,1fr);gap:16px}}
+.field{display:flex;flex-direction:column;gap:8px;min-width:0}
 .field.full{grid-column:1 / -1}
 .field label{font-family:var(--font-mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold)}
 .field label .req{color:var(--gold-bright);margin-left:2px}
@@ -105,10 +108,36 @@ h2{font-size:clamp(28px,3vw,40px)}
   background:rgba(255,255,255,0.02);border:1px solid var(--line);color:var(--cream);
   padding:14px 16px;font:inherit;font-size:15px;font-family:var(--font-body);font-weight:300;
   transition:all .2s;border-radius:0;
+  width:100%;min-width:0;max-width:100%;box-sizing:border-box;
 }
 .field input:focus,.field textarea:focus,.field select:focus{outline:none;border-color:var(--gold);background:rgba(201,169,97,0.04);box-shadow:0 0 0 3px rgba(201,169,97,0.08)}
 .field textarea{resize:vertical;min-height:140px;line-height:1.55}
 .field input::placeholder,.field textarea::placeholder{color:#5c564c}
+
+/* ====== inline field validation ====== */
+.field-error{display:none;font-family:var(--font-mono);font-size:11px;letter-spacing:0.06em;color:#e8826b;margin-top:2px;line-height:1.4}
+.field-error.show{display:block}
+.field.invalid input,.field.invalid textarea,.field.invalid select{border-color:#c94c4c;background:rgba(201,76,76,0.04)}
+.field.invalid input:focus,.field.invalid textarea:focus,.field.invalid select:focus{border-color:#c94c4c;box-shadow:0 0 0 3px rgba(201,76,76,0.12)}
+.consent.invalid{color:#e8826b}
+.consent.invalid input{outline:1px solid #c94c4c;outline-offset:2px}
+
+/* ====== select dropdown - explicit dark theme for option contrast ====== */
+.field select{
+  color-scheme:dark;
+  -webkit-appearance:none;-moz-appearance:none;appearance:none;
+  background-color:rgba(255,255,255,0.02);
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path fill='none' stroke='%23c9a961' stroke-width='1.5' d='M1 1.5l5 5 5-5'/></svg>");
+  background-repeat:no-repeat;
+  background-position:right 16px center;
+  padding-right:44px;
+  cursor:pointer;
+}
+.field select:hover{border-color:rgba(201,169,97,0.5)}
+.field select option{background-color:#0d0c0a;color:var(--cream);padding:10px 12px;font-weight:400}
+.field select option:disabled,.field select option[value=""]{color:#5c564c}
+.field select option:hover,.field select option:focus,.field select option:checked{background:linear-gradient(rgba(201,169,97,0.18),rgba(201,169,97,0.18)),#0d0c0a;color:var(--cream)}
+.field select:invalid{color:#5c564c}
 .field-hint{font-size:11px;color:var(--mute);font-family:var(--font-mono);letter-spacing:0.06em}
 
 .consent{display:flex;gap:12px;align-items:flex-start;margin-top:24px;font-size:12px;color:var(--mute);line-height:1.5}
@@ -145,8 +174,8 @@ footer::before{content:"";display:block;height:1px;background:linear-gradient(90
 .footer-col a:hover{color:var(--gold)}
 .footer-bot{border-top:1px solid var(--line-soft);padding-top:24px;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;font-family:var(--font-mono);font-size:11px;color:var(--mute);letter-spacing:0.08em}
 </style>
-<link rel="stylesheet" href="/assets/site.css"/>
-<script src="/assets/site.js" defer></script>
+<link rel="stylesheet" href="/assets/site.css?v=20260607a"/>
+<script src="/assets/site.js?v=20260607a" defer></script>
 <!-- GA4 - replace G-XXXXXXXXXX with live measurement ID before launch (TODO Kai: GA4 ID) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
 <script>
@@ -174,7 +203,7 @@ gtag('config', 'G-XXXXXXXXXX');
     </div>
     <div class="nav-right">
       <button class="lang-toggle" type="button" aria-label="Switch language"></button>
-      <a href="/contact.html" class="nav-cta"><span class="cta-full">Request a quote</span><span class="cta-short">Quote</span> →</a>
+      <a href="/contact.html" class="nav-cta">Request a quote →</a>
       <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -195,7 +224,7 @@ gtag('config', 'G-XXXXXXXXXX');
           <div class="cp-ico">✉</div>
           <div>
             <div class="cp-lab">Email</div>
-            <div class="cp-val"><a href="mailto:info@voltsecure.co.uk">info@voltsecure.co.uk</a></div>
+            <div class="cp-val"><a href="mailto:admin@voltsecure.co.uk">admin@voltsecure.co.uk</a></div>
             <div class="cp-sub">General enquiries · quotes · maintenance</div>
           </div>
         </div>
@@ -210,9 +239,19 @@ gtag('config', 'G-XXXXXXXXXX');
         <div class="cp">
           <div class="cp-ico">⌂</div>
           <div>
-            <div class="cp-lab">Head office</div>
+            <div class="cp-lab">Caerphilly HQ</div>
+            <div class="cp-val">Unit A1 Ayjay House, 23 Greenway</div>
+            <div class="cp-sub">Bedwas, Caerphilly · CF83 8DW · UK</div>
+            <div class="cp-sub" style="margin-top:6px;font-style:italic">Main office · management · project coordination · administration</div>
+          </div>
+        </div>
+        <div class="cp">
+          <div class="cp-ico">▣</div>
+          <div>
+            <div class="cp-lab">Pontypridd Service Hub</div>
             <div class="cp-val">Unit 33 Albion Industrial Estate</div>
             <div class="cp-sub">Cilfynydd, Pontypridd · CF37 4NX · UK</div>
+            <div class="cp-sub" style="margin-top:6px;font-style:italic">Stores · logistics · engineer support · service operations</div>
           </div>
         </div>
       </div>
@@ -223,7 +262,7 @@ gtag('config', 'G-XXXXXXXXXX');
       <h2 style="margin-top:10px">Start a conversation.</h2>
       <p class="sub">All fields marked with <span style="color:var(--gold)">*</span> are required. We'll never share your details.</p>
 
-      <form id="contactForm" action="https://formsubmit.co/info@voltsecure.co.uk" method="POST" novalidate>
+      <form id="contactForm" action="https://formsubmit.co/admin@voltsecure.co.uk" method="POST" novalidate>
         <!-- FormSubmit.co config -->
         <input type="hidden" name="_subject" value="New enquiry via voltsecure.co.uk">
         <input type="hidden" name="_template" value="table">
@@ -234,17 +273,20 @@ gtag('config', 'G-XXXXXXXXXX');
         <div class="field-grid">
           <div class="field">
             <label for="name">Name <span class="req">*</span></label>
-            <input type="text" id="name" name="name" placeholder="Your full name" required autocomplete="name">
+            <input type="text" id="name" name="name" placeholder="Your full name" required autocomplete="name" aria-describedby="err-name">
+            <span class="field-error" id="err-name" aria-live="polite"></span>
           </div>
 
           <div class="field">
             <label for="email">Email <span class="req">*</span></label>
-            <input type="email" id="email" name="email" placeholder="you@company.com" required autocomplete="email">
+            <input type="email" id="email" name="email" placeholder="you@company.com" required autocomplete="email" aria-describedby="err-email">
+            <span class="field-error" id="err-email" aria-live="polite"></span>
           </div>
 
           <div class="field">
             <label for="phone">Phone <span class="req">*</span></label>
-            <input type="tel" id="phone" name="phone" placeholder="+44 …" required autocomplete="tel">
+            <input type="tel" id="phone" name="phone" placeholder="+44 …" required autocomplete="tel" aria-describedby="err-phone">
+            <span class="field-error" id="err-phone" aria-live="polite"></span>
           </div>
 
           <div class="field">
@@ -267,15 +309,17 @@ gtag('config', 'G-XXXXXXXXXX');
 
           <div class="field full">
             <label for="message">Project details <span class="req">*</span></label>
-            <textarea id="message" name="message" placeholder="Site location, scope, timeline, anything else we should know…" required></textarea>
-            <span class="field-hint">We'll use this to prepare an accurate first response.</span>
+            <textarea id="message" name="message" placeholder="Site location, scope, timeline, anything else we should know…" required aria-describedby="err-message msg-hint"></textarea>
+            <span class="field-hint" id="msg-hint">We'll use this to prepare an accurate first response.</span>
+            <span class="field-error" id="err-message" aria-live="polite"></span>
           </div>
         </div>
 
-        <label class="consent">
-          <input type="checkbox" name="consent" required>
+        <label class="consent" id="consentWrap">
+          <input type="checkbox" name="consent" id="consent" required aria-describedby="err-consent">
           <span>I agree to VoltSecure contacting me about this enquiry. Details are stored securely and never shared with third parties.</span>
         </label>
+        <span class="field-error" id="err-consent" aria-live="polite" style="display:block;margin-top:6px"></span>
 
         <div class="submit-row">
           <button type="submit" class="submit-btn" id="submitBtn">Send enquiry →</button>
@@ -331,7 +375,7 @@ gtag('config', 'G-XXXXXXXXXX');
           <li><a href="/accreditations.html">Accreditations</a></li>
           <li><a href="/projects.html">Case studies</a></li>
           <li><a href="/contact.html">Contact us</a></li>
-          <li><a href="/contact.html">ESG &amp; social value</a></li>
+          <li><a href="/esg.html">ESG &amp; social value</a></li>
         </ul>
       </div>
 
@@ -340,22 +384,22 @@ gtag('config', 'G-XXXXXXXXXX');
         <ul>
           <li><a href="/employees.html"><span class="ext">↗</span> Employees</a></li>
           <li><a href="/jobs.html"><span class="ext">↗</span> Jobs &amp; apprenticeships</a></li>
-          <li><a href="mailto:info@voltsecure.co.uk?subject=Media%20enquiry"><span class="ext">↗</span> Media enquiries</a></li>
+          <li><a href="mailto:admin@voltsecure.co.uk?subject=Media%20enquiry"><span class="ext">↗</span> Media enquiries</a></li>
           <li><a href="/suppliers.html"><span class="ext">↗</span> Suppliers</a></li>
         </ul>
       </div>
 
       <div class="vs-footer-col">
         <h4>Follow us</h4>
-        <ul>
-          <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a></li>
-          <li><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a></li>
-          <li><a href="https://www.youtube.com/" target="_blank" rel="noopener">YouTube</a></li>
+        <ul class="vs-footer-social">
+          <li><a href="https://uk.linkedin.com/company/voltsecure" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.85 0-2.14 1.45-2.14 2.94v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg></a></li>
+          <li><a href="https://www.instagram.com/voltsecure?igsh=aWlmdTFjbWRqbXNz" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63 3.36.93 2.69 1.34 2.03 2c-.66.66-1.07 1.33-1.37 2.11-.3.76-.5 1.64-.56 2.91C.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.3.78.71 1.45 1.37 2.11.66.66 1.33 1.07 2.11 1.37.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.78-.3 1.45-.71 2.11-1.37.66-.66 1.07-1.33 1.37-2.11.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.3-.78-.71-1.45-1.37-2.11C21.31 1.34 20.64.93 19.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 1 0 12 18.16 6.16 6.16 0 0 0 12 5.84zm0 10.16A4 4 0 1 1 12 8a4 4 0 0 1 0 8zm6.41-11.85a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg></a></li>
+          <li><a href="https://www.facebook.com/share/1EnC5jBUYE/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22.68 0H1.32C.59 0 0 .59 0 1.32v21.36C0 23.41.59 24 1.32 24h11.5v-9.29H9.69V11.1h3.13V8.41c0-3.1 1.89-4.79 4.66-4.79 1.33 0 2.46.1 2.79.14v3.24h-1.92c-1.5 0-1.79.71-1.79 1.76v2.31h3.59l-.47 3.62h-3.12V24h6.12c.73 0 1.32-.59 1.32-1.32V1.32C24 .59 23.41 0 22.68 0z"/></svg></a></li>
         </ul>
         <h4 style="margin-top:28px">Contact</h4>
         <ul>
           <li class="tel"><a href="tel:02922641046">02922 641046</a></li>
-          <li class="em"><a href="mailto:info@voltsecure.co.uk">info@voltsecure.co.uk</a></li>
+          <li class="em"><a href="mailto:admin@voltsecure.co.uk">admin@voltsecure.co.uk</a></li>
         </ul>
       </div>
 
@@ -394,12 +438,108 @@ gtag('config', 'G-XXXXXXXXXX');
   links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>set(false)));
 })();
 
-/* ===== form: AJAX submit so user stays on page + sees status ===== */
+/* ===== form: validate + AJAX submit so user stays on page + sees status ===== */
 (function(){
   const form=document.getElementById('contactForm');
   const status=document.getElementById('formStatus');
   const btn=document.getElementById('submitBtn');
   if(!form) return;
+
+  // Re-usable helpers ----------------------------------------------------
+  const EMAIL_RE=/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  // Phone: at least 7 digits, allow +, spaces, hyphens, parens
+  const PHONE_RE=/^\+?[0-9 ()\-]{7,}$/;
+
+  function setError(fieldEl, errEl, msg){
+    if(fieldEl) fieldEl.classList.add('invalid');
+    if(errEl){ errEl.textContent=msg; errEl.classList.add('show'); }
+  }
+  function clearError(fieldEl, errEl){
+    if(fieldEl) fieldEl.classList.remove('invalid');
+    if(errEl){ errEl.textContent=''; errEl.classList.remove('show'); }
+  }
+
+  // Validation map: each entry returns '' (valid) or an error string.
+  const checks=[
+    { input:'name', err:'err-name', validate:(v)=>{
+        if(!v.trim()) return 'Please enter your name.';
+        if(v.trim().length<2) return 'Name looks too short.';
+        return '';
+      }
+    },
+    { input:'email', err:'err-email', validate:(v)=>{
+        if(!v.trim()) return 'Please enter your email address.';
+        if(!EMAIL_RE.test(v.trim())) return 'Please enter a valid email address (e.g. name@company.com).';
+        return '';
+      }
+    },
+    { input:'phone', err:'err-phone', validate:(v)=>{
+        if(!v.trim()) return 'Please enter a phone number we can reach you on.';
+        if(!PHONE_RE.test(v.trim())) return 'Please enter a valid phone number (digits, spaces, +, - allowed).';
+        return '';
+      }
+    },
+    { input:'message', err:'err-message', validate:(v)=>{
+        if(!v.trim()) return 'Please tell us a little about the project.';
+        if(v.trim().length<10) return 'A few more details would help us reply accurately.';
+        return '';
+      }
+    }
+  ];
+
+  function validateField(c){
+    const input=document.getElementById(c.input);
+    const errEl=document.getElementById(c.err);
+    const fieldWrap=input ? input.closest('.field') : null;
+    const msg=c.validate(input ? input.value : '');
+    if(msg){ setError(fieldWrap, errEl, msg); return false; }
+    clearError(fieldWrap, errEl);
+    return true;
+  }
+
+  function validateConsent(){
+    const cb=document.getElementById('consent');
+    const wrap=document.getElementById('consentWrap');
+    const errEl=document.getElementById('err-consent');
+    if(cb && !cb.checked){
+      if(wrap) wrap.classList.add('invalid');
+      if(errEl){ errEl.textContent='Please tick the box to confirm you are happy for us to contact you.'; errEl.classList.add('show'); }
+      return false;
+    }
+    if(wrap) wrap.classList.remove('invalid');
+    if(errEl){ errEl.textContent=''; errEl.classList.remove('show'); }
+    return true;
+  }
+
+  function validateAll(){
+    let ok=true;
+    checks.forEach((c)=>{ if(!validateField(c)) ok=false; });
+    if(!validateConsent()) ok=false;
+    return ok;
+  }
+
+  // Live validation: clear error once the user fixes a field; re-validate on blur.
+  checks.forEach((c)=>{
+    const el=document.getElementById(c.input);
+    if(!el) return;
+    el.addEventListener('input', ()=>{
+      const errEl=document.getElementById(c.err);
+      const fieldWrap=el.closest('.field');
+      if(fieldWrap && fieldWrap.classList.contains('invalid')){
+        const msg=c.validate(el.value);
+        if(!msg) clearError(fieldWrap, errEl);
+        else if(errEl) errEl.textContent=msg;
+      }
+    });
+    el.addEventListener('blur', ()=>{
+      const fieldWrap=el.closest('.field');
+      if(el.value || (fieldWrap && fieldWrap.classList.contains('invalid'))) validateField(c);
+    });
+  });
+  const consentEl=document.getElementById('consent');
+  if(consentEl) consentEl.addEventListener('change', validateConsent);
+
+  let submitting=false;
 
   // Show success message if ?sent=1 in URL (fallback for non-JS submits)
   if(new URLSearchParams(location.search).get('sent')==='1'){
@@ -410,8 +550,21 @@ gtag('config', 'G-XXXXXXXXXX');
 
   form.addEventListener('submit', async (e)=>{
     e.preventDefault();
+    if(submitting) return;   // hard guard against double-submits
+
     status.className='status';
     status.textContent='';
+
+    if(!validateAll()){
+      status.className='status err';
+      status.textContent='Please correct the highlighted fields and try again.';
+      const firstBad=form.querySelector('.field.invalid input, .field.invalid textarea, .field.invalid select');
+      if(firstBad){ firstBad.focus(); }
+      else if(consentEl && !consentEl.checked){ consentEl.focus(); }
+      return;
+    }
+
+    submitting=true;
     btn.disabled=true;
     btn.textContent='Sending…';
 
@@ -426,15 +579,19 @@ gtag('config', 'G-XXXXXXXXXX');
         status.className='status ok';
         status.textContent='✓ Thanks - your enquiry has landed in our inbox. We\u2019ll reply within one working day.';
         form.reset();
+        form.querySelectorAll('.field.invalid').forEach(f=>f.classList.remove('invalid'));
+        form.querySelectorAll('.field-error').forEach(el=>{el.textContent='';el.classList.remove('show');});
+        const cw=document.getElementById('consentWrap'); if(cw) cw.classList.remove('invalid');
         btn.textContent='Send enquiry →';
       } else {
         throw new Error('Network error');
       }
     }catch(err){
       status.className='status err';
-      status.innerHTML='Something went wrong sending the form. Please email <a href="mailto:info@voltsecure.co.uk" style="color:var(--gold);text-decoration:underline">info@voltsecure.co.uk</a> directly, or call 02922 641046.';
+      status.innerHTML='Something went wrong sending the form. Please email <a href="mailto:admin@voltsecure.co.uk" style="color:var(--gold);text-decoration:underline">admin@voltsecure.co.uk</a> directly, or call 02922 641046.';
       btn.textContent='Try again →';
     } finally {
+      submitting=false;
       btn.disabled=false;
     }
   });

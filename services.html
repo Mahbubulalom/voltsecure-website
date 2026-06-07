@@ -9,8 +9,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="icon" href="/assets/logo-mark-gold.png"/>
-<link rel="stylesheet" href="/assets/site.css"/>
-<script src="/assets/site.js" defer></script>
+<link rel="stylesheet" href="/assets/site.css?v=20260607a"/>
+<script src="/assets/site.js?v=20260607a" defer></script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{background:#0a0a0a;color:#f4efe6;font-family:'Inter',system-ui,sans-serif;font-weight:300;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
@@ -62,7 +62,13 @@ h3{font-size:clamp(20px,1.6vw,24px)}
 .btn-gold:hover{background:#f4efe6;transform:translateY(-2px)}
 .btn-ghost{display:inline-flex;align-items:center;gap:10px;padding:16px 28px;border:1px solid rgba(201,169,97,0.18);color:#f4efe6;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;transition:all .25s}
 .btn-ghost:hover{border-color:#c9a961;color:#c9a961}
-@media(max-width:560px){.cta-row{flex-direction:column;width:100%}.btn-gold,.btn-ghost{width:100%;max-width:320px;justify-content:center}.ctaband{padding:80px 0}}
+@media(max-width:560px){
+  /* stack vertically and CENTRE on the cross-axis - was defaulting to stretch
+     which combined with max-width:320px left-aligned the capped buttons */
+  .cta-row{flex-direction:column;width:100%;align-items:center;display:flex}
+  .btn-gold,.btn-ghost{width:100%;max-width:320px;justify-content:center;box-sizing:border-box}
+  .ctaband{padding:80px 0}
+}
 </style>
 <!-- GA4 - replace G-XXXXXXXXXX with live measurement ID before launch (TODO Kai: GA4 ID) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
@@ -91,7 +97,7 @@ gtag('config', 'G-XXXXXXXXXX');
     </div>
     <div class="nav-right">
       <button class="lang-toggle" type="button" aria-label="Switch language"></button>
-      <a href="/contact.html" class="nav-cta"><span class="cta-full">Request a quote</span><span class="cta-short">Quote</span> →</a>
+      <a href="/contact.html" class="nav-cta">Request a quote →</a>
       <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -114,53 +120,65 @@ gtag('config', 'G-XXXXXXXXXX');
         <p>Full commercial installations: containment, switchgear, power distribution, DALI lighting, EV charging and test &amp; inspection - designed and certified to BS 7671.</p>
         <div class="srv-tags"><span class="stag">BS 7671</span><span class="stag">Part P</span><span class="stag">NICEIC</span></div>
       </a>
+      <a href="/services/maintenance.html" class="srv">
+        <div class="srv-idx"><span>02 / MAINTENANCE</span><span class="srv-arr">↗</span></div>
+        <h3>Planned Maintenance &amp; Compliance</h3>
+        <p>Planned maintenance, compliance visits and reactive support for fire, security, CCTV, access control and electrical systems - delivered by the engineers who installed them.</p>
+        <div class="srv-tags"><span class="stag">24/7</span><span class="stag">SLA</span><span class="stag">Compliance</span></div>
+      </a>
       <a href="/services/fire.html" class="srv">
-        <div class="srv-idx"><span>02 / FIRE</span><span class="srv-arr">↗</span></div>
+        <div class="srv-idx"><span>03 / FIRE</span><span class="srv-arr">↗</span></div>
         <h3>Fire Alarms</h3>
         <p>Addressable fire detection, disabled refuge systems and aspirating detection - BAFE SP203-1 certified across design, installation, commissioning and maintenance.</p>
         <div class="srv-tags"><span class="stag">BS 5839-1</span><span class="stag">BS 5839-6</span><span class="stag">BAFE</span></div>
       </a>
       <a href="/services/cctv.html" class="srv">
-        <div class="srv-idx"><span>03 / CCTV</span><span class="srv-arr">↗</span></div>
+        <div class="srv-idx"><span>04 / CCTV</span><span class="srv-arr">↗</span></div>
         <h3>CCTV &amp; Surveillance</h3>
         <p>IP, thermal and AI-analytics systems for national retail, logistics and public realm - engineered and maintained to the BS EN 62676 series.</p>
         <div class="srv-tags"><span class="stag">EN 62676</span><span class="stag">SSAIB</span><span class="stag">GDPR</span></div>
       </a>
       <a href="/services/intruder.html" class="srv">
-        <div class="srv-idx"><span>04 / INTRUDER</span><span class="srv-arr">↗</span></div>
+        <div class="srv-idx"><span>05 / INTRUDER</span><span class="srv-arr">↗</span></div>
         <h3>Intruder Alarms</h3>
         <p>Grade 2 &amp; Grade 3 intruder systems with URN-backed police response, compliant with PD 6662:2017 and BS 8243 confirmed signalling.</p>
         <div class="srv-tags"><span class="stag">PD 6662</span><span class="stag">BS 8243</span><span class="stag">URN</span></div>
       </a>
       <a href="/services/access.html" class="srv">
-        <div class="srv-idx"><span>05 / ACCESS</span><span class="srv-arr">↗</span></div>
+        <div class="srv-idx"><span>06 / ACCESS</span><span class="srv-arr">↗</span></div>
         <h3>Access Control</h3>
         <p>Card, biometric and mobile-credential access, turnstile integration, visitor management and lift control - to BS EN 60839-11-1.</p>
         <div class="srv-tags"><span class="stag">EN 60839</span><span class="stag">Biometric</span><span class="stag">Mobile</span></div>
       </a>
       <a href="/services/data.html" class="srv">
-        <div class="srv-idx"><span>06 / DATA</span><span class="srv-arr">↗</span></div>
+        <div class="srv-idx"><span>07 / DATA</span><span class="srv-arr">↗</span></div>
         <h3>Data &amp; Networks</h3>
         <p>Structured cabling, fibre backbones, comms cabinets and network infrastructure - tested, certified and documented for handover.</p>
         <div class="srv-tags"><span class="stag">Cat 6A</span><span class="stag">OM4 / OS2</span><span class="stag">BICSI</span></div>
       </a>
+      <a href="/services/renewable-energy.html" class="srv">
+        <div class="srv-idx"><span>08 / RENEWABLES</span><span class="srv-arr">↗</span></div>
+        <h3>Renewable Energy</h3>
+        <p>Design, installation and maintenance for renewable energy systems - EV charging infrastructure, solar PV, battery storage and associated electrical works.</p>
+        <div class="srv-tags"><span class="stag">EV</span><span class="stag">Solar PV</span><span class="stag">Battery</span></div>
+      </a>
       <a href="/services/automation.html" class="srv">
-        <div class="srv-idx"><span>07 / AUTOMATION</span><span class="srv-arr">↗</span></div>
+        <div class="srv-idx"><span>09 / AUTOMATION</span><span class="srv-arr">↗</span></div>
         <h3>Automation</h3>
         <p>Gates, barriers, shutters and integrated BMS interfaces - commissioned alongside fire, access and intruder systems for unified control.</p>
         <div class="srv-tags"><span class="stag">BMS</span><span class="stag">Integrated</span><span class="stag">BS EN 12453</span></div>
       </a>
       <a href="/services/air-aspirating-systems.html" class="srv">
-        <div class="srv-idx"><span>08 / ASPIRATING</span><span class="srv-arr">↗</span></div>
+        <div class="srv-idx"><span>10 / ASPIRATING</span><span class="srv-arr">↗</span></div>
         <h3>Air Aspirating</h3>
         <p>Very early warning smoke detection for data centres, heritage and high-value environments - designed to BS 6266 and integrated with the main fire panel.</p>
         <div class="srv-tags"><span class="stag">VESDA</span><span class="stag">BS 6266</span><span class="stag">EWS</span></div>
       </a>
-      <a href="/contact.html" class="srv">
-        <div class="srv-idx"><span>09 / MAINTENANCE</span><span class="srv-arr">↗</span></div>
-        <h3>Planned Maintenance</h3>
-        <p>Scheduled servicing, 24/7 reactive cover and UK-wide engineer response - with a single portal for tickets, certificates and compliance records.</p>
-        <div class="srv-tags"><span class="stag">24/7</span><span class="stag">SLA</span><span class="stag">Portal</span></div>
+      <a href="/services/facilities-management.html" class="srv">
+        <div class="srv-idx"><span>11 / FM SUPPORT</span><span class="srv-arr">↗</span></div>
+        <h3>Facilities Management Support</h3>
+        <p>Supporting facilities managers, commercial landlords and building operators with planned maintenance, reactive callouts, compliance works and small project delivery.</p>
+        <div class="srv-tags"><span class="stag">PPM</span><span class="stag">Reactive</span><span class="stag">Compliance</span></div>
       </a>
     </div>
   </div>
@@ -206,7 +224,7 @@ gtag('config', 'G-XXXXXXXXXX');
           <li><a href="/accreditations.html">Accreditations</a></li>
           <li><a href="/projects.html">Case studies</a></li>
           <li><a href="/contact.html">Contact us</a></li>
-          <li><a href="/contact.html">ESG &amp; social value</a></li>
+          <li><a href="/esg.html">ESG &amp; social value</a></li>
         </ul>
       </div>
 
@@ -215,22 +233,22 @@ gtag('config', 'G-XXXXXXXXXX');
         <ul>
           <li><a href="/employees.html"><span class="ext">↗</span> Employees</a></li>
           <li><a href="/jobs.html"><span class="ext">↗</span> Jobs &amp; apprenticeships</a></li>
-          <li><a href="mailto:info@voltsecure.co.uk?subject=Media%20enquiry"><span class="ext">↗</span> Media enquiries</a></li>
+          <li><a href="mailto:admin@voltsecure.co.uk?subject=Media%20enquiry"><span class="ext">↗</span> Media enquiries</a></li>
           <li><a href="/suppliers.html"><span class="ext">↗</span> Suppliers</a></li>
         </ul>
       </div>
 
       <div class="vs-footer-col">
         <h4>Follow us</h4>
-        <ul>
-          <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a></li>
-          <li><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a></li>
-          <li><a href="https://www.youtube.com/" target="_blank" rel="noopener">YouTube</a></li>
+        <ul class="vs-footer-social">
+          <li><a href="https://uk.linkedin.com/company/voltsecure" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.85 0-2.14 1.45-2.14 2.94v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg></a></li>
+          <li><a href="https://www.instagram.com/voltsecure?igsh=aWlmdTFjbWRqbXNz" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63 3.36.93 2.69 1.34 2.03 2c-.66.66-1.07 1.33-1.37 2.11-.3.76-.5 1.64-.56 2.91C.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.3.78.71 1.45 1.37 2.11.66.66 1.33 1.07 2.11 1.37.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.78-.3 1.45-.71 2.11-1.37.66-.66 1.07-1.33 1.37-2.11.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.3-.78-.71-1.45-1.37-2.11C21.31 1.34 20.64.93 19.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 1 0 12 18.16 6.16 6.16 0 0 0 12 5.84zm0 10.16A4 4 0 1 1 12 8a4 4 0 0 1 0 8zm6.41-11.85a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg></a></li>
+          <li><a href="https://www.facebook.com/share/1EnC5jBUYE/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22.68 0H1.32C.59 0 0 .59 0 1.32v21.36C0 23.41.59 24 1.32 24h11.5v-9.29H9.69V11.1h3.13V8.41c0-3.1 1.89-4.79 4.66-4.79 1.33 0 2.46.1 2.79.14v3.24h-1.92c-1.5 0-1.79.71-1.79 1.76v2.31h3.59l-.47 3.62h-3.12V24h6.12c.73 0 1.32-.59 1.32-1.32V1.32C24 .59 23.41 0 22.68 0z"/></svg></a></li>
         </ul>
         <h4 style="margin-top:28px">Contact</h4>
         <ul>
           <li class="tel"><a href="tel:02922641046">02922 641046</a></li>
-          <li class="em"><a href="mailto:info@voltsecure.co.uk">info@voltsecure.co.uk</a></li>
+          <li class="em"><a href="mailto:admin@voltsecure.co.uk">admin@voltsecure.co.uk</a></li>
         </ul>
       </div>
 
