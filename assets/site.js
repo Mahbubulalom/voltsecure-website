@@ -16,10 +16,9 @@ window.VS_CONFIG = {
     // TODO Cai: paste live GA4 measurement ID here (e.g. 'G-XXXXXXXXXX')
     id: ''   // empty = analytics disabled; tag fires only when id is set
   },
-  fca: {
-    // TODO Cai: confirm FCA accreditation tier wording shown on
-    // accreditations.html (e.g. 'Registered' / 'Authorised')
-    tier: 'Registered'
+  fsa: {
+    // FSA = Fire & Security Association (a specialist group of ECA)
+    tier: 'Member'
   }
 };
 
@@ -549,8 +548,8 @@ document.addEventListener('DOMContentLoaded', function(){
     "SSAIB is a leading certification body for organisations providing security systems, fire detection and alarm systems, and telecare services. SSAIB is a UKAS-accredited certification body.": "SSAIB ist eine führende Zertifizierungsstelle für Organisationen, die Sicherheitssysteme, Brandmelde- und Alarmsysteme sowie Telecare-Dienste anbieten. SSAIB ist eine UKAS-akkreditierte Zertifizierungsstelle.",
     "The ECA (Electrical Contractors' Association) is the UK's leading trade association for electrical, electrotechnical and energy services companies. Membership demonstrates technical competence and financial stability.": "Die ECA (Electrical Contractors' Association) ist der führende britische Branchenverband für Elektro-, elektrotechnische und Energiedienstleistungsunternehmen. Die Mitgliedschaft belegt technische Kompetenz und finanzielle Stabilität.",
     "Constructionline is the UK's largest procurement and supply-chain management service. Our membership includes PAS 91 pre-qualification and ongoing assessment of management systems.": "Constructionline ist der größte britische Beschaffungs- und Lieferketten-Verwaltungsdienst. Unsere Mitgliedschaft umfasst die PAS 91-Präqualifikation und die laufende Bewertung von Managementsystemen.",
-    "The FCA is the UK regulator for financial services firms. VoltSecure is registered with the FCA where required for our operations - reflecting an additional layer of corporate compliance and oversight.": "Die FCA ist die britische Aufsichtsbehörde für Finanzdienstleister. VoltSecure ist bei der FCA registriert, wo dies für unseren Betrieb erforderlich ist - was eine zusätzliche Ebene der Unternehmens-Compliance und Aufsicht widerspiegelt.",
-    "FCA registration adds an additional check on VoltSecure's company governance and gives commercial clients added confidence in working with us.": "Die FCA-Registrierung fügt eine zusätzliche Kontrolle der Unternehmensführung von VoltSecure hinzu und gibt Geschäftskunden zusätzliches Vertrauen in die Zusammenarbeit mit uns.",
+    "The FSA (Fire & Security Association) is the specialist group of ECA representing fire and security contractors. Members work to the FSA Code of Practice covering competence, technical standards and customer protection.": "Die FSA (Fire & Security Association) ist die Fachgruppe der ECA, die Brand- und Sicherheitsunternehmen vertritt. Mitglieder arbeiten nach dem FSA Code of Practice, der Kompetenz, technische Standards und Kundenschutz umfasst.",
+    "FSA membership signals that VoltSecure operates to recognised fire and security industry standards, supported by ECA's wider technical and compliance infrastructure.": "Die FSA-Mitgliedschaft zeigt, dass VoltSecure nach anerkannten Standards der Brand- und Sicherheitsbranche arbeitet, unterstützt durch die umfassendere technische und Compliance-Infrastruktur der ECA.",
     "HikVision is one of the world's leading manufacturers of IP CCTV, VMS and analytics platforms. As a Registered Installer, our engineers are kept current on the latest hardware ranges and commissioning procedures.": "HikVision ist einer der weltweit führenden Hersteller von IP-CCTV-, VMS- und Analyseplattformen. Als Registered Installer halten wir unsere Ingenieure auf dem neuesten Stand der Hardware-Reihen und Inbetriebnahmeverfahren.",
     "Paxton is a UK-designed and -manufactured access control range, widely used across commercial and public-sector estates. As a Registered Installer, our engineers are trained on the current product set, including Net2 and Paxton10.": "Paxton ist eine in Großbritannien entworfene und hergestellte Zutrittskontrolle, die in gewerblichen und öffentlichen Bereichen weit verbreitet ist. Als Registered Installer sind unsere Ingenieure auf die aktuelle Produktpalette, einschließlich Net2 und Paxton10, geschult.",
     "VoltSecure is a HikVision Registered Installer.": "VoltSecure ist ein registrierter HikVision-Installateur.",
@@ -800,7 +799,7 @@ document.addEventListener('DOMContentLoaded', function(){
     "Our standards apply to your work too": "Unsere Standards gelten auch für Ihre Arbeit",
     "Pension & sick pay above statutory.": "Rente und Krankengeld über dem gesetzlichen Standard.",
     "Project management, scheduling and handover to programme - no surprises, no slip.": "Projektmanagement, Terminplanung und Übergabe im Zeitplan - keine Überraschungen, keine Verzögerungen.",
-    "Registered with the Financial Conduct Authority for relevant regulated activity.": "Bei der Financial Conduct Authority für relevante regulierte Tätigkeiten registriert.",
+    "Member of the Fire & Security Association, a specialist group of ECA.": "Mitglied der Fire & Security Association, einer Fachgruppe der ECA.",
     "Risk assessments and method statements for every project, before first tool on site.": "Risikobewertungen und Methodenbeschreibungen für jedes Projekt, vor dem ersten Werkzeug auf der Baustelle.",
     "Services covered": "Abgedeckte Leistungen",
     "This page covers what we look for, what to expect from us, and how to register interest.": "Diese Seite behandelt, wonach wir suchen, was Sie von uns erwarten können und wie Sie Interesse anmelden.",
