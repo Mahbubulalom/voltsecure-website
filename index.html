@@ -814,13 +814,17 @@ gtag('config', 'G-XXXXXXXXXX');
 <section class="team-band-home">
   <figure class="tbh-frame">
     <video
+      id="bedwas-video"
       src="/assets/video/bedwas-hero-540.mp4?v=20260607c"
-      poster="/assets/photos/hero.jpg"
       autoplay
       muted
       loop
       playsinline
-      preload="metadata"
+      webkit-playsinline="true"
+      x5-playsinline="true"
+      preload="auto"
+      disablepictureinpicture
+      disableremoteplayback
       aria-label="VoltSecure Bedwas HQ - Caerphilly">
       Your browser does not support the video tag.
     </video>
@@ -832,20 +836,58 @@ gtag('config', 'G-XXXXXXXXXX');
   </figure>
 </section>
 <style>
-.team-band-home{padding:0;background:#0a0a0a}
-.tbh-frame{margin:0;position:relative;overflow:hidden;width:100%;height:min(calc(100vw * 9 / 21),640px)}
-.tbh-frame img,.tbh-frame video{display:block;width:100%;height:100%;object-fit:cover;transition:transform 8s ease}
-.tbh-frame:hover img,.tbh-frame:hover video{transform:scale(1.03)}
-.tbh-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.15) 0%,rgba(0,0,0,0.05) 50%,rgba(0,0,0,0.85) 100%);pointer-events:none}
-.tbh-caption{position:absolute;left:48px;right:48px;bottom:40px;display:flex;flex-direction:column;gap:8px;color:#f4f0e6}
+.team-band-home{padding:32px 0;background:#0a0a0a;display:flex;justify-content:center}
+.team-band-home .tbh-frame{margin:0 auto;position:relative;overflow:hidden;width:100%;max-width:1200px;background:#000;border:1px solid var(--line-soft);height:min(calc(min(100vw,1200px) * 9 / 16),540px)}
+/* Desktop: cover fills the wider band with a minor top/bottom crop
+   (still recognisable). Mobile media query below switches to contain
+   so the full video is visible on phones. */
+.tbh-frame video{display:block;width:100%;height:100%;object-fit:cover;background:#000}
+.tbh-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 0%,rgba(0,0,0,0) 55%,rgba(0,0,0,0.75) 100%);pointer-events:none}
+.tbh-caption{position:absolute;left:32px;right:32px;bottom:24px;display:flex;flex-direction:column;gap:6px;color:#f4f0e6;z-index:2}
 .tbh-eyebrow{font:500 11px/1 'JetBrains Mono',ui-monospace,monospace;letter-spacing:.18em;color:#c9a961;text-transform:uppercase}
-.tbh-text{font:400 22px/1.3 Inter,ui-sans-serif,system-ui;color:#f4f0e6;max-width:36ch}
-@media(max-width:720px){
-  .tbh-frame{height:calc(100vw * 5 / 4)}
-  .tbh-caption{left:20px;right:20px;bottom:24px}
-  .tbh-text{font-size:17px}
+.tbh-text{font:400 20px/1.3 Inter,ui-sans-serif,system-ui;color:#f4f0e6;max-width:36ch}
+@media(max-width:960px){
+  .team-band-home{padding:20px 0}
+  .team-band-home .tbh-frame{border-left:none;border-right:none}
 }
-
+@media(max-width:720px){
+  .team-band-home{padding:12px 0}
+  .team-band-home .tbh-frame{height:calc(100vw * 9 / 16);min-height:180px;border:none}
+  /* Mobile: show the FULL video (no cropping) since the frame matches
+     the video's 16:9 aspect exactly - object-fit:contain is safe here
+     and any minor letterbox will be invisible. */
+  .tbh-frame video{object-fit:contain}
+  .tbh-caption{left:16px;right:16px;bottom:14px;gap:4px}
+  .tbh-text{font-size:14px;line-height:1.3}
+  .tbh-eyebrow{font-size:10px;letter-spacing:.14em}
+}
+</style>
+<script>
+/* Force-play the Bedwas hero video. iOS Safari / Low Power Mode /
+   Data Saver often refuse autoplay silently; retry on load, on tab
+   visibility, and on first user interaction so it kicks in even
+   when the browser blocks the initial autoplay attempt. */
+(function(){
+  var v = document.getElementById('bedwas-video');
+  if(!v) return;
+  v.muted = true;
+  v.playsInline = true;
+  var tryPlay = function(){
+    var p = v.play();
+    if(p && typeof p.catch === 'function') p.catch(function(){});
+  };
+  if(v.readyState >= 2) tryPlay();
+  v.addEventListener('loadeddata', tryPlay, {once:true});
+  v.addEventListener('canplay', tryPlay, {once:true});
+  document.addEventListener('visibilitychange', function(){
+    if(!document.hidden) tryPlay();
+  });
+  ['touchstart','touchend','click','scroll','keydown'].forEach(function(ev){
+    window.addEventListener(ev, tryPlay, {once:true, passive:true});
+  });
+})();
+</script>
+<style>
 /* ====== Trusted by - scrolling client-logo marquee, 2 rows opposite directions ====== */
 .trustband{padding:80px 0 96px;background:#0a0a0a;border-bottom:1px solid var(--line-soft);overflow:hidden}
 .trustband .tb-head{text-align:center;margin-bottom:48px}
