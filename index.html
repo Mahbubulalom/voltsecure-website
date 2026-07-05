@@ -833,7 +833,7 @@ gtag('config', 'G-XXXXXXXXXX');
 </section>
 <style>
 .team-band-home{padding:0;background:#0a0a0a}
-.tbh-frame{margin:0;position:relative;overflow:hidden;aspect-ratio:21/9;max-height:640px}
+.tbh-frame{margin:0;position:relative;overflow:hidden;width:100%;height:min(calc(100vw * 9 / 21),640px)}
 .tbh-frame img,.tbh-frame video{display:block;width:100%;height:100%;object-fit:cover;transition:transform 8s ease}
 .tbh-frame:hover img,.tbh-frame:hover video{transform:scale(1.03)}
 .tbh-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.15) 0%,rgba(0,0,0,0.05) 50%,rgba(0,0,0,0.85) 100%);pointer-events:none}
@@ -841,7 +841,7 @@ gtag('config', 'G-XXXXXXXXXX');
 .tbh-eyebrow{font:500 11px/1 'JetBrains Mono',ui-monospace,monospace;letter-spacing:.18em;color:#c9a961;text-transform:uppercase}
 .tbh-text{font:400 22px/1.3 Inter,ui-sans-serif,system-ui;color:#f4f0e6;max-width:36ch}
 @media(max-width:720px){
-  .tbh-frame{aspect-ratio:4/5}
+  .tbh-frame{height:calc(100vw * 5 / 4)}
   .tbh-caption{left:20px;right:20px;bottom:24px}
   .tbh-text{font-size:17px}
 }
