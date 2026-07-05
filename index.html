@@ -813,7 +813,17 @@ gtag('config', 'G-XXXXXXXXXX');
 <!-- ============ BRAND BAND ============ -->
 <section class="team-band-home">
   <figure class="tbh-frame">
-    <img src="/assets/photos/hero.jpg" alt="VoltSecure-liveried van side panel listing every discipline: electrical, intruder, CCTV, fire, access, automation, data, air aspirating systems, EV charging" loading="lazy"/>
+    <video
+      src="/assets/video/bedwas-hero-540.mp4?v=20260607c"
+      poster="/assets/photos/hero.jpg"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="metadata"
+      aria-label="VoltSecure Bedwas HQ - Caerphilly">
+      Your browser does not support the video tag.
+    </video>
     <div class="tbh-overlay"></div>
     <figcaption class="tbh-caption">
       <span class="tbh-eyebrow">◆ Engineered in-house</span>
@@ -824,8 +834,8 @@ gtag('config', 'G-XXXXXXXXXX');
 <style>
 .team-band-home{padding:0;background:#0a0a0a}
 .tbh-frame{margin:0;position:relative;overflow:hidden;aspect-ratio:21/9;max-height:640px}
-.tbh-frame img{display:block;width:100%;height:100%;object-fit:cover;transition:transform 8s ease}
-.tbh-frame:hover img{transform:scale(1.03)}
+.tbh-frame img,.tbh-frame video{display:block;width:100%;height:100%;object-fit:cover;transition:transform 8s ease}
+.tbh-frame:hover img,.tbh-frame:hover video{transform:scale(1.03)}
 .tbh-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.15) 0%,rgba(0,0,0,0.05) 50%,rgba(0,0,0,0.85) 100%);pointer-events:none}
 .tbh-caption{position:absolute;left:48px;right:48px;bottom:40px;display:flex;flex-direction:column;gap:8px;color:#f4f0e6}
 .tbh-eyebrow{font:500 11px/1 'JetBrains Mono',ui-monospace,monospace;letter-spacing:.18em;color:#c9a961;text-transform:uppercase}
