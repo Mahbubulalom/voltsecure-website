@@ -241,6 +241,68 @@ gtag('config', 'G-XXXXXXXXXX');
   </div>
 </section>
 
+<!-- ============ WALL OF PROOF ============ -->
+<section class="proof-wall">
+  <div class="wrap">
+    <div class="pw-head">
+      <div class="eyebrow" style="margin-bottom:16px">◆ On the wall</div>
+      <h2>Not just logos. <em>The real thing.</em></h2>
+      <p class="lead">Every accreditation on this page hangs framed at our Caerphilly HQ - independently issued, independently audited, physically verifiable. Come visit and see them for yourself.</p>
+    </div>
+
+    <div class="pw-grid">
+      <figure class="pw-hero">
+        <img src="/assets/accred/photos/wall-overview.jpg?v=20260607d" alt="VoltSecure's certificate wall at the Caerphilly HQ - nine framed accreditations including BAFE, NICEIC, ECA, JIB, Constructionline and Acclaim" loading="lazy"/>
+        <figcaption>The certificate wall - VoltSecure HQ, Bedwas</figcaption>
+      </figure>
+      <div class="pw-detail-col">
+        <figure class="pw-detail">
+          <img src="/assets/accred/photos/bafe-wide.jpg?v=20260607d" alt="Framed BAFE SP203-1 Scheme Registration Certificate for fire detection and alarm systems" loading="lazy"/>
+          <figcaption>BAFE SP203-1 - Fire detection &amp; alarm</figcaption>
+        </figure>
+        <figure class="pw-detail">
+          <img src="/assets/accred/photos/bafe-close.jpg?v=20260607d" alt="Close-up of the BAFE Fire Safety Register certificate" loading="lazy"/>
+          <figcaption>BAFE Fire Safety Register</figcaption>
+        </figure>
+        <figure class="pw-detail">
+          <img src="/assets/accred/photos/acclaim-close.jpg?v=20260607d" alt="Framed Acclaim Certificate of Health &amp; Safety" loading="lazy"/>
+          <figcaption>Acclaim - Health &amp; Safety (SSIP)</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.proof-wall{padding:96px 0;background:#0a0a0a;border-bottom:1px solid var(--line-soft)}
+@media(max-width:860px){.proof-wall{padding:64px 0}}
+.proof-wall .pw-head{text-align:center;max-width:640px;margin:0 auto 48px}
+.proof-wall .pw-head h2{margin-bottom:14px}
+.proof-wall .pw-head h2 em{font-style:italic;color:var(--gold)}
+.proof-wall .pw-head .lead{color:#cfc8b9;font-size:15.5px;line-height:1.65;margin:0 auto}
+/* Two-column grid on desktop. Hero column drives the height via aspect-ratio,
+   detail column stretches to match via align-items:stretch (grid default). */
+.pw-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:16px;align-items:stretch}
+@media(max-width:860px){.pw-grid{grid-template-columns:1fr;gap:14px}}
+.pw-hero{margin:0;position:relative;overflow:hidden;border:1px solid var(--line-soft);background:#0d0c0a;aspect-ratio:2/3}
+@media(max-width:860px){.pw-hero{aspect-ratio:4/5}}
+.pw-hero img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.pw-hero:hover img{transform:scale(1.02)}
+/* Detail column: 3 equal rows on desktop that fill the hero's height,
+   3-across row on tablet, 1-column on mobile (small phones). */
+.pw-detail-col{display:grid;grid-template-rows:1fr 1fr 1fr;gap:16px;min-height:0}
+@media(max-width:860px){.pw-detail-col{grid-template-rows:none;grid-template-columns:1fr 1fr 1fr;gap:10px}}
+@media(max-width:520px){.pw-detail-col{grid-template-columns:1fr;grid-template-rows:none;gap:10px}}
+/* On desktop the detail cells fill the 1fr row (no aspect-ratio conflict);
+   on tablet/mobile they keep the 3:2 landscape shape. */
+.pw-detail{margin:0;position:relative;overflow:hidden;border:1px solid var(--line-soft);background:#0d0c0a;min-height:0}
+@media(max-width:860px){.pw-detail{aspect-ratio:3/2}}
+.pw-detail img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.pw-detail:hover img{transform:scale(1.03)}
+.pw-hero figcaption,.pw-detail figcaption{position:absolute;left:0;right:0;bottom:0;padding:14px 18px;background:linear-gradient(180deg,transparent 0%,rgba(0,0,0,0.82) 60%,rgba(0,0,0,0.95) 100%);color:#f4efe6;font:500 12px/1.35 var(--font-mono);letter-spacing:0.06em;text-transform:uppercase}
+@media(max-width:520px){.pw-hero figcaption,.pw-detail figcaption{font-size:10.5px;letter-spacing:0.04em;padding:10px 12px}.pw-detail-col{grid-template-columns:1fr;grid-template-rows:none}}
+</style>
+
 <!-- ============ DETAIL ACCORDION ============ -->
 <section class="details-section">
   <div class="wrap">
